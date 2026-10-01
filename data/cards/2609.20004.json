@@ -1,0 +1,47 @@
+{
+  "id": "2609.20004",
+  "title": "EPIG-Tree: Compute-Optimal Branching for Gradient-Efficient Reinforcement Learning",
+  "url": "https://arxiv.org/abs/2609.20004",
+  "trick": "Spend forks where the ending depends most on which action is taken, weighted by how often the step is reached and how movable the policy is, per unit cost; estimate that dependence from a few pilot forks.",
+  "framing_stripped": "Called compute-optimal branching by expected predictive information gain; it is an allocation rule for extra rollouts that targets the between-actions share of gradient variance, estimated from pilots.",
+  "load_bearing_assumption": "Local value differences across actions can be estimated from a small pilot sample at a prefix (fails in sparse/non-smooth reward or tiny-action regimes, by their own admission).",
+  "weakest_component": "The pilots: the quantity that decides where to branch is itself bought with branches; in long-horizon agents each pilot is a full continuation. Also: on math, placement was secondary to the advantage form.",
+  "regime": "Cloned-state MuJoCo (13 envs), frozen-LLM gradient calibration, single-turn math at small scale, multi-turn Wordle (0.850 vs flat GRPO 0.790). No long-horizon tool-use agents.",
+  "information_asymmetry": "The between-actions variance Var_a[Q_h(a)] exists at training time but is estimated only by paying continuations; any training-time source that predicts it without continuations (the task reference; a verifier's feedback) is unused here.",
+  "occupies": "The branching objective (decision vs continuation uncertainty via the law of total variance) and the finding that placement is secondary to credit form on math.",
+  "neighbors": [
+    {
+      "id": "2609.11061",
+      "trick": "Fork before the step where the model's own answer belief jumps most."
+    },
+    {
+      "id": "2512.04949",
+      "trick": "Fork at the most uncertain states and build a tree; mask unbranched actions."
+    },
+    {
+      "id": "2410.01679",
+      "trick": "Monte Carlo step values instead of a value network."
+    }
+  ],
+  "theme_fit": [
+    {
+      "theme_id": "T1",
+      "score": 3,
+      "why": "it is the principled objective for where to fork"
+    }
+  ],
+  "limitations_as_complaints": [
+    "I cannot know the between-actions variance at a state without paying for pilot continuations.",
+    "Small pilots are unreliable under sparse rewards."
+  ],
+  "evidence_level": "full-text",
+  "status": "carded",
+  "history": [
+    {
+      "date": "2026-10-01",
+      "status": "carded",
+      "note": "worked example written by hand from fetched full text",
+      "model": "claude-fable-5-1"
+    }
+  ]
+}

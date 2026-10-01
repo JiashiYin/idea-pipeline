@@ -1,0 +1,43 @@
+{
+  "id": "2609.11061",
+  "title": "Fork Where the Model Changes Its Mind: Belief-Shift Branching for Tree-Structured RL",
+  "url": "https://arxiv.org/abs/2609.11061",
+  "trick": "Every few steps ask the model what answer it currently believes (a 9-token suffix, read the next-token distribution) and fork right before the step where that belief jumps most.",
+  "framing_stripped": "Called belief-shift branching; it is a cheap probe of the model's own answer distribution, differenced across consecutive step boundaries, used as a fork selector.",
+  "load_bearing_assumption": "A jump in the model's own answer belief marks a consequential step (true in math where only the model's reasoning changes belief; untested where observations arrive from an environment).",
+  "weakest_component": "No notion of right or wrong: the probe moves when the model changes its mind, not when it moves toward the truth; cannot separate new information from a decision in an agent setting.",
+  "regime": "Math (AIME) and code (LiveCodeBench-medium); OLMo-3 7B/32B, Qwen3; 10 forks per chain; probe costs ~1% of step compute on math, <5% on code.",
+  "information_asymmetry": "The model's belief is available at every boundary for free, but the environment's reference (what the belief should move toward) is available at training time and unused.",
+  "occupies": "Validated placement against Monte Carlo value curves on math; the finding that entropy tracks wording freedom, not outcome (3.6x less flip mass captured).",
+  "neighbors": [
+    {
+      "id": "2609.20004",
+      "trick": "Branch where the ending depends most on the action, per cost, estimated from pilots."
+    },
+    {
+      "id": "2512.04949",
+      "trick": "Entropy-placed tree forking on search agents."
+    }
+  ],
+  "theme_fit": [
+    {
+      "theme_id": "T1",
+      "score": 3,
+      "why": "a validated placement signal and the protocol to validate one"
+    }
+  ],
+  "limitations_as_complaints": [
+    "I cannot tell a belief shift caused by reading a file from one caused by a decision.",
+    "No large ablation on candidate-boundary density."
+  ],
+  "evidence_level": "full-text",
+  "status": "carded",
+  "history": [
+    {
+      "date": "2026-10-01",
+      "status": "carded",
+      "note": "worked example written by hand from fetched full text",
+      "model": "claude-fable-5-1"
+    }
+  ]
+}

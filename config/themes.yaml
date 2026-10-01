@@ -1,0 +1,76 @@
+# The law. Anything that does not serve a theme is dropped at triage.
+# Jacob edits this file; the machine never does. Keep to 1–3 themes.
+# Each theme: one sentence a stranger could repeat, then keywords the triage model may use as hints
+# (never as the rule), then what is explicitly out of scope.
+
+version: 2026-10-01
+owner: Jacob Yin
+
+themes:
+  - id: T1
+    name: Credit assignment and decision boundaries in agentic RL
+    sentence: >
+      Where rollout compute in long-horizon agent RL is structural rather than incidental: which steps
+      carry the decision, how to find them cheaply before paying for continuations, how to spend forks,
+      samples and sandbox restores there, and how to prove a placement or credit signal is right against
+      executed replay rather than against end-task success alone.
+    keywords:
+      - credit assignment
+      - step-level advantage
+      - turn-level advantage
+      - counterfactual rollout
+      - vine
+      - fork
+      - branching rollouts
+      - tree-structured rollouts
+      - decision point
+      - forking tokens
+      - high-entropy tokens
+      - critical state
+      - executed replay
+      - shuffled control
+      - compute-matched
+      - SWE-bench
+      - SWE-Gym
+      - sandbox snapshot
+      - rollout scheduler
+      - prefix cache
+    out_of_scope:
+      - pure single-turn math RL with no environment, unless it validates a placement or credit signal
+        against ground truth
+      - reward modeling for chat preference data
+      - prompt-engineering agent frameworks with no training loop
+
+  - id: T2
+    name: OPD–RL hybrids built on the hindsight posterior
+    sentence: >
+      When the privileged self (the same model shown the answer, a hint or the outcome) is a valid stand-in
+      for the success-conditioned policy h = π·Q/V, and how to use it without bias: estimating the
+      action-value spread Var_π[Q] from privileged conditionals, gating distillation terms by that spread,
+      on-support judge forms that re-score the student's own candidates, and measuring h_p against
+      fork-measured Q/V within a state.
+    keywords:
+      - on-policy distillation
+      - self-distillation
+      - privileged information
+      - privileged self
+      - hindsight
+      - hindsight credit assignment
+      - success-conditioned
+      - posterior
+      - log-ratio advantage
+      - teacher–student
+      - leakage
+      - entropy collapse
+      - RLVR
+      - verifier
+    out_of_scope:
+      - distillation for compression or continual learning where improving the policy is not the goal
+      - preference optimization without a verifier
+
+# A seed may serve both themes; record both ids. A seed that serves neither is dropped.
+# Triage threshold (default): theme_fit score >= 2 on a 0–3 scale, where
+#   3 = directly answers a question in the theme sentence,
+#   2 = supplies a neighbor, a baseline, a ground-truth method or an enabling piece,
+#   1 = same words, different problem,
+#   0 = unrelated.

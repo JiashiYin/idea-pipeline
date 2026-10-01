@@ -1,0 +1,42 @@
+{
+  "id": "2512.04949",
+  "title": "CARL: Criticality-Aware Agentic Reinforcement Learning",
+  "url": "https://arxiv.org/abs/2512.04949",
+  "trick": "Rank states by how uncertain the policy is about its next action, start new rollouts only from the most uncertain ones so rollouts form a tree, credit each action by child-minus-parent average outcome, and drop sibling-less actions from the update.",
+  "framing_stripped": "Called criticality-aware RL; criticality is defined as the fork-measured outcome spread and then replaced by action entropy as a proxy.",
+  "load_bearing_assumption": "Action entropy correlates with how much the ending depends on the action (validated only at the distribution level, Cliff's delta 0.42; confident-wrong decisions are invisible by their own limitations section).",
+  "weakest_component": "The proxy substitution: the definition is the right quantity; the measurement is entropy. No validation at the state level against the defined quantity.",
+  "regime": "Multi-turn search agents on knowledge QA (NQ, HotpotQA, TriviaQA, MuSiQue; GAIA OOD); Qwen2.5 3B/7B, Qwen3-4B; ~5 turns; +~2 F1 over GRPO with 82% more rollout actions and 56% of update samples.",
+  "information_asymmetry": "The defined criticality (outcome spread across actions) exists only after continuations; the paper never asks whether any training-time information predicts it other than entropy.",
+  "occupies": "Entropy-placed tree forking with selective update on search agents.",
+  "neighbors": [
+    {
+      "id": "2505.10978",
+      "trick": "Group steps that landed in the same state across rollouts."
+    },
+    {
+      "id": "2609.20004",
+      "trick": "Branch by the between-actions variance per cost, estimated from pilots."
+    }
+  ],
+  "theme_fit": [
+    {
+      "theme_id": "T1",
+      "score": 2,
+      "why": "a baseline placement rule and a statement of our question"
+    }
+  ],
+  "limitations_as_complaints": [
+    "If the model is confidently wrong, entropy will not flag the state."
+  ],
+  "evidence_level": "full-text",
+  "status": "carded",
+  "history": [
+    {
+      "date": "2026-10-01",
+      "status": "carded",
+      "note": "worked example written by hand from fetched full text",
+      "model": "claude-fable-5-1"
+    }
+  ]
+}

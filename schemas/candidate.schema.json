@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Candidate",
+  "type": "object",
+  "required": ["cid", "theme_id", "from_card", "operator", "statement", "claim", "why_now", "killing_experiment", "status", "history"],
+  "properties": {
+    "cid": {"type": "string", "pattern": "^[0-9a-f]{12}$",
+            "description": "sha1(theme_id + from_card + operator + normalized statement)[:12]; computed by the orchestrator"},
+    "theme_id": {"type": "string"},
+    "from_card": {"type": "string"},
+    "also_from": {"type": "array", "items": {"type": "string"}},
+    "operator": {"type": "array", "items": {"type": "integer", "minimum": 1, "maximum": 7}, "minItems": 1},
+    "statement": {"type": "string", "description": "<= 3 sentences: what we would do, on what, measured how"},
+    "claim": {"type": "string", "description": "the one sentence that would be true if it works"},
+    "why_now": {"type": "string"},
+    "killing_experiment": {
+      "type": "object", "required": ["design", "cost_gpu_hours", "kills_if"],
+      "properties": {"design": {"type": "string"}, "cost_gpu_hours": {"type": "number"}, "kills_if": {"type": "string"}}
+    },
+    "kill_search": {
+      "type": "object",
+      "properties": {
+        "date": {"type": "string"},
+        "queries": {"type": "array", "items": {"type": "string"}},
+        "neighbors": {"type": "array", "items": {"type": "object", "required": ["id", "trick", "difference"],
+          "properties": {"id": {"type": "string"}, "title": {"type": "string"}, "trick": {"type": "string"},
+                         "difference": {"type": "string"}, "evidence_level": {"type": "string"}}}},
+        "occupied_by": {"type": "string"},
+        "why_not_done": {"type": "string"},
+        "killing_experiment_check": {"type": "string"},
+        "verdict": {"type": "string", "enum": ["killed", "survived-kill", "parked"]},
+        "verdict_reason": {"type": "string"}
+      }
+    },
+    "redteam": {
+      "type": "object",
+      "properties": {
+        "rounds": {"type": "integer"},
+        "objections": {"type": "array", "items": {"type": "object", "required": ["persona", "objection", "status"],
+          "properties": {"persona": {"type": "string"}, "objection": {"type": "string"}, "evidence": {"type": "string"},
+                         "answer": {"type": "string"}, "status": {"type": "string", "enum": ["answered", "conceded", "open"]}}}},
+        "verdict": {"type": "string", "enum": ["red-teamed", "killed"]},
+        "verdict_reason": {"type": "string"}
+      }
+    },
+    "status": {"type": "string",
+               "enum": ["proposed", "kill-searched", "killed", "survived-kill", "red-teamed", "reported", "approved",
+                        "parked", "jacob-dropped", "handed-to-experiment", "confirmed", "killed-by-experiment"]},
+    "report_path": {"type": "string"},
+    "history": {"type": "array", "items": {"type": "object", "required": ["date", "status", "note"],
+      "properties": {"date": {"type": "string"}, "status": {"type": "string"}, "note": {"type": "string"},
+                     "model": {"type": "string"}, "tokens": {"type": "integer"}}}}
+  }
+}

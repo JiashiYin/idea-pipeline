@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Trick card",
+  "type": "object",
+  "required": ["id", "title", "trick", "framing_stripped", "load_bearing_assumption", "weakest_component",
+               "regime", "information_asymmetry", "occupies", "neighbors", "theme_fit", "evidence_level", "history"],
+  "properties": {
+    "id": {"type": "string", "description": "arXiv id (2609.20004) or gh:owner/repo#n or venue:slug"},
+    "title": {"type": "string"},
+    "url": {"type": "string"},
+    "trick": {"type": "string", "maxLength": 300, "description": "one plain sentence, mechanism only, <= 35 words"},
+    "framing_stripped": {"type": "string"},
+    "load_bearing_assumption": {"type": "string"},
+    "weakest_component": {"type": "string"},
+    "regime": {"type": "string"},
+    "information_asymmetry": {"type": "string", "description": "what information is missing at the stage the method runs in but exists at another stage"},
+    "occupies": {"type": "string"},
+    "neighbors": {
+      "type": "array", "maxItems": 5,
+      "items": {"type": "object", "required": ["id", "trick"],
+                "properties": {"id": {"type": "string"}, "title": {"type": "string"}, "trick": {"type": "string"}}}
+    },
+    "theme_fit": {
+      "type": "array",
+      "items": {"type": "object", "required": ["theme_id", "score", "why"],
+                "properties": {"theme_id": {"type": "string"}, "score": {"type": "integer", "minimum": 0, "maximum": 3}, "why": {"type": "string"}}}
+    },
+    "limitations_as_complaints": {"type": "array", "items": {"type": "string"}},
+    "evidence_level": {"type": "string", "enum": ["full-text", "abstract-only", "degraded"]},
+    "status": {"type": "string", "enum": ["carded", "mutated", "jacob-dropped", "superseded"]},
+    "history": {
+      "type": "array",
+      "items": {"type": "object", "required": ["date", "status", "note"],
+                "properties": {"date": {"type": "string"}, "status": {"type": "string"}, "note": {"type": "string"},
+                               "model": {"type": "string"}, "tokens": {"type": "integer"}}}
+    }
+  }
+}

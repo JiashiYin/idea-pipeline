@@ -1,0 +1,128 @@
+# Tiered lab map. Tier 0 is seeded by hand from the fork-placement project (Sept 2026); everything after
+# is grown by scripts/expand_labs.py from kept cards and promoted only after appearances >= 3 in distinct
+# weeks. status: unverified until a page confirming the role has been opened and recorded in `evidence`.
+# Roles: campus | problem_setters | infra_builders | measurers | reviewers.
+# "why" is one plain sentence. Do not add a group because it is famous.
+
+version: 2026-10-01
+
+campus:
+  - name: Ravi Netravali / SAIL@Princeton
+    role: campus; infra_builders
+    why: Gambit (test-time search sharing KV across clones); rollout and serving systems; the natural home for the systems half.
+    seed_papers: ["2608.08020"]
+    status: verified
+    evidence: "SAIL site and Gambit paper, Sept 2026"
+  - name: Wyatt Lloyd (Princeton CS)
+    role: campus
+    why: distributed systems, rebranding toward ML systems; warm intro via Zhifei Li; email sent 2026-09-23.
+    status: verified
+    evidence: "department page + student reports, Sept 2026"
+  - name: Tri Dao (Princeton, visiting research scholar; Together AI)
+    role: campus; infra_builders
+    why: attention and KV systems; Gambit co-author; co-advises Zhifei Li.
+    seed_papers: ["2608.08020"]
+    status: verified
+  - name: Danqi Chen (Princeton NLP)
+    role: campus
+    why: post-training and evaluation; returned from Thinking Machines.
+    status: unverified
+  - name: Sanjeev Arora group (Liam Fowl, Edward Ri)
+    role: campus; measurers
+    why: Rethinking OPSD for Thinking Models; theory of self-distillation; Slack contact live.
+    seed_papers: ["2607.05184"]
+    status: verified
+  - name: Karthik Narasimhan / PLI
+    role: campus
+    why: agents and language; PLI seminars are the venue for post-training exposure on campus.
+    status: unverified
+
+problem_setters:
+  - name: Thinking Machines Lab
+    role: problem_setters
+    why: on-policy distillation write-ups; defeating nondeterminism (batch-invariant kernels), which bears on replay fidelity.
+    status: unverified
+  - name: Cursor
+    role: problem_setters
+    why: Composer 2.5 uses privileged-hint self-distillation inside an RL pipeline — the production instance of T2.
+    status: unverified
+  - name: Alibaba Qwen / CANOPY authors
+    role: problem_setters
+    why: CANOPY argues 32 flat samples replace step credit; the incumbent our compute-matched test faces.
+    status: unverified
+  - name: Moonshot (Kimi)
+    role: problem_setters; infra_builders
+    why: 51M sandbox instances for K3; AgentENV microVM snapshots — the scale of the problem.
+    status: unverified
+  - name: Tencent AI Lab (CSO authors)
+    role: problem_setters
+    why: Verified Critical Step Optimization — nominate, verify by rollout, preference-train; nearest published pipeline.
+    seed_papers: ["2602.03412"]
+    status: unverified
+
+infra_builders:
+  - name: ByteDance verl
+    role: infra_builders
+    why: the training framework most agentic-RL papers build on; its issues are the complaint stream.
+    status: unverified
+  - name: NovaSky (Berkeley) SkyRL
+    role: infra_builders
+    why: agentic RL framework; SWE-Gym-style training recipes.
+    status: unverified
+  - name: All-Hands-AI OpenHands; SWE-Gym; SWE-smith
+    role: infra_builders
+    why: the sandboxes and task pools the probe runs on.
+    status: unverified
+  - name: vLLM / SGLang maintainers
+    role: infra_builders
+    why: prefix caching, prompt_logprobs cache bypass (vLLM #57596), cascade attention — the scoring path depends on them.
+    status: unverified
+  - name: Canopy authors (HKUST / Nanjing / Tencent)
+    role: infra_builders
+    why: tree-aware rollout serving; the published comparison any engine must exceed.
+    status: unverified
+
+measurers:
+  - name: Haiyue Zhang (USC)
+    role: measurers
+    why: Credit Without Ground Truth — the executed-replay ruler and the shuffled-control methodology.
+    seed_papers: ["2608.19760"]
+    status: verified
+  - name: Salesforce AI Research (Belief-Shift Branching; Critical-State RL)
+    role: measurers; problem_setters
+    why: validated placement against Monte Carlo value curves; nested sampling for action-dependent variance.
+    seed_papers: ["2609.11061"]
+    status: unverified
+  - name: EPIG-Tree authors
+    role: measurers
+    why: compute-optimal branching objective; placement vs advantage-form finding.
+    seed_papers: ["2609.20004"]
+    status: unverified
+  - name: Mila (Kazemnejad et al., VinePPO)
+    role: measurers
+    why: Monte Carlo step values in place of a value network; showed the critic barely beats random.
+    seed_papers: ["2410.01679"]
+    status: unverified
+  - name: Tübingen (SignalBench, Bethge group)
+    role: measurers
+    why: training-free testbed scoring dense-feedback methods; prompting baselines win.
+    status: unverified
+  - name: RTMC authors
+    role: measurers; infra_builders
+    why: free step credit from GRPO-group overlap on SWE-bench Verified.
+    seed_papers: ["2604.11037"]
+    status: unverified
+
+reviewers:
+  # Area chairs / organizers for RL-for-LLMs and MLSys tracks; filled by hand from PC lists.
+  - name: "TBD — NeurIPS 2026 AgenticOS workshop organizers"
+    role: reviewers
+    status: unverified
+  - name: "TBD — MLSys 2027 PC (RL for LLMs track)"
+    role: reviewers
+    status: unverified
+
+promotion_rule:
+  appearances_required: 3
+  distinct_weeks_required: 3
+  verify_before_promote: true
