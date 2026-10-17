@@ -7,12 +7,13 @@ Start here, in order: `SPEC.md` (what to build and how it scales) · `CLAUDE.md`
 · `LANDSCAPE.md` (what we borrow from public auto-research systems) · `BUILD_BRIEF.md` (paste into Claude
 Code to build it).
 
-Status 2026-10-01: specification complete; one reference script (`scripts/fetch_arxiv.py`) tested live;
-first-week data bundled (`data/seeds/2026-W40*.jsonl`, three cards, one candidate with a kill record).
-Everything else is specified, not built.
+Status 2026-10-17: operating. Three weeks of runs (W40–W42) in `data/`; generation stages 7–10 and the
+weekly `/week` cycle added; `config/standards.md` is the second law; the operator skill is in `.claude/skills/`.
+Only `scripts/fetch_arxiv.py` and `scripts/run_week.sh` are code; every other stage is an agent run from a slash
+command. Durable home: the private GitHub repo `JiashiYin/idea-pipeline`; every run ends with commit and push.
 
-Quick check that the one live piece works:
+Quick start on a fresh clone:
 
-    pip install pyyaml
-    python scripts/fetch_arxiv.py --days 7 --dry-run
-    python scripts/fetch_arxiv.py --days 7
+    pip install -r requirements.txt
+    bash scripts/run_week.sh            # stage 0: arXiv watch + import streams for this ISO week
+    claude                              # then: /week <YYYY-Www>  for the full cycle, or single stages

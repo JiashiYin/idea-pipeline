@@ -1,0 +1,45 @@
+# Generation side of the pipeline (added 2026-10-17 after three weeks in which the generator starved).
+# The gate (standards.md, checklist.md) decides what survives; this file decides what gets fed in,
+# how much, from where, and how the week is scored.
+
+version: 2026-10-17
+
+sources:                     # every seed and candidate carries exactly one source tag
+  - { tag: watch,       stage: 0,  cadence: weekly,  what: "arXiv queries, author and citation watchlists (config/sources.yaml)" }
+  - { tag: complaint,   stage: 0,  cadence: weekly,  what: "limitations sections of kept cards; GitHub issues of training stacks" }
+  - { tag: pressure,    stage: 6b, cadence: monthly, what: "system cards, leaderboards, meta-papers, blogs (prompts/06_pressure.md)" }
+  - { tag: import,      stage: 7,  cadence: weekly,  what: "cross-field imports, 2 shapes x 2 fields (prompts/07_crossfield.md, config/fields.yaml)" }
+  - { tag: owned,       stage: 8,  cadence: monthly, what: "questions only an artifact's owner can answer cheaply (prompts/08_owned_artifact.md)" }
+  - { tag: definitive,  stage: 9,  cadence: monthly, what: "dense lanes with no compute-matched controlled comparison (prompts/09_definitive.md)" }
+  - { tag: chat,        stage: 0,  cadence: ad hoc,  what: "ideas raised in conversation, filed by /capture the moment they are said" }
+
+positions: [solo, lab]       # every candidate carries a position tag; verdicts are recorded per position
+
+throughput_targets:          # per week; the digest reports actuals against these
+  seeds_into_triage: [10, 25]
+  trick_cards: 8
+  imports: 4
+  kill_searches: 3
+  reports: 1
+
+portfolio_rule: "at least 3 live seeds (status proposed or survived-kill) in 3 different lanes at all times; a week may not end with a single live thread"
+
+auto_kill_monday: false      # true = the top 3 candidates by scorecard go through /kill automatically on Monday; false = wait for Jacob's mark
+
+digest:                      # data/digests/<week>.md, one page, written last in the weekly run
+  sections:
+    - "Actuals vs targets: seeds by source, cards, imports, kill searches"
+    - "Stage moves: what entered, what died (one-line reason each), what parked (trigger)"
+    - "Triggers fired: parked items whose re-open condition changed"
+    - "Scoop watch: papers that landed on parked or killed items (counted as generator hits)"
+    - "Top 3 by scorecard, each with its kill probe cost — Jacob's hour"
+    - "Checklist lessons added this week"
+  max_words: 600
+
+scoreboard:                  # monthly, in ledger/LEDGER.md
+  - "seeds per week by source"
+  - "survival rate per source through triage -> card -> kill (which generators earn their keep)"
+  - "median time-to-kill"
+  - "parked items with triggers; triggers fired"
+  - "scoop-watch hits per source"
+  - "golden ideas (expected: zero most months)"

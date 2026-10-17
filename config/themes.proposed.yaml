@@ -1,0 +1,86 @@
+# PROPOSED replacement for config/themes.yaml — the first law, rewritten from two dead mechanisms to lanes.
+# Jacob approves by running:  git mv config/themes.proposed.yaml config/themes.yaml
+# The machine never edits themes.yaml; it may propose. Keep to 3–5 lanes plus one off-radar bet.
+# Each lane: one sentence a stranger could repeat; hints the triage model may use (never as the rule);
+# what is out of scope; which route it serves; its default positioning verdict.
+
+version: 2026-10-17
+owner: Jacob Yin
+
+positioning_spec: >
+  On radar, but lab-adjacent: not head-to-head with a frontier post-training or infrastructure team's
+  core problem. Academic value plus a shippable artifact (an instrument, a tool, a dataset, a standard,
+  a definitive comparison). Preferred register: measurement with a mechanism and a small recipe
+  consequence; systems results welcome. Solo position until an advisor's lab is secured; every record
+  carries a position tag (solo | lab) and the verdict for each.
+
+lanes:
+  - id: L1
+    name: Agent evaluation and measurement infrastructure
+    sentence: >
+      How the field measures agents and where the measurements fail: reliability (pass^k across versions),
+      effort and scaffold sensitivity, cost accounting, benchmark validity and churn, simulator fidelity,
+      and the attribution of outcome variance to who moved (agent, simulated user, judge, tool).
+    hints: [pass^k, reliability, "effort", "reasoning budget", leaderboard, "cost per task", "benchmark validity",
+            "user simulator", variance, attribution, psychometric, "item response", saturation, contamination]
+    out_of_scope:
+      - a new static test set with no instrument attached (consumed in months)
+      - single-turn QA benchmarks with no agent loop
+    routes: [Narasimhan (τ-family, hyper-τ), HAL (Narayanan), evaluators]
+    positioning_default: lab-adjacent
+
+  - id: L2
+    name: Long-horizon agent RL — training dynamics and credit
+    sentence: >
+      What actually changes when agents are trained with RL over long horizons: critics and value
+      estimation, credit over steps, turns and handoffs, compaction and memory as training problems,
+      multi-agent credit, forgetting and transfer — watched for definitive comparisons, not for new recipes.
+    hints: [GRPO, PPO, critic, "value function", "credit assignment", "long-horizon", "multi-turn", compaction,
+            memory, "multi-agent", orchestrator, forgetting, "process reward"]
+    out_of_scope:
+      - a new advantage estimator or reward shaping evaluated on one benchmark (lab-contested; solo = kill)
+      - pure single-turn math RL unless it validates a credit signal against ground truth
+    routes: [Narasimhan (Odysseus, EasyPPO), any RL group]
+    positioning_default: lab-contested; lab position only via definitive-comparison or owned-artifact shapes
+
+  - id: L3
+    name: Agent systems and cost
+    sentence: >
+      The systems underneath long-horizon agents and their training: rollout engines, prefix and KV-cache
+      reuse, compaction as a serving and cost lever, asynchronous RL infrastructure, sandbox state, and the
+      true cost structure of agentic workloads.
+    hints: [rollout, "KV cache", "prefix cache", throughput, scheduler, async, straggler, sandbox, snapshot,
+            "cost", "input tokens", "cached", serving, "batch invariant"]
+    out_of_scope:
+      - kernel-level work with no agent or RL workload attached
+    routes: [Lloyd / Netravali / Tri Dao (systems)]
+    positioning_default: lab-adjacent (systems labs publish measurements and designs; frontier labs do not)
+
+  - id: L4
+    name: Context, memory and handoffs
+    sentence: >
+      Every lossy message an agent writes to its future self or to another agent — compaction summaries,
+      self-written memory and playbooks, orchestrator briefs and return summaries — measured for what they
+      cost and whether they can be learned.
+    hints: ["context compression", compaction, "context folding", "context management", memory, playbook,
+            consolidation, "sub-agent", subagent, handoff, brief, "context engineering"]
+    out_of_scope:
+      - another compaction or memory recipe without a controlled comparison (lab-contested; solo = kill)
+    routes: [all; product teams; Narasimhan (self-evolving interest)]
+    positioning_default: measurement register only; very dense — race window checked every week
+
+  - id: L5
+    name: Off-radar bet — agents for physics simulators
+    sentence: >
+      LLM agents that drive, write or repair physics simulators and simulator code, where Jacob's MAE
+      background is the moat and the first question is always who pays.
+    hints: [simulator, CFD, FEM, "finite element", "mesh", solver, "simulation code", "digital twin", robotics]
+    out_of_scope:
+      - anything whose consumer cannot be named in one sentence
+    routes: [MAE / robotics; industry simulation vendors]
+    positioning_default: off-radar; "who pays" test decides moat versus swamp
+
+# Triage scoring per lane, 0–3: 3 = directly answers a question in the lane sentence; 2 = supplies a
+# neighbor, a baseline, a ground-truth method, an incumbent or an enabling piece; 1 = same words, different
+# problem; 0 = unrelated. Keep if any lane scores >= 2. The positioning_default is recorded on the seed
+# and decides nothing at triage; it decides at the kill search (Gate 6, position clause).

@@ -1,0 +1,76 @@
+# Cross-field import table for stage 7 (prompts/07_crossfield.md).
+# Rows: problem shapes we keep meeting in the lanes. Columns: fields with a mature standard answer.
+# Each week the stage takes 2 shapes × 2 fields (round-robin, logged in data/crossfield/log.jsonl so
+# pairs are not repeated within 6 months), writes the import in plain words, what it predicts, and the
+# cheapest probe, then files the result as a seed with stream: import.
+# The one surviving insight of October 2026 (seed ≠ state; per-move luck/skill split) was an import from
+# F6 into S1. This table is where unoccupied ideas are most likely, because nobody in a lane reads the
+# other field. Jacob can evaluate F1–F5, F9, F11 better than CS-only peers; weight them.
+
+version: 2026-10-17
+
+shapes:
+  - { id: S1, name: "Variance attribution — who moved the outcome (agent, simulated user, judge, tool, sub-agent)" }
+  - { id: S2, name: "Credit over long horizons — which step, turn or handoff deserves the outcome" }
+  - { id: S3, name: "Compaction as a lossy channel — a message to one's future self or another agent" }
+  - { id: S4, name: "Simulator fidelity as measurement validity — the test stimulus is itself a model" }
+  - { id: S5, name: "Benchmark churn — how many abilities a suite measures, and across versions" }
+  - { id: S6, name: "Cost accounting — what an agentic workload actually costs and what reorders the frontier" }
+  - { id: S7, name: "Reliability across versions — pass^k, bimodal tasks, coin-flip tasks" }
+  - { id: S8, name: "Effort non-monotonicity — more compute lowers agent scores in a third of cases" }
+  - { id: S9, name: "Memory consolidation — learning what to remember from outcomes" }
+  - { id: S10, name: "Orchestration — briefs, delegation, return summaries, who gets the credit" }
+  - { id: S11, name: "Rollout systems — scheduling, prefix reuse, stragglers, sandbox state" }
+  - { id: S12, name: "Learning from noisy single outcomes — lessons, lucky successes, false priors" }
+
+fields:
+  - id: F1
+    name: Experimental design and generalizability theory
+    standard_answer: "Nested and crossed random-effects designs decompose variance into facets (task, run, rater, occasion) with identifiability conditions; Neyman allocation says where to spend replicates."
+    search_terms: ["generalizability theory", "variance components", "nested design", "Neyman allocation", "G-coefficient"]
+  - id: F2
+    name: Psychometrics and item response theory
+    standard_answer: "Items have difficulty and discrimination; abilities are latent; test equating and differential item functioning tell whether two versions of a test measure the same thing."
+    search_terms: ["item response theory", "test equating", "differential item functioning", "measurement invariance", "factor analysis"]
+  - id: F3
+    name: Sequential analysis and anytime-valid inference
+    standard_answer: "Stop a comparison as soon as the evidence is decisive while controlling error (SPRT, e-values, confidence sequences); the fixed-sample-size default wastes half the budget."
+    search_terms: ["sequential probability ratio test", "e-values", "confidence sequences", "anytime-valid", "always valid inference"]
+  - id: F4
+    name: Control theory and state estimation
+    standard_answer: "Observability says which hidden state a measurement can recover; a filter's innovation sequence is the right diagnostic for whether a model (or a simulator) is wrong."
+    search_terms: ["observability", "innovation sequence", "Kalman filter residual", "model mismatch detection", "separation principle"]
+  - id: F5
+    name: Information theory and rate-distortion
+    standard_answer: "A lossy channel has a rate-distortion curve: for a given summary length there is a minimum achievable downstream loss, and the sufficient statistic for the future task is what should be kept."
+    search_terms: ["rate-distortion", "information bottleneck", "sufficient statistic", "minimum description length", "channel capacity"]
+  - id: F6
+    name: Game analysis — equity, luck and skill
+    standard_answer: "Decompose a match's outcome into equity changes at each move: dice rolls (luck) versus decisions (skill); the sum of squared increments of a martingale equals the outcome variance."
+    search_terms: ["equity", "luck versus skill", "backgammon analysis", "all-in EV", "win probability added"]
+  - id: F7
+    name: Queueing and operations research
+    standard_answer: "Tail latency and stragglers are queueing phenomena with known fixes (hedged requests, work stealing, size-aware scheduling); throughput is bounded by the slowest stage, not the average."
+    search_terms: ["queueing theory", "tail latency", "hedged requests", "size-aware scheduling", "Little's law"]
+  - id: F8
+    name: Causal inference and econometrics
+    standard_answer: "Credit for an outcome is a counterfactual contrast; instruments, difference-in-differences and randomized inclusion identify it when confounders are unobserved."
+    search_terms: ["counterfactual", "randomized inclusion", "difference-in-differences", "instrumental variable", "Shapley attribution"]
+  - id: F9
+    name: Reliability engineering and metrology
+    standard_answer: "Reliability is a distribution over time-to-failure, not a point estimate; measurement systems are characterized by repeatability, reproducibility and bias (gauge R&R) before they are trusted."
+    search_terms: ["gauge R&R", "repeatability and reproducibility", "mean time between failures", "measurement uncertainty budget", "Weibull"]
+  - id: F10
+    name: Ecology and epidemiology statistics
+    standard_answer: "Capture-recapture estimates how many kinds of thing exist from how often you see them twice; species-accumulation curves say whether a sample has saturated."
+    search_terms: ["capture-recapture", "species accumulation", "Chao estimator", "rarefaction", "unseen species"]
+  - id: F11
+    name: Statistical physics and coarse-graining
+    standard_answer: "Coarse-graining keeps the slow variables that govern the future and discards fast ones; the renormalization view says which details a summary can drop without changing the macroscopic outcome."
+    search_terms: ["coarse-graining", "renormalization", "slow variables", "relevant operators", "Markov state model"]
+  - id: F12
+    name: Finance — performance attribution and variance budgets
+    standard_answer: "Return attribution (Brinson) splits a portfolio's outcome into allocation, selection and interaction effects with exact additivity; risk budgets allocate variance across sources."
+    search_terms: ["Brinson attribution", "performance attribution", "risk budgeting", "variance budget", "interaction effect"]
+
+# Suggested first pairs (the stage may override with reasons): S3×F5, S5×F2, S7×F9, S1×F12, S12×F3, S10×F8, S4×F4, S6×F7.

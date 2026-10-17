@@ -1,123 +1,188 @@
-# Streams the fetchers read. Three kinds, by what they are good for:
-#   adjacent-lab : what the groups around the themes are doing (arXiv by query and by author/paper)
-#   import       : other fields' standard answers to the same problem shapes
-#   complaint    : what practitioners cannot do (GitHub issues, limitations sections, workshop calls)
-# X / Rednote are not streams; if something trends there, add it by hand with stream: manual.
+# Streams the fetchers read. Four kinds, by what they are good for:
+#   watch     : what the groups in our lanes are doing (arXiv by query, by author, by citation)
+#   import    : other fields' standard answers to the same problem shapes (see config/fields.yaml)
+#   complaint : what practitioners cannot do (GitHub issues, limitations sections, workshop calls)
+#   pressure  : system cards, leaderboards, meta-papers, engineering blogs (stage 6b, monthly)
+# Every query names its stream and the lanes it serves (config/themes.yaml, lanes L1–L5).
+# Density lesson (W41–W42): queries must carry mechanism words AND the field's role words; problem
+# vocabulary alone found a fraction of the neighbors.
 
-version: 2026-10-01
+version: 2026-10-17
 
 arxiv:
   base_url: https://export.arxiv.org/api/query
   pause_seconds: 3            # arXiv's stated policy
   window_days: 7
   max_results_per_query: 50
-  categories: [cs.LG, cs.CL, cs.AI, cs.DC, cs.SE]
-  # Query syntax is arXiv's: field:term, AND/OR/ANDNOT, quotes for phrases. Keep each query narrow;
-  # breadth comes from having several. Every query names the stream and the theme hint.
+  categories: [cs.LG, cs.CL, cs.AI, cs.DC, cs.SE, cs.MA]
   queries:
-    - id: q_credit_agents
-      stream: adjacent-lab
-      themes: [T1]
-      q: '(abs:"credit assignment" OR abs:"step-level" OR abs:"turn-level") AND (abs:agent OR abs:agentic OR abs:"tool use") AND (abs:"reinforcement learning" OR abs:GRPO OR abs:"policy optimization")'
-    - id: q_fork_rollouts
-      stream: adjacent-lab
-      themes: [T1]
-      q: '(abs:fork OR abs:forking OR abs:branching OR abs:"tree-structured" OR abs:vine OR abs:counterfactual) AND (abs:rollout OR abs:rollouts) AND (abs:"reinforcement learning" OR abs:GRPO OR abs:"policy optimization")'
-    - id: q_entropy_tokens
-      stream: adjacent-lab
-      themes: [T1]
-      q: '(abs:entropy) AND (abs:"forking tokens" OR abs:"critical tokens" OR abs:"decision tokens" OR abs:"high-entropy") AND (abs:RLVR OR abs:GRPO OR abs:"reinforcement learning")'
-    - id: q_swe_rl
-      stream: adjacent-lab
-      themes: [T1]
-      q: '(abs:"SWE-bench" OR abs:"SWE-Gym" OR abs:"software engineering agent" OR abs:"coding agent" OR abs:"repository") AND (abs:"reinforcement learning" OR abs:GRPO OR abs:"policy optimization")'
+    # ---- L1 evaluation and measurement ----
+    - id: q_reliability_passk
+      stream: watch
+      themes: [L1]
+      q: '(abs:"pass^k" OR abs:"pass@k" OR abs:reliability OR abs:"run-to-run" OR abs:variance) AND (abs:agent OR abs:agentic OR abs:benchmark) AND (abs:LLM OR abs:"language model")'
+    - id: q_benchmark_validity
+      stream: watch
+      themes: [L1]
+      q: '(abs:benchmark) AND (abs:validity OR abs:saturation OR abs:contamination OR abs:"construct" OR abs:psychometric OR abs:"item response" OR abs:"factor") AND (abs:agent OR abs:LLM)'
+    - id: q_effort_scaffold
+      stream: watch
+      themes: [L1]
+      q: '(abs:"reasoning effort" OR abs:"thinking budget" OR abs:"test-time compute" OR abs:scaffold OR abs:harness) AND (abs:agent OR abs:agentic) AND (abs:"non-monotonic" OR abs:degrad OR abs:hurt OR abs:"does not")'
+    - id: q_user_simulator
+      stream: watch
+      themes: [L1]
+      q: '(abs:"user simulator" OR abs:"simulated user" OR abs:"user simulation" OR abs:"LLM-as-user") AND (abs:fidelity OR abs:variance OR abs:consisten OR abs:error OR abs:reliability OR abs:"tau-bench")'
+    - id: q_variance_attribution
+      stream: watch
+      themes: [L1, L2]
+      q: '(abs:"skill" AND abs:"luck") OR (abs:"variance decomposition" AND abs:agent) OR (abs:"law of total variance" AND abs:LLM) OR (abs:"generalizability theory" AND abs:agent)'
+    # ---- L2 long-horizon RL dynamics ----
+    - id: q_long_horizon_critic
+      stream: watch
+      themes: [L2]
+      q: '(abs:critic OR abs:"value function" OR abs:"value model" OR abs:"explained variance") AND (abs:"long-horizon" OR abs:"multi-turn" OR abs:agentic) AND (abs:"reinforcement learning" OR abs:PPO OR abs:GRPO)'
+    - id: q_mas_credit
+      stream: watch
+      themes: [L2, L4]
+      q: '(abs:"multi-agent" OR abs:orchestrator OR abs:"sub-agent" OR abs:subagent) AND (abs:"credit assignment" OR abs:counterfactual OR abs:contrastive OR abs:"marginal contribution") AND (abs:LLM OR abs:"language model")'
+    - id: q_compaction_rl
+      stream: watch
+      themes: [L2, L4]
+      q: '(abs:"context compression" OR abs:compaction OR abs:"context folding" OR abs:"context management" OR abs:summarization) AND (abs:agent) AND (abs:"reinforcement learning" OR abs:GRPO OR abs:RL)'
+    - id: q_forgetting_transfer
+      stream: watch
+      themes: [L2]
+      q: '(abs:forgetting OR abs:transfer OR abs:"catastrophic") AND (abs:agentic OR abs:agent) AND (abs:"reinforcement learning" OR abs:"post-training") AND (abs:"on-policy" OR abs:retain)'
+    # ---- L3 systems and cost ----
     - id: q_rollout_systems
-      stream: adjacent-lab
-      themes: [T1]
+      stream: watch
+      themes: [L3]
       q: '(abs:rollout OR abs:"KV cache" OR abs:"prefix caching" OR abs:snapshot) AND (abs:"reinforcement learning" OR abs:RLHF OR abs:"post-training") AND (abs:throughput OR abs:scheduler OR abs:serving OR abs:"system")'
-    - id: q_opd_privileged
-      stream: adjacent-lab
-      themes: [T2]
-      q: '(abs:"self-distillation" OR abs:"on-policy distillation" OR abs:"privileged information" OR abs:"privileged context" OR abs:"privileged teacher") AND (abs:"language model" OR abs:LLM OR abs:agent) AND (abs:"reinforcement learning" OR abs:policy OR abs:verifier OR abs:reward)'
-    - id: q_hindsight
-      stream: adjacent-lab
-      themes: [T1, T2]
-      q: '(abs:hindsight) AND (abs:"language model" OR abs:LLM OR abs:agent OR abs:"policy optimization" OR abs:"credit assignment")'
-    - id: q_audit_signals
-      stream: adjacent-lab
-      themes: [T1, T2]
-      q: '(abs:"process reward" OR abs:"dense reward" OR abs:"step reward") AND (abs:audit OR abs:"ground truth" OR abs:"shuffled" OR abs:"does not" OR abs:"fails") AND (abs:agent OR abs:LLM)'
-    # import stream: other fields' answers to allocation / credit / variance problems
+    - id: q_agent_cost
+      stream: watch
+      themes: [L3, L1]
+      q: '(abs:cost OR abs:"input tokens" OR abs:cached OR abs:"prefix") AND (abs:agent OR abs:agentic) AND (abs:"long-horizon" OR abs:steps OR abs:trajectory) AND (abs:measure OR abs:accounting OR abs:leaderboard)'
+    - id: q_async_rl_infra
+      stream: watch
+      themes: [L3]
+      q: '(abs:asynchronous OR abs:async OR abs:straggler OR abs:"partial rollout" OR abs:"off-policy") AND (abs:"reinforcement learning") AND (abs:LLM OR abs:agent) AND (abs:system OR abs:framework OR abs:throughput)'
+    - id: q_sandbox_state
+      stream: watch
+      themes: [L3]
+      q: '(abs:sandbox OR abs:container OR abs:"environment state" OR abs:checkpoint OR abs:"overlay") AND (abs:agent) AND (abs:"reinforcement learning" OR abs:rollout OR abs:fork)'
+    # ---- L4 context, memory, handoffs ----
+    - id: q_context_memory_measure
+      stream: watch
+      themes: [L4, L1]
+      q: '(abs:"context compression" OR abs:compaction OR abs:memory OR abs:playbook OR abs:consolidation) AND (abs:agent) AND (abs:evaluat OR abs:benchmark OR abs:"information loss" OR abs:variance OR abs:collapse)'
+    - id: q_subagent_handoff
+      stream: watch
+      themes: [L4]
+      q: '(abs:"sub-agent" OR abs:subagent OR abs:orchestrator OR abs:delegation OR abs:handoff) AND (abs:brief OR abs:summary OR abs:"context" OR abs:message) AND (abs:LLM OR abs:"language model")'
+    - id: q_self_evolving_memory
+      stream: watch
+      themes: [L4]
+      q: '(abs:"self-evolving" OR abs:"self-improving" OR abs:"self-improvement") AND (abs:agent) AND (abs:memory OR abs:playbook OR abs:experience OR abs:reflection) AND (abs:curator OR abs:reflector OR abs:"write-time" OR abs:gate OR abs:variance)'
+    # ---- L5 off-radar ----
+    - id: q_sim_agents
+      stream: watch
+      themes: [L5]
+      q: '(abs:simulator OR abs:simulation OR abs:CFD OR abs:"finite element" OR abs:solver) AND (abs:"LLM agent" OR abs:"language model agent" OR abs:"code generation" OR abs:agentic) AND (abs:physics OR abs:engineering OR abs:mesh)'
+    # ---- import stream: other fields' standard answers (config/fields.yaml) ----
+    - id: q_import_gtheory_irt
+      stream: import
+      themes: [L1]
+      q: '(abs:"generalizability theory" OR abs:"item response theory" OR abs:"measurement invariance" OR abs:"test-retest") AND (abs:LLM OR abs:"language model" OR abs:agent OR abs:benchmark)'
+    - id: q_import_sequential
+      stream: import
+      themes: [L1, L3]
+      q: '(abs:"sequential testing" OR abs:"anytime-valid" OR abs:"e-value" OR abs:"always valid") AND (abs:LLM OR abs:evaluation OR abs:benchmark OR abs:"A/B")'
+    - id: q_import_rate_distortion
+      stream: import
+      themes: [L4]
+      q: '(abs:"rate-distortion" OR abs:"information bottleneck" OR abs:"sufficient statistic") AND (abs:context OR abs:memory OR abs:summar) AND (abs:LLM OR abs:agent)'
+    - id: q_import_game_equity
+      stream: import
+      themes: [L1]
+      q: '(abs:equity OR abs:"luck" OR abs:"skill") AND (abs:backgammon OR abs:poker OR abs:chess OR abs:"win probability") AND (abs:attribution OR abs:decomposition OR abs:martingale)'
     - id: q_import_doe
       stream: import
-      themes: [T1]
+      themes: [L1, L2]
       q: '(abs:"Neyman allocation" OR abs:"optimal allocation" OR abs:"nested sampling" OR abs:"variance decomposition" OR abs:"analysis of variance") AND (abs:"reinforcement learning" OR abs:"policy gradient" OR abs:"Monte Carlo")'
-    - id: q_import_control
+    - id: q_import_queueing
       stream: import
-      themes: [T1, T2]
-      q: '(abs:"control as inference" OR abs:"posterior policy" OR abs:"success-conditioned" OR abs:"goal-conditioned" OR abs:"return-conditioned") AND (abs:"policy gradient" OR abs:"policy optimization")'
-    - id: q_import_bandits
+      themes: [L3]
+      q: '(abs:queueing OR abs:"queueing theory" OR abs:"tail latency" OR abs:"stragglers") AND (abs:LLM OR abs:inference OR abs:rollout)'
+    - id: q_import_reliability_eng
       stream: import
-      themes: [T1]
-      q: '(abs:"value of information" OR abs:"knowledge gradient" OR abs:"expected information gain") AND (abs:"reinforcement learning" OR abs:rollout OR abs:"tree search")'
+      themes: [L1]
+      q: '(abs:"reliability engineering" OR abs:"mean time" OR abs:"failure rate" OR abs:metrology) AND (abs:LLM OR abs:agent OR abs:"AI system")'
 
-  # Watchlist: fetch new papers by these authors (arXiv au: field). Names are search strings, not
-  # identities; expand_labs.py proposes additions, Jacob approves. Start small.
+  # Watchlist: fetch new papers by these authors (arXiv au: field). Names are search strings, not identities.
   authors:
-    - { name: "Netravali", why: "Gambit; SAIL@Princeton rollout systems", themes: [T1] }
-    - { name: "Tri Dao", why: "Gambit; KV/attention systems", themes: [T1] }
-    - { name: "Kazemnejad", why: "VinePPO", themes: [T1] }
-    - { name: "Harutyunyan", why: "Hindsight Credit Assignment", themes: [T2] }
-    - { name: "Haiyue Zhang", why: "Credit Without Ground Truth", themes: [T1] }
-    - { name: "Hübotter", why: "SDPO", themes: [T2] }
-    - { name: "Narutatsu Ri", why: "Rethinking OPSD", themes: [T2] }
-    - { name: "Liam Fowl", why: "Rethinking OPSD", themes: [T2] }
-    - { name: "Sanjeev Arora", why: "Rethinking OPSD; theory", themes: [T2] }
-    - { name: "Danqi Chen", why: "Princeton NLP; post-training", themes: [T1, T2] }
+    - { name: "Narasimhan_Karthik", why: "advisor target; τ-family, hyper-τ, Odysseus, EasyPPO", themes: [L1, L2] }
+    - { name: "Netravali", why: "systems route; rollout and serving systems", themes: [L3] }
+    - { name: "Tri Dao", why: "KV / attention systems", themes: [L3] }
+    - { name: "Wyatt Lloyd", why: "systems route; rebranding toward ML systems", themes: [L3] }
+    - { name: "Sayash Kapoor", why: "HAL; agent evaluation", themes: [L1] }
+    - { name: "Arvind Narayanan", why: "HAL; AI Agents That Matter", themes: [L1] }
+    - { name: "Ofir Press", why: "SWE-bench, SWE-agent lineage", themes: [L1, L2] }
+    - { name: "Shunyu Yao", why: "ReAct, Reflexion, τ-bench", themes: [L1, L4] }
+    - { name: "Danqi Chen", why: "Princeton NLP; post-training", themes: [L2] }
+    - { name: "Sanjeev Arora", why: "theory; PLI", themes: [L2] }
+    - { name: "Kazemnejad", why: "VinePPO", themes: [L2] }
+    - { name: "Schölkopf", why: "ABC, Skill-or-Luck (control variates)", themes: [L2, L1] }
 
   # Paper watchlist: anything citing these is a seed (needs Semantic Scholar; degraded without a key).
   cited_by:
-    - { id: "2410.01679", title: "VinePPO" }
-    - { id: "1912.02503", title: "Hindsight Credit Assignment" }
-    - { id: "2608.19760", title: "Credit Without Ground Truth" }
-    - { id: "2609.20004", title: "EPIG-Tree" }
-    - { id: "2609.11061", title: "Belief-Shift Branching" }
-    - { id: "2604.11037", title: "RTMC" }
-    - { id: "2606.09348", title: "PBSD" }
-    - { id: "2607.05184", title: "Rethinking OPSD for Thinking Models" }
+    - { id: "2406.12045", title: "τ-bench" }
+    - { id: "2506.07982", title: "τ²-bench" }
+    - { id: "2609.04611", title: "hyper-τ-bench" }
+    - { id: "2510.11977", title: "HAL" }
+    - { id: "2608.12253", title: "One Frozen Simulator Is Not Enough" }
+    - { id: "2608.18066", title: "Fragility of Self-Improving Agents" }
+    - { id: "2610.18427", title: "Reliable Memory from Unstable Growth (RBC)" }
+    - { id: "2608.28476", title: "ContextPilot" }
+    - { id: "2610.04433", title: "Prefix re-read cost on SWE-bench Verified" }
+    - { id: "2609.24144", title: "Luck Is Not Skill" }
+    - { id: "2605.00347", title: "Odysseus" }
+    - { id: "2609.36802", title: "EasyPPO" }
     - { id: "2608.08020", title: "Gambit" }
 
 github:
   api: https://api.github.com
-  token_env: GITHUB_TOKEN
+  token_env: GITHUB_TOKEN          # on Jacob's PC: `gh auth login` suffices; in cloud sessions attach the repos read-only
   window_days: 14
-  # issues matching any keyword, open or closed within the window; the "complaint" stream
   repos:
-    - { repo: volcengine/verl, keywords: [rollout, tree, branch, snapshot, "KV", "prefix cache", advantage, "step-level", async] }
-    - { repo: NovaSky-AI/SkyRL, keywords: [rollout, tree, branch, snapshot, advantage, sandbox] }
-    - { repo: All-Hands-AI/OpenHands, keywords: [sandbox, snapshot, checkpoint, "fork", trajectory, RL] }
-    - { repo: SWE-Gym/SWE-Gym, keywords: [rollout, RL, trajectory, container, snapshot] }
-    - { repo: SWE-bench/SWE-smith, keywords: [RL, trajectory, container, snapshot] }
-    - { repo: vllm-project/vllm, keywords: ["prefix cache", "prompt_logprobs", cascade, "KV cache", RL, rollout] }
-    - { repo: sgl-project/sglang, keywords: ["radix", "KV cache", rollout, RL, "cascade"] }
+    - { repo: volcengine/verl, keywords: [rollout, async, "partial rollout", advantage, "step-level", "KV", "prefix cache", snapshot] }
+    - { repo: NovaSky-AI/SkyRL, keywords: [rollout, async, advantage, sandbox, snapshot] }
+    - { repo: All-Hands-AI/OpenHands, keywords: [condenser, compaction, "context window", sandbox, snapshot, trajectory, RL] }
+    - { repo: SWE-agent/SWE-agent, keywords: [trajectory, cost, "context", history, RL] }
+    - { repo: sierra-research/tau2-bench, keywords: [simulator, "user", variance, pass, trials, temperature, seed] }
+    - { repo: princeton-pli/hal-harness, keywords: [cost, tokens, reliability, "pass^k", runs, traces] }
+    - { repo: vllm-project/vllm, keywords: ["prefix cache", "prompt_logprobs", "KV cache", RL, rollout, "batch invariant"] }
+    - { repo: sgl-project/sglang, keywords: ["radix", "KV cache", rollout, RL, deterministic] }
 
 conference_exports:
-  # Downloads pages list accepted titles (and sometimes abstracts) months before camera-ready.
-  # fetch_exports.py builds a local title/abstract index; the kill search queries it.
   venues:
-    - { venue: NeurIPS, year: 2026, url: "https://neurips.cc/Downloads/2026", camera_ready: "2026-10-04" }
+    - { venue: NeurIPS, year: 2026, url: "https://neurips.cc/Downloads/2026" }
     - { venue: ICLR, year: 2027, url: "https://iclr.cc/Downloads/2027", note: "appears after decisions, ~Jan 2027" }
     - { venue: ICML, year: 2027, url: "https://icml.cc/Downloads/2027", note: "appears ~May 2027" }
   openreview_venues:
-    - "ICLR.cc/2027/Conference"   # submissions visible during review season
+    - "ICLR.cc/2027/Conference"
+
+pressure:
+  # stage 6b inputs, re-read monthly (prompts/06_pressure.md)
+  system_cards: [Anthropic, OpenAI, Google DeepMind, xAI, Meta, Moonshot, Alibaba Qwen, DeepSeek, ByteDance Seed]
+  leaderboards: [HAL, SWE-rebench, Terminal-Bench, tau2-bench, OSWorld, BrowseComp, Artificial Analysis, Epoch, METR]
+  blogs: [Anthropic engineering, OpenAI, Cursor, Cognition, Manus, Factory, Sierra, Thinking Machines, LangChain]
 
 workshops_and_cfps:
-  # read by hand monthly; each CFP's topic list is a complaint stream in disguise
   - "NeurIPS 2026 workshops: AgenticOS; Agentic AI Benchmark; AI for Meta-Science"
   - "MLSys 2027 CFP: large-scale RL for LLMs and agentic systems"
-  - "ICML 2027 workshops: watch for RL-for-LLMs, agents, systems"
+  - "ICML 2027 workshops: RL-for-LLMs, agents, systems"
 
 limitations_sections:
-  # kept cards whose limitations sections are worth re-reading as complaints; expand_labs proposes
   seed_from: data/cards
   rule: "every kept card's limitations paragraph becomes a complaint seed with stream: paper-limitations"

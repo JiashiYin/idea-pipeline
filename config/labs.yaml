@@ -32,10 +32,19 @@ campus:
     why: Rethinking OPSD for Thinking Models; theory of self-distillation; Slack contact live.
     seed_papers: ["2607.05184"]
     status: verified
-  - name: Karthik Narasimhan / PLI
-    role: campus
-    why: agents and language; PLI seminars are the venue for post-training exposure on campus.
-    status: unverified
+  - name: Karthik Narasimhan (Princeton NLP / PLI)
+    role: campus; problem_setters; measurers
+    why: >
+      Back at Princeton as Associate Professor (2025-); Sierra Head of Research 2023-2025. Two live 2026 lines
+      match this project exactly: (a) critics for long-horizon agent RL — Odysseus (turn-level critic beats GRPO
+      at 100+ turns) and EasyPPO (critic instability is the failure mode; fixes to critic training); (b) the
+      tau-family simulated-user environments with Sierra co-authors (tau2, tau-Voice, tau-Knowledge, tau-Rec,
+      tau-Multilingual, hyper-tau), where RL users report simulator noise degrading training. Also: SWE-bench /
+      SWE-agent lineage (John Yang, Kilian Lieret), skills for agents with Eysenbach, RLVR budget allocation.
+    seed_papers: ["2605.00347", "2609.36802", "2609.04611", "2506.07982", "2610.00991"]
+    students_to_reach: [Chengshuai Shi (Odysseus, LeAct), Quan Shi (hyper-tau, tau-Knowledge), John Yang, Kilian Lieret, Raj Ghugare]
+    status: verified
+    evidence: "alphaXiv profile (affiliations) + arXiv author listing au:Narasimhan_Karthik, 2026-10-08"
 
 problem_setters:
   - name: Thinking Machines Lab

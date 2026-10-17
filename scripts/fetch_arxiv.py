@@ -62,7 +62,11 @@ def cached_get(url: str, pause: float) -> str:
     path = CACHE_DIR / f"{key}.xml"
     if path.exists() and dt.datetime.now() - dt.datetime.fromtimestamp(path.stat().st_mtime) < CACHE_TTL:
         return path.read_text()
-    for attempt in range(2):
+    # Retry policy (2026-10-17): arXiv answers 429 when a client has been busy (a kill-search session can issue
+    # dozens of API calls before the weekly fetch runs). Back off 30 s, 60 s, 120 s on 429; one retry on 5xx.
+    backoff_429 = [30, 60, 120]
+    attempts = 1 + len(backoff_429)
+    for attempt in range(attempts):
         try:
             req = urllib.request.Request(url, headers={"User-Agent": "idea-pipeline/0.1 (research tooling)"})
             with urllib.request.urlopen(req, timeout=60) as r:
@@ -71,6 +75,11 @@ def cached_get(url: str, pause: float) -> str:
             time.sleep(pause)
             return body
         except urllib.error.HTTPError as e:
+            if e.code == 429 and attempt < len(backoff_429):
+                wait = backoff_429[attempt]
+                print(f"  429 from arXiv; backing off {wait}s", file=sys.stderr)
+                time.sleep(wait)
+                continue
             if 500 <= e.code < 600 and attempt == 0:
                 time.sleep(pause * 3)
                 continue

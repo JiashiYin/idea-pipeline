@@ -1,0 +1,1129 @@
+{
+ "handoff_rl": {
+  "n_in_window": 6,
+  "n_returned": 6,
+  "rows": [
+   [
+    "2026-09-24",
+    "2609.29892v1",
+    "Qwen-Planner-Agent: A Closed-Loop AI-for-AI Framework for Real-World Mobile Planner Agents"
+   ],
+   [
+    "2026-06-10",
+    "2606.13707v1",
+    "Orchestra-o1: Omnimodal Agent Orchestration"
+   ],
+   [
+    "2026-05-04",
+    "2605.02801v1",
+    "Reinforcement Learning for LLM-based Multi-Agent Systems through Orchestration Traces"
+   ],
+   [
+    "2026-03-12",
+    "2603.12031v4",
+    "Agentic-Kube: A Graph-Enhanced Multi-Agent Reinforcement Learning Framework for Multi-Objective Kubernetes Scheduling"
+   ],
+   [
+    "2026-02-04",
+    "2602.04634v3",
+    "WideSeek-R1: Exploring Width Scaling for Broad Information Seeking via Multi-Agent Reinforcement Learning"
+   ],
+   [
+    "2026-01-21",
+    "2601.14652v5",
+    "MAS-Orchestra: Understanding and Improving Multi-Agent Reasoning Through Holistic Orchestration and Controlled Benchmarks"
+   ]
+  ]
+ },
+ "mas_credit": {
+  "n_in_window": 39,
+  "n_returned": 54,
+  "rows": [
+   [
+    "2026-10-06",
+    "2610.07556v2",
+    "Decoupled Multi-Agent Orchestration"
+   ],
+   [
+    "2026-09-29",
+    "2609.38661v1",
+    "EvoSteer: Online Self-Evolving Graph Orchestration via Reference-Anchored Credit Assignment"
+   ],
+   [
+    "2026-09-25",
+    "2609.30734v1",
+    "Learning What to Skip: Counterfactual Credit Assignment for Efficient Multi-Agent LLM Workflows"
+   ],
+   [
+    "2026-09-02",
+    "2609.02094v1",
+    "MASkills: Continual Skills Optimization for Multi-Agent LLM Systems"
+   ],
+   [
+    "2026-08-10",
+    "2608.09251v1",
+    "MoRSE: Task-Oriented Multi-Agent System with Mixture of Role-Subtask Experts"
+   ],
+   [
+    "2026-07-20",
+    "2607.18006v1",
+    "MADA-RL: Multi-Agent Debate-Aware Reinforcement Learning for Parameter-Efficient Reasoning in Compact Models"
+   ],
+   [
+    "2026-07-15",
+    "2607.13359v2",
+    "Learning Latency-Aware Orchestration for Multi-Agent Systems"
+   ],
+   [
+    "2026-06-26",
+    "2606.28187v1",
+    "GBC: Gradient-Based Connections for Optimizing Multi-Agent Systems"
+   ],
+   [
+    "2026-06-01",
+    "2606.02859v2",
+    "Economy of Minds: Emerging Multi-Agent Intelligence with Economic Interactions"
+   ],
+   [
+    "2026-05-28",
+    "2605.30227v1",
+    "Unifying Temporal and Structural Credit Assignment in LLM-Based Multi-Agent Prompt Optimization"
+   ],
+   [
+    "2026-05-26",
+    "2605.27621v2",
+    "Agents that Matter: How Subtle Choices Shape Agent Attribution in Multi-Agent Systems"
+   ],
+   [
+    "2026-05-26",
+    "2605.26646v1",
+    "UnityMAS-O: A General RL Optimization Framework for LLM-Based Multi-Agent Systems"
+   ],
+   [
+    "2026-05-25",
+    "2605.25389v1",
+    "Evo-Attacker: Memory-Augmented Reinforcement Learning for Long-Horizon Tool Attacks on LLM-MAS"
+   ],
+   [
+    "2026-05-23",
+    "2605.24490v1",
+    "Market Regime Council for Dynamic Credit Assignment in Multi-Agent LLM Decision Systems"
+   ],
+   [
+    "2026-05-14",
+    "2605.14483v2",
+    "COLLATOR: Compositional Multi-Agent Orchestration with Counterfactual Reinforcement Learning"
+   ],
+   [
+    "2026-05-13",
+    "2605.13295v1",
+    "CANTANTE: Optimizing Agentic Systems via Contrastive Credit Attribution"
+   ],
+   [
+    "2026-05-06",
+    "2605.04906v2",
+    "Strat-Reasoner: Reinforcing Strategic Reasoning of LLMs in Multi-Agent Games"
+   ],
+   [
+    "2026-05-06",
+    "2605.04811v1",
+    "Tree-based Credit Assignment for Multi-Agent Memory System"
+   ],
+   [
+    "2026-04-28",
+    "2604.25917v2",
+    "Recursive Multi-Agent Systems"
+   ],
+   [
+    "2026-04-03",
+    "2604.22785v2",
+    "Marginal-Contribution Policy Gradients under Filtered Feedback for Multi-Agent LLMs"
+   ],
+   [
+    "2026-04-01",
+    "2604.00722v1",
+    "LangMARL: Natural Language Multi-Agent Reinforcement Learning"
+   ],
+   [
+    "2026-03-23",
+    "2603.21574v1",
+    "Adaptive Robust Estimator for Multi-Agent Reinforcement Learning"
+   ],
+   [
+    "2026-03-23",
+    "2603.21563v5",
+    "Counterfactual Credit Policy Optimization for Multi-Agent Collaboration"
+   ],
+   [
+    "2026-03-13",
+    "2603.12631v2",
+    "Joint Optimization of Multi-agent Memory System"
+   ],
+   [
+    "2026-03-03",
+    "2603.02701v1",
+    "Graph-GRPO: Stabilizing Multi-Agent Topology Learning via Group Relative Policy Optimization"
+   ],
+   [
+    "2026-02-23",
+    "2602.20229v1",
+    "HieraMAS: Optimizing Intra-Node LLM Mixtures and Inter-Node Topology for Multi-Agent Systems"
+   ],
+   [
+    "2026-02-09",
+    "2602.09159v3",
+    "CoMMa: Contribution-Aware Medical Multi-Agents for Decentralized Oncology Decision Support"
+   ],
+   [
+    "2026-02-09",
+    "2602.08335v2",
+    "Who Deserves the Reward? SHARP: Shapley Credit-based Optimization for Multi-Agent System"
+   ],
+   [
+    "2026-01-29",
+    "2601.21609v1",
+    "RecNet: Self-Evolving Preference Propagation for Agentic Recommender Systems"
+   ],
+   [
+    "2026-01-15",
+    "2601.10560v2",
+    "Learning Latency-Aware Orchestration for Multi-Agent Systems"
+   ],
+   [
+    "2026-01-14",
+    "2601.09667v2",
+    "Collaborative Multi-Agent Test-Time Reinforcement Learning for Reasoning"
+   ],
+   [
+    "2026-01-13",
+    "2601.08237v1",
+    "The End of Reward Engineering: How LLMs Are Redefining Multi-Agent Coordination"
+   ],
+   [
+    "2026-01-08",
+    "2601.04703v1",
+    "Beyond Monolithic Architectures: A Multi-Agent Search and Knowledge Optimization Framework for Agentic Search"
+   ],
+   [
+    "2026-01-05",
+    "2601.01743v1",
+    "AI Agent Systems: Architectures, Applications, and Evaluation"
+   ],
+   [
+    "2025-12-06",
+    "2512.06432v1",
+    "HiveMind: Contribution-Guided Online Prompt Optimization of LLM Multi-Agent Systems"
+   ],
+   [
+    "2025-11-17",
+    "2511.13288v2",
+    "Multi-Agent Deep Research: Training Multi-Agent Systems with M-GRPO"
+   ],
+   [
+    "2025-11-11",
+    "2511.10687v3",
+    "Who Gets the Reward & Who Gets the Blame? Evaluation-Aligned Training Signals for Multi-LLM Agents"
+   ],
+   [
+    "2025-11-08",
+    "2511.06134v1",
+    "Maestro: Learning to Collaborate via Conditional Listwise Policy Optimization for Multi-Agent LLMs"
+   ],
+   [
+    "2025-10-17",
+    "2510.15414v3",
+    "MARSHAL: Incentivizing Multi-Agent Reasoning via Self-Play with Strategic LLMs"
+   ]
+  ]
+ },
+ "brief_delegation_rl": {
+  "n_in_window": 18,
+  "n_returned": 23,
+  "rows": [
+   [
+    "2026-10-05",
+    "2610.06830v1",
+    "MemPilot: Orchestrating On-Demand Multimodal Memory Curation for LLM Agents"
+   ],
+   [
+    "2026-09-29",
+    "2609.38458v1",
+    "PrivMeSA: Privacy-Aware Self-Evolving Multi-Agent System for Medicine via Local-Remote LLM Collaboration"
+   ],
+   [
+    "2026-09-28",
+    "2609.34247v1",
+    "SALMONN-duo: Adaptive Dual-System Coordination for Full-Duplex Voice Agents"
+   ],
+   [
+    "2026-09-27",
+    "2610.14000v1",
+    "VH-GPO: Verified Handoff for LLM Agent Reinforcement Learning"
+   ],
+   [
+    "2026-09-17",
+    "2609.19636v2",
+    "Reach or Solve? Deep Diving into Agentic RL Gains with Checkpoint Handoffs"
+   ],
+   [
+    "2026-08-24",
+    "2608.23035v2",
+    "MobilePA-Bench: Benchmarking Mobile Planner Agents on Complex Real-World Tasks"
+   ],
+   [
+    "2026-08-23",
+    "2608.22472v1",
+    "Small Reasoning Models are Instruction Followers in Function Calling"
+   ],
+   [
+    "2026-06-07",
+    "2606.09932v1",
+    "When RL Fails after SFT: Rejuvenating Model Plasticity for Robust SFT-to-RL Handoff"
+   ],
+   [
+    "2026-05-11",
+    "2605.10481v1",
+    "Safe Multi-Agent Behavior Must Be Maintained, Not Merely Asserted: Constraint Drift in LLM-Based Multi-Agent Systems"
+   ],
+   [
+    "2026-05-04",
+    "2605.03195v2",
+    "Terminus-4B: Can a Smaller Model Replace Frontier LLMs at Agentic Execution Tasks?"
+   ],
+   [
+    "2026-05-04",
+    "2605.02801v1",
+    "Reinforcement Learning for LLM-based Multi-Agent Systems through Orchestration Traces"
+   ],
+   [
+    "2026-03-25",
+    "2603.24324v4",
+    "Large Language Model Guided Incentive Aware Reward Design for Cooperative Multi-Agent Reinforcement Learning"
+   ],
+   [
+    "2026-02-03",
+    "2602.13262v1",
+    "General learned delegation by clones"
+   ],
+   [
+    "2026-01-17",
+    "2601.11957v4",
+    "PEARL: Self-Evolving Assistant for Time Management with Reinforcement Learning"
+   ],
+   [
+    "2026-01-12",
+    "2601.07376v2",
+    "OpenTinker: Separating Concerns in Agentic Reinforcement Learning"
+   ],
+   [
+    "2025-12-21",
+    "2512.18564v2",
+    "Vox Deorum: A Hybrid LLM Architecture for 4X / Grand Strategy Game AI -- Lessons from Civilization V"
+   ],
+   [
+    "2025-12-08",
+    "2512.07407v3",
+    "Training Language Models to Use Prolog as a Tool"
+   ],
+   [
+    "2025-10-16",
+    "2510.16054v2",
+    "Privacy-R1: Privacy-Aware Multi-LLM Agent Collaboration via Reinforcement Learning"
+   ]
+  ]
+ },
+ "msg_level_credit": {
+  "n_in_window": 2,
+  "n_returned": 2,
+  "rows": [
+   [
+    "2026-05-04",
+    "2605.02801v1",
+    "Reinforcement Learning for LLM-based Multi-Agent Systems through Orchestration Traces"
+   ],
+   [
+    "2025-11-11",
+    "2511.10687v3",
+    "Who Gets the Reward & Who Gets the Blame? Evaluation-Aligned Training Signals for Multi-LLM Agents"
+   ]
+  ]
+ },
+ "compaction_agent": {
+  "n_in_window": 37,
+  "n_returned": 46,
+  "rows": [
+   [
+    "2026-10-15",
+    "2610.22174v1",
+    "Mosaic: Multi-Session Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-10-13",
+    "2610.18216v1",
+    "TextualRL: Textual Reinforcement Learning for Context Management"
+   ],
+   [
+    "2026-10-04",
+    "2610.05119v1",
+    "LexiHorizon: Stabilizing Reinforcement Learning for Long-Horizon Deep Search"
+   ],
+   [
+    "2026-09-29",
+    "2609.37725v1",
+    "Context Language Models"
+   ],
+   [
+    "2026-09-29",
+    "2609.37082v2",
+    "Traverse: Learning When to Remember, Reset, and Redirect for Long-Horizon Web Search"
+   ],
+   [
+    "2026-09-28",
+    "2609.35750v3",
+    "KV-streams for Efficient Compaction in Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-09-28",
+    "2609.35540v1",
+    "Continuous Context Management"
+   ],
+   [
+    "2026-09-27",
+    "2609.33166v1",
+    "Downstream-Aware Context Selection for Online In-Context Reinforcement Learning"
+   ],
+   [
+    "2026-09-25",
+    "2609.31430v1",
+    "Compress What You See, Not What You Say: Anchored Context Distillation for Latent-Observation Software Engineering Agents"
+   ],
+   [
+    "2026-09-03",
+    "2609.04304v2",
+    "Iris: Climbing to the Search Frontier"
+   ],
+   [
+    "2026-08-30",
+    "2608.29897v2",
+    "When History Is Multimodal: Rethinking Context Management for Long-Horizon Agents"
+   ],
+   [
+    "2026-08-28",
+    "2608.28476v1",
+    "ContextPilot: Teaching Agents for Proactive Context Management via Fine-grained RL"
+   ],
+   [
+    "2026-08-05",
+    "2608.05102v1",
+    "ABSeeker: Training Long-Horizon Search Agents via Answer-Backtracked Credit Assignment"
+   ],
+   [
+    "2026-07-22",
+    "2607.21653v3",
+    "Molt: A Scalable PyTorch-Native Training Framework for Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-07-08",
+    "2607.07847v1",
+    "When Does Continual Learning Require Learning"
+   ],
+   [
+    "2026-07-07",
+    "2607.09773v2",
+    "EvoCUA-1.5: Online Reinforcement Learning for Multi-turn Computer-Use Agents"
+   ],
+   [
+    "2026-07-06",
+    "2607.05378v2",
+    "CompactionRL: Reinforcement Learning with Context Compaction for Long-Horizon Agents"
+   ],
+   [
+    "2026-06-30",
+    "2606.31650v5",
+    "ECHO: Prune To Act, Trace To Learn With Selective Turn Memory In Agentic RL"
+   ],
+   [
+    "2026-06-25",
+    "2606.26758v1",
+    "EGG: An Expert-Guided Agent Framework for Kernel Generation"
+   ],
+   [
+    "2026-06-06",
+    "2606.07995v1",
+    "Customer-Agent: Overcoming Context Limitations in Ultra-Long Shopping Trajectories via Tool-Augmented Agents and RLVR"
+   ],
+   [
+    "2026-06-02",
+    "2606.03841v1",
+    "EvoDS: Self-Evolving Autonomous Data Science Agent with Skill Learning and Context Management"
+   ],
+   [
+    "2026-06-01",
+    "2606.02031v2",
+    "OpenWebRL: Demystifying Online Multi-turn Reinforcement Learning for Visual Web Agents"
+   ],
+   [
+    "2026-05-29",
+    "2605.30785v1",
+    "Learning Agent-Compatible Context Management for Long-Horizon Tasks"
+   ],
+   [
+    "2026-05-27",
+    "2605.28069v1",
+    "ZipRL: Adaptive Multi-Turn Context Compression with Hindsight Response Replay"
+   ],
+   [
+    "2026-05-22",
+    "2605.24218v1",
+    "QUEST: Training Frontier Deep Research Agents with Fully Synthetic Tasks"
+   ],
+   [
+    "2026-04-13",
+    "2604.11462v1",
+    "Escaping the Context Bottleneck: Active Context Curation for LLM Agents via Reinforcement Learning"
+   ],
+   [
+    "2026-04-02",
+    "2604.01664v1",
+    "ContextBudget: Budget-Aware Context Management for Long-Horizon Search Agents"
+   ],
+   [
+    "2026-02-26",
+    "2602.22675v2",
+    "Search More, Think Less: Rethinking Long-Horizon Agentic Search for Efficiency and Generalization"
+   ],
+   [
+    "2026-02-11",
+    "2602.10604v2",
+    "Step 3.5 Flash: Open Frontier-Level Intelligence with 11B Active Parameters"
+   ],
+   [
+    "2026-02-08",
+    "2602.07883v4",
+    "ToolSelf: Unifying Task Execution and Self-Reconfiguration via Tool-Driven Emergent Adaptation"
+   ],
+   [
+    "2026-02-01",
+    "2602.02597v1",
+    "ContextEvolve: Multi-Agent Context Compression for Systems Code Optimization"
+   ],
+   [
+    "2025-12-31",
+    "2512.24615v1",
+    "Youtu-Agent: Scaling Agent Productivity with Automated Generation and Hybrid Policy Optimization"
+   ],
+   [
+    "2025-12-28",
+    "2512.22733v1",
+    "FoldAct: Efficient and Stable Context Folding for Long-Horizon Search Agents"
+   ],
+   [
+    "2025-11-27",
+    "2511.22235v2",
+    "Training High-Level Schedulers with Execution-Feedback Reinforcement Learning for Long-Horizon GUI Automation"
+   ],
+   [
+    "2025-11-18",
+    "2511.14460v2",
+    "Agent-R1: A Unified and Modular Framework for Agentic Reinforcement Learning"
+   ],
+   [
+    "2025-11-01",
+    "2511.00413v5",
+    "Tree Training: Accelerating Agentic LLMs Training via Shared Prefix Reuse"
+   ],
+   [
+    "2025-10-28",
+    "2510.24699v1",
+    "AgentFold: Long-Horizon Web Agents with Proactive Context Management"
+   ]
+  ]
+ },
+ "compaction_eval": {
+  "n_in_window": 100,
+  "n_returned": 100,
+  "rows": [
+   [
+    "2026-10-15",
+    "2610.22276v1",
+    "MJev-Spatial: System One Spatial Intelligence via Native Attention Matching"
+   ],
+   [
+    "2026-10-15",
+    "2610.22131v1",
+    "Intern-Decision: Efficient Multimodal Decision Making with Autoregressive Masked Language Modeling"
+   ],
+   [
+    "2026-10-15",
+    "2610.21900v1",
+    "TEM: Temporal State Tracking Memory for Large Language Model Agents"
+   ],
+   [
+    "2026-10-15",
+    "2610.21893v1",
+    "GACC-Bench: Benchmarking Goal-Adaptive Context Compression Ability across Large Language Models"
+   ],
+   [
+    "2026-10-15",
+    "2610.21424v1",
+    "Do Agents Need a New Kind of Paper? SPRA: Structured Paper Representation for Agents"
+   ],
+   [
+    "2026-10-15",
+    "2610.21394v1",
+    "Matoi: Selective Revalidation of Consequence Evidence for Agent Authorization"
+   ],
+   [
+    "2026-10-15",
+    "2610.21346v1",
+    "ARGUS: An Agenda-Driven Framework for Reliable User Simulation"
+   ],
+   [
+    "2026-10-15",
+    "2610.21165v1",
+    "From Long Context to Selective Memory:A Survey of Memory-Centric Compression for Large Language Models"
+   ],
+   [
+    "2026-10-15",
+    "2610.21113v1",
+    "SSR: Structural Signal Retriever for Scalable Agent Discovery in LLM-Orchestrated Multi-Agent Systems"
+   ],
+   [
+    "2026-10-14",
+    "2610.20959v1",
+    "Same Context, Different Agents: A Behavioral Study of Semantic Layers, Orchestration and Compaction in Data Agents"
+   ],
+   [
+    "2026-10-14",
+    "2610.20780v1",
+    "ARIA: Runtime Inspection and Amendment for Multi-Agent Systems"
+   ],
+   [
+    "2026-10-14",
+    "2610.20116v1",
+    "Maximising Transparency in Context Compaction Improves Retention of Facts and Commitments for Lightweight Coding Agents"
+   ],
+   [
+    "2026-10-14",
+    "2610.20068v2",
+    "The Code of Theseus: Can Agents Rebuild Software from Recovered Design Documents?"
+   ],
+   [
+    "2026-10-14",
+    "2610.19951v1",
+    "AtomSearch: Evidence-Grounded Tree Search for Agent Skill Optimization"
+   ],
+   [
+    "2026-10-14",
+    "2610.20664v1",
+    "Information-Gain Calibrated On-Policy Distillation for Deep Search Agents"
+   ],
+   [
+    "2026-10-13",
+    "2610.18186v1",
+    "Reinforcement Learning for Large-Scale Lifelong Multi-Agent Path Finding with Shared Spatial Fields"
+   ],
+   [
+    "2026-10-13",
+    "2610.17616v1",
+    "StateHarness: Maintaining Evolving Project State for Long-Horizon Coding Agents"
+   ],
+   [
+    "2026-10-12",
+    "2610.16998v1",
+    "Glasseek: A Transparent Recipe for Training and Trustworthy Evaluation of DeepSearch Agents"
+   ],
+   [
+    "2026-10-12",
+    "2610.16550v1",
+    "CT0: Cybersecurity Transformer"
+   ],
+   [
+    "2026-10-11",
+    "2610.15407v1",
+    "State Representation Shapes Long-Horizon Agent Learning and Transfer: An Empirical Study"
+   ],
+   [
+    "2026-10-10",
+    "2610.15095v1",
+    "Swarm Telepathy: Prefill-Free KV-Cache Transfer Across Families"
+   ],
+   [
+    "2026-10-10",
+    "2610.15093v1",
+    "TurnCost: Turns, Not Observations: Cache-Aware Loop Engineering for Coding Agents"
+   ],
+   [
+    "2026-10-10",
+    "2610.14609v1",
+    "EviScene: Beyond \"Is It AI?\" for Agentic Image Factuality Assessment"
+   ],
+   [
+    "2026-10-10",
+    "2610.14550v1",
+    "LLM-based User-Product Relevance Evaluation for Dynamic Product Advertising"
+   ],
+   [
+    "2026-10-09",
+    "2610.13870v1",
+    "Ask Your Advisor: Learning When to Consult Stronger Models in Agentic Systems"
+   ],
+   [
+    "2026-10-08",
+    "2610.12274v3",
+    "HarnessSQL: Harness-Native Training for SQL Agents in Realistic Database Environments"
+   ],
+   [
+    "2026-10-08",
+    "2610.11920v1",
+    "Event-Centric Memory with Query-Aware Graph Augmentation for Long-Term Conversational Agents"
+   ],
+   [
+    "2026-10-08",
+    "2610.11781v1",
+    "Skill-V: Verifiable Self-Evolving Skill Library for Interactive Agents"
+   ],
+   [
+    "2026-10-08",
+    "2610.11721v1",
+    "SubDGuide: A Modeler-Inspired Agentic Workflow for Mesh-to-SubD Reconstruction"
+   ],
+   [
+    "2026-10-08",
+    "2610.11287v2",
+    "REMORY: Learning Residual Memory for Context Compaction"
+   ],
+   [
+    "2026-10-07",
+    "2610.10426v1",
+    "CoTrace: Data Recipes for Training Terminal Agents with Harness-Model Co-Evolution"
+   ],
+   [
+    "2026-10-07",
+    "2610.10183v1",
+    "VideoEvolve: Co-Evolving Memory and Retrieval for Long Video Understanding"
+   ],
+   [
+    "2026-10-07",
+    "2610.09832v2",
+    "SkillForge: Co-Evolving Skills and Agents via Dynamic Skill Lifecycles"
+   ],
+   [
+    "2026-10-07",
+    "2610.09624v1",
+    "How Do Agentic LLMs Decide to Call Tools? A Tool-Call Vector Shaped by Suppression"
+   ],
+   [
+    "2026-10-06",
+    "2610.09034v1",
+    "Shared-Roadmap Generation and Evaluator for Multi-Agent Path Planning Using Heterogeneous Graph Neural Network"
+   ],
+   [
+    "2026-10-06",
+    "2610.08722v1",
+    "Does an Agent's History Tell You When Compaction Will Hurt? A Modest, Bounded Effect on the TRACE Paired-Replay Corpus"
+   ],
+   [
+    "2026-10-06",
+    "2610.08402v1",
+    "VETTA: Coordinating Turn- and Token-Level Credit Assignment for Multi-Turn LLM Agents"
+   ],
+   [
+    "2026-10-06",
+    "2610.08155v1",
+    "Token-Efficient Multi-Agent Collaboration via System One-Guided Computational Division of Labor"
+   ],
+   [
+    "2026-10-06",
+    "2610.07863v1",
+    "ReFold: Training-Free Reversible Inter-Turn Context Folding for Long-Horizon Agents"
+   ],
+   [
+    "2026-10-06",
+    "2610.07704v1",
+    "Independent Multi-Agent Reinforcement Learning with Counterfactual Semantic-Social World Models"
+   ],
+   [
+    "2026-10-05",
+    "2610.06603v1",
+    "Word-Level Text Unmixing via Evidence-Preserving Ownership Routing with Language Models"
+   ],
+   [
+    "2026-10-05",
+    "2610.06269v2",
+    "Evolving in Thought Space: Training a Small Model at Test Time Unlocks Better Discoveries"
+   ],
+   [
+    "2026-10-04",
+    "2610.05369v1",
+    "AutoDP-LLM: Automating Data Pre-processing for Intrusion Detection Systems using Large Language Models"
+   ],
+   [
+    "2026-10-04",
+    "2610.04838v3",
+    "MemTrace: State-Consistent Memory for Long-Horizon Coding Agents"
+   ],
+   [
+    "2026-10-03",
+    "2610.04262v1",
+    "CADForge: Agentic Single-View CAD Reconstruction with Explicit Geometry Reasoning"
+   ],
+   [
+    "2026-10-03",
+    "2610.04184v1",
+    "EvalResearchBench: Can AI Agents Design Their Own Evaluations?"
+   ],
+   [
+    "2026-10-02",
+    "2610.03715v1",
+    "4DCodeBench: Benchmarking Agents on Inverse Graphics of Dynamic Scenes"
+   ],
+   [
+    "2026-10-02",
+    "2610.03643v1",
+    "SAC-Controlled RIS-Assisted Monopulse Radar for Multipath-Robust Vital-Sign Localization"
+   ],
+   [
+    "2026-10-02",
+    "2610.03524v1",
+    "From Benchmarks to Production: A Text-to-SQL System for Complex Financial Data"
+   ],
+   [
+    "2026-10-02",
+    "2610.03315v1",
+    "Lightweight, Rubric-Guided Trajectory Evaluation for Production AI Agents"
+   ],
+   [
+    "2026-10-02",
+    "2610.02617v1",
+    "WebUIProof: Benchmarking WebUI Code Generators with UI-Agent Execution Harness"
+   ],
+   [
+    "2026-10-01",
+    "2610.02163v1",
+    "AutoCompact: Learning When to Compact Context in Long-Horizon Coding Agents"
+   ],
+   [
+    "2026-10-01",
+    "2610.01093v1",
+    "OrbitTAMP: Grounding Language Models for Task and Motion Planning in Spacecraft Rendezvous"
+   ],
+   [
+    "2026-09-30",
+    "2610.00557v1",
+    "No One Architecture Fits All: A Cross-Environment Evaluation of Hierarchical Red Team Agents"
+   ],
+   [
+    "2026-09-30",
+    "2609.40195v1",
+    "MemLife: Curating and Reasoning over Long-Term Egocentric Video Memories"
+   ],
+   [
+    "2026-09-30",
+    "2609.40143v1",
+    "From DNA Design to DNA Slimming: Auditable Agentic Discovery of a Deletion-Only Designer"
+   ],
+   [
+    "2026-09-30",
+    "2609.40003v1",
+    "DashVMC: Real-Time Discrete World Model Control in Geometry Dash"
+   ],
+   [
+    "2026-09-30",
+    "2609.39915v1",
+    "NavHarness: Adaptive Goals for Agentic Vision-Language Navigation"
+   ],
+   [
+    "2026-09-30",
+    "2609.39566v3",
+    "From Given to Gathered Evidence: Agentic Learning for Longitudinal Medical Reasoning"
+   ],
+   [
+    "2026-09-30",
+    "2609.39564v1",
+    "A2Z GameSpec-Bench: How Faithfully Can Coding Agents Generate Games from Game Design Specifications?"
+   ],
+   [
+    "2026-09-30",
+    "2609.39245v1",
+    "ReWAM: Reciprocal World Action Models for Interactive Autonomous Driving"
+   ],
+   [
+    "2026-09-30",
+    "2609.39154v1",
+    "DAGent: Evaluate-then-Grow Planning for Deep Research Agents"
+   ],
+   [
+    "2026-09-29",
+    "2609.38372v1",
+    "Self-Evolving Harness on Multiple Tasks with the Agent as Its Own Optimizer"
+   ],
+   [
+    "2026-09-29",
+    "2609.38147v1",
+    "Thinking Before Thinking: Scaling Agentic Inference Through Meta-Reasoning"
+   ],
+   [
+    "2026-09-29",
+    "2609.37708v1",
+    "Generative Interactions: Weaving Multiparty Human Motion with Bilevel Latent Dynamics"
+   ],
+   [
+    "2026-09-29",
+    "2609.37590v1",
+    "FOCUS: Training-Free Decision-Preserving Context Compression for LLM Agents"
+   ],
+   [
+    "2026-09-29",
+    "2609.37522v2",
+    "Graph-Conditioned On-Policy Agent Distillation from Off-the-Shelf Teachers"
+   ],
+   [
+    "2026-09-29",
+    "2609.37407v1",
+    "Complementary Retrieval-Augmented Prompting for Consistent Long-Form Video Generation"
+   ],
+   [
+    "2026-09-29",
+    "2609.37012v1",
+    "CADOC: Cache-Aware Dynamic Object Context for Long-Horizon Agents"
+   ],
+   [
+    "2026-09-29",
+    "2609.36675v2",
+    "G\u00f6del Forest: Balancing Search Depth and Breadth for Data-Centric Recursive Self-Improvement"
+   ],
+   [
+    "2026-09-29",
+    "2609.36595v1",
+    "Simple Agentic Memory for Generalist Robot Policies"
+   ],
+   [
+    "2026-09-29",
+    "2609.36593v2",
+    "Text2Sim: Agentic Physics-Based Simulation Generation with Distilled Expertise"
+   ],
+   [
+    "2026-09-29",
+    "2609.36526v1",
+    "Adapting Context Compression for Long-Horizon Agents with Counterfactual Continuations"
+   ],
+   [
+    "2026-09-28",
+    "2609.36024v3",
+    "CoDimRecon: Agentic Reconstruction of Sim-Ready 3D Scenes with Deformable Curves, Surfaces, and Volumes"
+   ],
+   [
+    "2026-09-28",
+    "2610.14006v1",
+    "Coding LLMs Can Be Harnessed to Learn Interpretable Models from Data"
+   ],
+   [
+    "2026-09-28",
+    "2609.35540v1",
+    "Continuous Context Management"
+   ],
+   [
+    "2026-09-28",
+    "2609.35501v1",
+    "SRHarness: A Harness for Agentic Symbolic Regression"
+   ],
+   [
+    "2026-09-28",
+    "2609.35279v1",
+    "Measuring Collapse and Correction in Homogeneous-Panel LLM Debate"
+   ],
+   [
+    "2026-09-28",
+    "2609.35038v1",
+    "GUIDE-FBO: Guidance via Uncertainty Intervention and Distributional Exchange for Federated Bayesian Optimization"
+   ],
+   [
+    "2026-09-28",
+    "2609.34385v1",
+    "Just-In-Time Agent Memory with Runtime Agentic Research"
+   ],
+   [
+    "2026-09-28",
+    "2609.34160v1",
+    "RoutePrism: Tracing Construction Order Effects in Agent Memory"
+   ],
+   [
+    "2026-09-28",
+    "2609.34054v2",
+    "PReCache: Efficient KV Cache Sharing for Multi-LoRA Agents via Low-Rank Precomputation and Neutral Reconstruction"
+   ],
+   [
+    "2026-09-27",
+    "2609.33637v1",
+    "Hierarchical Multi-agent Reinforcement Learning for Warehouse Robot Coordination under Communication Loss"
+   ],
+   [
+    "2026-09-27",
+    "2609.33299v2",
+    "AquaWAM: A Dynamics-aware World Action Model for Underwater Embodied Agents"
+   ],
+   [
+    "2026-09-27",
+    "2609.33268v1",
+    "LSTMem: Hierarchical Long Short-Term Online Memory for Large Language Models"
+   ],
+   [
+    "2026-09-27",
+    "2609.33244v1",
+    "ActiveMem: Dynamic Latent Memory Trees for Long-Horizon Agents"
+   ],
+   [
+    "2026-09-27",
+    "2609.33243v1",
+    "CodeSkill: Latent Skill Abstraction for Long-Horizon Code Agents"
+   ],
+   [
+    "2026-09-27",
+    "2609.33224v1",
+    "PackServe: SLO-Aware Request Scheduling for Agentic LLM Serving at Scale"
+   ],
+   [
+    "2026-09-26",
+    "2609.32990v1",
+    "Certified Long-Horizon Code Agent Evolution via Validation-Gated Skill Optimization"
+   ],
+   [
+    "2026-09-26",
+    "2609.32961v1",
+    "Beyond Token Savings: A Systematic Study of Context Compression in LLM Agents"
+   ],
+   [
+    "2026-09-26",
+    "2609.32852v1",
+    "ARSM: Auto-Regressive State Machine for Agentic Reasoning Compression"
+   ],
+   [
+    "2026-09-26",
+    "2609.32801v1",
+    "PlanGuard: A Guardrail for Multi-Step Plan Safety in Embodied Agents"
+   ],
+   [
+    "2026-09-26",
+    "2609.32616v1",
+    "\"You're Right, Let Me Fix It\": How LLM Agents Damage Correct Work When Falsely Accused"
+   ],
+   [
+    "2026-09-26",
+    "2609.32459v1",
+    "Beyond the Model: Demystifying Harness Effects in Software Engineering Agents"
+   ],
+   [
+    "2026-09-26",
+    "2609.32256v1",
+    "LAM: Efficient Lossy Agent Memory Framework With A Retrieval-Score Error Bound"
+   ],
+   [
+    "2026-09-25",
+    "2609.31873v1",
+    "CueKFS: Agentic Cue-Driven Keyframe Selection for Long Video Understanding"
+   ],
+   [
+    "2026-09-25",
+    "2609.31587v1",
+    "Compact Documentation for Coding Agents: A Benchmark, an Optimizer, and Why It Does Not Transfer"
+   ],
+   [
+    "2026-09-25",
+    "2609.31326v1",
+    "CG-HAF: An Interpretable Global-Local Lesion-Burden Fusion Framework for Ordinal Acne Severity Grading in Agentic Skincare Support"
+   ],
+   [
+    "2026-09-25",
+    "2609.31039v1",
+    "MetaPermit: Scalable and Auditable Access Control for AI Agents via LLM-Inferred Meta-Attributes"
+   ],
+   [
+    "2026-09-25",
+    "2609.30797v1",
+    "HasMem: Hard-Origin Adaptively Softened Memory for Long-Term LLM Agents"
+   ]
+  ]
+ },
+ "subagent_summary": {
+  "n_in_window": 15,
+  "n_returned": 17,
+  "rows": [
+   [
+    "2026-10-04",
+    "2610.04929v2",
+    "RobotUse: Allocating Computation, Context, and Decisions"
+   ],
+   [
+    "2026-09-30",
+    "2609.40303v1",
+    "How Much of a Harness Does a Strong Agent Need for Autonomous ML Engineering?"
+   ],
+   [
+    "2026-09-26",
+    "2609.32635v1",
+    "Trust the Brand, Lose Control: How Identity Hijacks LLM Agent Orchestration"
+   ],
+   [
+    "2026-09-03",
+    "2609.04304v2",
+    "Iris: Climbing to the Search Frontier"
+   ],
+   [
+    "2026-08-31",
+    "2609.00474v2",
+    "Exploring Collaboration between a language and a non-language agent"
+   ],
+   [
+    "2026-08-30",
+    "2608.29896v2",
+    "EMERGE-Policy: A Robot Mind Emerges Beyond a Single Policy"
+   ],
+   [
+    "2026-08-24",
+    "2608.23035v2",
+    "MobilePA-Bench: Benchmarking Mobile Planner Agents on Complex Real-World Tasks"
+   ],
+   [
+    "2026-08-16",
+    "2608.21423v1",
+    "Agentic Security: A Systematization of Tools, Failure Modes, and Design Laws for LLM-Driven Penetration Testing"
+   ],
+   [
+    "2026-08-02",
+    "2608.01507v1",
+    "Deep Agentic Search for Repository-Level Code Question Answering: An Empirical Study"
+   ],
+   [
+    "2026-06-30",
+    "2606.31174v2",
+    "ClawArena-Team: Benchmarking Subagent Orchestration and Dynamic Workflows in Language-Model Agents"
+   ],
+   [
+    "2026-05-11",
+    "2605.10155v1",
+    "NyayaAI: An AI-Powered Legal Assistant Using Multi-Agent Architecture and Retrieval-Augmented Generation"
+   ],
+   [
+    "2026-05-04",
+    "2605.02801v1",
+    "Reinforcement Learning for LLM-based Multi-Agent Systems through Orchestration Traces"
+   ],
+   [
+    "2026-02-15",
+    "2602.14229v1",
+    "CORPGEN: Simulating Corporate Environments with Autonomous Digital Employees in Multi-Horizon Task Environments"
+   ],
+   [
+    "2026-01-27",
+    "2601.19578v1",
+    "Yunque DeepResearch Technical Report"
+   ],
+   [
+    "2025-11-15",
+    "2601.02365v1",
+    "FUSE : Failure-aware Usage of Subagent Evidence for MultiModal Search and Recommendation"
+   ]
+  ]
+ }
+}
