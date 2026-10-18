@@ -84,11 +84,27 @@ arxiv:
       stream: watch
       themes: [L4]
       q: '(abs:"self-evolving" OR abs:"self-improving" OR abs:"self-improvement") AND (abs:agent) AND (abs:memory OR abs:playbook OR abs:experience OR abs:reflection) AND (abs:curator OR abs:reflector OR abs:"write-time" OR abs:gate OR abs:variance)'
-    # ---- L5 off-radar ----
-    - id: q_sim_agents
+    # ---- L5 simulator verification and validation for robot learning ----
+    - id: q_sim_contact_exploit
       stream: watch
       themes: [L5]
-      q: '(abs:simulator OR abs:simulation OR abs:CFD OR abs:"finite element" OR abs:solver) AND (abs:"LLM agent" OR abs:"language model agent" OR abs:"code generation" OR abs:agentic) AND (abs:physics OR abs:engineering OR abs:mesh)'
+      q: '(abs:simulator OR abs:simulation OR abs:"physics engine") AND (abs:exploit OR abs:artifact OR abs:interpenetration OR abs:"reward hacking" OR abs:penetration) AND (abs:"reinforcement learning" OR abs:policy OR abs:"sim-to-real")'
+    - id: q_sim_solver_caps
+      stream: watch
+      themes: [L5, L3]
+      q: '(abs:"physics engine" OR abs:simulator OR abs:"batched simulation" OR abs:"GPU simulation") AND (abs:"solver iterations" OR abs:convergence OR abs:"time step" OR abs:Newton OR abs:"conjugate gradient" OR abs:throughput OR abs:straggler)'
+    - id: q_sim_vv_gap
+      stream: watch
+      themes: [L5]
+      q: '(abs:"sim-to-real" OR abs:"reality gap" OR abs:"sim2real") AND (abs:contact OR abs:friction OR abs:impact OR abs:validation OR abs:verification OR abs:fidelity) AND (abs:robot OR abs:manipulation OR abs:locomotion)'
+    - id: q_sim_engines_new
+      stream: watch
+      themes: [L5]
+      q: '(abs:"MuJoCo Warp" OR abs:MJX OR abs:Genesis OR abs:"Isaac Lab" OR abs:"Newton" OR abs:PhysX OR abs:Warp) AND (abs:simulation OR abs:simulator) AND (abs:robot OR abs:"reinforcement learning")'
+    - id: q_sim_speculative
+      stream: watch
+      themes: [L5, L3]
+      q: '(abs:speculative OR abs:rollback OR abs:"draft and verify" OR abs:"lossless") AND (abs:policy OR abs:VLA OR abs:simulator OR abs:"physics engine") AND (abs:robot OR abs:control OR abs:simulation)'
     # ---- import stream: other fields' standard answers (config/fields.yaml) ----
     - id: q_import_gtheory_irt
       stream: import
@@ -114,6 +130,10 @@ arxiv:
       stream: import
       themes: [L3]
       q: '(abs:queueing OR abs:"queueing theory" OR abs:"tail latency" OR abs:"stragglers") AND (abs:LLM OR abs:inference OR abs:rollout)'
+    - id: q_import_vv
+      stream: import
+      themes: [L5]
+      q: '(abs:"verification and validation" OR abs:"manufactured solutions" OR abs:"model-form uncertainty" OR abs:"solution verification") AND (abs:simulation OR abs:solver OR abs:"physics engine")'
     - id: q_import_reliability_eng
       stream: import
       themes: [L1]

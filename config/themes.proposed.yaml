@@ -70,17 +70,103 @@ lanes:
     positioning_default: measurement register only; very dense — race window checked every week
 
   - id: L5
-    name: Off-radar bet — agents for physics simulators
+    name: Simulator verification and validation for robot learning
     sentence: >
-      LLM agents that drive, write or repair physics simulators and simulator code, where Jacob's MAE
-      background is the moat and the first question is always who pays.
-    hints: [simulator, CFD, FEM, "finite element", "mesh", solver, "simulation code", "digital twin", robotics]
+      Whether GPU-batched physics engines (MuJoCo Warp / MJX, NVIDIA Newton and PhysX, Genesis, Isaac) silently
+      trade physics for speed — iteration caps, time steps, softened contact, truncated solvers — and whether RL
+      policies exploit the resulting artifacts (simulator overoptimization, sim-to-real failure); measured per
+      step by re-simulating the states a policy actually visited under a higher-fidelity reference, framed by the
+      V&V triad (verification of the numerics, validation against real impact data, model-form disagreement
+      across contact models), and paired with the systems lever of iteration-level scheduling for batched
+      Newton / conjugate-gradient solvers so that worlds stop waiting for the slowest.
+    origin: >
+      Two sessions ("Off-radar AI research directions", 2026-10-11; "Async RL and simulator methods",
+      2026-10-16) plus colleague discussions. Correctness verification was chosen over acceleration and fidelity
+      because it underlies both and lacked tooling. Candidate paper framing from those sessions: "Iteration caps
+      silently trade physics for speed" — a probe (per-world iteration distributions; capped-versus-converged
+      fidelity), a scheduler (iteration-level scheduling in a Warp fork; a colleague's piece), a frontier
+      (throughput against verified fidelity per engine and setting), and the policy consequence (exploit share
+      at equal throughput). The scheduler is the systems contribution, the frontier the measurement, the exploit
+      result the headline.
+    instruments:
+      - "Per-step physics audit: d_t = ||F_ref(x_t, u_t) - x_{t+1}|| where (x_t, u_t, x_{t+1}) come from the training
+        simulator's rollout and F_ref is the same step under a finer time step, more solver iterations or another
+        contact model; rho = sum_t r_t * 1[d_t > kappa] / sum_t r_t is the share of return earned on physically
+        suspicious steps; kappa is calibrated on policies that do not exploit; the product is an exploit heatmap
+        over a rollout. Differential testing applied to the states a policy visits; one-step checks do not compound."
+      - "V&V: convergence-order checks (method of manufactured solutions), conservation and symmetry invariants,
+        model-form uncertainty as disagreement across contact models, validation against real impacts (Acosta et
+        al. RA-L 2022; GAUGE 2608.05948)."
+      - "Throughput-versus-verified-fidelity frontier per engine and solver setting (the CPU-era version is Erez,
+        Tassa and Todorov, ICRA 2015)."
+    kill_tests:
+      - "rho must separate coarse-trained (exploit-prone) policies from fine-trained ones on the same tasks; if it
+        does not, the audit is dead."
+      - "Per-world solver-iteration distributions must be wide enough that iteration-level scheduling beats per-step
+        sync by a margin the Amdahl model predicts; per-rollout syncing is the cheap version to beat."
+      - "Higher fidelity is not reality: the audit's reference is a proxy for the sim-to-real gap and must be
+        validated on a real-impact dataset for at least one task."
+    neighbors_fetched_in_those_sessions:
+      - "GPUPhysBench 2609.35639 — correctness defined as matching hand-built expert code; scoops acceleration, not
+        reference-free verification"
+      - "GPUSimBench 2607.13059 — parallel scalability, resource use, distribution-level fidelity; documents GPU-batch
+        non-determinism; does not tie fidelity to throughput knobs or to what policies exploit"
+      - "IndustReal / SAPU 2305.17110 — interpenetration is unavoidable and exploited; drop episodes over 1 mm
+        overlap and down-weight the rest (success <40% to 85-88% under stricter evaluation)"
+      - "Reality-gap survey 2510.20808; Acosta RA-L 2022 (elastic impacts wrong in Drake, MuJoCo, Bullet); ConCent
+        2026; Bianchini et al. violation-based contact system identification; 2508.11117; 2512.19289; Bolt 2609.11083"
+    parked_or_dropped_in_those_sessions:
+      - "Async RL for VLA-scale policies — taken (RL-VLA3 Feb 2026, AcceRL Mar 2026, D-VLA May 2026); sliver parked"
+      - "Speculative simulation on the engine — prior art; revised to lossless speculative execution of VLA policies
+        with the simulator in the loop (rollback-netcode analogy); kill if projected speedup < 1.5x on contact-rich
+        tasks"
+      - "Hamiltonian / structure-preserving dynamics — dropped: physics-inspired inductive bias is not his direction"
+      - "Stochastic flow-map simulators — parked: 2026 MeanFlow world models crowd it"
+      - "A colleague's direct (non-autoregressive) trajectory generation — their project; a draft model for ours"
+    hints: [contact, interpenetration, "solver iterations", "iteration cap", Newton, "conjugate gradient", "MuJoCo Warp",
+            MJX, Genesis, Isaac, PhysX, "sim-to-real", "reality gap", "reward hacking", exploit, artifact,
+            "verification and validation", "manufactured solutions", "convergence order", "batched simulation", straggler]
     out_of_scope:
-      - anything whose consumer cannot be named in one sentence
-    routes: [MAE / robotics; industry simulation vendors]
-    positioning_default: off-radar; "who pays" test decides moat versus swamp
+      - physics-inspired inductive-bias architectures (Hamiltonian or Lagrangian networks, equivariance) — not his direction
+      - building a new simulator or contact model; this lane measures and schedules, it does not build engines
+    routes: [robotics + learning faculty; the systems route for the scheduler (GPU scheduling); engine builders
+             (NVIDIA Newton / Warp, DeepMind MuJoCo, Genesis) and robotics RL groups as consumers]
+    edge: >
+      Theoretical physics (numerics, conservation laws, convergence order) and computer engineering (GPU kernels,
+      scheduling, FPGA systems). Jacob has no mechanical or aerospace engineering background; never describe the
+      lane as resting on one.
+    positioning_default: >
+      Off-radar for frontier LLM labs; lab-adjacent to engine builders and robotics RL groups (GPUSimBench and
+      GPUPhysBench show the measurers are arriving); measurement-first with a systems contribution. Who pays: every
+      group training policies in GPU simulators, every engine team choosing iteration caps.
 
-# Triage scoring per lane, 0–3: 3 = directly answers a question in the lane sentence; 2 = supplies a
+# Retired themes (first law v1, 2026-10-01). Kept so that old records stay readable; triage never scores them.
+retired:
+  - id: T1
+    name: Credit assignment and decision boundaries in agentic RL
+    retired: 2026-10-08
+    reason: >
+      No defensible high-ceiling consumer: in deterministic sandboxes the luck term is identically zero, the
+      critic-predictable part is removed by ABC (2609.x, MPI-IS), and the fork lead is occupied (Branching Policy
+      Optimization 2607.14171; overlay-filesystem and checkpoint-restore systems). Kill records: data/candidates/
+      2026-W40.jsonl, data/reports/2026-W41-redteam-top3.md, 2026-W41-product-redteam-C.md.
+    maps_to: [L2, L1]   # read old T1 records as L2 (training dynamics); the variance-attribution instrument lives in L1
+    survivors: "per-turn luck/skill attribution for user-simulator benchmarks — parked in L1 (product red team C)"
+  - id: T2
+    name: OPD–RL hybrids built on the hindsight posterior
+    retired: 2026-10-08
+    reason: >
+      Same thread: hindsight-posterior estimators of Var Q lost their consumer when the luck term vanished; the
+      privileged-information / OPSD lane is dense and its author watchlist was removed from sources.yaml on
+      2026-10-17.
+    maps_to: [L2]
+retirement_rules:
+  - triage never scores a retired id; a seed that only fits a retired theme is dropped with reason "retired theme"
+  - records carrying a retired theme_id are read through maps_to; their status and history are never rewritten
+  - the old law is kept verbatim at config/themes.retired-2026-10-17.yaml; a retired theme is re-opened only by
+    Jacob adding a lane here with a new id, never by reviving T1 or T2
+
+# Triage scoring per lane, 0–3 (lane ids L1–L5 are written into the theme_id fields of cards and candidates): 3 = directly answers a question in the lane sentence; 2 = supplies a
 # neighbor, a baseline, a ground-truth method, an incumbent or an enabling piece; 1 = same words, different
 # problem; 0 = unrelated. Keep if any lane scores >= 2. The positioning_default is recorded on the seed
 # and decides nothing at triage; it decides at the kill search (Gate 6, position clause).

@@ -26,7 +26,7 @@ For each candidate output (`schemas/candidate.schema.json`):
 
 ```
 cid: <computed by the orchestrator>
-theme_id: T1 | T2
+theme_id: L1 | L2 | L3 | L4 | L5   (lane ids; retired T1/T2 are never assigned)
 from_card: <id>
 operator: <1-7>
 statement: <≤ 3 sentences: what we would do, on what, measured how>

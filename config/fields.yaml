@@ -5,7 +5,8 @@
 # cheapest probe, then files the result as a seed with stream: import.
 # The one surviving insight of October 2026 (seed ≠ state; per-move luck/skill split) was an import from
 # F6 into S1. This table is where unoccupied ideas are most likely, because nobody in a lane reads the
-# other field. Jacob can evaluate F1–F5, F9, F11 better than CS-only peers; weight them.
+# other field. Jacob's background is theoretical physics and computer engineering, so he can evaluate
+# F1, F3–F5, F9 and F11 imports himself; weight them.
 
 version: 2026-10-17
 

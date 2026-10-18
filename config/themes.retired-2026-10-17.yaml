@@ -1,3 +1,6 @@
+# RETIRED 2026-10-17. First law v1 (2026-10-01): two mechanism themes, both killed 2026-10-08 (see the `retired`
+# block in config/themes.yaml). Kept verbatim for reading old records. Nothing reads this file as law.
+
 # The law. Anything that does not serve a theme is dropped at triage.
 # Jacob edits this file; the machine never does. Keep to 1–3 themes.
 # Each theme: one sentence a stranger could repeat, then keywords the triage model may use as hints
