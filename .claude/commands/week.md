@@ -9,7 +9,10 @@ Read `CLAUDE.md`, `config/themes.yaml`, `config/standards.md`, `config/generatio
 4. `/crossfield $ARGUMENTS` — 4 imports.
 5. `/mutate <id>` for the cards whose `information_asymmetry` field is non-empty, up to 20 candidates total.
 6. Monthly only (first run of the month): `/pressure $ARGUMENTS`, `/owned $ARGUMENTS`, `/definitive $ARGUMENTS`.
-7. If `auto_kill_monday` is true in `config/generation.yaml`: `/kill` on the top 3 candidates by scorecard; else list them.
+6b. `/claims $ARGUMENTS` — attach every candidate to a claim or mark it orphan; write and rank claims.
+7. If `auto_kill_monday` is true in `config/generation.yaml` (it is): `/kill` on the top `kill_budget_per_week` probes,
+   taken claim by claim in claim rank order (the cheapest probe of the top claim first); record each verdict on the
+   candidate and its effect on the claim's status.
 8. `/digest $ARGUMENTS` — one page; commit and push.
 Budget: ≤ 40 seeds triaged, ≤ 8 cards, ≤ 20 candidates, ≤ 3 kill searches. Stop and write the digest if a stage
 fails; a degraded week with a digest beats a complete week without one.

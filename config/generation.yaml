@@ -24,7 +24,14 @@ throughput_targets:          # per week; the digest reports actuals against thes
 
 portfolio_rule: "at least 3 live seeds (status proposed or survived-kill) in 3 different lanes at all times; a week may not end with a single live thread"
 
-auto_kill_monday: false      # true = the top 3 candidates by scorecard go through /kill automatically on Monday; false = wait for Jacob's mark
+auto_kill_monday: true       # Jacob 2026-10-19: kill searches run automatically whenever applicable — the top `kill_budget_per_week`
+                             # proposed candidates by scorecard, inside the Sunday run; Jacob's marks (`jacob-dropped`, `promote`) still win
+kill_budget_per_week: 3
+kill_applicable: "status proposed, scorecard complete, kill probe <= 1 GPU-week, not jacob-dropped; ranked by scorecard, claim-level first"
+
+claims:                      # the headline layer (Jacob 2026-10-19): candidates are probes OF claims, and claims are what gets ranked
+  file: data/claims/claims.jsonl
+  rule: "a claim is one plain sentence a stranger could repeat that would be news to the field if true; every candidate names its claim_id or is an orphan; at least one open claim per live lane; the digest ranks claims, then probes"
 
 digest:                      # data/digests/<week>.md, one page, written last in the weekly run
   sections:
@@ -32,7 +39,7 @@ digest:                      # data/digests/<week>.md, one page, written last in
     - "Stage moves: what entered, what died (one-line reason each), what parked (trigger)"
     - "Triggers fired: parked items whose re-open condition changed"
     - "Scoop watch: papers that landed on parked or killed items (counted as generator hits)"
-    - "Top 3 by scorecard, each with its kill probe cost — Jacob's hour"
+    - "Claims ranked (headline, belief it would change, probes under it, status), then the top 3 probes by scorecard with kill-probe cost — Jacob's hour"
     - "Checklist lessons added this week"
   max_words: 600
 

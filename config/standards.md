@@ -99,6 +99,15 @@ service, not a paper (τ-bench per-turn split: expected "mostly the agent" = the
   means a race we can enter: the compute-matched comparison nobody ran (mutation #5) or the owner's measurement
   on the owned artifact. The same idea can be parked solo and golden in a room; the record says which.
 
+## What the gates apply to: claims and probes (added 2026-10-19)
+
+The unit that is graded golden / proper / parked is a **claim** — one plain sentence a stranger could repeat
+that would be news to the field if true (`prompts/11_claims.md`). Candidates are **probes** of claims: the
+controls, rulers and audits that can kill the claim cheaply. Gates 2–6 are read against the claim (its
+pressure, its consumers, its mechanism, its durability, its ownership and race); Gate 1 is satisfied by the
+claim's cheapest probe; Gate 0 applies to both. A probe with no claim is an orphan — allowed, flagged, and
+never more than a footnote on its own. A claim with no probe under one GPU-week is a thought.
+
 ## Scorecard (required on every proposal, `CLAUDE.md` rule 9)
 
 Target value (who asked in print, who pays) · impact ceiling as floor / middle / ceiling with what each

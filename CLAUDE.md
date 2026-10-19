@@ -30,6 +30,7 @@ week with zero golden ideas is normal, and the kill record and parked list are t
 | 7 Cross-field | `/crossfield <week>` | weekly, 4 | `config/fields.yaml`, `data/crossfield/log.jsonl` | import seeds; the log |
 | 8 Owned artifact | `/owned <week>` | monthly | `config/labs.yaml`, parked items | lab-position candidates; `data/owned/<group>.md` |
 | 9 Definitive | `/definitive <week>` | monthly | density files, kill reports | lab-position comparison specs |
+| 11 Claims | `/claims <week>` | weekly, after mutate | candidates, imports, pressure points | `data/claims/claims.jsonl` — the headline layer; probes attach to claims |
 | 10 Digest | `/digest <week>` | weekly, last | all of `data/` | `data/digests/<week>.md`, `ledger/scoreboard.jsonl` |
 | — Capture | `/capture <idea>` | ad hoc | conversation | one seed with `source: chat` |
 | — Week | `/week <week>` | Sunday | everything above | the whole cycle; what the scheduled task runs |
@@ -77,6 +78,11 @@ survived a kill search done this week.
     reports and `/capture`, never a second `/week` for the same week. Every session starts with
     `git pull --rebase origin main` and ends with a push; shakedown or experimental output goes on a branch
     (`shakedown-<week>`), not on `main`, so two operators never race on the same files.
+15. **Claims over probes** (Jacob, 2026-10-19). The generators produce probes — a control a paper skipped, a
+    ruler for one effect — and probes alone read as footnotes. Every candidate names the claim it tests
+    (`claim_id`) or is an orphan; the digest ranks claims, then probes; the kill searches run automatically on
+    the top probes, claim by claim (`config/generation.yaml`: `auto_kill_monday: true`, `kill_budget_per_week`).
+    What is pitched, pursued and called golden is a claim.
 
 ## Definitions
 
@@ -141,10 +147,9 @@ complaint fetcher are specified, not built; until they exist the agent does thei
 ## Weekly cadence
 
 Sunday: the scheduled cloud task (or Jacob) runs `/week <week>` — fetch, triage, cards, imports, mutate,
-(monthly: pressure, owned, definitive), the digest, commit and push. Jacob's hour: read
-`data/digests/<week>.md`, mark `status: jacob-dropped` or `promote` on records, pick ≤3 kill searches.
-Monday: the marked kill searches run (automatically only if `auto_kill_monday: true` in
-`config/generation.yaml`).
+(monthly: pressure, owned, definitive), claims, the automatic kill searches on the top probes, the digest,
+commit and push. Jacob's hour: read `data/digests/<week>.md`, mark `status: jacob-dropped` or `promote` on
+claims and records; his marks win over the automatic ranking.
 
 ## Environment notes
 
