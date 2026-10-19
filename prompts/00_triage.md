@@ -28,3 +28,8 @@ Rules:
 - Target keep rate 10–30% on a raw weekly fetch. If you are above 40%, you are being generous; re-read the
   out_of_scope lists.
 - Never recall a paper from memory to decide; decide on the text in front of you.
+- 2026-10-18 — Every seed, dropped ones included, gets its own lane scores and its own reason line; a shared
+  "domain application, no lane question" line with blanket zeros is a protocol bug (three of seven W42 subagents did
+  it and had to redo their batches). Read the whole abstract; one W42 subagent cut abstracts at 700 characters.
+- 2026-10-18 — The operator re-reads every kept abstract and every dropped seed that scored 1 before writing back;
+  W42 calibration moved 11 of 214 verdicts (7 keeps demoted, 4 drops promoted).
