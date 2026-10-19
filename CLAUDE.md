@@ -72,6 +72,11 @@ survived a kill search done this week.
 13. **Chat ideas are captured, not debated.** An idea raised in conversation gets `/capture` and a scorecard
     skeleton; it is a thought until its kill search runs. The operator does not elaborate inside the current
     thread for more than one reply without filing it.
+14. **One operator per week, pull before you run** (2026-10-18). The Sunday scheduled task owns the weekly cycle
+    (`/week`) for the current ISO week; Jacob's PC and web sessions run the marked kill searches, red teams,
+    reports and `/capture`, never a second `/week` for the same week. Every session starts with
+    `git pull --rebase origin main` and ends with a push; shakedown or experimental output goes on a branch
+    (`shakedown-<week>`), not on `main`, so two operators never race on the same files.
 
 ## Definitions
 
