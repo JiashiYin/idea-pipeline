@@ -156,6 +156,17 @@ raises something not here. Never remove items; mark them `retired` with a reason
       quotes at 125 characters; the Hugging Face API (`huggingface.co/api/datasets?search=`) is reachable from the
       shell and finds trajectory releases arXiv misses.
 
+## Added 2026-10-18 from the first cross-field run (W42: 2 filed, 2 already-made)
+- [ ] A field's textbook answer has usually been imported into agents already: within 12 months, gauge R&R and
+      variance components (2610.00651, 2608.11323), Weibull time-to-failure (Ord 2505.05115, Hamilton Jan 2026),
+      rate-distortion for agent compaction (2608.01326, 2607.08032) and e-value acceptance gates (PACE 2606.08106).
+      Search for the standard answer first; the unmade import is usually the field's *next* step (frailty versus
+      within-unit hazard; decoupled residuals rather than raw innovations).
+- [ ] An import's literal form can fail Gate 0. Innovation whiteness and NIS (normalized innovation squared, a
+      chi-square consistency test) presuppose noise; a simulator-versus-reference residual is deterministic given
+      the state, action and settings, so its only spreads are the domain-randomization range and float error, and
+      its correlation over time reflects which states the policy visits. Write the conditioning set before importing a test.
+
 ## Readability (added when a report confused Jacob)
 - [ ] 2026-10-01 — A method explained in prose without equations is unreadable; write the equations with
       every symbol defined.

@@ -1,4 +1,6 @@
 Run the full weekly cycle for ISO week $ARGUMENTS (Sunday run; also what the scheduled task executes).
+The week label is the ISO week of today's date in America/New_York, never UTC: a Sunday-evening run belongs to the
+week that is ending. If $ARGUMENTS is empty, compute it that way.
 
 Read `CLAUDE.md`, `config/themes.yaml`, `config/standards.md`, `config/generation.yaml` first. Then, in order:
 1. `/fetch` — `bash scripts/run_week.sh` (arXiv watch and import streams; complaint stream if GitHub access exists).
