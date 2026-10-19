@@ -1,0 +1,80 @@
+{
+  "id": "2610.17633",
+  "title": "Executable Prefix Values for Locating Agent Failures",
+  "url": "https://arxiv.org/abs/2610.17633",
+  "week_carded": "2026-W43",
+  "seed_week": "2026-W42",
+  "trick": "Restart a frozen agent many times from each reconstructed step of a failed run; the fraction that still succeeds is that step's value, and where it drops is where the task was lost.",
+  "framing_stripped": "Called 'executable prefix values' with a 'certified point of no return'; it is a Monte Carlo value estimate of the agent's own policy at every prefix of a real trajectory, obtained by container-snapshot replay plus fresh continuations, used as a ruler against which LLM-judge 'first mistake' labels are scored.",
+  "method_equations": "Agent = stochastic policy pi (LLM + scaffold, temperature > 0) on task x under step budget B. History after t steps h_t = (x, a_1, o_1, ..., a_t, o_t), a_t = agent action, o_t = environment observation, h_0 = (x); run ends at T <= B with binary outcome Y in {0,1} from the task's own tests. Prefix value (eq. 1): V(h_t) = Pr[Y = 1 | h_t, pi, budget B - t], so V(h_0) = p(x) (the task's pass rate under pi) and V(h_T) = Y. Drop and responsibility share (eq. 2): Delta_t = V(h_{t-1}) - V(h_t), rho_t = Delta_t / p(x); in a deterministic environment Delta_t = -A^pi(h_{t-1}, a_t), the negative advantage of the action actually taken over the agent's own average behaviour; drops telescope, sum_t Delta_t = p(x) - Y, so on a failed run the shares sum to one. Failure points (eqs. 3-5), with U_alpha(h_t) = one-sided (1 - alpha) upper confidence bound (Wilson) on V(h_t) and p_t = one-sided Fisher exact p-value for V(h_{t-1}) > V(h_t): decisive step t* = argmax_t Delta_t; onset t_on = min{t : p_t < alpha}; point of no return t_pnr = min{t : U_alpha(h_s) <= epsilon for all s >= t}, with alpha = 0.05, epsilon = 0.15 (so the PNR is a certification with a known error rate, not a point estimate). Failure shape (eq. 6): C = max_t Delta_t^+ / sum_t Delta_t^+ in (0,1] with Delta_t^+ = max(Delta_t, 0), computed on an isotonic (monotone non-increasing) fit; cliff if C >= 0.5, erosion otherwise; tasks with p(x) <= 1/8 are 'doomed' and excluded. Restart value (eq. 7): R(x, b) = Pr[Y = 1, T <= b | h_0 = (x), pi], estimated from the n = 8 base runs as (1/n) sum_i 1[Y_i = 1, T_i <= b]. Restart point (eq. 8): t_r = min{t : R(x, B - t) - V(h_t) >= mu}, mu = 0.10. Localizer score (eq. 9): VC_k(m) = max(0, V(h_{m-1-k}) - V(h_{m+k})) / (V(h_0) - V(h_T)), the share of the run's total loss within k steps of a proposed step m. Estimation: V-hat(h_t) = success fraction of continuations from h_t; adaptive schedule = screening K = 8 at anchors (t = 0, every 5 steps to 50, every 10 after, T - 1), bisection on adjacent drops >= 0.25, confirmation to K = 32 at both ends of the largest drop, PNR raised to K = 24 until the Wilson bound certifies, label probes at K = 16 on m - 1 and m; ~331 continuations per curve.",
+  "load_bearing_assumption": "Exact replayability: the environment state after h_t can be reconstructed so that a continuation is 'the same run, resumed' (trajectories whose observation or state fingerprint mismatches on replay are dropped; 26% were). And that the right reference for 'where the task was lost' is the agent's own average continuation under the remaining budget B - t, not what a better agent or action would have achieved: V is by design relative to pi and to B - t, so if continuations fail because they run out of steps the method counts that as lost value.",
+  "weakest_component": "The shrinking-budget confound: continuations run with budget B - t, and 31% of the 15,576 continuations end by exhausting it (62% on the stratum whose base run hit the step cap); on the second agent 58% do and the full-budget control moves t* later in all 10 checked trajectories, so 'lost under the remaining budget' and 'lost' coincide. A critic attacks here first because the headline 'the decisive step is an early innocuous read' is partly 'the agent ran out of steps after an early slow start'; the authors' own exclusion of the capped stratum shifts the restart gain from +0.13 to +0.17 and the symptom share from 81% to 85%. Second target: the sample, 47 failed trajectories from only 21 tasks (the 2-6/8 band is 0.14 of the pool), with four judges from one vendor and one human annotator.",
+  "regime": "SWE-bench Verified, 150 tasks x 8 base runs (1,200 runs). Main agent: mini-swe-agent 2.4.6 driving Qwen3.6-27B-FP8 (vLLM, thinking off, temperature 0.70, top-p 0.80), step budget B = 100, pass rate 0.68, runs 61 steps on average, 0.08 hit the cap; 47 failed trajectories from 21 band tasks (2-6 successes of 8), 15,576 continuations (~331 per curve), plus 240 real restart runs. Second agent: Qwen3.5-9B, pass rate 0.34, 85 steps on average, 0.48 hit the cap; 60 failed trajectories from 33 tasks, 20,720 continuations. Judges: GPT-6.1 Sol, GPT-6 Astra, GPT-5.5, OpenAI o3 under the Traverse rubric; Claude Opus 5.5 and one human on a 40-trajectory subset. Results: labels show no drop at 67% of probed steps; 7/188 answers hit t*; restart at t_r raises expected success 0.44 -> 0.57 offline (online: 0.39 success vs 0.26 for continuing); judge-label restarts -0.08 to -0.03; 17 cliffs vs 30 erosions; median t*/T = 0.28; PNR follows t* by a median 6 steps; full schedule pins t* exactly in only 28% of bootstrap replications.",
+  "information_asymmetry": "Three asymmetries, concretely. (1) Judge vs replay: a judge labels the first mistake from the transcript text in hindsight; it has the full history but not the agent's counterfactual future. Replay has what the judge lacks: the exact environment state after each h_t (containers committed as images at anchors), the frozen policy itself, the task's executable tests, and therefore the distribution of the agent's own continuations from every prefix, from which V(h_t), Delta_t, t*, t_pnr, and the task's restart value R(x, B - t) from the base runs are all computed. The judge's 'first mistake' is a text label; V(h_t) is a probability about the agent, and the paper shows the two carry different information (66% of labels sit at zero-drop steps; ranking localizers by label agreement vs by value captured disagree, Kendall tau = 0.56). (2) Inference vs measurement: a controller at step t needs V(h_t) forward, and the paper has it only in hindsight at ~331 full continuations per curve; the paper names the gap ('the value estimators controllers need can be built and ranked' against the curves) but does not train one, so the cheap forward estimator of V from the prefix alone is the open item, and the paper shows the obvious candidate (a frontier judge) does not carry it. (3) What the method itself still lacks even at replay time: (a) it measures V only under the agent's own policy, so Delta_t = -A^pi of the action taken; the value of the best available action at h_{t-1} (what a better agent would have done) is never sampled, so 'cause' means 'where this agent's own prospects collapsed', not 'where a better move existed'; (b) curves exist for failed runs only, so the rate at which a value-based restart would kill a run that was going to succeed is assumed to be zero, not measured (the judge policies are charged their decoy false-positive rate; the value policy is not); (c) V is confounded with the shrinking budget B - t, separable only by the full-budget control run on 10 trajectories; (d) on erosion failures no single step carries much loss, so t* is a point forced onto a slope (28% exact even with the full schedule) while t_pnr is the stable object. For L2: this V(h_t) is exactly the Monte Carlo state value that step-level credit methods (critics, LLM value functions, process rewards) try to estimate during training without ever paying for it; the paper is a ground-truth instrument for grading those estimates on real long-horizon trajectories, built on one benchmark and never used that way here.",
+  "occupies": "The definition and measurement of V-curves on real SWE-bench trajectories by exact container replay (prefix value, responsibility share, certified point of no return, cliff/erosion concentration, restart point, value-captured score), the result that frontier judges' first-mistake labels mostly sit where the agent's success probability does not move and lose as restart triggers, and that value-based restart (t_r, t_pnr) beats continuing both offline and in 240 real restarts.",
+  "neighbors": [
+    {
+      "id": "2609.17930",
+      "title": "Locating Hidden Failures Makes Long-Horizon Agents More Reliable (Traverse / Scout)",
+      "trick": "Have humans mark the first mistake in 2,518 agent trajectories, train a 4B verifier to reproduce those marks, and use it at test time to pick among candidate runs; the label is the ground truth this card's paper measures against."
+    },
+    {
+      "id": "2608.03222",
+      "title": "Fail-Fast, Restart-Smart: Early Failure Prediction and Restart for SWE Agentic Tasks",
+      "trick": "Train a 0.6B monitor on observable prefixes to predict a failing run early, then restart the same policy fresh with the interrupted diff offered as an optional overlay; it predicts failure without ever measuring the prefix's value."
+    },
+    {
+      "id": "2512.06749",
+      "title": "DoVer: Intervention-Driven Auto Debugging for LLM Multi-Agent Systems",
+      "trick": "Instead of attributing a failure from logs, edit a message or plan at a hypothesized step and rerun to see whether the task now succeeds; a targeted intervention where this card's paper uses an untargeted one (resume as-is, many seeds)."
+    },
+    {
+      "id": "2609.38147",
+      "title": "Thinking Before Thinking: Scaling Agentic Inference Through Meta-Reasoning",
+      "trick": "A controller layer decides at each step which partial work to build on, whether to restart and when to stop, judging each option's worth under the remaining budget; it needs the prefix value that this card's paper defines and measures."
+    },
+    {
+      "id": "2605.05112",
+      "title": "Rollout Pass-Rate Control: Steering Binary-Reward RL Toward Its Most Informative Regime (Prefix Sampling)",
+      "trick": "Replay self-generated trajectory prefixes during RL so that groups land near a 50% pass rate (successful prefixes rescue failing groups, failing prefixes handicap passing ones), masking replayed tokens from the loss; the same resume-from-prefix mechanism, used for training signal rather than measurement."
+    }
+  ],
+  "theme_fit": [
+    {
+      "theme_id": "L1",
+      "score": 3,
+      "why": "an executable ruler for where a trajectory failed, used to grade judge labels and to show that label-agreement benchmarks rank localizers wrongly; attribution of outcome to agent vs judge is the lane's core"
+    },
+    {
+      "theme_id": "L2",
+      "score": 2,
+      "why": "V(h_t) is the Monte Carlo step value and Delta_t the per-step advantage of the action taken; it is ground truth for step-level credit on long-horizon SWE trajectories, not yet used to validate any credit estimator"
+    },
+    {
+      "theme_id": "L3",
+      "score": 1,
+      "why": "the instrument is sandbox-state machinery (anchor images, fingerprinted replay, 74% replay rate, ~331 continuations per curve); its cost structure is what limits it to 47 trajectories"
+    }
+  ],
+  "limitations_as_complaints": [
+    "My failure-location curve is only valid for this exact agent, scaffold and step budget: V is relative to the policy and to the remaining budget B - t, two policies of one family on one benchmark subset were tested, and on the 9B agent the full-budget control moved the decisive step later in all 10 trajectories checked (Limitations; sec. 6.9, 6.10).",
+    "I have no curves for runs that would have succeeded, so I cannot measure how often a value-based restart kills a winning run; the +0.13 restart gain is offline and assumes that rate is zero (Limitations; sec. 6.5).",
+    "Locating one failure costs me about 331 full agent continuations, a quarter of trajectories cannot be replayed at all, and even with the full schedule I pin the decisive step exactly in only 28% of cases on erosion-shaped failures; only the point of no return is certified (sec. 6.1, 6.6; Limitations)."
+  ],
+  "evidence_level": "full-text",
+  "status": "mutated",
+  "history": [
+    {
+      "date": "2026-10-19",
+      "status": "carded",
+      "note": "full-text; fetched via API + /html; neighbor abstracts fetched in one API id_list call",
+      "model": "worker"
+    },
+    {
+      "date": "2026-10-19",
+      "status": "mutated",
+      "note": "stage 3 run; candidates in data/candidates/2026-W43.jsonl",
+      "model": "claude-fable-5-1"
+    }
+  ]
+}

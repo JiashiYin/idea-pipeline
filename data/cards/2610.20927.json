@@ -1,0 +1,75 @@
+{
+  "id": "2610.20927",
+  "title": "Prune the Summary, Not the History: Source-Judged Compaction for Long-Horizon Agents",
+  "url": "https://arxiv.org/abs/2610.20927",
+  "week_carded": "2026-W43",
+  "seed_week": "2026-W42",
+  "trick": "After each compaction, ask a cheap calibrated yes/no judge whether each summary bullet traces to an environment output or the prior summary; delete the bullets that do not, keep the rest verbatim.",
+  "framing_stripped": "Called Source-Judged Compaction, a provenance filter for agent memory; it is a delete-only post-processor on an unchanged compressor's structured summary, gated by an external probability model's answer to one question per bullet (is this a value, name, result or observed behaviour from the environment, or only a plan, decision or reading of the task?), re-run at every compaction because the compressor re-invents about four unsourced bullets each time.",
+  "equations": "At compression boundary t (t = 1, 2, ...): P = fixed prompt (system prompt + task instruction, never compressed); H_t = history span accumulated since the last boundary; R_t = most recent action-observation pair, kept verbatim; M_{t-1} = previous committed summary (M_0 = empty). Host compressor C writes the candidate summary M~_t = C(P, M_{t-1}, H_t, R_t), parsed into entries B_t = {b_{t,1}, ..., b_{t,N_t}} (one entry = one bullet line under one of five section headings). Evidence E_t = union over k of Retrieve(b_{t,k}, H_t), where Retrieve = BM25 over the environment outputs of H_t and R_t split into 300-character passages, top 3 per entry, each expanded to its enclosing chunk of at most 2,000 characters, pooled across entries. Judge J returns one score per entry in a single request: (p_{t,1}, ..., p_{t,N_t}) = J(B_t | P, R_t, M_{t-1}, E_t), where p_{t,k} = J's probability of 'yes' to 'does b_{t,k} contain information that came from an environment output in the span or from the previous checkpoint, rather than only plans, decisions, or readings of the task?'. Retention g_{t,k} = 1[p_{t,k} >= tau], tau = 0.5 (not tuned). Committed summary M_t = Render({b_{t,k} : g_{t,k} = 1}), preserving section structure; the agent continues from X_t = P (+) M_t (+) R_t, and M_t is the M_{t-1} of the next boundary. Constraint: entries(M_t) is a subset of entries(M~_t) for all t (delete only, no rewriting, no additions). Objective: max over G of E_{rho ~ p_{pi,C,G}}[S(rho)], S(rho) in {0,1} task success, pi the frozen agent.",
+  "load_bearing_assumption": "A bullet with no source in the environment outputs or the previous summary is, on balance, more dangerous than useful, so deleting it beats keeping it. The paper's own appendix undercuts the mechanism half of this: supported and unsupported entries are correct at the same rate (92.2% vs 90.6%) and the source score ranks correct above incorrect entries no better than chance (AUROC 0.444). The result rests on the deleted set being mostly plans and task re-readings that the still-visible task instruction P makes redundant; the moment the task is not a single instruction visible after compaction (multi-turn user messages), the assumption is void, by the authors' own admission.",
+  "weakest_component": "The failure-attribution number the paper leads with (83% = 29 of 35 failed runs follow a summary entry). It comes from LLM annotators under a written protocol, not humans, on one model (GPT-5.6 Luna), one benchmark split (AppWorld train, 90 tasks x 3 runs), one compressor (OpenClaw safeguard mode); 44 runs failed, 9 were excluded as an unsolvable scenario, and one scenario alone supplies 9 of the 35, so runs are not independent (per scenario-and-pattern the count is 15 of 19). A critic attacks this first because 'carries out a summary entry' is attribution of a symptom, not a counterfactual cause; the paper itself concedes the entry 'raises the chance of the error rather than determining it' (a third run carried the same entry and succeeded), and among the ten tasks SJC fixes it can trace only four to an unsupported entry. Second target: an external closed API judge (Jev-1.13 via OpenRouter) whose scores are non-deterministic (2.1% of answers flip on re-issue) and whose recall of supported entries is 64.2%, i.e. a third of sourced bullets are deleted too.",
+  "regime": "Agent = compressor = GPT-5.6 Luna (medium reasoning effort) or MiniMax-M3, via official APIs; frozen agent, native tool calling, <= 2,048 output tokens per step, 50-step cap. Compaction forced by tiny windows (o200k tokenizer): 4,096 tokens on AppWorld, 2,048 on OfficeBench, so it fires several times per task (4,709 compactions in the main runs; 10 were split across judge requests). Tasks: AppWorld test-normal (168 stateful API-use tasks: 57 easy / 48 medium / 63 hard) and ACON's OfficeBench test subset (95 office tasks: 42 one-app / 22 two-app / 31 three-app). Three independent runs per configuration differing only by sampling. Cross-run reliability is defined as Pass3 = fraction of tasks solved in all three runs (pass^k with k = 3), alongside Acc = mean success with across-run std. Pass-rate band: uncompressed Pass3 72.6-78.6%, Prompting (OpenClaw) 55.4-74.7%, +SJC 62.5-76.8%; gains over Prompting +8.9 / +7.1 (AppWorld GPT / M3) and +5.3 / +2.1 (OfficeBench GPT / M3) absolute Pass3; Acc +1.1 to +5.3 in three settings, -1.0 on OfficeBench M3; Pass3 falls in one of twelve subsets (OfficeBench 1-app M3, 90.5 -> 88.1). Largest gains on hard / three-app tasks (AppWorld hard Pass3 39.7 -> 52.4 with GPT). Cost: judge < $0.002 per task ($1.19-1.52 per 1,000 tasks at $0.042 per million input tokens, max request 29.0K of a 32K window); agent+compressor tokens -1.3% to -8.0% vs Prompting because summaries shrink 14-27% (13-21% of entries pruned, concentrated in Open TODOs and Pending user asks and at the first boundary, 30-40% of entries). Compute is API calls only; no GPU figures.",
+  "information_asymmetry": "Four gaps, each named with where the information exists. (1) Generation vs consumption: at compaction time the history H_t is present and every bullet's provenance (environment-established fact vs compressor-inferred plan) is checkable against it; one step later the agent sees only P (+) M_t (+) R_t and cannot distinguish the two, so it executes 'Send Leslie the comma-separated movie list' as if the environment had said so. The paper uses this gap only to delete; it never passes the provenance bit forward as a label on the retained bullets, so the agent still cannot tell a kept decision from a kept fact. (2) Compressor-internal vs external judge: the compressor is the only party that knows, as it writes, whether a bullet was copied from an output or inferred; that knowledge is discarded with its generation and then reconstructed from outside by a second model fed BM25 snippets (top-3 300-char passages per entry, expanded to <= 2,000 chars), the task instruction P (shown as context but not counted as a source), the retained interaction R_t and M_{t-1}; the judge never sees the agent's own reasoning in H_t, the compressor's prompt, or the task outcome. The self-judge variant (compressor judging itself) is less repeatable (8.6% vs 2.1% flips) and loses in three of four settings, so the asymmetry is not recovered by asking the author. (3) Forward vs hindsight on value, not source: whether a bullet helped or hurt is known only after the run (per-trajectory outcome, or the paired counterfactual continuations from the same state that the authors' own prior paper 2609.36526 measures), and the paper documents that source does not predict it (correct rate 92.2% supported vs 90.6% unsupported; AUROC 0.444). Nobody measures the value destroyed by deleting a correct-but-unsourced bullet: at tau = 0.5 the judge recovers only 64.2% of supported entries, 13-21% of all entries go, and the one audited case (a pruned recipient-restriction note) costs MiniMax-M3 two of three runs. The per-entry regret of pruning, and the asymmetric cost of a false delete vs a false keep, are both absent. (4) Per-trajectory vs per-group: three runs of every task exist, and failures cluster by scenario (one scenario supplies 9 of 35 failures); whether the same unsourced bullet recurs across runs of a task, and whether it recurs in the failing runs and not the passing one, is cross-run information that would turn the attribution from annotation into measurement; it is in the logs and unused.",
+  "occupies": "Published and no longer claimable: the survey of 29 compaction prompts showing 21 ask for decisions or next steps; the per-section unsourced-entry census of OpenClaw summaries (67.7% of open TODOs, 86.1% of pending user asks unsourced; regenerated at every boundary, ~4 per summary); the 29/35 failure-follows-an-entry attribution with its three patterns (rewritten constraint, invented deliverable, contradicted state); the delete-only provenance gate with a non-generative calibrated judge, evaluated by Pass3 on AppWorld and OfficeBench; and the finding that provenance and correctness of summary entries are independent.",
+  "neighbors": [
+    {
+      "id": "2609.36526",
+      "title": "Adapting Context Compression for Long-Horizon Agents with Counterfactual Continuations (PAIR)",
+      "trick": "Same authors: continue the agent from the same state with and without a given compaction, find the individual compactions that hurt, and rewrite the relevant section of the fixed compression prompt; compression degrades reliability before solvability."
+    },
+    {
+      "id": "2608.06503",
+      "title": "Towards Reliable Context Compression for Long-Horizon Agents: An Empirical Study of Execution Instability (TRACE)",
+      "trick": "Same group: score each compaction event by paired closed-loop continuations from the same environment state, and use the resulting summary preferences to optimize the compression prompt with all models frozen."
+    },
+    {
+      "id": "2607.23809",
+      "title": "ACM: Agentic Context Management for Long Horizon Tasks",
+      "trick": "Give the agent context-editing tools, let it decide when to compress, offload discarded content to external memory and re-query it on demand; post-train on demonstrations of doing so."
+    },
+    {
+      "id": "2510.06727",
+      "title": "Scaling LLM Multi-turn RL with End-to-end Summarization-based Context Management (SUPO)",
+      "trick": "Periodically replace tool history with an LLM-written summary during RL and derive a policy gradient that trains the summarization and the tool use together, so training runs past the context limit."
+    },
+    {
+      "id": "2509.13313",
+      "title": "ReSum: Unlocking Long-Horizon Search Intelligence via Context Summarization",
+      "trick": "Periodically call an external tool to condense the web-search history into a summary, then train with GRPO by broadcasting the final reward across the summary-segmented trajectory so the agent learns to reason over compressed context."
+    }
+  ],
+  "theme_fit": [
+    {
+      "theme_id": "L4",
+      "score": 3,
+      "why": "A compaction summary measured for what it costs: a census of what compressors write (unsourced plans), a failure attribution to specific summary entries, and a controlled delete-only intervention on an unchanged compressor; also hands us the provenance-vs-correctness independence that any measurement of lossy self-messages must now account for."
+    },
+    {
+      "theme_id": "L1",
+      "score": 2,
+      "why": "Cross-run reliability is operationalised as Pass3 (pass^k, k = 3) with across-run std, three runs per configuration; the failure attribution is judge-labelled rather than executable, which is exactly the label-vs-replay gap L1 watches."
+    }
+  ],
+  "limitations_as_complaints": [
+    "My filter checks where a bullet came from, not whether it is right: sourced and unsourced entries are correct at the same rate (92.2% vs 90.6%), four of the 29 failure-causing entries were fully supported by environment outputs and no source filter would have caught them, and I also delete correct, sometimes helpful entries (the judge keeps only 64.2% of supported ones; one pruned recipient restriction cost MiniMax-M3 two of three runs).",
+    "I only evaluated two benchmarks, two agent models and one host compressor, with compaction forced at 2-4K-token windows so it fires inside every task; in both benchmarks the task is a single instruction that stays visible after compaction, which is the only reason deleting entries that restate it is safe; in multi-turn settings earlier user messages are themselves a source and I have not evaluated that case.",
+    "My judge is an external closed API model whose scores are not deterministic (2.1% of answers change on re-issue), using the compressor itself as judge was less reliable, and my headline failure analysis (83% of failed runs follow a summary entry) rests on LLM annotators following a written protocol, not on humans or on executable replay."
+  ],
+  "evidence_level": "full-text",
+  "status": "mutated",
+  "history": [
+    {
+      "date": "2026-10-19",
+      "status": "carded",
+      "note": "full-text; fetched via API + /html (200). Neighbors fetched in one API id_list call. Key facts: cross-run reliability = Pass3 (pass^k, k=3) over three sampling-only runs; compressor = OpenClaw safeguard-mode structured prompt (commit d2f8755) run by the agent model; 83% = 29/35 failed Prompting runs on AppWorld train (90 tasks x 3 runs, GPT-5.6 Luna; 44 failed, 9 excluded as an unsolvable scenario), traced by LLM annotators under a written protocol, two independent rounds (kappa 0.86 on support, 0.80 on pattern), authors adjudicated 14; 22 of 29 entries unsourced, 3 contradicted, 4 supported.",
+      "model": "worker"
+    },
+    {
+      "date": "2026-10-19",
+      "status": "mutated",
+      "note": "stage 3 run; candidates in data/candidates/2026-W43.jsonl",
+      "model": "claude-fable-5-1"
+    }
+  ]
+}

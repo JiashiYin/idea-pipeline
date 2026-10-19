@@ -1,0 +1,74 @@
+{
+  "id": "2610.17521",
+  "title": "YUBI-Real2Sim: 3DGS Scene Verification for Reliable Policy Evaluation",
+  "url": "https://arxiv.org/abs/2610.17521",
+  "trick": "Score a reconstructed-scene simulator only by whether it picks the same winner of two policies as the real robot, then deliberately break the visuals to see when that pick flips.",
+  "framing_stripped": "Called '3DGS scene verification for reliable policy evaluation'; it is a 9-cell pairwise sign-agreement test (sim picks the same of two policies as 20 real trials) run on a photo-reconstructed background (3D Gaussian Splatting = the scene stored as millions of coloured blurry blobs that are rendered, not meshed), repeated after hand-injecting visual defects into the blobs, plus a failed attempt to predict the flips from off-the-shelf image-quality scores.",
+  "load_bearing_assumption": "That a sign agreement over nine scene-task pairs, each decided by 20 real versus 80 simulated rollouts, measures simulator fidelity; several pairs are near ties (TX-G2 Tape clean sim 15/80 vs 14/80, Fisher p=1), so a 'flip' there is a coin landing differently, not a defect effect. Also that the grasp is modelled honestly: objects are welded to the gripper when both finger inner surfaces touch, bypassing force-dependent grasp stability and slip failures, so physics is held fixed by construction rather than verified.",
+  "weakest_component": "The ranking metric Acc_rank = k/|M| over |M|=9 pairs, reported as a point estimate with no interval and no test for the difference between policies (the paper says so itself). One flip is an 11-point swing; the defect-induced flips concentrate in one near-tied cell (TX-G2 Tape), and the reduced-coverage flips in TX-G2 Cup. A critic attacks this first because every headline number (8/9, 7/9, 6/9) rests on one or two cells that were statistically tied in the clean condition. Second target: the 'always reliable' constant predictor (35/45) beats every image-quality predictor (28-32/45), so the quality-scoring half of the paper has a negative result against a trivial baseline.",
+  "regime": "Robot policy evaluation, not LLMs: two task-specific pi_0.5-based vision-language-action policies per task (six checkpoints in all; no sizes given beyond the base model), bimanual tabletop pick-and-place (Cup, Tape, Pen) on dual Franka FR3 (two scenes: Duo, Flat) and TX-G2 (one scene), observed through two 200-degree fisheye wrist cameras. Horizon: 600 or 1,800 frames at 10 Hz, action chunks of 32 with 8 or 16 executed. Trials: 20 real and 80 simulated per policy cell, 18 cells, 9 pairwise comparisons. Real success rates in the 0-40% band for the cells quoted (Flat Cup 40% vs 35%; sim Duo Pen 25/80 vs 1/80). Physics: MuJoCo via robosuite with a touch-triggered weld grasp; LLM-estimated mass and friction; collision plane z=0. Reconstruction: Gaussian Wrapping trained 30k-60k iterations on one H200 per scene from an Insta360 single fisheye lens, 150-219 source frames each projected to nine 2048x2048 pinhole views. Artifacts studied are visual only (ceiling holes at 54 and 90 degree half-angles, three floater height bands, one warping realisation of 30 table domes, plus central-pinhole and 30% contiguous/random frame removal); physics, collision geometry, objects, seeds and policies are held fixed, so no physics artifact is ever varied.",
+  "information_asymmetry": "The real-world policy ordering (which of pi_1, pi_2 wins) exists only after 20 real rollouts per policy per scene-task cell; the simulated ordering is cheap (80 rollouts). What is missing at the simulator stage is a cheap, target-scene, pre-rollout predictor of whether the simulated ordering will match the real one. The paper tries to recover it from novel-view quality: for scene s, task t, variant v, label H=1 if sim and real orderings disagree or sim ties; predict H_hat = 1[Q_{s,v} < tau_{-s,t}], where Q is a scene-level quality score and tau is a per-task threshold chosen on the other two scenes by maximising balanced accuracy (scene-held-out). Five Q's tried: NVS-SQA (a no-reference learned quality score for rendered sequences) on held-out captured test views and on the robot's own wrist-view frames (OBS, no ground truth), and PSNR, SSIM, negated LPIPS on test views. Result on 15 matched conditions per task x 3 tasks: pooled 28-32/45 for all five; the constant always-reliable predictor scores 35/45 and beats them all; Pen is 15/15 for everything because all its labels are 'reliable'; all three Tape disagreements sit in TX-G2 so that fold trains on one class and every method misses them; OBS NVS-SQA helps Cup (12/15 vs 7/15) and hurts Tape (2/15). Also, NVS-SQA changes under coverage perturbations (-0.060 to +0.031) are far smaller than the 0.224 spread between the three scenes' clean scores, so the score separates rooms, not capture conditions. The paper's own words: 'These results do not yet establish a generally reliable scene-acceptance rule.' What exists at the other stage and is unused: the rollout-time disagreement itself is per-cell (per task), while the quality scores are per-scene-variant and shared across tasks; and the policy's own observations during rollout (OBS-Policy frames) are rendered but never compared against anything the policy saw in reality. The unused asymmetry for ideas: the training-time wrist-camera footage from the real demonstrations (YUBI data) exists and is the exact viewpoint distribution the policy will consume, but the quality metric is scored on capture-trajectory holdouts or on unpaired sim renders instead.",
+  "occupies": "The claim that a 3DGS-reconstructed MuJoCo scene with dual fisheye wrist views reproduces real pairwise pi_0.5 policy rankings 8/9 on three tasks x three scenes, that injected visual artifacts (ceiling holes, floaters; not physics) drop this to 7/9 and random 30% frame removal to 6/9, and the negative result that PSNR/SSIM/LPIPS/NVS-SQA thresholds do not beat a constant predictor at flagging unreliable scenes under scene-held-out validation. Physics-side artifacts (solver, contact, time step) are untouched and remain claimable.",
+  "neighbors": [
+    {
+      "id": "pmlr:v270-li25c",
+      "title": "SIMPLER: Evaluating real-world robot manipulation policies in simulation (CoRL 2025; no arXiv id in the paper's reference list)",
+      "trick": "Described from this paper's related-work text only: judge a visually matched simulator by whether it preserves policy comparisons, scored by success-rate correlation and mean maximum rank violation across many policies; this paper narrows that to pairwise sign agreement."
+    },
+    {
+      "id": "2512.16881",
+      "title": "PolaRiS: Scalable Real-to-Sim Evaluations for Generalist Robot Policies",
+      "trick": "Turn short video scans into interactive simulated scenes by neural reconstruction, and co-train the policy on simulated data so its sim scores correlate with real performance; this paper instead holds the policy fixed and varies the reconstruction."
+    },
+    {
+      "id": "2606.28276",
+      "title": "SimFoundry: Modular and Automated Scene Generation for Policy Learning and Evaluation",
+      "trick": "Build sim-ready digital twins from one video and generate affordance-preserving variants ('digital cousins') for training and evaluation, reporting Pearson 0.911 and rank violation 0.018 across 7 tasks and 5 architectures; it varies scenes to train, not to break evaluation."
+    },
+    {
+      "id": "2510.04354",
+      "title": "SureSim: Reliable and Scalable Robot Policy Evaluation with Imperfect Simulators",
+      "trick": "Treat sim-plus-real evaluation as prediction-powered inference: a few paired real trials correct the bias of many simulated ones and yield confidence intervals on real success, saving 20-25% of hardware trials; it fixes the number, this paper only asks about the sign."
+    },
+    {
+      "id": "2607.01556",
+      "title": "Mind the Gap: Standard 3DGS Evaluation Primarily Measures Near-Trajectory Interpolation",
+      "trick": "Hold out a contiguous spatial sector instead of every N-th frame and the rendering score drops 3-12 dB, enough to flip method rankings; quality tracks angular distance to the nearest training view. This is why the paper distrusts standard holdout scores for wrist views."
+    }
+  ],
+  "theme_fit": [
+    {
+      "theme_id": "L5",
+      "score": 2,
+      "why": "Simulator fidelity measured by whether policy rankings transfer and by sensitivity to injected artifacts, MuJoCo-based; but the artifacts are visual (holes, floaters, warping), physics is held fixed with a weld grasp, so the lane's solver/contact question is adjacent, not addressed."
+    },
+    {
+      "theme_id": "L1",
+      "score": 2,
+      "why": "Simulator fidelity as measurement validity: rank agreement 8/9 as the instrument, a scene-held-out test of a cheap reliability predictor that fails against a constant baseline, and an explicit separation of ranking agreement from statistical separation."
+    }
+  ],
+  "limitations_as_complaints": [
+    "I have no rule for accepting a reconstructed scene before I spend real-robot trials on it: every image-quality score I tried (PSNR, SSIM, LPIPS, NVS-SQA) is beaten by just assuming the scene is fine (35/45 vs at best 32/45), and the paper says outright that the results 'do not yet establish a generally reliable scene-acceptance rule'.",
+    "My ranking agreement is a point estimate over nine pairs with no interval; one near-tied cell (TX-G2 Tape, 15/80 vs 14/80) decides whether I report 8/9 or 7/9, and the paper itself notes that crossing the significance threshold is not a test that the success-rate gap changed.",
+    "My simulator never tests the grasp: objects are welded to the gripper on two-finger touch to avoid MuJoCo's soft-contact slip, so grasp stability and slip failures are suppressed by construction and every 'physics held fixed' claim inherits that approximation."
+  ],
+  "evidence_level": "full-text",
+  "status": "mutated",
+  "history": [
+    {
+      "date": "2026-10-19",
+      "status": "carded",
+      "note": "full-text; fetched via API + /html",
+      "model": "worker"
+    },
+    {
+      "date": "2026-10-19",
+      "status": "mutated",
+      "note": "stage 3 run; candidates in data/candidates/2026-W43.jsonl",
+      "model": "claude-fable-5-1"
+    }
+  ],
+  "week_carded": "2026-W43",
+  "seed_week": "2026-W43"
+}

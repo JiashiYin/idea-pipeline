@@ -1,0 +1,79 @@
+{
+  "id": "2610.22289",
+  "title": "Improving Environment-Agnostic Coding Agents: The Role of Scaffolding",
+  "url": "https://arxiv.org/abs/2610.22289",
+  "week_carded": "2026-W43",
+  "seed_week": "2026-W42",
+  "trick": "Instruct the agent to stop and return control whenever unsure; a script replies 'keep going, reread the task'. Moving the reset rule it already knew into the script recovers more of the specialized scaffold's gain.",
+  "framing_stripped": "Called 'the role of scaffolding' and an environment-agnostic framework (EnvTraverse); it is a one-sentence prompt swap ('continue until done' vs 'stop and report when unsure') plus a scripted reset-on-GAME_OVER, each measured as score and token cost across three benchmarks with no cost-matched arm.",
+  "load_bearing_assumption": "That the four arms (Baseline, Stop-and-report, Controlled_RESET, twma_v1.61) differ in how the agent uses information and control rather than in how much inference it buys; the paper itself states the experiments do not separate the two, and in every ARC-AGI-3 configuration the ordering of mean score equals the ordering of mean cost (Table 1).",
+  "weakest_component": "The unmatched compute. No arm is token-matched: at GPT-5.5 high the ARC-AGI-3 costs are 9.36 / 14.19 / 42.19 / 64.09 M normalized tokens for Baseline / Stop-and-report / Controlled_RESET / twma_v1.61, so the 'control, not new facts' claim for Controlled_RESET rides on a 3x spend over Stop-and-report (2.3x at GPT-5.5 xhigh; +11% and +5% with GPT-5.6-sol). There is no Baseline arm given the same token budget by forced continuation, no cost-per-level-reached normalizer (the paper concedes reaching more levels lets an agent spend more), three repetitions with descriptive means only, and repetition indices are not matched seeds. A critic attacks this first because the paper's own Section 9.2 names it.",
+  "regime": "Closed models only, no training: GPT-5.5 at high and xhigh effort, GPT-5.6-sol at xhigh and max, all through Codex 0.154.0 in Docker with an allowlisted proxy. ARC-AGI-3: 25 public games, cap of 1,500 actions per level (RESETs count), RHAE 27.6-97.9%. AGI Maze: 106 labyrinths (ids 0005 and 0009), budget 5x max_steps, scored by RHAE70 = 0 if unsolved else 100*min{1, (0.7*m_i/a_i)^2} where m_i is the benchmark's max_steps for target i and a_i the actions used; RHAE70 46.7-73.0%; curriculum setting prepends seven tutorials in the same run. Terminal-Bench 2.1: 89 tasks, wall-clock limited, service tier 'fast', verifier reward 79.4-86.9%. Three evaluation blocks per condition; cost in millions of normalized tokens C = 1e-6*(N_cached/60 + (N_input - N_cached)/6 + N_output), where N_cached is cached input tokens, N_input total input tokens, N_output output tokens; 5.6-64 M per block. Horizon: one Codex invocation can span many model calls and environment actions before returning control.",
+  "information_asymmetry": "Two asymmetries, both between what the policy has and what the scripted controller does with it. (1) Reset decisions: the rule 'RESET only at GAME_OVER, never otherwise' is in the environment description the agent reads at step 0 (Appendix A.1), and the GAME_OVER flag is in every observation; the agent is policy-side and must notice the flag in a pile of ASCII/PNG files over a 1,500-action horizon, whereas the controller reads the terminal flag and step index as structured client state and applies the rule deterministically. Scripting it recovers 34-60% of the gap to the hand-built scaffold (my arithmetic from Table 1: 11.1 of 18.3 points at GPT-5.5 high, 2.4 of 6.9 at GPT-5.6-sol max). The information exists on both sides; what is missing on the policy side is reliable execution of a known rule across the horizon. (2) Return-of-control: the agent knows when it is unsure (the Stop-and-report instruction only asks it to say so), but under 'continue until done' that signal is never emitted, so the controller cannot act on it; the controller's reply ('keep working toward the goal, reread the description') adds no information the agent lacked. The report the agent writes is never read by anything. (3) The measurement asymmetry: the forward evaluation cannot tell 'better use of information' from 'more or differently placed inference', but the released run artifacts (per-call token counts, per-level progress, timestamps of each return) hold the hindsight data to compute cost at matched progress and tokens spent at the return points; the token-matched comparison (Baseline forced to continue for the same budget, or cost per level reached) is computable offline and was not run.",
+  "occupies": "Published: a one-instruction stop-and-report prompt improves mean ARC-AGI-3 RHAE by 1.4-7.3 points and AGI Maze RHAE70 by 0.4-5.0 points with 2-52% more tokens, Terminal-Bench mixed; a specialized ARC-AGI-3 scaffold still beats the general agent by ~7 points at GPT-5.6-sol max; scripted reset-on-GAME_OVER recovers 34-60% of that gap; tutorial curricula can lower target scores; the EnvTraverse harness and baseline agent.",
+  "neighbors": [
+    {
+      "id": "2602.22953",
+      "title": "General Agent Evaluation (Exgentic)",
+      "trick": "Bridge every benchmark to every general agent through one protocol and run a 5 architectures x 5 backbones x 6 benchmarks factorial; the backbone explains most variance, architecture swings up to 12 points within a model."
+    },
+    {
+      "id": "2607.15439",
+      "title": "Do Coding Agents Need Executable World Models, Simplification, and Verification to Solve ARC-AGI-3?",
+      "trick": "Compare four Codex scaffolds (textual, executable world model, plus simplification prompts, plus exact replay verification) at several model-effort settings; model and effort gains exceed scaffold differences, verification ranks first at higher cost."
+    },
+    {
+      "id": "2608.15089",
+      "title": "StateM: harness scaling on Terminal-Bench 2.1",
+      "trick": "Wrap the agent in a runtime of durable states, checked transitions and editable runbooks so it cannot lose state or skip known procedures; lifts GPT-5.5 xhigh from 83.1% to 92.1% with no weight change."
+    },
+    {
+      "id": "2407.01502",
+      "title": "AI Agents That Matter",
+      "trick": "Report dollar cost next to accuracy and optimize both jointly; accuracy-only leaderboards reward agents that are needlessly complex and expensive and hide where the gains come from."
+    },
+    {
+      "id": "2501.19393",
+      "title": "s1: Simple test-time scaling",
+      "trick": "Control thinking length by cutting the trace or appending 'Wait' whenever the model tries to stop, so more test-time tokens are spent on the same question and accuracy rises."
+    }
+  ],
+  "theme_fit": [
+    {
+      "theme_id": "L1",
+      "score": 3,
+      "why": "Scaffold and effort sensitivity measured across three benchmarks with cost reported; the authors state the comparison is not at matched inference cost, which is exactly the attribution and cost-accounting failure this lane watches."
+    },
+    {
+      "theme_id": "L3",
+      "score": 1,
+      "why": "Cost structure of an agentic workload is reported per arm (cached input weighted 1/60), but there is no systems lever; the cost is a measurement, not a design."
+    },
+    {
+      "theme_id": "L4",
+      "score": 1,
+      "why": "Stop-and-report is a handoff from the agent to a controller that never reads the report; the message's content and cost are not measured, so it is a handoff only in form."
+    }
+  ],
+  "limitations_as_complaints": [
+    "I cannot tell whether my scaffold change helped because the agent used the information it had or because it simply spent more tokens; the paper compares arms under the tested execution policy, not at matched inference cost, and the score ordering equals the cost ordering in every ARC-AGI-3 configuration (Sections 8.1, 8.3, 9.2).",
+    "A rule stated in my environment description (reset only at GAME_OVER) is followed reliably only when a script enforces it, and that script is environment-specific, so recovering the gap costs me the environment-agnostic agent (Sections 6.2, 9.1).",
+    "Giving the agent seven tutorials in the same run lowered its target score for GPT-5.5 at both effort settings and raised token cost in every configuration; more relevant experience is neither free nor reliably helpful (Section 8.2)."
+  ],
+  "evidence_level": "full-text",
+  "status": "mutated",
+  "history": [
+    {
+      "date": "2026-10-19",
+      "status": "carded",
+      "note": "full-text; fetched via API + /html",
+      "model": "worker"
+    },
+    {
+      "date": "2026-10-19",
+      "status": "mutated",
+      "note": "stage 3 run; candidates in data/candidates/2026-W43.jsonl",
+      "model": "claude-fable-5-1"
+    }
+  ]
+}

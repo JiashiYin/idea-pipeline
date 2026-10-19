@@ -1,0 +1,69 @@
+{
+  "id": "2610.16592",
+  "title": "Prorsa: Unleashing the Potential of Prefill-Decode Disaggregation in Agentic Reinforcement Learning",
+  "url": "https://arxiv.org/abs/2610.16592",
+  "week_carded": "2026-W43",
+  "seed_week": "2026-W42",
+  "trick": "Watch every trajectory's stage (sandbox, prefill, decode, tool, reward) to forecast the next ten seconds of prompt tokens and decode memory, then flip rollout engines between prefill and decode roles to match.",
+  "framing_stripped": "Called prediction-guided prefill-decode resource allocation for agentic RL; it is (a) a measurement that colocating prefill and decode on MoE engines with data-parallel attention leaves 3.76-59.98% of GPUs idle waiting at the synchronized expert phase, plus (b) a queueing-style demand forecaster fed by the RL framework's own trajectory state machine, plus (c) a worker-count rule. The rule (Eq. 1): n_P = ceil( W_P / (S * theta_P) * (1 + delta) ), n_D = ceil( (K_D + Khat_D) / C_KV * (1 + delta) ), where n_P, n_D are prefill and decode instance counts; W_P is the forecast full-prompt token demand over the horizon S (= 10 s, counting queued, in-flight and predicted-to-arrive requests); theta_P is the measured prefill speed in full-prompt tokens per second per instance (prefix-cache hits folded into the measured speed); K_D is the current decode KV-cache footprint (the stored attention state of in-progress generations); Khat_D is the KV-cache the requests predicted to finish prefill within S will need (computed from prompt length only, no output-length forecast); C_KV is the usable KV-cache per decode instance; delta >= 0 is a shared safety margin, maximized subject to m_P * n_P + m_D * n_D <= G with m_P, m_D GPUs per instance and G the GPU budget. Forecast refreshed every S seconds; a role switch cancels in-flight requests, persists their KV to remote storage, and retries elsewhere; one switch takes about 5 s.",
+  "load_bearing_assumption": "Ten-second-ahead prefill and decode-admission demand is predictable from lifecycle state plus historical duration statistics (tool-duration EMA with alpha = 0.1, startup and reward duration distributions conditioned on elapsed time), and the resulting WAPE of 5.4-14.4% is small enough that a role switch costing ~5 s and in-flight cancellations pays off; the paper also assumes KV-cache growth during decoding and cache reclamation on completion can be ignored inside the horizon and absorbed by delta. If tool times or output lengths are heavy-tailed enough that the forecast or the KV headroom is wrong, switching thrashes and the gain over a static ratio (1.0-1.44x) vanishes.",
+  "weakest_component": "The ablation that isolates the paper's own contribution. The headline 1.11-4.05x is over colocation and is attributed by the authors mostly to removing DP-attention interference, i.e., to disaggregation itself; prediction-guided role switching is isolated only on one model (MiMo-V2.5-Pro) against a static PD split, where it yields 1.0-1.44x, and the static baseline is the per-task optimal ratio (4:4 math, 5:3 coding, 3:5 general) chosen with knowledge of the whole task. No hindsight-optimal (oracle) allocation is reported, so the gap between the forecaster and the best possible switching schedule is unknown; forecast error (WAPE) is never translated into lost throughput. On single-turn math the system is slower than colocation in most settings (normalized step time 0.86-1.28). All speedups are wall-clock rollout time at matched workload; no reward curves, pass rates, or any model-quality number are reported, and the effect of staleness-bound trajectory drops on training data is not measured. GPU type is unstated.",
+  "regime": "Models: Qwen3-235B-A22B (EP4, attention TP2), DeepSeek-V3.2 671B (EP16, no attention TP), MiMo-V2.5-Pro 1T (EP16, TP8); all FP8; chunked prefill on. Engines: verl + SGLang with ~6.4K lines of Python added for scheduling and role switching. Hardware: 16 servers x 8 GPUs (128 GPUs; GPU model not stated), NVLink intra-node, 8 x 400 Gbps RDMA per server; profiled request lengths 8K-512K. Workloads: single-turn math (AIME25), coding agent (SWE-smith), general agent (APEX-Agents, Toolathlon, MCP-Atlas); GRPO with group size 8 (math) and 32 (agentic); synchronous (on-policy) and asynchronous with max staleness 2 and 8; prediction window 10 s. Horizon: coding trajectories average 846 s end-to-end, general-agent 216 s; colocation idle ratio up to 59.98% at DP=16. Baselines: PD colocation (all results), static PD disaggregation at per-task optimal ratio (MiMo only). Results: 1.11-4.05x rollout speedup on agentic tasks over colocation (DeepSeek-V3.2: 2.54-4.05x coding, 2.35-2.99x general); trajectory completion time 1.17-7.33x lower on general agent; stage-specific parallelism alone 1.04-1.09x; role switching over static split 1.0-1.44x; math 0.86-1.28 normalized (mostly slower). Pass rates: not reported. Matched model quality: not reported; throughput-only.",
+  "information_asymmetry": "Forward vs hindsight at the allocator. At time t the switcher must forecast, for [t, t+10 s): how many trajectories finish reward and pass admission (hat p_t * sum of q_i^rew), how many sandboxes come ready, which tool calls return (from an EMA of past tool durations, not from the tool), and how long the next prompt will be (estimated hat x_i). It explicitly does not forecast output lengths, KV-cache growth during decode, or cache release on completion, and uses an averaged prefix-cache hit ratio instead of per-request hits. After the rollout step completes, every one of these is known exactly per trajectory: the full arrival sequence of prefill requests, each prompt length, each decode length and KV peak, each tool duration, each completion time. The paper never computes the hindsight-optimal switching schedule from that record, so the oracle upper bound on what any forecaster can gain over a static split is missing; the only reported ceilings are the static optimal ratio (which already uses whole-task hindsight) and colocation. Policy-only vs environment-aware: tool-return timing is forecast from history although the sandbox/tool runtime knows its own progress (e.g., test-suite stage), and the trainer holds the policy's current per-turn output-length distribution, which the predictor ignores. Per-trajectory vs per-group: GRPO group membership is in the snapshot but enters only through the injection rule f(.), not the demand forecast.",
+  "occupies": "The characterization that agentic RL rollout has continuous prefill demand and that colocation on MoE engines with data-parallel attention idles 3.76-59.98% of GPUs at the synchronized expert phase; and the specific design of forecasting prefill tokens and decode KV admissions from RL lifecycle signals (sampler, sandbox startup, ready queue, tool execution) to switch verl/SGLang rollout workers between prefill and decode roles, with Eq. 1 as the sizing rule.",
+  "neighbors": [
+    {
+      "id": "2606.03077",
+      "title": "Libra: Efficient Resource Management for Agentic RL Post-Training",
+      "trick": "Route rollout requests into buckets with different parallelism to cut straggler delay, and move whole workers between rollout and training as the workload shifts, without pausing training; the moved unit is rollout vs training, not prefill vs decode."
+    },
+    {
+      "id": "2603.28101",
+      "title": "Heddle: A Distributed Orchestration System for Agentic RL Rollout",
+      "trick": "Predict each trajectory's remaining runtime, schedule and place by trajectory rather than by step, migrate during idle tool-call gaps, and widen parallelism for the long tail; it adapts parallelism of shared engines, not the prefill/decode split."
+    },
+    {
+      "id": "2601.01209",
+      "title": "OrchestrRL: Dynamic Compute and Network Orchestration for Disaggregated RL",
+      "trick": "Re-tune parallelism within and across generation steps to follow workload shifts, and reconfigure an optical-electrical fabric so bandwidth follows the phase (training, generation, weight sync); forecasts remaining rollout workload, not per-turn prefill demand."
+    },
+    {
+      "id": "2511.20982",
+      "title": "DOPD: A Dynamic PD-Disaggregation Architecture for Maximizing Goodput in LLM Inference Serving",
+      "trick": "In online serving, monitor load in real time and reassign instances to hit an optimal prefill-to-decode ratio, reconfiguring proactively from historical load; the same lever as Prorsa, driven by serving traffic rather than RL lifecycle events."
+    },
+    {
+      "id": "2609.00993",
+      "title": "AInfer-PD: Communication-Safe In-Place Prefill-Decode Multiplexing for Distributed MoE Rollouts",
+      "trick": "Keep prefill and decode on the same devices and KV store but order their collectives across ranks and separate their expert-dispatch communication state so they can run concurrently on MoE rollouts; the alternative to disaggregating at all, with 7-35% completion-time cuts."
+    }
+  ],
+  "theme_fit": [
+    {
+      "theme_id": "L3",
+      "score": 3,
+      "why": "Rollout-engine design for agentic RL at 128 GPUs with asynchronous staleness: prefill/decode split, KV-cache transfer and persistence, worker role switching, and a measured cost structure (idle ratio, trajectory completion time) of agentic workloads."
+    }
+  ],
+  "limitations_as_complaints": [
+    "On single-turn math my rollout gets slower, not faster (0.86-1.28x normalized step time against colocation), because KV-cache transfer and role-switch overhead cost more than they save when prefill and decode barely overlap; nobody gives me a rule for when disaggregation pays at all. (The paper has no limitations section; derived from Section 5.2.)",
+    "The forecaster refuses to predict output lengths or KV-cache growth during decoding and hides them behind a safety margin delta, yet my long coding trajectories (846 s average) are exactly the KV-capacity-bound case where that growth decides throughput. (Derived from Sections 4.2, 5.4 and Appendix B.7.)",
+    "Prediction error climbs to 14% WAPE on general-agent tasks because tool-execution times vary, and I am never told how much rollout time that error costs me against the hindsight-optimal switching schedule; each switch also cancels in-flight requests and takes about 5 s. (Derived from Section 5.5 and Appendix C.)"
+  ],
+  "evidence_level": "full-text",
+  "status": "mutated",
+  "history": [
+    {
+      "date": "2026-10-19",
+      "status": "carded",
+      "note": "full-text; fetched via API + /html (the API call for the paper itself returned 'Rate exceeded', abstract taken verbatim from the /html page and matches the seed; neighbors fetched in one API id_list call)",
+      "model": "worker"
+    },
+    {
+      "date": "2026-10-19",
+      "status": "mutated",
+      "note": "stage 3 run; candidates in data/candidates/2026-W43.jsonl",
+      "model": "claude-fable-5-1"
+    }
+  ]
+}

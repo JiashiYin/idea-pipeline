@@ -29,6 +29,10 @@ raises something not here. Never remove items; mark them `retired` with a reason
       positions, and a marginal-matched shuffle of the signal.
 - [ ] Placebo for any hindsight or privileged signal: the same wrapper with the wrong task's information.
 - [ ] Is the regime stated (model size, horizon, pass-rate band) and are results reported by band?
+- [ ] 2026-10-19 — A proxy's agreement with a noisy criterion (sim-vs-real rank agreement, judge-vs-human labels, simulated
+      user vs real user) is bounded by the criterion's own test-retest reliability. Split pairs by whether the criterion's trials
+      could resolve them, report agreement on resolvable pairs, and chance-correct; a pooled k-of-M hides a broken proxy behind
+      near-ties (YUBI 8/9 over nine pairs with one near-tied cell deciding; SIMPLER's table: 52/53 resolvable vs 24/34 not).
 
 ## Positioning
 - [ ] Placement rule stated? (Several published fork methods leave it unstated.)

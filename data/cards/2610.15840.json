@@ -1,0 +1,91 @@
+{
+  "id": "2610.15840",
+  "title": "LLM Value Functions for Credit Assignment in Agentic RL",
+  "url": "https://arxiv.org/abs/2610.15840",
+  "week_carded": "2026-W43",
+  "seed_week": "2026-W42",
+  "trick": "A frozen frontier model reads each finished rollout plus its siblings' summaries and guesses success odds per step; pin the first to the group pass rate, the last to the outcome; differences are advantages.",
+  "framing_stripped": "Called an 'LLM value function' and a 'policy-aware in-context critic'; it is a hindsight per-step success-probability guess by a frozen API model (Claude Opus 4.6) that is shown the trajectory's final outcome and three sibling summaries, then forced to telescope to the GRPO numerator by overwriting both endpoints. The advantage is GAE at lambda = 0 (one-step value difference, no reward term) on a hindsight estimate; it redistributes the outcome reward inside a trajectory and cannot add reward. The paper says so itself: 'a hindsight estimate rather than a true state-value function'.",
+  "equations": [
+    "Setup: finite-horizon MDP over interaction histories; s_t = goal plus all observations and actions before action a_t; t indexes environment steps (turns), not tokens; discount gamma = 1; only reward is terminal and binary, R(tau) = r_T in {0,1}; so V^pi(s_t) = E_{tau~pi}[R(tau) | s_t] = probability of eventual success.",
+    "Group: for one task, G = 8 trajectories {tau_1..tau_G} sampled from the current policy pi_theta_old; mu_G = (1/G) sum_i R(tau_i) is the group success rate (GRPO baseline numerator uses R(tau_i) - mu_G).",
+    "Frozen critic query (one call per target trajectory tau_i, returns all interior values jointly): V_phi(s_{i,t} | tau_i, {S(tau_j)}_{j in C_i}, mu_G), where V_phi is the frozen LLM (Claude Opus 4.6 in LVRL; Qwen3-235B-A22B-Thinking in LVOPD), C_i is a random subset of {1..G} minus {i} with |C_i| = k = 3 (the 'in-context examples'), and S(.) is a summarizer (the same frozen model) that compresses a sibling rollout to one line per step (action, key result, error type, state change). The prompt also states the target's own final outcome R(tau_i), the count of group members with the same outcome, and asks for a probability in [0,1] at step 0 (before any action) through step T_i (after the last action) with a one-line reason each; environment responses are truncated to 4,000 characters.",
+    "Endpoint anchors (applied after prediction, overwriting the model's numbers): V_phi(s_{i,0}) := mu_G and V_phi(s_{i,T_i}) := R(tau_i).",
+    "Unnormalized step advantage: Abar_{i,t} = V_phi(s_{i,t+1}) - V_phi(s_{i,t}) for 0 <= t < T_i. With zero intermediate reward and gamma = 1 this equals GAE at lambda = 0. Telescoping: sum_{t=0}^{T_i-1} Abar_{i,t} = R(tau_i) - mu_G, i.e. exactly the GRPO advantage numerator; when all G rollouts fail both anchors are 0, the sum is 0, but interior differences can still be nonzero (this is the BabyAI cold-start claim).",
+    "Normalization: sigma_step = standard deviation of {Abar_{j,t} : j in 1..G, 0 <= t < T_j} over all steps of all G trajectories of the group (one scalar per group, not per trajectory); A_{i,t} = Abar_{i,t} / sigma_step; so sum_t A_{i,t} = (R(tau_i) - mu_G) / sigma_step. Every token of action a_{i,t} inherits the same A_{i,t}.",
+    "Policy update (LVRL): the PPO clipped surrogate J(theta) = E_t[ min( r_t(theta) A_{i,t}, clip(r_t(theta), 1-eps, 1+eps) A_{i,t} ) ], where r_t(theta) = pi_theta(a | s) / pi_theta_old(a | s) is evaluated per token, eps is the clip coefficient (0.2 reported for LVOPD), and A_{i,t} replaces the learned-critic GAE advantage; the loss L_LVRL is the negative mean over tokens in the minibatch B.",
+    "LVOPD gate: g(A_{i,t}) = max(-A_{i,t}, 0) (zero on steps whose estimated value did not fall). Value-gated reverse-KL distillation: L_VD(theta; B) = (1/N_B) sum_{tau_i in B} sum_{t=0}^{T_i-1} sum_{u=1}^{L_{i,t}} g(A_{i,t}) KL( pi_theta(. | h_{i,t,u}) || pi_E(. | h_{i,t,u}) ), where a_{i,t} = (a_{i,t,1..L_{i,t}}) are the L_{i,t} tokens of action t, h_{i,t,u} = (s_{i,t}, a_{i,t,<u}) is the prefix before token u, pi_E is the frozen teacher (Qwen3-235B), and N_B = sum_i sum_t L_{i,t} is the number of action tokens in B. The KL is computed on the student's top-16 tokens with the teacher's top-32 probabilities and uniform spreading of residual teacher mass, both renormalized. Total: L_LVOPD = L_LVRL + beta L_VD with beta = 1.",
+    "Monte-Carlo probe (analysis only, never used in training): for a recorded AppWorld state s_t, reset the environment and re-execute the recorded code prefix a_{0:t-1} to rebuild the database and REPL namespace, then sample M = 32 continuations from the same checkpoint; V^MC(s_t) = (1/M) sum_m 1[continuation m succeeds]; Delta^MC_t = V^MC(s_{t+1}) - V^MC(s_t). sigma = sqrt(2 * 0.25 / M) = 0.125 is the worst-case standard deviation of a difference of two independent binomial proportions at M = 32; a transition is a 'pitfall' if Delta^MC_t <= -3 sigma (a drop of at least 12/32), a 'recovery' if Delta^MC_t >= 3 sigma, and 'MC-neutral' if |Delta^MC_t| < sigma. Predicted sign: Delta^pred_t = V_phi(s_{t+1}) - V_phi(s_t) < 0 predicts a pitfall, > 0 a recovery (group normalization preserves sign).",
+    "What the probe reports: SIGN AGREEMENT RATES, not a correlation coefficient. 72% of 76 MC pitfalls and 66% of 38 MC recoveries get the matching predicted sign (80/114 = 70.2% overall); on 1,533 MC-neutral transitions the critic predicts a decrease on 8% and an increase on 22%. By trajectory position: same-sign 44% / 78% / 88% in the first / middle / final third (n = 34 / 54 / 26); zero-change predictions 29% early vs 4% late; in 12 of 19 early disagreements the critic held or raised value where the MC value fell. Scope: AppWorld only, one training run, three checkpoints (25/50/75% of training), 30 tasks per checkpoint, one success and one failure each, 180 trajectories, 3,899 states, 114 events; a rule-based error-marker baseline (Traceback etc.) catches 13% of pitfalls. No probe on BabyAI or R2E-Gym."
+  ],
+  "load_bearing_assumption": "A frozen frontier model that is told the outcome and reads the whole finished trajectory assigns within-trajectory value changes whose signs match the acting policy's true changes in success probability. The group sum is exact by construction, so everything the method adds over GRPO lives in this within-trajectory split; the paper's own probe puts the sign agreement at 70% overall and 44% in the first third of a trajectory, and finds the critic 'not strictly on-policy' (it credits semantic progress where the student's measured odds fell). If the split is wrong often enough, LVRL is GRPO plus noise bought at frontier-API prices.",
+  "weakest_component": "The frozen critic is a proprietary API model with the outcome revealed, and the gain is a function of which model you can pay for: swapping Claude Opus 4.6 for Qwen3-235B as critic drops AppWorld (Qwen3-4B) from 24.3% to 9.8%, GLM-5.2 gives 22.3%. A critic attacks (a) the unmatched baselines: GRPO and PPO get no extra model in the loop while LVRL spends 92k to 100k frontier calls per AppWorld run at $0.06 to $0.14 each plus an equal summarization bill (order $10k per run), and no baseline is given that budget as extra rollouts (a Monte-Carlo or anchor-state alternative was never run); (b) the PPO baseline is a 4-layer MLP head sharing the student backbone, trained from scratch on sparse returns, which is the known-weak configuration; (c) the calibration ablation removes the endpoint anchors and the sibling context together, so nobody knows whether the 26.3 to 22.1 drop comes from the anchors (free) or the in-context siblings (the paid part); (d) the validation of the credit signal is sign agreement on 114 hand-thresholded events from one AppWorld run, no correlation, no other environment; (e) R2E-Gym / SWE-bench Verified is one training seed.",
+  "regime": "Students: Qwen3-4B and Qwen3-8B (AppWorld, BabyAI), Qwen3-8B and Qwen3-32B (R2E-Gym train, SWE-bench Verified eval), full fine-tuning, non-thinking mode. Critic: Claude Opus 4.6 with k = 3 in-context sibling summaries (LVRL); Qwen3-235B-A22B-Thinking as both critic and teacher (LVOPD). Group size G = 8; 64 parallel environments on 8 GPUs; 500 / 150 / 100 updates for AppWorld / BabyAI / R2E-Gym; three seeds except one seed on R2E-Gym. Horizons: AppWorld up to 50 turns in training and 70 at evaluation (Python REPL turns, each one code block); BabyAI 128 primitive steps with optimal paths of 14 to 71 actions; R2E-Gym 50 tool-call turns, 4,096 tokens per turn, 32k to 64k context. Pass-rate bands: AppWorld test-challenge base 4.2 / 10.9% to LVRL 24.3 / 26.3% (GRPO 10.7 / 19.8, PPO 14.8 / 17.5); SWE-bench Verified base 2.9 / 20.2% to LVRL 20.2 / 30.9% (GRPO 12.0 / 22.3, PPO 9.0 / 24.9); BabyAI base about 0% to LVRL 69.0 / 52.2 (4B, ID / OOD) and 75.0 / 65.5 (8B) while GRPO and PPO stay near 0. LVOPD on AppWorld: 20.2 (4B) and 23.3 (8B) vs pure OPD 17.0 / 22.2 and trajectory-gated 19.2 / 21.2; LVOPD fails on BabyAI (near 0). Critic cost per query: 9 to 20k input tokens, 0.6 to 1.9k output, $0.061 to $0.140 at $5 / $25 per million; 92,718 to 99,968 queries per AppWorld run, 8,838 (BabyAI), 8,030 (R2E-Gym).",
+  "information_asymmetry": "The method operates at training time, in hindsight, per group. What the frozen critic sees: the full text of the target trajectory (actions and truncated environment responses), the target's final outcome R(tau_i) stated in the prompt, the group success rate mu_G and the count of siblings with the same outcome, and one-line-per-step summaries of k = 3 randomly chosen siblings with their outcomes. What a Monte-Carlo value or a learned critic would have and this critic does not: (1) realized futures of the current policy from the exact state, which is what V^MC buys with 32 fresh continuations after re-executing the prefix; the frozen critic never samples a continuation and has no measurement of the student's competence beyond the k = 3 summaries, which the paper's own probe shows is not enough (it over-credits early preparatory steps because it judges the plan, not this student's odds of executing it); (2) the environment state itself (AppWorld's database and REPL namespace, the BabyAI map, the repository), which the critic sees only through text observations and truncated outputs; (3) cross-task, cross-update statistics that a learned critic accumulates, since each query here is stateless and sees one task's group. What exists at training time and the method never uses: the G - 1 - k = 4 siblings not placed in context; the siblings' realized continuations from matching states (anchor-state grouping of identical states across the same G = 8 rollouts, the GiGPO move, is free here and unused); the policy's own log-probabilities (the progress-advantage or log-ratio move); AppWorld's fraction of validation tests passed, which is logged for every episode but never enters reward or value; and the Monte-Carlo ground truth itself, which the paper computes on 3,899 states for analysis and never feeds back into the critic as calibration data or as a distillation target. The stated asymmetry the method does exploit is forward-vs-hindsight: at step t the policy cannot see that the ignored tool error at t will sink the task, the critic reading the finished trajectory can. The asymmetry it leaves on the table is per-trajectory-vs-per-group with environment access: the group's actual continuations from shared states are ground truth the LLM is asked to guess. Also note the critic's error is provably confined within-trajectory (the sum is exact), so the only open question is the within-trajectory split, and the only instrument the paper offers for grading that split is its 114-event MC probe on AppWorld.",
+  "occupies": "A frozen frontier LLM as a hindsight per-step value estimator, conditioned in-context on sibling rollout summaries and the group success rate, anchored at both ends so step differences telescope to the GRPO numerator, used as PPO advantages (LVRL) and as a negative-part gate on reverse-KL on-policy distillation (LVOPD), on AppWorld, BabyAI and R2E-Gym to SWE-bench Verified with Qwen3 4B to 32B; plus the state-reconstruction Monte-Carlo sign-agreement probe of such a critic on AppWorld.",
+  "neighbors": [
+    {
+      "id": "2410.01679",
+      "title": "VinePPO: Refining Credit Assignment in RL Training of LLMs",
+      "trick": "Estimate each step's value by actually sampling Monte-Carlo continuations from that step instead of training a value network; shown on math (MATH, GSM8K), where value networks barely beat random at ranking steps."
+    },
+    {
+      "id": "2505.10978",
+      "title": "Group-in-Group Policy Optimization for LLM Agent Training",
+      "trick": "Find identical environment states repeated across the rollout group, group the actions taken from them, and compute a second, step-level relative advantage from their outcomes; no extra rollouts, no extra model."
+    },
+    {
+      "id": "2603.08754",
+      "title": "Hindsight Credit Assignment for Long-Horizon LLM Agents",
+      "trick": "Use the policy LLM itself as a post-hoc critic that refines step Q-values by reasoning in hindsight, and patch the intermediate-state baselines with a multi-scale advantage; WebShop and ALFWorld with Qwen2.5-7B."
+    },
+    {
+      "id": "2604.10701",
+      "title": "Bringing Value Models Back: Generative Critics for Value Modeling in LLM Reinforcement Learning",
+      "trick": "Train a critic that reasons in chain-of-thought before emitting a value, and condition it in-context on the current actor's samples so it stays calibrated as the actor drifts."
+    },
+    {
+      "id": "2607.13988",
+      "title": "TRACE: Turn-level Reward Assignment via Credit Estimation for Long-Horizon Agents",
+      "trick": "Take a frozen reference model's log-probability of the gold answer at each tool-call boundary as the state value and use the one-step differences as per-action rewards; needs a gold answer, so it is for search QA."
+    }
+  ],
+  "theme_fit": [
+    {
+      "theme_id": "L2",
+      "score": 3,
+      "why": "Critic and value estimation for long-horizon agent RL; a lab-contested credit recipe (Apple), kept as the frozen-critic neighbor and for its MC sign-agreement protocol, which is the closest thing in this stream to validating a credit signal against ground truth."
+    },
+    {
+      "theme_id": "L1",
+      "score": 1,
+      "why": "The state-reconstruction Monte-Carlo probe (replay prefix, 32 continuations, 3-sigma binomial threshold) is a reusable ruler for grading any step-credit signal; here it is used once, on one environment, and reports sign agreement only."
+    },
+    {
+      "theme_id": "L3",
+      "score": 1,
+      "why": "The recipe's true cost is a frontier-API bill of order $10k per AppWorld run (critic plus summarizer) that the paper's own discussion names as prohibitive under throughput or budget limits; a cost-structure data point for agentic RL."
+    }
+  ],
+  "limitations_as_complaints": [
+    "My step credit is only as good as the frontier model I can afford to call: with Qwen3-235B as the critic instead of Claude Opus 4.6, AppWorld success fell from 24.3% to 9.8%, and my distillation variant, stuck with the weaker critic, learned nothing on BabyAI (paper's stated limitation 1).",
+    "Scoring every trajectory with a frontier model costs me $0.06 to $0.14 per query plus about the same again for summarization, roughly 100k queries for one AppWorld run; when my training throughput or budget is constrained this is prohibitive, and nobody has shown me how to query only when the signal is uncertain or how to distil it into a small local critic (paper's stated limitation 2).",
+    "The critic's step credit is unreliable early in a trajectory and is not really about my policy: it matches Monte-Carlo ground truth on 44% of early events against 88% of late ones, and in 12 of 19 early disagreements it credited 'semantic progress' where my student's measured success odds actually dropped (paper's section 4.4 analysis; separating the anchors from the in-context siblings is left to future work)."
+  ],
+  "evidence_level": "full-text",
+  "status": "mutated",
+  "history": [
+    {
+      "date": "2026-10-19",
+      "status": "carded",
+      "note": "full-text; fetched via /html (200); the API abstract call returned 'Rate exceeded' on its single allowed attempt, abstract taken from the seed record; neighbors confirmed by one API id_list call",
+      "model": "worker"
+    },
+    {
+      "date": "2026-10-19",
+      "status": "mutated",
+      "note": "stage 3 run; candidates in data/candidates/2026-W43.jsonl",
+      "model": "claude-fable-5-1"
+    }
+  ]
+}

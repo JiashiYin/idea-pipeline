@@ -1,0 +1,79 @@
+{
+  "id": "2610.20959",
+  "title": "Same Context, Different Agents: A Behavioral Study of Semantic Layers, Orchestration and Compaction in Data Agents",
+  "url": "https://arxiv.org/abs/2610.20959",
+  "week_carded": "2026-W43",
+  "seed_week": "2026-W42",
+  "trick": "Switch three context edits on and off for seven models, cluster each model's untouched traces into a habit, and show every edit helps only the habit it repairs and hurts models that already investigate.",
+  "framing_stripped": "Called a behavioral study of context-engineering techniques; it is a 2x2x2 factorial ablation of three scaffold switches (data description in the prompt, planner-plus-specialists, per-step history rewrite) with a post-hoc clustering of the seven models by their no-scaffold tool-use habit, reporting the sign of each switch's accuracy and dollar effect per cluster.",
+  "load_bearing_assumption": "A model's habit without any scaffold (looks vs answers blind vs gives up) is a stable property of the model across tasks and runs, so the cluster measured on baseline runs predicts the sign of a scaffold's effect; the paper's own Appendix C shows the premature-answering habit of GPT-5.4 is a reasoning-effort setting (24% blind answers at default, 3% at high), not the model, and Appendix H shows whether the layer makes an agent stop looking 'depends on the model rather than its group'.",
+  "weakest_component": "The behavior group itself: Ward clustering of n=7 model-mean vectors (12 trace features over baseline runs) into 3 clusters, where average and single linkage move GPT-5.4 and random draws of 5-50 baseline runs recognize GPT-5.4's group in only 39-55%; 'group effects' are means of 2-3 models and every cell is one run per task (about 1,514 tasks x 8 configurations x 7 models, inferred from the '~14,000 annotated runs' count; no repeated seeds, temperature left at provider defaults and not stated), so no cell has within-run variance and the critic will ask whether the group is the model, the setting, or the sample.",
+  "regime": "Seven LLMs (GPT-5.4, GPT-5.5, GPT-6 Astra, Claude Sonnet 5.5, Claude Opus 5.5, Gemini 2.5 Flash, GLM-4.7-Flash 30B/3B-active served locally), provider-default decoding; 1,514 question-answering-over-data tasks from KramaBench (104), DataClaw (492), FDABench reports (218) and multiple choice (320), HybridDeepResearch (380); eight configurations per model; budget 300 steps and 600 model calls per task, median 12 calls and 6.6 min per task; baseline accuracy 15-70% by model; cost is dollars per task at list price (6 Oct 2026, cached tokens at cache price where the provider records them), baseline $0.055 (GLM) to $8.46 (Astra); tokens and calls also reported. No training; evaluation only.",
+  "information_asymmetry": "The information that decides which scaffold helps is the agent's no-scaffold habit (share of runs that answer without a tool, give-up rate, grounded-answer share), and it exists only in hindsight over a set of baseline runs: the paper recovers a model's group from 5/10/20/50 random baseline runs in 73/82/87/92% of draws (Appendix B), yet every scaffold is chosen before any run and held fixed. The paper's own evidence splits the habit three ways: model (Opus stops looking under the layer, GPT-5.4 starts; 'depends on the model rather than its group'), setting (GPT-5.4's blind answering falls from 24% to 3% with reasoning on, GPT-5.5's stays at 78-94% at every effort), and task (compaction loops are predicted by the baseline run's length and the task's computation, AUC .79 and .76, and not by the agent's habit, AUC .50). So for compaction the deciding information is per-task (how many intermediate values the task will make the agent hold), which exists in the gold solution and in other agents' run lengths but not at step 0 of this run; for orchestration and the layer it is per-model and per-setting, observable after a handful of baseline runs. Within a run, the trace features used for clustering (acted yet, identical repeats, actions since last new information) are all computable mid-run, so the habit of the current run is available to the harness while the scaffold is still a static switch. The paper names 'systems that choose or adapt CETs to an agent's observed behavior' as future work. Measured step-repeat claim: 'compaction makes investigators repeat steps' rests on the 'No repeats' indicator (no identical repeated call) and the 'Long loops' indicator (>=100 model calls); compaction lowers no-repeats for GPT-5.5 by 16, Astra 12, GLM 10 points, 42% of GPT-5.5 DataClaw runs reach >=100 calls (none without compaction), 81% of premature answerers' repeats re-check a value still in memory while early stoppers' repeats refetch what a rewrite dropped; for investigators the body text says compaction 'changes little' (no behavior-type move reaches 2.5% of runs) and the repeat rise is on the longest third of tasks, carried mostly by Astra.",
+  "occupies": "The full 2x2x2 ablation of semantic layer, orchestration and compaction over seven models and five data-agent benchmarks; the three-habit taxonomy (investigator, premature answerer, early stopper) from trace clustering; the sign rule that a scaffold helps the habit it repairs and lowers accuracy for agents that already investigate; the budget-matched control showing orchestration's gain is structure not calls (forced-act and forced-budget arms close 7-37% of the gap); and the cost finding that compaction shrinks prompts but raises dollars 1.2-1.8x through 2.3-3.5x output tokens and lost prefix cache.",
+  "neighbors": [
+    {
+      "id": "2512.08296",
+      "title": "Towards a Science of Scaling Agent Systems",
+      "trick": "Fit a predictive model of accuracy over 260 single- and multi-agent configurations with standardized tools and compute, and find coordination stops paying once the single agent is already strong."
+    },
+    {
+      "id": "2609.15779",
+      "title": "EvoOntology: A Self-Evolving Ontology Layer for Data Agents",
+      "trick": "Serve the data description as a queryable tool server built by an agent and edited over time, accepting an edit only after a paired evaluation conditioned on the backbone model."
+    },
+    {
+      "id": "2604.02460",
+      "title": "Single-Agent LLMs Outperform Multi-Agent Systems on Multi-Hop Reasoning Under Equal Thinking Token Budgets",
+      "trick": "Hold reasoning tokens constant and show a single agent matches or beats multi-agent systems, so reported multi-agent gains are mostly unaccounted compute and context effects."
+    },
+    {
+      "id": "2508.21433",
+      "title": "The Complexity Trap: Simple Observation Masking Is as Efficient as LLM Summarization for Agent Context Management",
+      "trick": "Drop old tool observations instead of summarizing them with an LLM; on SWE-bench Verified this halves cost and matches the summarizer's solve rate."
+    },
+    {
+      "id": "2510.00615",
+      "title": "ACON: Optimizing Context Compression for Long-horizon LLM Agents",
+      "trick": "Rewrite the compression prompt from failure analyses of the agent's runs until compressed histories stop losing state, then distill the compressor into a smaller model."
+    }
+  ],
+  "theme_fit": [
+    {
+      "theme_id": "L4",
+      "score": 3,
+      "why": "compaction and orchestrator handoffs measured for accuracy, dollars, grounding loss and loops, by model habit and task length, in a controlled factorial"
+    },
+    {
+      "theme_id": "L1",
+      "score": 2,
+      "why": "attributes outcome change to scaffold component versus agent habit versus task demand, with a budget-matched control arm and the finding that process scores rise while accuracy falls"
+    },
+    {
+      "theme_id": "L3",
+      "score": 1,
+      "why": "compaction as a cost lever measured honestly: input barely falls, output tokens rise 2.3-3.5x, and rewritten prompts lose the provider's prefix cache"
+    }
+  ],
+  "limitations_as_complaints": [
+    "I can only switch a scaffold on or off before the run and leave it there; nothing in the harness reads the agent's own trace (did it act, is it repeating itself) and picks or drops the scaffold for that agent or that run, although the paper says this 'could pay off' (Limitations).",
+    "Each of the three scaffolds is tested in one representative design; I cannot tell from this whether a different compaction (dropping old observations instead of rewriting a memory) or a different orchestration would still produce the loops and the overconfidence, and the authors say other designs are future work (Limitations).",
+    "The three habits come from seven models on question-answering-over-data tasks; the authors say newer models 'may show behaviors beyond the three groups' and that software engineering or math agents 'place different demands', so placing a new model or domain means rerunning the baseline, and even here GPT-5.4's group is recognized in only 39-55% of random draws (Limitations; Appendix B)."
+  ],
+  "evidence_level": "full-text",
+  "status": "mutated",
+  "history": [
+    {
+      "date": "2026-10-19",
+      "status": "carded",
+      "note": "full-text; fetched via API + /html",
+      "model": "worker"
+    },
+    {
+      "date": "2026-10-19",
+      "status": "mutated",
+      "note": "stage 3 run; candidates in data/candidates/2026-W43.jsonl",
+      "model": "claude-fable-5-1"
+    }
+  ]
+}
