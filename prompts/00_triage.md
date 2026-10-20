@@ -1,17 +1,27 @@
 # Stage 1 — Triage
 
-You are triaging a batch of seeds (papers, issues, calls) against the lanes in `config/themes.yaml` (L1–L5;
-if only `config/themes.proposed.yaml` exists, use it). Cheap model; be fast and decisive. Read the lane sentences
-and the positioning spec first, then every seed's title and abstract. Retired theme ids (T1, T2) are never scored.
+You are triaging a batch of seeds (papers, issues, calls) against the lanes in `config/themes.yaml` (L1–L5) and
+the open lane L0. Cheap model; be fast and decisive. Read the lane sentences, the `policy` and `open_lane` blocks and
+the positioning spec first, then every seed's title and abstract. Retired theme ids (T1, T2) are never scored.
+
+Lanes are priorities, not walls (2026-10-19). A seed that fits no lane is not dropped for that reason alone: it is kept
+as a **scout** (lane L0) if it passes the headline test in `themes.yaml` — its result or gap can be said as one
+sentence a stranger would repeat and that would be news if true; the positioning spec holds; it is not a frontier
+lab's recipe fight. At most `scout_quota_per_week` scouts (config/generation.yaml) per week, best first; upvotes,
+fame and polish are not reasons. The `scout` stream (Hugging Face daily papers, source `hf_daily`) is judged on the
+headline test only; rank it by upvotes, read the top 30 abstracts, keep ≤ 5. A scout record gets `scout: true`,
+`scout_theme: <two or three words naming the theme>`, `theme_fit: {L0: 3, ...}`, and a reason that states the
+one-sentence headline it could carry.
 
 For each seed output exactly:
 
 ```
 id: <id>
-theme_fit: {L1: <0-3>, L2: <0-3>, L3: <0-3>, L4: <0-3>, L5: <0-3>}
+theme_fit: {L1: <0-3>, L2: <0-3>, L3: <0-3>, L4: <0-3>, L5: <0-3>, L0: <0 or 3 — 3 only for a kept scout>}
 source: <watch | complaint | pressure | import | owned | definitive | chat — copy from the seed's stream>
 status: kept | dropped
-reason: <one line, plain words, ≤ 25 words>
+reason: <one line, plain words, ≤ 25 words; for a scout, the headline it could carry>
+scout: <true only for a kept L0 scout>   scout_theme: <two or three words, scouts only>
 ```
 
 Scoring (from `themes.yaml`): 3 = directly answers a question in a lane sentence; 2 = supplies a neighbor,

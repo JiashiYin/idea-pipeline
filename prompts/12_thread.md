@@ -15,9 +15,11 @@ note is the view.
    (commands, data, GPU-hours, dollars); in Decisions, at most three. Write these into the records (candidate
    `kill_search.summary`, claim `decisions`, `first_steps`) so the next regeneration keeps them — never only into
    the note.
-3. The `## Jacob` section is his. Never overwrite it. Before regenerating, read it: a mark (`promote`,
-   `jacob-dropped`, `park: <reason>`) is applied to the claim and probe records with a history entry; a question is
-   answered in the Log with a dated line. His marks win over the automatic ranking.
+3. The `## Jacob` section is his. Never overwrite it. `python scripts/threads.py --inbox` lists the sections with
+   marks not yet applied (a hash of each applied section is kept in `data/threads/.applied.json`); every session and
+   every scheduled run starts with it. A mark (`promote`, `jacob-dropped`, `park: <reason>`) is applied to the claim
+   and probe records with a history entry; a question is answered in the Log with a dated, fetched line; then
+   `--mark-applied <id>`. His marks win over the automatic ranking. He never has to announce that he wrote something.
 4. A thread exists for every claim, including claims born from `/capture` (status `thought` until graded).
    Orphan probes have no thread; three orphans on one theme are a missing claim — write it.
 5. The digest links each ranked claim to its thread folder.

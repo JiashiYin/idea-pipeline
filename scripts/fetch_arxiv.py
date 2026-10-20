@@ -111,16 +111,65 @@ def parse(body: str) -> list[dict]:
     return out
 
 
+def fetch_scouts(scfg: dict, days: int, today: dt.date, pause: float) -> tuple[list[dict], list[dict]]:
+    """Scout stream (2026-10-19, Jacob: lanes are priorities, not walls): the papers the community is reading this
+    week regardless of our lanes — Hugging Face daily papers, which rank arXiv papers by reader upvotes. One request
+    per day in the window; keep a paper if its upvotes clear `min_upvotes` or it is in the day's top `top_per_day`.
+    Triage judges these on the headline test, not on lane fit (prompts/00_triage.md)."""
+    out: list[dict] = []
+    degraded: list[dict] = []
+    base = scfg.get("hf_daily_url", "https://huggingface.co/api/daily_papers")
+    for back in range(days):
+        day = (today - dt.timedelta(days=back)).isoformat()
+        url = f"{base}?date={day}"
+        try:
+            CACHE_DIR.mkdir(parents=True, exist_ok=True)
+            key = hashlib.sha1(url.encode()).hexdigest()
+            path = CACHE_DIR / f"{key}.json"
+            if path.exists() and dt.datetime.now() - dt.datetime.fromtimestamp(path.stat().st_mtime) < CACHE_TTL:
+                body = path.read_text()
+            else:
+                req = urllib.request.Request(url, headers={"User-Agent": "idea-pipeline/0.1 (research tooling)"})
+                with urllib.request.urlopen(req, timeout=60) as r:
+                    body = r.read().decode("utf-8")
+                path.write_text(body)
+                time.sleep(pause)
+            items = json.loads(body)
+        except Exception as e:  # degraded, not blocked
+            degraded.append({"query": f"scout_hf_daily:{day}", "error": str(e)[:200]})
+            continue
+        ranked = sorted(items, key=lambda x: -(x.get("paper", {}).get("upvotes") or 0))
+        for rank, item in enumerate(ranked):
+            p = item.get("paper") or {}
+            up = p.get("upvotes") or 0
+            if rank >= scfg.get("top_per_day", 10) and up < scfg.get("min_upvotes", 40):
+                break
+            pid = p.get("id") or ""
+            if not re.fullmatch(r"\d{4}\.\d{4,5}", pid):
+                continue
+            out.append({
+                "id": pid, "title": re.sub(r"\s+", " ", p.get("title") or "").strip(),
+                "authors": [a.get("name", "") for a in (p.get("authors") or []) if isinstance(a, dict)],
+                "abstract": re.sub(r"\s+", " ", p.get("summary") or "").strip(),
+                "categories": [], "published": (p.get("publishedAt") or "")[:10], "url": f"https://arxiv.org/abs/{pid}",
+                "upvotes": up, "hf_daily_date": day, "query_id": "scout_hf_daily",
+            })
+    return out, degraded
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--days", type=int, default=None, help="window in days (default: sources.yaml window_days)")
     ap.add_argument("--week", default=None, help="ISO week label for the output file (default: this week)")
     ap.add_argument("--max", type=int, default=None, help="max results per query")
     ap.add_argument("--only", default=None, help="comma-separated query ids to run")
+    ap.add_argument("--no-scouts", action="store_true", help="skip the scout stream (Hugging Face daily papers)")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
-    cfg = yaml.safe_load(SOURCES.read_text())["arxiv"]
+    allcfg = yaml.safe_load(SOURCES.read_text())
+    cfg = allcfg["arxiv"]
+    scout_cfg = allcfg.get("scout") or {}
     days = args.days or cfg["window_days"]
     max_results = args.max or cfg["max_results_per_query"]
     pause = float(cfg.get("pause_seconds", 3))
@@ -169,6 +218,29 @@ def main() -> int:
             rec = {**ent, "source": "arxiv", "stream": q["stream"], "themes_hint": q.get("themes", []),
                    "matched_queries": [q["id"]], "status": "new", "triage_reason": "",
                    "history": [{"date": today.isoformat(), "status": "new", "note": f"fetched by {q['id']}"}]}
+            existing[ent["id"]] = rec
+            seen.add(ent["id"])
+            run["new"] += 1
+
+    # Scout stream: community-notable papers regardless of lane (lane L0 at triage).
+    if scout_cfg.get("enabled", True) and not args.no_scouts and not args.only:
+        scouts, degraded = fetch_scouts(scout_cfg, min(days, int(scout_cfg.get("window_days", 7))), today, pause)
+        run["degraded"].extend(degraded)
+        run["per_query"]["scout_hf_daily"] = len(scouts)
+        for ent in scouts:
+            if ent["id"] in existing:
+                rec = existing[ent["id"]]
+                rec.setdefault("upvotes", ent["upvotes"])
+                if "scout_hf_daily" not in rec["matched_queries"]:
+                    rec["matched_queries"].append("scout_hf_daily")
+                continue
+            if ent["id"] in seen:
+                continue
+            ent = {k: v for k, v in ent.items() if k != "query_id"}
+            rec = {**ent, "source": "hf_daily", "stream": "scout", "themes_hint": ["L0"],
+                   "matched_queries": ["scout_hf_daily"], "status": "new", "triage_reason": "",
+                   "history": [{"date": today.isoformat(), "status": "new",
+                                "note": f"scout stream: Hugging Face daily papers {ent['hf_daily_date']}, {ent['upvotes']} upvotes"}]}
             existing[ent["id"]] = rec
             seen.add(ent["id"])
             run["new"] += 1

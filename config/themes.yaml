@@ -1,11 +1,30 @@
-# PROPOSED replacement for config/themes.yaml — the first law, rewritten from two dead mechanisms to lanes.
-# Jacob approves by running:  git mv config/themes.proposed.yaml config/themes.yaml
-# The machine never edits themes.yaml; it may propose. Keep to 3–5 lanes plus one off-radar bet.
+# config/themes.yaml — the first law: lanes, the open lane, and the positioning spec. Adopted by Jacob 2026-10-17.
+# The machine never edits this file on its own; it proposes lanes in the digest. Jacob edits it.
 # Each lane: one sentence a stranger could repeat; hints the triage model may use (never as the rule);
 # what is out of scope; which route it serves; its default positioning verdict.
 
-version: 2026-10-17
+version: 2026-10-19
 owner: Jacob Yin
+
+policy: >
+  Lanes are priorities, not walls (Jacob, 2026-10-19: "I am new; keep open to new interesting themes").
+  Lane fit decides where the fetch looks hardest and which seeds get cards first; it does not by itself
+  drop a seed. A seed outside every lane is kept as a scout (lane L0) when it passes the headline test
+  below, up to the weekly scout quota in config/generation.yaml. Three scouts on one theme in a month
+  propose a new lane in the digest, with the sentence, hints and routes drafted; Jacob adopts by adding
+  the lane here. A lane that produced no live claim for two months is proposed for retirement the same way.
+
+open_lane:
+  id: L0
+  name: Scout — anything headline-worthy outside the lanes
+  headline_test: >
+    Keep a scout only if (1) its result or the gap it leaves can be said as one sentence a stranger would
+    repeat and that would be news if true, and (2) the positioning spec still holds — lab-adjacent,
+    measurement or systems register, something a solo first-year could probe under one GPU-week —
+    and (3) it is not a frontier lab's core recipe fight. Famous, well-written or heavily upvoted is not a reason.
+  quota: see config/generation.yaml scout_quota_per_week
+  cards: at most 2 of the week's 8 trick cards go to scouts
+  promotion: three scouts on one theme (same scout_theme words) in six weeks -> proposed lane in the digest
 
 positioning_spec: >
   On radar, but lab-adjacent: not head-to-head with a frontier post-training or infrastructure team's
@@ -168,5 +187,6 @@ retirement_rules:
 
 # Triage scoring per lane, 0–3 (lane ids L1–L5 are written into the theme_id fields of cards and candidates): 3 = directly answers a question in the lane sentence; 2 = supplies a
 # neighbor, a baseline, a ground-truth method, an incumbent or an enabling piece; 1 = same words, different
-# problem; 0 = unrelated. Keep if any lane scores >= 2. The positioning_default is recorded on the seed
-# and decides nothing at triage; it decides at the kill search (Gate 6, position clause).
+# problem; 0 = unrelated. Keep if any lane scores >= 2; otherwise keep as a scout (L0) only on the headline test
+# above, within the quota. The positioning_default is recorded on the seed and decides nothing at triage; it
+# decides at the kill search (Gate 6, position clause).

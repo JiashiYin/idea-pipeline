@@ -7,8 +7,10 @@ is the view. The `## Jacob` section of an existing note is preserved verbatim ac
 Jacob writes marks and questions; the operator reads it and applies marks to the records (CLAUDE.md "What Jacob
 sees"). Orphan registers (records with kind: orphan_register) are listed in the index, not given a folder.
 
-  python scripts/threads.py            # refresh every thread note and data/threads/README.md
-  python scripts/threads.py CL-W43-01  # one thread (the index is always rewritten)
+  python scripts/threads.py                     # refresh every thread note and data/threads/README.md
+  python scripts/threads.py CL-W43-01           # one thread (the index is always rewritten)
+  python scripts/threads.py --inbox             # list threads whose `## Jacob` section has marks not yet applied
+  python scripts/threads.py --mark-applied CL-W43-01   # record that the operator applied that section (hash in .applied.json)
 Standard library only.
 """
 from __future__ import annotations
@@ -28,7 +30,7 @@ JACOB_DEFAULT = (
     "## Jacob\n\n"
     "<!-- Yours. Preserved verbatim on every refresh. Write marks here: `promote`, `jacob-dropped`, `park: <reason>`,\n"
     "     a question, a correction. The operator applies marks to the records and answers questions in the Log. -->\n\n"
-    "- status mark: (none)\n- notes:\n"
+    "- status mark: (none)\n- notes:\n\n"
 )
 GATE_NAMES = {
     "G0": "premise hygiene (conditioning set, whose temperature, fetched numbers)",
@@ -288,7 +290,82 @@ def existing_jacob_section(path: Path) -> str:
     if i < 0:
         return JACOB_DEFAULT
     j = text.find("\n## ", i + len(JACOB_HEADER))
-    return text[i:] if j < 0 else text[i:j] + "\n"
+    section = text[i:] if j < 0 else text[i:j]
+    return section.rstrip() + "\n"            # normalised: no blank lines accumulate across regenerations
+
+
+# ----------------------------------------------------------------------------- Jacob's inbox
+
+APPLIED = THREADS / ".applied.json"
+
+
+def jacob_hash(section: str) -> str:
+    import hashlib
+    body = "\n".join(l for l in section.splitlines() if not l.startswith("<!--") and not l.startswith("     ")).strip()
+    return hashlib.sha1(body.encode()).hexdigest()[:12]
+
+
+def jacob_is_blank(section: str) -> bool:
+    return jacob_hash(section) == jacob_hash(JACOB_DEFAULT)
+
+
+def load_applied() -> dict[str, str]:
+    return json.loads(APPLIED.read_text()) if APPLIED.exists() else {}
+
+
+def inbox(claims: dict[str, dict]) -> list[tuple[str, Path, str]]:
+    """Threads whose Jacob section is non-blank and differs from the last applied hash."""
+    applied = load_applied()
+    out = []
+    for cid, claim in claims.items():
+        for folder in THREADS.glob(f"{cid}-*"):
+            note = folder / "THREAD.md"
+            if not note.exists():
+                continue
+            section = existing_jacob_section(note)
+            if jacob_is_blank(section):
+                continue
+            if applied.get(cid) != jacob_hash(section):
+                out.append((cid, note, section))
+    return out
+
+
+def mark_applied(cids: list[str]) -> None:
+    applied = load_applied()
+    for cid in cids:
+        for folder in THREADS.glob(f"{cid}-*"):
+            note = folder / "THREAD.md"
+            if note.exists():
+                applied[cid] = jacob_hash(existing_jacob_section(note))
+    APPLIED.write_text(json.dumps(applied, indent=1, sort_keys=True) + "\n")
+
+
+# ----------------------------------------------------------------------------- scouts (off-lane seeds kept on the headline test)
+
+def recent_scouts(weeks: int = 6) -> list[dict]:
+    files = sorted(glob.glob(str(ROOT / "data" / "seeds" / "*.jsonl")))[-weeks:]
+    out = []
+    for p in files:
+        for r in load_jsonl(Path(p)):
+            if r.get("scout") and r.get("status") not in ("dropped", "jacob-dropped"):
+                r = dict(r)
+                r["_week"] = Path(p).stem
+                out.append(r)
+    return out
+
+
+def active_lock() -> dict | None:
+    p = ROOT / "data" / "runs" / "ACTIVE.json"
+    if not p.exists():
+        return None
+    try:
+        lock = json.loads(p.read_text())
+        started = dt.datetime.fromisoformat(str(lock.get("started", "")).replace("Z", "+00:00"))
+        if dt.datetime.now(dt.timezone.utc) - started > dt.timedelta(hours=3):
+            return None
+        return lock
+    except Exception:
+        return None
 
 
 def log_section(claim: dict, ids: list[str], cands: dict[str, dict]) -> str:
@@ -390,12 +467,30 @@ def write_index(claims: dict[str, dict], orphans: list[dict], cands: dict[str, d
     lines = ["# Threads — one folder per claim, one note per folder", "",
              f"Refreshed {today}. Each `THREAD.md` is regenerated from the records by `python scripts/threads.py`; your",
              "`## Jacob` section is preserved verbatim. Read a note top to bottom: Status, the claim, scorecard, gates, probes,",
-             "kill search, red team, first steps, decisions — then write in your section. Ranked by the claims stage.", "",
-             "| Rank | Lane | Claim | Status | Headline | Probes (survived) | Cheapest | Failing gate | Folder |",
-             "| --- | --- | --- | --- | --- | --- | --- | --- | --- |"]
+             "kill search, red team, first steps, decisions — then write in your section. Ranked by the claims stage.",
+             "Lost? The user guide is [`README.md`](../../README.md) at the repository root.", ""]
+    lock = active_lock()
+    if lock:
+        lines += [f"> **A run is in progress** ({lock.get('operator', '?')}, started {lock.get('started', '?')} UTC) on: "
+                  f"{', '.join(lock.get('scope', [])) or 'the whole week'}. Leave those records alone until it pushes.", ""]
+    pending = inbox(claims)
+    if pending:
+        lines += ["> **Your marks waiting to be applied:** " + ", ".join(cid for cid, _, _ in pending)
+                  + " — the next run or `/inbox` applies them.", ""]
+    lines += ["| Rank | Lane | Claim | Status | Headline | Probes (survived) | Cheapest | Failing gate | Folder |",
+              "| --- | --- | --- | --- | --- | --- | --- | --- | --- |"]
     for rank, lane, cid, status, headline, n, surv, cheapest, failing, folder in rows:
         lines.append(f"| {rank if rank != 99 else '—'} | {lane} | {cid} | {status} | {clip(headline, 160)} | {n} ({surv}) | {cheapest} | "
                      f"{clip(failing, 60)} | [`{folder}`](./{folder}/THREAD.md) |")
+    scouts = recent_scouts()
+    if scouts:
+        lines += ["", "## Scouts — off-lane papers kept on the headline test (lane L0)", "",
+                  "Not in any lane; kept because their result or gap could carry a headline. Three scouts on one theme propose a new",
+                  "lane in the digest; you adopt a lane by editing `config/themes.yaml`. Mark `jacob-dropped` in the seed, or say so in a session.", "",
+                  "| Week | Paper | Theme | Why kept |", "| --- | --- | --- | --- |"]
+        for s in sorted(scouts, key=lambda r: r["_week"], reverse=True):
+            lines.append(f"| {s['_week']} | `{s.get('id', '')}` {clip(s.get('title', ''), 80)} | {clip(s.get('scout_theme', ''), 40)} | "
+                         f"{clip(s.get('triage_reason') or s.get('reason', ''), 160)} |")
     if orphans:
         lines += ["", "## Orphan probes (no claim yet)", "",
                   "Probes without a headline are footnotes until a claim is written over them (three on one theme = a missing claim).", ""]
@@ -411,6 +506,21 @@ def main(argv: list[str]) -> int:
     today = dt.date.today().isoformat()
     claims, orphans = latest_claims()
     cands = all_candidates()
+    if "--inbox" in argv:
+        pending = inbox(claims)
+        if not pending:
+            print("inbox empty: no unapplied marks in any `## Jacob` section")
+            return 0
+        for cid, note, section in pending:
+            body = "\n".join(l for l in section.splitlines()[1:] if l.strip() and not l.startswith("<!--") and not l.startswith("     "))
+            print(f"== {cid}  ({note.relative_to(ROOT)})\n{body}\n")
+        print(f"{len(pending)} thread(s) with marks to apply; after applying, run: python scripts/threads.py --mark-applied <id> ...")
+        return 0
+    if "--mark-applied" in argv:
+        ids = [a for a in argv[argv.index("--mark-applied") + 1:] if not a.startswith("--")]
+        mark_applied(ids)
+        print(f"marked applied: {', '.join(ids) or '(none)'}")
+        return 0
     want = [a for a in argv[1:] if a != "all"] or list(claims)
     unknown = [w for w in want if w not in claims]
     if unknown:

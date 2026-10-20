@@ -3,13 +3,22 @@
 This repository is a weekly machine that turns new papers, complaints and cross-field imports into a
 small number of pre-argued research candidates for one researcher (Jacob). You are the operator. Jacob's
 time is the scarce resource: everything you produce must be high-signal, short, plain, and end with at
-most three decisions only he can make.
+most three decisions only he can make. The user guide — what this is, where Jacob looks, how he steers,
+what to do in a session — is `README.md`; keep it true when you change the machine.
+
+## Session start, every time
+
+`git pull --rebase origin main`; read `data/runs/ACTIVE.json` (a live lock under 3 hours old means another
+operator is running — stay out of its scope); `python scripts/threads.py --inbox` and apply Jacob's marks before
+anything else (`/inbox`). End every session with a push.
 
 ## The one rule that governs everything
 
-`config/themes.yaml` is the law: lanes (L1–L5) plus the positioning spec (2026-10-17; the proposal is
-`config/themes.proposed.yaml` until Jacob renames it). A seed, card or candidate that does not serve a lane is
-dropped at triage with one line of reason. Do not widen the lanes yourself; propose a change as a decision.
+`config/themes.yaml` is the law: lanes (L1–L5), the open lane L0, and the positioning spec. Lanes are
+**priorities, not walls** (Jacob, 2026-10-19): lane fit decides where the fetch looks hardest and which seeds get
+cards first; a seed outside every lane is kept as a **scout** (L0) when it passes the headline test in
+`themes.yaml`, within `scout_quota_per_week`; three scouts on one theme propose a new lane in the digest, and a
+lane with no live claim for two months is proposed for retirement. The machine never edits `themes.yaml`; Jacob does.
 
 `config/standards.md` is the second law (2026-10-16): the gates an idea must pass to be called golden,
 proper, parked or a thought. Every grading stage names the gate that failed. The bar is all-or-nothing; a
@@ -19,7 +28,7 @@ week with zero golden ideas is normal, and the kill record and parked list are t
 
 | Stage | Command | Cadence | Reads | Writes |
 | --- | --- | --- | --- | --- |
-| 0 Fetch | `/fetch` → `bash scripts/run_week.sh` | weekly | `config/sources.yaml` | `data/seeds/<week>.jsonl`, `data/runs/` |
+| 0 Fetch | `/fetch` → `bash scripts/run_week.sh` | weekly | `config/sources.yaml` (lane queries + scout stream) | `data/seeds/<week>.jsonl`, `data/runs/` |
 | 1 Triage | `/triage <week>` | weekly | seeds, lanes | `status`, lane fits, `source` on every seed |
 | 2 Card | `/card <arxiv-id>` | weekly, ≤8 | one seed | `data/cards/<id>.json`; limitations → complaint seeds |
 | 3 Mutate | `/mutate <id>` | weekly | one card | candidates in `data/candidates/<week>.jsonl` |
@@ -34,6 +43,8 @@ week with zero golden ideas is normal, and the kill record and parked list are t
 | 12 Threads | `/thread <id\|all>` → `python scripts/threads.py` | after claims, kills, red teams | claims, candidates | `data/threads/<claim>/THREAD.md`, `data/threads/README.md` — Jacob's interface |
 | 10 Digest | `/digest <week>` | weekly, last | all of `data/` | `data/digests/<week>.md`, `ledger/scoreboard.jsonl` |
 | — Discuss | `/discuss <id>` | ad hoc | one thread | a session on one idea; conclusions into the thread's Log |
+| — Inbox | `/inbox` → `python scripts/threads.py --inbox` | every session start | `## Jacob` sections | marks applied to records; answers in the Log |
+| — Sprint | `/sprint <id\|generate\|scout\|kill\|inbox>` | on demand, any day | `prompts/13_sprint.md` | one thread advanced to its next gate, or a generation / scout / kill pass; lock in `data/runs/ACTIVE.json` |
 | — Capture | `/capture <idea>` | ad hoc | conversation | a claim (`status: thought`), its thread folder, one seed with `source: chat` |
 | — Week | `/week <week>` | Sunday | everything above | the whole cycle; what the scheduled task runs |
 
@@ -85,6 +96,11 @@ survived a kill search done this week.
     (`claim_id`) or is an orphan; the digest ranks claims, then probes; the kill searches run automatically on
     the top probes, claim by claim (`config/generation.yaml`: `auto_kill_monday: true`, `kill_budget_per_week`).
     What is pitched, pursued and called golden is a claim.
+16. **On demand as well as Sunday** (Jacob, 2026-10-19). The machine runs whenever Jacob has hours: `/sprint` in Claude
+    Code advances one thread, generates, scouts, kills or clears the inbox, under the sync protocol in
+    `prompts/13_sprint.md` — pull first, a lock in `data/runs/ACTIVE.json` with the ids in scope (stale after 3 hours),
+    one stage per commit and push, never inside another operator's live scope, `.jsonl` conflicts keep both sides.
+    Scheduled runs write the same lock. Only `/week` is Sunday's alone.
 
 ## Definitions
 
@@ -143,10 +159,12 @@ his section, log, records). Everything else in `data/` is the machine's working 
 
 He steers in four places, all files: `config/themes.yaml` (lanes and positioning — the biggest lever),
 `config/standards.md` (the gates), the `## Jacob` section of any thread note (`promote`, `jacob-dropped`,
-`park: <reason>`, questions — applied to records by the next `/thread` or `/week`; his marks win), and
-`config/fields.yaml` (shapes and fields for imports). When he has an idea: `/capture <one sentence>` makes a
-thread; `/discuss <id>` opens a session on an existing one. He never needs to read seeds, cards or candidate
-JSON. If a record has `status: jacob-dropped`, never revive it without a new reason in `history`.
+`park: <reason>`, questions — found by `python scripts/threads.py --inbox` at the start of every session and
+every scheduled run, applied to the records, answered in the Log; he never has to announce them; his marks win),
+and `config/fields.yaml` (shapes and fields for imports). When he has an idea: `/capture <one sentence>` makes a
+thread; `/discuss <id>` opens a session on an existing one; `/sprint <id>` pushes one to its next gate tonight.
+He never needs to read seeds, cards or candidate JSON. If a record has `status: jacob-dropped`, never revive it
+without a new reason in `history`.
 
 ## What is code and what is an agent
 

@@ -20,8 +20,12 @@ Written last in the weekly run, from the files, never from memory of the run. Fo
 6. Claims, ranked (from `data/claims/claims.jsonl`), each linked to its folder under `data/threads/`: headline, the belief it would change and for whom, the probes
    under it with costs, status, failing gate if any. Then the top 3 probes by scorecard with kill-probe cost and
    position. This is Jacob's hour. Kill searches run automatically on the top probes; say which ran and their verdicts.
-7. Checklist lessons added this week, one line each.
-8. Decisions only Jacob can make, at most three.
+7. Scouts and proposed lanes: the scouts kept this week (paper, scout_theme, the headline it could carry); any theme
+   with three scouts in six weeks becomes a **proposed lane** here — sentence, hints, out_of_scope, routes drafted in
+   the themes.yaml format, ready to paste; any lane with no live claim for two months is proposed for retirement.
+   Jacob adopts or declines by editing `config/themes.yaml`; the machine never edits it.
+8. Checklist lessons added this week, one line each.
+9. Decisions only Jacob can make, at most three.
 
 Write `data/digests/<week>.md`, update `ledger/LEDGER.md` if the renderer exists (else append the week's
 counts to `ledger/scoreboard.jsonl`), commit and push (CLAUDE.md rule 10). Reply to Jacob with the digest's

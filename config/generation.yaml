@@ -22,6 +22,12 @@ throughput_targets:          # per week; the digest reports actuals against thes
   kill_searches: 3
   reports: 1
 
+scout_quota_per_week: 5      # 2026-10-19 (Jacob: lanes are priorities, not walls): off-lane seeds kept as lane L0 on the headline
+                             # test in config/themes.yaml; at most 2 of the week's 8 cards; three on a theme in six weeks -> proposed lane
+on_demand:                   # 2026-10-19: the machine is not only Sunday's. Jacob runs sprints in Claude Code whenever he has hours.
+  sprint_command: "/sprint <claim-id | generate | scout | inbox>"
+  lock_file: data/runs/ACTIVE.json     # {operator, started (UTC ISO), scope: [ids]}; stale after 3 hours; committed and pushed at start, removed at end
+  rule: "pull --rebase first; one stage, one commit, one push; never touch records inside another operator's live lock scope; a .jsonl conflict keeps both sides' lines"
 portfolio_rule: "at least 3 live seeds (status proposed or survived-kill) in 3 different lanes at all times; a week may not end with a single live thread"
 
 auto_kill_monday: true       # Jacob 2026-10-19: kill searches run automatically whenever applicable — the top `kill_budget_per_week`
@@ -43,6 +49,7 @@ digest:                      # data/digests/<week>.md, one page, written last in
     - "Triggers fired: parked items whose re-open condition changed"
     - "Scoop watch: papers that landed on parked or killed items (counted as generator hits)"
     - "Claims ranked (headline, belief it would change, probes under it, status), then the top 3 probes by scorecard with kill-probe cost — Jacob's hour"
+    - "Scouts kept this week and any proposed lane (three scouts on a theme) or proposed retirement (no live claim for two months)"
     - "Checklist lessons added this week"
   max_words: 600
 

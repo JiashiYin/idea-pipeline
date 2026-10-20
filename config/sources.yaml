@@ -7,14 +7,25 @@
 # Density lesson (W41–W42): queries must carry mechanism words AND the field's role words; problem
 # vocabulary alone found a fraction of the neighbors.
 
-version: 2026-10-17
+version: 2026-10-19
+
+# Scout stream (2026-10-19, Jacob: lanes are priorities, not walls — stay open to new themes). The papers the community
+# is reading this week regardless of our lanes: Hugging Face daily papers rank arXiv papers by reader upvotes. Triage
+# judges scouts on the headline test (prompts/00_triage.md) and keeps at most `scout_quota_per_week`
+# (config/generation.yaml) as lane L0. Three scouts on one theme propose a lane in the digest.
+scout:
+  enabled: true
+  hf_daily_url: https://huggingface.co/api/daily_papers
+  window_days: 7
+  top_per_day: 6              # always consider the day's top 6 by upvotes ...
+  min_upvotes: 60             # ... plus anything past this bar (about 50 scouts a week; triage keeps at most 5)
 
 arxiv:
   base_url: https://export.arxiv.org/api/query
   pause_seconds: 3            # arXiv's stated policy
   window_days: 7
   max_results_per_query: 50
-  categories: [cs.LG, cs.CL, cs.AI, cs.DC, cs.SE, cs.MA]
+  categories: [cs.LG, cs.CL, cs.AI, cs.DC, cs.SE, cs.MA, cs.RO]   # cs.RO added 2026-10-19 for L5 (robot learning)
   queries:
     # ---- L1 evaluation and measurement ----
     - id: q_reliability_passk

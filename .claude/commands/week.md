@@ -3,8 +3,14 @@ The week label is the ISO week of today's date in America/New_York, never UTC: a
 week that is ending. If $ARGUMENTS is empty, compute it that way.
 
 Read `CLAUDE.md`, `config/themes.yaml`, `config/standards.md`, `config/generation.yaml` first. Then, in order:
+0. `git pull --rebase origin main`. If `data/runs/ACTIVE.json` exists and is under 3 hours old, another operator (a
+   sprint) is live: do not touch the records in its scope this run and say so in the digest. Write your own lock
+   (`{"operator": "weekly run", "started": "<UTC ISO>", "scope": []}`), commit and push it. Then
+   `python scripts/threads.py --inbox`: apply every mark Jacob left (`promote`, `jacob-dropped`, `park: <reason>`) to the
+   records with a dated history entry, answer his questions in the Log, `--mark-applied` each. His marks win.
 1. `/fetch` — `bash scripts/run_week.sh` (arXiv watch and import streams; complaint stream if GitHub access exists).
-2. `/triage $ARGUMENTS` — against the lanes; record `source` and lane fits on every seed.
+2. `/triage $ARGUMENTS` — against the lanes, with the scout rule (lanes are priorities, not walls: off-lane seeds that
+   pass the headline test are kept as L0 scouts, at most `scout_quota_per_week`); record `source` and lane fits on every seed.
 3. `/card <id>` for each kept seed, up to 8, newest first; append limitations as complaint seeds.
 4. `/crossfield $ARGUMENTS` — 4 imports.
 5. `/mutate <id>` for the cards whose `information_asymmetry` field is non-empty, up to 20 candidates total.
@@ -17,6 +23,7 @@ Read `CLAUDE.md`, `config/themes.yaml`, `config/standards.md`, `config/generatio
    and has no `redteam` block yet, up to `redteam_budget_per_week`, claim rank order; a probe Jacob marked
    `jacob-dropped` is skipped. Record the verdict on the probe and its effect on the claim.
 8. `python scripts/threads.py` — refresh every thread note and the threads index (read Jacob's sections first and apply marks).
-9. `/digest $ARGUMENTS` — one page, each claim linked to its thread folder; commit and push.
+9. `/digest $ARGUMENTS` — one page, each claim linked to its thread folder, scouts and any proposed lane; remove the
+   lock; commit and push.
 Budget: ≤ 40 seeds triaged, ≤ 8 cards, ≤ 20 candidates, ≤ 3 kill searches. Stop and write the digest if a stage
 fails; a degraded week with a digest beats a complete week without one.

@@ -82,8 +82,6 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - status mark: (none)
 - notes:
 
-
-
 ## Log
 
 - 2026-10-19 — claim open: seeded 2026-10-19 so the W43 probes hang under claims; grade and rewrite in the next /claims run
