@@ -219,6 +219,8 @@ def redteam_section(ids: list[str], cands: dict[str, dict]) -> str:
 
 
 def first_steps(claim: dict, ids: list[str], cands: dict[str, dict]) -> str:
+    if claim.get("first_steps"):                      # written into the record by the operator (prompts/12_thread.md step 2)
+        return "\n".join(f"{i}. {clip(s, 500)}" for i, s in enumerate(claim["first_steps"], 1))
     cheapest = claim.get("cheapest_probe") or (ids[0] if ids else "—")
     c = cands.get(cheapest) or {}
     ks = ks_of(c)
