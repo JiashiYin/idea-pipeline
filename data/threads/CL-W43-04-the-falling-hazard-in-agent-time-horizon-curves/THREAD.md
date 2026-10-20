@@ -13,7 +13,7 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 
 - **If true:** Horizon producers publish the frailty variance or the within-task run agreement beside every 50% and 80% horizon and label the 80% horizon a share of tasks within reach; forecasters use k_cond for single-task tails and sigma^2 for reach; pass^k reporters replace one per-step reliability with a per-task distribution
 - **If false:** The within-task hazard falls too (k_cond well below 1): agents do degrade along a task, which makes the horizon curve a property of agents after all and makes the step-clock hazard shape (S7xF9) the next question
 
-## Scorecard (from the cheapest probe's record)
+## Scorecard (from the cheapest probe's record, or the claim's skeleton for a thought)
 
 - **Target value:** —
 - **Impact ceiling:** —

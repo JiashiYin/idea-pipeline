@@ -13,7 +13,7 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 
 - **If true:** Papers report the engine's gauge uncertainty beside the seed std and stop claiming gaps inside it; engine builders ship a gauge R&R card per release; simulation leaderboards add a resolution-floor (ndc) column
 - **If false:** Engine noise is a small share of the reported spread (%GRR under 10% everywhere): the simulator is a precise gauge and seed variance is the algorithm's — a reassuring measurement engine teams cite
 
-## Scorecard (from the cheapest probe's record)
+## Scorecard (from the cheapest probe's record, or the claim's skeleton for a thought)
 
 - **Target value:** —
 - **Impact ceiling:** —

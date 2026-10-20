@@ -13,7 +13,7 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 
 - **If true:** Scaffold papers must run the effort-notch and fresh-restart control arms; leaderboards separate scaffold from effort
 - **If false:** Scaffold design carries independent value beyond effort — a measured answer to an open question
 
-## Scorecard (from the cheapest probe's record)
+## Scorecard (from the cheapest probe's record, or the claim's skeleton for a thought)
 
 - **Target value:** Asked in print: 2610.22289 Sec. 9.2 (difficulty reports 'may prompt additional reasoning'; mechanism unresolved) and Sec. 4.3 ('instructions request these behaviors rather than enforcing them'); checklist item 'shuffled control for any targeting or placement claim'. Who pays: anyone shipping 'ask when unsure' or stop-and-report behaviors in coding agents (Codex, Claude Code style harnesses) and ARC Prize entrants choosing controller cadence.
 - **Impact ceiling:** **floor**: A note that timed returns match triggered returns on ARC-AGI-3 at GPT-5.5 high, cited by scaffold papers as the control they must run. Requires step 2 only. Judgment p 0.45.; **middle**: A placement-value ruler for self-reported uncertainty in agents, with the first measurement showing it is near zero on games and reported on one more benchmark (Terminal-Bench 2.1, about $1.5k more). Judgment p 0.25.; **ceiling**: A positive result (triggered >> timed) establishing that frontier agents place their own 'stuck' signal well, making the unread report a usable signal for controllers and a measurable metacognition quantity across models. Requires two models and three benchmarks. Judgment p 0.1.

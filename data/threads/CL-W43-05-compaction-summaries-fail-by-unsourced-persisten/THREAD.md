@@ -13,7 +13,7 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 
 - **If true:** Compactors label or delete unsourced entries by default; compaction evaluations add a provenance axis
 - **If false:** Length and section controls match the judge — the provenance story is a correlation
 
-## Scorecard (from the cheapest probe's record)
+## Scorecard (from the cheapest probe's record, or the claim's skeleton for a thought)
 
 - **Target value:** In print: 2607.13071 names the mechanism as 'a conflation of observation and persistence' in Claude Code compaction summaries and calls for re-verification; SJC's card states the agent 'cannot distinguish the two' after compaction and the paper never passes the bit forward; transparent-compact argues for maximal transparency of the agent's view of its compacted context. Who pays: harness and product teams writing structured-summary prompts; memory-system authors who rely on provenance tags being read.
 - **Impact ceiling:** **floor**: A negative: agents ignore provenance labels in their own summaries; a footnote cited by memory-schema papers; requires the two arms; probability 0.35 (judgment).; **middle**: Tag matches delete on one model and benchmark; a typed-summary default proposed to harness builders; requires replication on M3; probability 0.45 (judgment).; **ceiling**: Tag-plus-delete beats SJC and the typed schema is adopted by two public harnesses; requires OfficeBench and one coding harness (another ~$1,500); probability 0.2 (judgment).
