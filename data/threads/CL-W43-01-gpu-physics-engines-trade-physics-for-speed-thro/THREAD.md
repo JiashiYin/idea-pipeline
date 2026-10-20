@@ -1,10 +1,10 @@
 # GPU physics engines trade physics for speed through solver iteration caps, and RL policies trained in them exploit the difference.
 
-`CL-W43-01` · lane **L5** · status **open** · rank 1 · position both · refreshed 2026-10-19
+`CL-W43-01` · lane **L5** · status **open** · rank 1 · position both · refreshed 2026-10-20
 
 ## Status
 
-Open claim. Probe C-W43-15 survived the kill search; red team owed before anything is called proper. Failing gate: none on paper; red team owed before any report (standards: nothing is proper before an independent red team). Grade on paper: golden-shaped pending probe result and red team. Next action: see First steps.
+Open claim. Nothing under it has survived a kill search yet. Failing gate: G1 (no live probe of the exploit clause) and headline defects (actor; exploit clause as news; 'silent'). Grade on paper: open, re-probe owed; headline rewrite owed in the next /claims run; not proper. Next action: see First steps.
 
 ## The claim
 
@@ -27,24 +27,24 @@ Open claim. Probe C-W43-15 survived the kill search; red team owed before anythi
 
 | Gate | Test | Verdict |
 | --- | --- | --- |
-| G0 | premise hygiene (conditioning set, whose temperature, fetched numbers) | untested |
-| G1 | cheap to kill (cheapest probe under one GPU-week, kill result pre-registered) | carried by the cheapest probe C-W43-15 (see Probes for its cost and verdict) |
-| G2 | pressure (stated strain, or ruler with pre-registered surprise) | pass, route A: three source types quoted — engine source and docs (Playground XMLs set caps for performance; MuJoCo docs tie low-cap accuracy to warm start), a simulator benchmark (GPUSimBench names solver early termination and contact ordering as variability sources, holds settings fixed), a meta-paper (2610.17221 App. G declines the solver axis: convergence non-monotonic in the outer iteration count) |
-| G3 | consumers (three classes, the action each changes; community-wide for golden) | pass, community-wide if true: engine teams (expose the residual at the cap; set caps per task class), every GPU-RL robotics paper (report solver settings and an audit column), simulator benchmark owners (per-knob dose-response column) |
-| G4 | mechanism and consequence | pass: mechanism — the capped Newton solve stops short on steps with many active contacts or contact-set changes, and policies trained there earn return on those steps; consequence — one geometric rate per task means fidelity is a scalar dose (2610.17221 recipe ports), a spread means per-state or per-world scheduling |
-| G5 | durability; lab-adjacent | pass: a ruler on any engine and any policy generation; lab-adjacent to engine builders, not a frontier post-training problem |
-| G6 | ownership, density, race window; position clause | pass after kill search of C-W43-15 (13 queries, 10 neighbors, 4 pre-window precedents, 8 limitation quotes): no in-window paper sweeps a contact solver cap along visited states; incumbents are shipped caps and Warp solver_niter; why now = MJX step + Playground checkpoints + 2610.17221 consumer; race flag on engine teams and the Ostrich authors; window (about one GPU-sim fidelity paper a month in this register) exceeds twice the 5-day probe |
+| G0 | premise hygiene (conditioning set, whose temperature, fetched numbers) | fails as written for the exploit half: rho_L5 was a protocol artifact (kappa asymmetric by warm-start protocol; mean-action rollouts off the training protocol; number format unstated) |
+| G1 | cheap to kill (cheapest probe under one GPU-week, kill result pre-registered) | UNSATISFIED for the claim after the red team: the cheapest probe is killed and no remaining probe tests the exploit clause; the 2x2 return-matrix probe (~2-6 GPU-h, pre-registered kill: interaction inside the seed interval of zero) must be written with a scorecard |
+| G2 | pressure (stated strain, or ruler with pre-registered surprise) | weakened, route A: the engine's own performance page states the trade and justifies it by DR noise (MJX docs), so the strain is asserted away rather than asserted; GPUSimBench and 2610.17221 App. G still stand as the other two source types; route B fails for the law half (expected result = the manual's description) |
+| G3 | consumers (three classes, the action each changes; community-wide for golden) | unchanged if the exploit clause holds; the 'engine builders expose a per-step fidelity flag' consequence is already shipped on CPU (mjData.solver, fwdinv) and partly on Warp (solver_niter, per-world tolerance) — strike it |
+| G4 | mechanism and consequence | mechanism rewritten: the Newton solve at iterations=1 is one exact step from the previous step's warm start, exact when the active set is unchanged and short when it changes; the consequence for the exploit clause is the 2x2 interaction term, not a per-state law |
+| G5 | durability; lab-adjacent | unchanged (a ruler on any engine), but the hardware prior at the shipped caps is against the exploit clause (Playground: cap-1 Go1 policies transfer robustly) |
+| G6 | ownership, density, race window; position clause | kill-search correction: the exploit clause is 2017 folklore (Peng et al. 1710.06537) and its cross-engine version is measured in-window by PolySim 2510.01708 (a bound; sim2sim success +52.8) — a hit inside the kill search's own Q4 set that was not opened; the cap-isolated share remains unmeasured; caps are universal (legged_gym num_position_iterations=4 since 2021), so 'GPU' is not the novelty |
 
 ## Probes under this claim
 
 | Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |
 | --- | --- | --- | --- | --- |
-| C-W43-15 | Convergence law of the capped contact solve along policy-visited states | Re-step 200k visited states at 8 caps and 4 substeps in MJX, fit per-state geometric law, compute rho_L5 for coarse and converged Go1 policies; 10 GPU-hours, about $30, 5 days; dead if a single-rho fit holds on >= 90% of contact steps ever… | survived-kill | survived-kill ([record](../../../data/reports/2026-W43-kill-C-W43-15.md)) |
+| C-W43-15 | Convergence law of the capped contact solve along policy-visited states | Re-step 200k visited states at 8 caps and 4 substeps in MJX, fit per-state geometric law, compute rho_L5 for coarse and converged Go1 policies; 10 GPU-hours, about $30, 5 days; dead if a single-rho fit holds on >= 90% of contact steps ever… | killed | survived-kill ([record](../../../data/reports/2026-W43-kill-C-W43-15.md)) |
 | C-W43-17 | The solver's own stopping statistic as a free per-step fidelity flag | Record the Newton gradient norm at the cap on the 200k visited states in CPU MuJoCo and correlate with d_t; 6 GPU-hours (5 shared with the convergence-law candidate) plus CPU, about $20, 3 days; dead if raw Spearman < 0.3 and stiffness-sca… | proposed | — |
 | C-W43-14 | Does the real winner survive the engine's speed knobs? | Pilot: 2 tasks x 3 policies x 5 iteration settings x 3 batch seeds x 100 episodes with d_t against the finest setting; ~15 GPU-hours, $0 on public assets, 5 days; dead if absolute rates move < 5 points everywhere and no resolvable pair fli… | proposed | — |
 | C-W43-16 | Compute-matched fidelity mixture versus fixed solver cap in GPU RL | 30 PPO runs at equal solver-iteration budget across 5 arms, 2 tasks, 3 seeds, evaluated under the converged engine with the per-step audit; 50 GPU-hours, about $150, 7 days; dead if the mixture is no better than fixed K=1 in R_conv and rho… | proposed | — |
 
-Also under this claim (no scorecard yet): import:2026-W43-S4xF4 and X-2026-W42-S4F4 (instrument variants of the audit; no scorecard)
+Also under this claim (no scorecard yet): owed: 2x2 return matrix on Go1 rough terrain (pi_1 vs pi_100 under the training protocol, wall-clock matched, each evaluated in both engines, paired DR draws;…; import:2026-W43-S4xF4 and X-2026-W42-S4F4 (instrument variants; no scorecard)
 
 ## Kill search
 
@@ -64,18 +64,19 @@ Closest neighbors (one-sentence trick; one-line difference):
 
 ## Red team
 
-Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs only on a probe that survived its kill search; nothing is called proper before it.
+**C-W43-15** — {"date": "2026-10-20", "rounds": 2, "personas": ["systems", "theory", "professor", "checklist"], "counts": {"raised": 20, "conceded": 15, "answered": 3, "open": 2}, "objections": [{"persona": "theory", "objection": "rho_L5 (share of return on steps with e_t > kappa) does not estimate exploitation: for deterministic engines J_1(pi) - J_inf(pi) = sum_t E[grad V^{pi,inf}_{t+1} . delta_t] (signed, value-weighted one-step errors), so rho_L5 can be 1 with zero exploitation and 0 with full exploitation (a sub-kappa systematic bias over 5,000 physics steps per Go1 episode).", "evidence": "argument (telescoping identity over hybrid rollouts); 2605.29032 abstract (global policy-value gap bounded by the local one-step error; Error-MDP duality)", "answer": "rho_L5 was a screening statistic; the estimator the claim needs is the 2x2 train-in/evaluate-in return matrix, which is a different experiment and kill criterion \u2014 a new candidate, not an edit allowed mid-red-team", "status": "open"}, {"persona": "theory", "objection": "The headline's cheapest probe is the 2x2 return matrix (trade = J_inf(pi_inf) - J_inf(pi_1) with a wall-clock-matched pi_1; exploit = interaction term), which the desi…
 
 ## First steps if pursued
 
-1. Red team **C-W43-15** (`/redteam C-W43-15`): three personas with fetched evidence; it survives only with no unanswered objection.
-2. If it survives: run the probe exactly as pre-registered — 200k visited states from public Playground checkpoints re-stepped in MJX at caps {1,2,3,5,10,20,50,100+tol 1e-8} and substeps h0/{1,2,4,8}; per-state geometric fit, rho spread, knee vs active contacts, rho_L5 for cap-1 vs cap-100 Go1; 10 GPU-hours, ~$30, 5 days; under one GPU-week. Corrections: carry the rollout's warm-start vector (qacc_warmstart) and report the cold-start arm separately; report the GPU-batch repeat-step spread as the resolution floor before reading any R^2.
-3. Write the result into the probe's record and this Log; the claim's status moves only on evidence.
-4. Then `/report C-W43-15` (eight sections, three decisions), and the next probe under this claim by cost.
+1. Wait for the automatic kill search on **none live — 2x2 return-matrix probe owed (see decisions)** (Sunday run), or run `/kill none live — 2x2 return-matrix probe owed (see decisions)` in a session.
+2. If it survives: `/redteam none live — 2x2 return-matrix probe owed (see decisions)`, then the probe as pre-registered — —
+3. Write results into the records and this Log; status moves only on evidence.
 
 ## Decisions for Jacob
 
-- Spend a session on the red team of C-W43-15 now, or wait for the next automatic run? (write `promote` or leave it)
+- Fund the 2x2 return-matrix probe on Go1 (~2-6 GPU-h; pi_1 vs pi_100 under the training protocol, cross-evaluated, paired DR draws) as the claim's cheapest honest probe, or mark the claim jacob-dropped: the exploit clause is folklore at the engine level and the hardware prior at the shipped caps is against it.
+- Accept the headline rewrite in the next /claims run: 'Shipped solver-iteration caps (Playground iterations=1, legged_gym 4) carry a cap-isolated share of the sim-to-sim gap that policies trained under them exploit' — or retire CL-W43-01 and keep the CPU note.
+- Whether the zero-GPU CPU note (mjData.solver residual distribution along the shipped Go1 rollout) is worth a day as a Playground README contribution; it has no paper register.
 
 ## Jacob
 
@@ -89,11 +90,13 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 - 2026-10-19 — claim open: seeded 2026-10-19 so the W43 probes hang under claims; grade and rewrite in the next /claims run
 - 2026-10-20 — claim open: graded against gates 2-6: no failing gate; C-W43-15 survived its kill search (occupied_by none); claim stays open — premise half documented by shipped artifacts, exploit half untested in every fetched source; probes re-ranked by cost
+- 2026-10-20 — claim open: red team of C-W43-15 (2026-10-20): probe killed — rho_L5 is not an estimator of the return gap (the 2x2 matrix is) and the law half is the manual's own convergence statement read from a trace CPU MuJoCo logs; claim stays open with Gate 1 unsatisfied (2x2 probe owed), headline defects recorded (actor; exploit clause is Peng-2017 folklore with PolySim's in-window cross-engine measurement; 'silent')…
 - 2026-10-20 — C-W43-15 survived-kill: kill search (stage 4, automatic, claim-ranked): survived-kill — No fetched paper sweeps a GPU contact solver's iteration cap along policy-visited states or reports a per-state convergence rate; the closest work (2304.06372 fixed scenes, GPUSimBench fixed settings, Ostrich time-step axis, MFPG-PPO bundled cap) each stops one step short; survival is 'first to measure' with a race flag on engine tea…
+- 2026-10-20 — C-W43-15 killed: red team (stage 5, automatic, three personas, 20 objections: 15 conceded, 3 answered, 2 open after two rounds): killed as a probe of CL-W43-01 — rho_L5 is not an estimator of the capped-vs-converged return gap (telescoping identity: the gap is a signed, value-weighted sum of one-step errors; the 2x2 train-in/evaluate-in matrix is the estimator and is cheaper), and the 'law' half re-derives the Mu…
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-01`, version 2)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-01`, version 3)
 - probe `C-W43-15`: `data/candidates/2026-W43.jsonl`; kill record `data/reports/2026-W43-kill-C-W43-15.md`
 - probe `C-W43-17`: `data/candidates/2026-W43.jsonl`
 - probe `C-W43-14`: `data/candidates/2026-W43.jsonl`
