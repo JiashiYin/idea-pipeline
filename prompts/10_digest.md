@@ -17,7 +17,7 @@ Written last in the weekly run, from the files, never from memory of the run. Fo
 4. Scoop watch: any new paper this week that lands on a killed or parked item's target — list it with the
    item id. These count as generator hits in the scoreboard, not losses.
 5. Portfolio check: are there ≥ 3 live seeds in ≥ 3 lanes? If not, say which lanes are empty.
-6. Claims, ranked (from `data/claims/claims.jsonl`): headline, the belief it would change and for whom, the probes
+6. Claims, ranked (from `data/claims/claims.jsonl`), each linked to its folder under `data/threads/`: headline, the belief it would change and for whom, the probes
    under it with costs, status, failing gate if any. Then the top 3 probes by scorecard with kill-probe cost and
    position. This is Jacob's hour. Kill searches run automatically on the top probes; say which ran and their verdicts.
 7. Checklist lessons added this week, one line each.

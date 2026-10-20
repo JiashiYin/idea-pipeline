@@ -13,6 +13,7 @@ Read `CLAUDE.md`, `config/themes.yaml`, `config/standards.md`, `config/generatio
 7. If `auto_kill_monday` is true in `config/generation.yaml` (it is): `/kill` on the top `kill_budget_per_week` probes,
    taken claim by claim in claim rank order (the cheapest probe of the top claim first); record each verdict on the
    candidate and its effect on the claim's status.
-8. `/digest $ARGUMENTS` — one page; commit and push.
+8. `python scripts/threads.py` — refresh every thread note and the threads index (read Jacob's sections first and apply marks).
+9. `/digest $ARGUMENTS` — one page, each claim linked to its thread folder; commit and push.
 Budget: ≤ 40 seeds triaged, ≤ 8 cards, ≤ 20 candidates, ≤ 3 kill searches. Stop and write the digest if a stage
 fails; a degraded week with a digest beats a complete week without one.

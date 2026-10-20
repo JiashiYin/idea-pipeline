@@ -24,7 +24,7 @@ and `data/claims/claims.jsonl`.
    `headline` (one sentence), `current_belief` (what the field assumes, quoted from one source), `if_true`
    (the belief or ruler that changes, and for whom — Gate 3), `if_false` (what is learned anyway), `probes`
    (candidate ids with their kill-probe cost), `cheapest_probe`, `position` (solo | lab | both), `status`
-   (open | supported | refuted | killed | parked), `history`.
+   (thought | open | supported | refuted | killed | parked — `thought` is a claim from `/capture` not yet graded), `history`.
 3. Grade each claim against the gates in `config/standards.md`: Gates 2–6 apply to the claim; Gate 1 is
    satisfied by its cheapest probe. Name the gate that fails. A claim with no probe under one GPU-week is a
    thought until one exists.
