@@ -5,8 +5,6 @@ Refreshed 2026-10-20. Each `THREAD.md` is regenerated from the records by `pytho
 kill search, red team, first steps, decisions — then write in your section. Ranked by the claims stage.
 Lost? The user guide is [`README.md`](../../README.md) at the repository root.
 
-> **A run is in progress** (scheduled red-team run, started 2026-10-20T06:02:25Z UTC) on: C-W43-15, C-W43-13, C-W43-01, CL-W43-01, CL-W43-02, CL-W43-06. Leave those records alone until it pushes.
-
 | Rank | Lane | Claim | Status | Headline | Probes (survived) | Cheapest | Failing gate | Folder |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 | L5 | CL-W43-01 | open | GPU physics engines trade physics for speed through solver iteration caps, and RL policies trained in them exploit the difference. | 4 (0) | C-W43-17 | G1 (no live probe of the exploit clause) and headline defec… | [`CL-W43-01-gpu-physics-engines-trade-physics-for-speed-thro`](./CL-W43-01-gpu-physics-engines-trade-physics-for-speed-thro/THREAD.md) |
