@@ -80,7 +80,7 @@ def probe_ids(claim: dict) -> list[str]:
     ids = []
     for p in claim.get("probes", []):
         text = p if isinstance(p, str) else p.get("id", "")
-        m = re.match(r"\s*([A-Za-z]+-[A-Za-z0-9]+-[A-Za-z0-9]+)", text)
+        m = re.match(r"\s*([A-Za-z]+-[A-Za-z0-9]+-[A-Za-z0-9]+(?:-[a-z])?)", text)   # C-W43-15, X-2026-W42-S7F9, P-W43-J01-a
         if m and m.group(1) not in ids:
             ids.append(m.group(1))
     return ids
@@ -147,11 +147,17 @@ def gate_table(claim: dict) -> str:
     return "| Gate | Test | Verdict |\n| --- | --- | --- |\n" + "\n".join(rows)
 
 
-def probe_table(ids: list[str], cands: dict[str, dict], listed: list) -> str:
+def probe_table(ids: list[str], cands: dict[str, dict], listed: list, specs: dict | None = None) -> str:
+    """`specs` (claim.probe_specs) describes probes that are not candidate records yet — a captured thought's first probe."""
     rows = []
+    specs = specs or {}
     for i, pid in enumerate(ids):
         c = cands.get(pid)
         label = listed[i] if i < len(listed) and isinstance(listed[i], str) else pid
+        if not c and pid in specs:
+            sp = specs[pid]
+            rows.append(f"| {pid} | {clip(sp.get('what', ''), 120)} | {clip(sp.get('kill_probe', '—'), 240)} | {sp.get('status', 'thought')} | not run (no candidate record yet) |")
+            continue
         if not c:
             rows.append(f"| {pid} | {clip(label, 120)} | — | — | not a candidate record (seed or import) |")
             continue
@@ -226,6 +232,8 @@ def first_steps(claim: dict, ids: list[str], cands: dict[str, dict]) -> str:
     ks = ks_of(c)
     status = c.get("status", "proposed") if c else "no candidate record"
     probe = ks.get("killing_experiment_check") or sc(c, "kill_probe", c.get("killing_experiment", "—"))
+    if not c and cheapest in (claim.get("probe_specs") or {}):      # a captured thought: the spec lives on the claim
+        probe = (claim["probe_specs"][cheapest].get("kill_probe") or "—")
     if claim.get("status") in ("killed", "refuted"):
         return "1. Read the kill section; the claim is closed unless a new probe or a new enabling piece re-opens it (write that in your section)."
     if claim.get("status") == "parked":
@@ -383,6 +391,8 @@ def log_section(claim: dict, ids: list[str], cands: dict[str, dict]) -> str:
 def render(claim: dict, cands: dict[str, dict], today: str, jacob: str) -> str:
     ids = probe_ids(claim)
     first = cands.get(claim.get("cheapest_probe", ""), {}) or (cands.get(ids[0], {}) if ids else {})
+    if not first.get("scorecard") and claim.get("scorecard"):   # a captured thought carries its scorecard skeleton on the claim
+        first = {**first, "scorecard": claim["scorecard"]}
     failing, grade = grade_line(claim)
     records = [f"- claim record: `data/claims/claims.jsonl` (id `{claim['id']}`, version {claim.get('version', 1)})"]
     for pid in ids:
@@ -408,7 +418,7 @@ def render(claim: dict, cands: dict[str, dict], today: str, jacob: str) -> str:
 - **If true:** {claim.get('if_true', '—')}
 - **If false:** {claim.get('if_false', '—')}
 
-## Scorecard (from the cheapest probe's record)
+## Scorecard (from the cheapest probe's record, or the claim's skeleton for a thought)
 
 - **Target value:** {sc(first, 'target_value')}
 - **Impact ceiling:** {sc(first, 'impact_ceiling')}
@@ -424,7 +434,7 @@ def render(claim: dict, cands: dict[str, dict], today: str, jacob: str) -> str:
 
 ## Probes under this claim
 
-{probe_table(ids, cands, claim.get('probes', []))}
+{probe_table(ids, cands, claim.get('probes', []), claim.get('probe_specs'))}
 
 ## Kill search
 
