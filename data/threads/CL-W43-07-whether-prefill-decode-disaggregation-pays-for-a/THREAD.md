@@ -1,65 +1,63 @@
-# Whether prefill–decode disaggregation pays for agent workloads is predicted by a measurable overlap statistic, and forecast-guided role switching recovers little of the oracle's headroom.
+# Whether prefill-decode disaggregation pays for an agent workload is set by the measured temporal overlap of prefill with decode, not by turn count.
 
-`CL-W43-07` · lane **L3** · status **open** · position both · refreshed 2026-10-19
+`CL-W43-07` · lane **L3** · status **open** · rank 7 · position both · refreshed 2026-10-19
 
 ## Status
 
-Open claim, ungraded or partly graded; nothing under it has survived a kill search yet. Failing gate: none recorded. Next action: see First steps.
+Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 6 not yet established. Grade on paper: open. Next action: see First steps.
 
 ## The claim
 
-- **Headline:** Whether prefill–decode disaggregation pays for agent workloads is predicted by a measurable overlap statistic, and forecast-guided role switching recovers little of the oracle's headroom.
+- **Headline:** Whether prefill-decode disaggregation pays for an agent workload is set by the measured temporal overlap of prefill with decode, not by turn count.
 - **Current belief (the field's):** Prorsa 2610.x reports WAPE without the throughput that forecast error costs and no oracle; PEARL answers by profiling, not by a statistic
-- **If true:** Serving teams compute the statistic from traces before choosing a topology; switching papers report oracle-normalized capture
-- **If false:** Switching captures most of the oracle headroom — forecasting is the right investment
+- **If true:** Serving and RL-infra teams compute the overlap statistic from traces before choosing a topology; rollout-engine docs carry it as the pre-deployment check
+- **If false:** Turn count or workload type predicts the sign as well as the overlap does, and the ruler is a service; the 8-GPU reproduction of Prorsa's reversal stays a footnote
 
-## Scorecard (from the cheapest probe's record; the claim-level scorecard is written by `/claims`)
+## Scorecard (from the cheapest probe's record)
 
-- **Target value:** Prorsa itself: Section 5.5 and Appendix C report WAPE but never the throughput that forecast error costs, and no oracle is reported (card, weakest_component); FluidPD's abstract motivates observation-only role reassignment against forecasting-free autoscaling but never against an oracle. Who pays: every team running asynchronous agentic RL on verl, ROLL, AReaL or slime that must decide whether PD disaggregation with role switching is worth 6.4K lines of scheduler code.
-- **Impact ceiling:** **floor**: A released replay harness and the first oracle-normalized capture ratio for forecast-guided switching on one public coding trace. Requires only the simulator and the .traj parser. p = 0.7 (judgment).; **middle**: The scaling result: switching headroom versus concurrency and staleness across three workloads, with the hysteresis-equals-forecaster finding; cited by rollout-engine papers as the reason to switch (or not) at a given scale. Requires the three traces and Frontier-level calibration. p = 0.35 (judgment).; **ceiling**: The rule is adopted as a pre-deployment check in a framework's docs (verl or SGLang router) and the hysteresis rule ships as the default role-switching policy; Prorsa/PEARL follow-ups report capture ratio against the oracle. Requires one framework maintainer to care and a real-trace confirmation. p = 0.1 (judgment).
-- **Relevance:** L3 routes (Lloyd / Netravali / Tri Dao, systems): direct, a measurement of a rollout-engine design decision. Industry: RL infra teams choosing topology; serving teams get the RL analogue of ConServe/FluidPD. Jacob's edge: stochastic processes (superposition of renewal processes, Palm-Khintchine) supply the mechanism; computer engineering supplies the scheduling model. Zero relevance to L1, L2 (no training signal is touched), L4, L5.
-- **Kill probe:** Replay four arms on three traces at three concurrencies, sync and async; 16 GPU-hours calibration (or 0 with Frontier), ~$60, 7 days; dead if H >= 15% and forecaster captures >= 0.8 H while hysteresis <= 0.5 H in two of three workloads at >= 1024 async.
-- **Density and ownership:** —
-- **Why now:** Prorsa 2026-10-12 (first WAPE without cost, no oracle); Frontier 2026-05-20 (validated simulator with RL rollout support, released); FluidPD 2026-10-02 (observation-only rule exists in serving); SWE-agent .traj with execution_time public since 2025.
-- **Register, and what it is not:** Measurement with a definitive comparison (four arms, one trace, oracle-normalized). It is not a new scheduler, not a new forecaster, and not Prorsa on a new benchmark; the hysteresis arm is a control, not the contribution.
+- **Target value:** Prorsa Section 5.2 (math slower than colocation in most settings, no rule given; card complaint #1); PEARL abstract: 'the choice between colocation and disaggregation and the optimal PD ratio vary with the workload'; 2605.28302 poses 'when does each level actually pay off' for attention-FFN disaggregation. Who pays: every team provisioning rollout engines for RLVR or agentic RL, and SGLang/verl maintainers writing deployment guidance.
+- **Impact ceiling:** **floor**: An 8-GPU reproduction of Prorsa's sign reversal with the overlap mechanism isolated from turn count on four workloads, plus the Omega script over SWE-agent logs. Requires the node and the fake-tool replayer. p = 0.6 (judgment).; **middle**: Omega adopted as the pre-deployment check in one framework's docs and used to show that asynchronous single-turn RLVR gains from disaggregation. Requires the async single-turn cell to come out positive and a maintainer to pick it up. p = 0.25 (judgment).; **ceiling**: Omega becomes the standard workload descriptor that rollout-engine papers report alongside turn count and context length, and PD-switching papers evaluate against it. Requires confirmation at cluster scale by a lab. p = 0.08 (judgment).
+- **Relevance:** L3 routes (Lloyd / Netravali / Tri Dao): direct, a ruler for a rollout-engine decision with a systems experiment. Industry: RL infra and serving teams. Jacob's edge: computer engineering (DP-attention barrier, interconnect cost model) and the Little's-law style time-integral statistic. Zero relevance to L1, L2, L4, L5.
+- **Kill probe:** Four workloads x two topologies x 3 repeats on one 8-GPU node, ~80 GPU-hours, ~$250, 7 days; dead if either off-diagonal cell breaks the predicted sign or Omega is not monotone with the speedup.
+- **Density and ownership:** arXiv API 2026-10-19: prefill+decode+(interference|colocat)+(agent|multi-turn|rollout) = 12 hits (Prorsa, AInfer-PD 2609.00993, PPD 2603.13358 'not all prefills are equal', P-PAS 2608.15171 prefill-decode interference crossover in vLLM, PackServe 2609.33224 white-box interference latency models, 2609.34663 tool re-arrival prefill interference on NPUs); prefill+(disaggregation|disaggregated)+(when|whether|break-even|cost model|analytical) = 35 hits, closest 2605.28302 (AFD design space, 'when does each level pay off', by simulation) and 2601.21351 (one trace statistic theta governs AFD provisioning, nonparametric estimator from traces: the same ruler shape for a different decision); (data parallel attention|DP attention)+(prefill|MoE)+(idle|straggler|imbalance) = 0 hits, so the DP-attention idle mechanism is Prorsa's alone in abstracts. Occupied: Prorsa owns the idle-ratio characterizati…
+- **Why now:** Prorsa 2026-10-12 (the reversal with numbers and the named mechanism); PEARL 2026-09-28 (the question posed and answered by profiling, not by a statistic); SGLang PD disaggregation single-node since 2025; SWE-agent .traj execution_time public.
+- **Register, and what it is not:** Ruler (a workload statistic with a sign prediction) plus a small systems experiment. It is not a scheduler, not a switching policy, not a simulator paper, and not a reproduction of Prorsa at scale.
 
 ## Gates (config/standards.md)
 
 | Gate | Test | Verdict |
 | --- | --- | --- |
 | G0 | premise hygiene (conditioning set, whose temperature, fetched numbers) | untested |
-| G1 | cheap to kill (cheapest probe under one GPU-week, kill result pre-registered) | untested — cheapest probe listed: C-W43-04 |
-| G2 | pressure (stated strain, or ruler with pre-registered surprise) | untested |
-| G3 | consumers (three classes, the action each changes; community-wide for golden) | untested |
-| G4 | mechanism and consequence | untested |
-| G5 | durability; lab-adjacent | untested |
-| G6 | ownership, density, race window; position clause | untested |
+| G1 | cheap to kill (cheapest probe under one GPU-week, kill result pre-registered) | carried by the cheapest probe C-W43-05 (see Probes for its cost and verdict) |
+| G2 | pressure (stated strain, or ruler with pre-registered surprise) | pass: route A — Prorsa (paper: sign reversal math versus coding with the idle-ratio mechanism), PEARL (runtime selection by profiling), FluidPD and ConServe (serving-side observation rules); route B — the overlap statistic Omega with a pre-registered surprise (expected: Omega orders all four cells; field assumes workload type) |
+| G3 | consumers (three classes, the action each changes; community-wide for golden) | pass at one community: RL-infra teams, agentic-serving teams, rollout-engine maintainers |
+| G4 | mechanism and consequence | pass: mechanism — colocation hurts decode only during the fraction of decode time that overlaps a prefill; consequence — a threshold on Omega decides the topology before the second set of GPUs is bought |
+| G5 | durability; lab-adjacent | pass with a flag: the statistic is durable as a definition, its threshold is hardware- and engine-specific; lab-adjacent (systems labs publish measurements) |
+| G6 | ownership, density, race window; position clause | open: kill search owed; closest ruler shape is 2601.21351 (one trace statistic theta for AFD provisioning); limitation sections of PEARL and 2605.28302 unread |
 
 ## Probes under this claim
 
 | Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |
 | --- | --- | --- | --- | --- |
-| C-W43-04 | Hindsight-optimal switching bounds forecast-guided prefill-decode role switching | Replay four arms on three traces at three concurrencies, sync and async; 16 GPU-hours calibration (or 0 with Frontier), ~$60, 7 days; dead if H >= 15% and forecaster captures >= 0.8 H while hysteresis <= 0.5 H in two of  | proposed | — |
 | C-W43-05 | A prefill-decode overlap statistic predicts when disaggregation pays | Four workloads x two topologies x 3 repeats on one 8-GPU node, ~80 GPU-hours, ~$250, 7 days; dead if either off-diagonal cell breaks the predicted sign or Omega is not monotone with the speedup. | proposed | — |
 
 ## Kill search
 
-Not run yet. Kill searches run automatically on the top probes, claim by claim (config/generation.yaml).
+Not run yet. Kill searches run automatically on the top probes, claim by claim (config/generation.yaml); `/kill <probe>` runs one by hand.
 
 ## Red team
 
-Not run. A red team runs only on a probe that survived its kill search.
+Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs only on a probe that survived its kill search; nothing is called proper before it.
 
 ## First steps if pursued
 
-1. Read the kill-search record of **C-W43-04** when it lands; if killed, read what killed it before anything else.
-2. If it survived: run its probe exactly as pre-registered — Replay four arms on three traces at three concurrencies, sync and async; 16 GPU-hours calibration (or 0 with Frontier), ~$60, 7 days; dead if H >= 15% and forecaster captures >= 0.8 H while hysteresis <= 0.5 H in two of three workloads at >= 1024 async.
-3. Write the result into the probe's record and this thread's Log; the claim's status moves only on evidence.
-4. Only then: red team (`/redteam <probe>`), then the next probe under this claim by cost.
+1. Wait for the automatic kill search on **C-W43-05** (Sunday run), or run `/kill C-W43-05` in a session.
+2. If it survives: `/redteam C-W43-05`, then the probe as pre-registered — Four workloads x two topologies x 3 repeats on one 8-GPU node, ~80 GPU-hours, ~$250, 7 days; dead if either off-diagonal cell breaks the predicted sign or Omega is not monotone with the speedup.
+3. Write results into the records and this Log; status moves only on evidence.
 
 ## Decisions for Jacob
 
-- (none pending)
+- None pending; the machine runs the next kill search on its own. Mark `jacob-dropped` here if the headline is not worth a week of yours.
 
 ## Jacob
 
@@ -70,12 +68,13 @@ Not run. A red team runs only on a probe that survived its kill search.
 - notes:
 
 
+
 ## Log
 
-- 2026-10-19 — open: seeded 2026-10-19 so the W43 probes hang under claims; grade and rewrite in the next /claims run
+- 2026-10-19 — claim open: seeded 2026-10-19 so the W43 probes hang under claims; grade and rewrite in the next /claims run
+- 2026-10-20 — claim open: headline split into one sentence per claim: the switching half moved to CL-W43-08; this record keeps the overlap statistic with C-W43-05
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id CL-W43-07)
-- probe `C-W43-04`: `data/candidates/*.jsonl`
-- probe `C-W43-05`: `data/candidates/*.jsonl`
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-07`, version 2)
+- probe `C-W43-05`: `data/candidates/2026-W43.jsonl`

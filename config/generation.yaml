@@ -27,6 +27,9 @@ portfolio_rule: "at least 3 live seeds (status proposed or survived-kill) in 3 d
 auto_kill_monday: true       # Jacob 2026-10-19: kill searches run automatically whenever applicable — the top `kill_budget_per_week`
                              # proposed candidates by scorecard, inside the Sunday run; Jacob's marks (`jacob-dropped`, `promote`) still win
 kill_budget_per_week: 3
+auto_redteam: true           # 2026-10-19: the gate after the kill search also runs on its own — every survivor without a redteam block,
+                             # inside the Sunday run (or a one-off scheduled run); nothing is called proper before it
+redteam_budget_per_week: 3
 kill_applicable: "status proposed, scorecard complete, kill probe <= 1 GPU-week, not jacob-dropped; ranked by scorecard, claim-level first"
 
 claims:                      # the headline layer (Jacob 2026-10-19): candidates are probes OF claims, and claims are what gets ranked

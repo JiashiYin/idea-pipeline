@@ -13,6 +13,9 @@ Read `CLAUDE.md`, `config/themes.yaml`, `config/standards.md`, `config/generatio
 7. If `auto_kill_monday` is true in `config/generation.yaml` (it is): `/kill` on the top `kill_budget_per_week` probes,
    taken claim by claim in claim rank order (the cheapest probe of the top claim first); record each verdict on the
    candidate and its effect on the claim's status.
+7b. If `auto_redteam` is true in `config/generation.yaml` (it is): `/redteam` on every probe that survived a kill search
+   and has no `redteam` block yet, up to `redteam_budget_per_week`, claim rank order; a probe Jacob marked
+   `jacob-dropped` is skipped. Record the verdict on the probe and its effect on the claim.
 8. `python scripts/threads.py` — refresh every thread note and the threads index (read Jacob's sections first and apply marks).
 9. `/digest $ARGUMENTS` — one page, each claim linked to its thread folder; commit and push.
 Budget: ≤ 40 seeds triaged, ≤ 8 cards, ≤ 20 candidates, ≤ 3 kill searches. Stop and write the digest if a stage

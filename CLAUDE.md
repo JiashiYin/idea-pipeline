@@ -34,7 +34,7 @@ week with zero golden ideas is normal, and the kill record and parked list are t
 | 12 Threads | `/thread <id\|all>` → `python scripts/threads.py` | after claims, kills, red teams | claims, candidates | `data/threads/<claim>/THREAD.md`, `data/threads/README.md` — Jacob's interface |
 | 10 Digest | `/digest <week>` | weekly, last | all of `data/` | `data/digests/<week>.md`, `ledger/scoreboard.jsonl` |
 | — Discuss | `/discuss <id>` | ad hoc | one thread | a session on one idea; conclusions into the thread's Log |
-| — Capture | `/capture <idea>` | ad hoc | conversation | one seed with `source: chat` |
+| — Capture | `/capture <idea>` | ad hoc | conversation | a claim (`status: thought`), its thread folder, one seed with `source: chat` |
 | — Week | `/week <week>` | Sunday | everything above | the whole cycle; what the scheduled task runs |
 
 Run them in order. Never skip Kill before Report. Never write a Report for a candidate that has not
@@ -157,9 +157,10 @@ complaint fetcher are specified, not built; until they exist the agent does thei
 ## Weekly cadence
 
 Sunday: the scheduled cloud task (or Jacob) runs `/week <week>` — fetch, triage, cards, imports, mutate,
-(monthly: pressure, owned, definitive), claims, the automatic kill searches on the top probes, the digest,
-commit and push. Jacob's hour: read `data/digests/<week>.md`, mark `status: jacob-dropped` or `promote` on
-claims and records; his marks win over the automatic ranking.
+(monthly: pressure, owned, definitive), claims, the automatic kill searches on the top probes, the automatic red
+teams on the survivors, the thread refresh, the digest, commit and push. Jacob's hour: read
+`data/digests/<week>.md`, open the threads it links, write `promote` / `jacob-dropped` / `park: <reason>` or a
+question in the `## Jacob` section; his marks win over the automatic ranking and are applied by the next run.
 
 ## Environment notes
 
