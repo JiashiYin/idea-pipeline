@@ -1,10 +1,10 @@
 # Published step-credit critics for long-horizon agents do not beat their own shuffled control in the first two thirds of a trajectory.
 
-`CL-W43-06` · lane **L2** · status **open** · rank 4 · position both · refreshed 2026-10-19
+`CL-W43-06` · lane **L2** · status **parked** · rank 4 · position both · refreshed 2026-10-20
 
 ## Status
 
-Open claim. Probe C-W43-01 survived the kill search; red team owed before anything is called proper. Failing gate: none on paper; Gate 3 at one community; red team owed. Grade on paper: proper-shaped pending probe result and red team. Next action: see First steps.
+Parked — re-open trigger: the forward (prefix-only) frontier re-grade on 2610.17633's K=32 L0+L1 curves (~$300-900, 0 GPU-h, 2 d; vs linear decay and the owners' restart gain; equivalence bound; task-cluster bootstrap) reverses 2610.21088's early-chance null — or a named consumer (a distillation or restart-controller paper) states in print that it needs the hindsight-vs-forward separation Failing gate: G2B, G4 (degenerate null); G1 as written. Grade on paper: parked; re-open on the forward re-grade reversing a published null. Next action: see First steps.
 
 ## The claim
 
@@ -28,18 +28,18 @@ Open claim. Probe C-W43-01 survived the kill search; red team owed before anythi
 | Gate | Test | Verdict |
 | --- | --- | --- |
 | G0 | premise hygiene (conditioning set, whose temperature, fetched numbers) | untested |
-| G1 | cheap to kill (cheapest probe under one GPU-week, kill result pre-registered) | carried by the cheapest probe C-W43-01 (see Probes for its cost and verdict) |
-| G2 | pressure (stated strain, or ruler with pre-registered surprise) | pass, route B: VC_k and per-curve Spearman against executed V-hat are identifiable on the released curves (ceiling = split-half Spearman); pre-registered surprise — expected critic inside its shuffle in the first third and two to three times random late, field reads the critic as tracking semantic progress (LVRL 4.4), the claim dies if the critic beats its shuffle early, holds under placebo and matches MC; route A is one source type (papers' own limitation text) and does not carry it alone |
-| G3 | consumers (three classes, the action each changes; community-wide for golden) | pass at one community: credit-assignment and critic papers (report shuffle and placebo arms against executed value), training teams (spend the critic budget on continuations at anchors), restart-controller builders (which forward estimator); community-wide only if a training group adopts Spearman-with-executable-V as its validation column |
-| G4 | mechanism and consequence | pass: mechanism — the frontier critic reads the stated outcome and the anchors, not step evidence, so its localization collapses when the outcome is wrong; consequence — anchors plus a uniform split at $0 for the first two thirds, or a distilled critic becomes a sound target |
-| G5 | durability; lab-adjacent | pass as a ruler, flagged on position: the measurement is lab-adjacent (released data), the recipe consequence is head-to-head with post-training teams; the record keeps the measurement register |
-| G6 | ownership, density, race window; position clause | pass after kill search of C-W43-01 (11 queries, 12 neighbors, 3 precedents, 6 quotes): occupied_by none; CWGT audits a different signal class on ALFWorld; the curve owners grade no estimator and name this measurement as the next use of their data (re-open test: ask them); CRR 2609.33875 already ships the continuation-based consequence; race window in the audit register (about one paper a month) exceeds twice the 8-day probe |
+| G1 | cheap to kill (cheapest probe under one GPU-week, kill result pre-registered) | fails as written: the kill is a one-sided conjunction whose placebo clause cannot fire; the equivalence-bound forward re-grade is the live probe if re-opened |
+| G2 | pressure (stated strain, or ruler with pre-registered surprise) | fails route B: the expected result (critics at chance early against executed value) is published for forward critics (2610.21088, 2026-10-15) and the hindsight class has no consequence; route A's quotes describe the critic's own appendix, not a strain |
+| G3 | consumers (three classes, the action each changes; community-wide for golden) | one community; the 'validation column' exists in LVRL App. F and 2610.21088 Table 8 |
+| G4 | mechanism and consequence | fails: the headline's null (shuffle) is the random-step row; the mechanism sentence (outcome-reading vs step-reading) needs the linear-decay / outcome-blind null, which the headline does not name |
+| G5 | durability; lab-adjacent | unchanged |
+| G6 | ownership, density, race window; position clause | kill-search miss: 2610.21088 (five days before the search) inside the audit register; ownership adds the Probe-and-Resume group (Columbia; forkable terminal environments); lane vocabulary must add test-time search, MCTS, critic access, intermediate states, continuation pass rate |
 
 ## Probes under this claim
 
 | Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |
 | --- | --- | --- | --- | --- |
-| C-W43-01 | Placebo and dollar-matched audit of LVRL's anchored frontier critic on released V-curves | Step 0: oracle-vs-random VC_2 gap on the released curves, $0, 1 day, dead if intervals overlap. Step 1: critic plus controls and the dollar-matched MC arm, about $550 API and 10 GPU-hours, 5 days; claim dead if the critic beats its shuffle… | survived-kill | survived-kill ([record](../../../data/reports/2026-W43-kill-C-W43-01.md)) |
+| C-W43-01 | Placebo and dollar-matched audit of LVRL's anchored frontier critic on released V-curves | Step 0: oracle-vs-random VC_2 gap on the released curves, $0, 1 day, dead if intervals overlap. Step 1: critic plus controls and the dollar-matched MC arm, about $550 API and 10 GPU-hours, 5 days; claim dead if the critic beats its shuffle… | killed | survived-kill ([record](../../../data/reports/2026-W43-kill-C-W43-01.md)) |
 | C-W43-03 | Dollar-matched cold-start BabyAI: LVRL's critic bill as GRPO rollouts | GRPO G = 8 floor reproduction plus GRPO G = 32 on LVRL's BabyAI config, about 400 GPU-hours (about $1k cloud), 7 days; void if the floor is not reproduced; claim dead if G = 32 stays at or below 20% ID at 150 updates. | parked | — |
 
 ## Kill search
@@ -60,19 +60,19 @@ Closest neighbors (one-sentence trick; one-line difference):
 
 ## Red team
 
-Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs only on a probe that survived its kill search; nothing is called proper before it.
+**C-W43-01** — {"date": "2026-10-20", "rounds": 2, "personas": ["systems", "theory", "professor", "checklist"], "counts": {"raised": 20, "conceded": 18, "answered": 0, "open": 2}, "objections": [{"persona": "professor", "objection": "The forward critic-vs-executed-continuations audit by trajectory depth is in print: Probe-and-Resume 2610.21088 (2026-10-15) grades a frontier critic at 25/50/75% depth against executed continuations on 1,111 intermediate states of 89 Terminal-Bench 2.1 tasks \u2014 pairwise accuracy 49-56% at 25% depth (chance 50%), 56-62% at 50%, 64-69% at 75%, no significant selection gain over random at 25%, decided-pairs split, best-constant row, bootstrap intervals over tasks; the record's pre-registered 'expected' result is a published finding (Gate 2B service); the kill search's 11 queries missed a 5-day-old paper because its vocabulary ('credit assignment', 'process reward', 'placebo', 'Monte Carlo') does not contain 'test-time search', 'critic', 'intermediate states', 'continuation pass rate'.", "evidence": "2610.21088 S3.2, S4, S5, App. F, Table 8 [full]: 'At intermediate states, the critics rank states better than chance late in the trajectory (64%-69% at 75% depth), but…
 
 ## First steps if pursued
 
-1. Red team **C-W43-01** (`/redteam C-W43-01`): three personas with fetched evidence; it survives only with no unanswered objection.
-2. If it survives: run the probe exactly as pre-registered — Step 0 ($0, 1 day): oracle-vs-random VC_2 bootstrap on the released curves (Table 32 already shows random step VC1 0.04 / VC3 0.10 vs judges 0.16 / 0.26, so resolution is near-certain). Step 1: k = 0 critic, wrong-outcome placebo, marginal-matched shuffle, linear decay, K = 4 MC subsampled from released continuation outcomes, self-estimate and Qwen log-ratio from the release (~10 GPU-h); k = 3 sibling arm needs ~700 base runs (~25 GPU-h); ~$550 API, ~35 GPU-h, 8 days. Under one GPU-week. Kill r…
-3. Write the result into the probe's record and this Log; the claim's status moves only on evidence.
-4. Then `/report C-W43-01` (eight sections, three decisions), and the next probe under this claim by cost.
+1. If re-opened: day 1 ($0) — from the release's derived.json and continuation outcomes, list the L0+L1 curves of both policies (~46), their probed anchors and achieved K; drop doomed curves (V-hat(h_0) <= 1/8); compute the split-half ceiling on increments and the random-row and linear-decay baselines on the probed grid; pre-register the equivalence bound (delta = 0.05 on VC_2 and on increment correlation) and the task-cluster bootstrap.
+2. Day 2 (~$300-900): run the prefix-only frontier critic at every probed anchor (no outcome, no anchors, LVRL's 4,000-character truncation), three repeats with prefix caching; score increments, VC_2 and the restart gain; report decided pairs; write the note against 2610.21088 App. F and Table 8.
+3. Before any write-up: fetch 2610.21088's limitations section verbatim and email the three owning groups.
 
 ## Decisions for Jacob
 
-- Spend a session on the red team of C-W43-01 now, or wait for the next automatic run? (write `promote` or leave it)
-- C-W43-03 is parked — Access to an 8-GPU node for one week (lab position), or a BabyAI configuration that reproduces LVRL's floor in under 168 GPU-hours total; cost on re-open: ~400 GPU-hours, 7 days.: fund it, or leave it parked?
+- Fund the forward re-grade (~$300-900 API, 0 GPU-h, 2 days: prefix-only frontier critic on the K=32 uncapped curves vs linear decay and restart gain) as a replication note that is news only if it reverses 2610.21088's early-chance null — or leave CL-W43-06 parked.
+- Add test-time-search / critic-access vocabulary ("test-time search", MCTS, critic, "intermediate states", "continuation pass rate", fork, branch) to the L2 queries in config/sources.yaml so the lane's density and kill searches can see the audit register.
+- Whether to email the three owning groups (2610.17633's authors, LVRL's authors, the Probe-and-Resume group) before any write-up; 'they have the stack' is a guess and the re-open test is asking them.
 
 ## Jacob
 
@@ -87,11 +87,13 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - 2026-10-19 — claim open: seeded 2026-10-19 so the W43 probes hang under claims; grade and rewrite in the next /claims run
 - 2026-10-19 — C-W43-03 parked: mutate (stage 3) from card 2610.15840: parked at filing, Access to an 8-GPU node for one week (lab position), or a BabyAI configuration that reproduces LVRL's floor in under 168 GPU-hours total; cost on re-open: ~400 GPU-hours, 7 days.
 - 2026-10-20 — claim open: headline rewritten (the 10-19 sentence said early in training; every fetched number is early in the trajectory); C-W43-01 survived its kill search with a revised cost (~35 GPU-h for sibling regeneration) and narrowed arms; C-W43-02 detached (orphan); C-W43-03 attached as the lab-position dose probe
+- 2026-10-20 — claim parked: red team of C-W43-01 (2026-10-20): probe killed as designed (degenerate shuffle null; unfirable placebo; mis-costed MC arm; hindsight critic without forward consequence; budget confound; one-sided underpowered kill) and the claim's substance found in print five days before the kill search (Probe-and-Resume 2610.21088: forward frontier critic at chance at 25% depth against executed continuations);…
 - 2026-10-20 — C-W43-01 survived-kill: kill search (stage 4, automatic, claim-ranked): survived-kill — No fetched paper grades an anchored sibling-conditioned frontier value critic against executed prefix values with a wrong-outcome placebo and a dollar-matched MC arm; CWGT audits a different signal class on ALFWorld and the curve owners grade no estimator; occupied_by none; probe stays under one GPU-week after adding ~25 GPU-h of sib…
+- 2026-10-20 — C-W43-01 killed: red team (stage 5, automatic, three personas, 20 objections: 18 conceded, 0 answered, 2 open after two rounds): killed as designed — the claim's shuffle null is degenerate (for a localizer the marginal-matched shuffle of an anchored curve has the random-step row's expected VC_k; any monotone curve beats it on rank correlation), the placebo clause cannot fire on an all-failed set, the dollar-match…
 - 2026-10-20 — C-W43-03 parked: claims (stage 11): attached to CL-W43-06 — secondary probe, lab position only (parked solo): tests the dollar-matched consequence (what the critic buys is rollout budget)
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-06`, version 2)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-06`, version 3)
 - probe `C-W43-01`: `data/candidates/2026-W43.jsonl`; kill record `data/reports/2026-W43-kill-C-W43-01.md`
 - probe `C-W43-03`: `data/candidates/2026-W43.jsonl`
