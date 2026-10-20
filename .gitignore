@@ -1,5 +1,6 @@
 data/cache/
-data/runs/
+data/runs/*
+!data/runs/ACTIVE.json
 __pycache__/
 *.pyc
 .env
