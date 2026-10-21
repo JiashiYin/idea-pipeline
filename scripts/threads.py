@@ -80,7 +80,7 @@ def probe_ids(claim: dict) -> list[str]:
     ids = []
     for p in claim.get("probes", []):
         text = p if isinstance(p, str) else p.get("id", "")
-        m = re.match(r"\s*([A-Za-z]+-[A-Za-z0-9]+-[A-Za-z0-9]+(?:-[a-z])?)", text)   # C-W43-15, X-2026-W42-S7F9, P-W43-J01-a
+        m = re.match(r"\s*([A-Za-z]+-[A-Za-z0-9]+(?:-[A-Za-z0-9]+)+)", text)   # C-W43-15, X-2026-W42-S7F9, P-W43-J01-a, P-W43-01-2x2
         if m and m.group(1) not in ids:
             ids.append(m.group(1))
     return ids
@@ -169,7 +169,7 @@ def probe_table(ids: list[str], cands: dict[str, dict], listed: list, specs: dic
         if report:
             verdict += f" ([record](../../../{report}))"
         rows.append(f"| {pid} | {title} | {clip(probe, 240)} | {c.get('status', '—')} | {verdict or '—'} |")
-    extras = [x for x in listed if isinstance(x, str) and not re.match(r"\s*[A-Za-z]+-[A-Za-z0-9]+-[A-Za-z0-9]+", x)]
+    extras = [x for x in listed if isinstance(x, str) and not re.match(r"\s*[A-Za-z]+-[A-Za-z0-9]+(?:-[A-Za-z0-9]+)+", x)]
     tail = ("\n\nAlso under this claim (no scorecard yet): " + "; ".join(clip(x, 160) for x in extras)) if extras else ""
     return ("| Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |\n| --- | --- | --- | --- | --- |\n"
             + "\n".join(rows) + tail)
@@ -494,6 +494,12 @@ def write_index(claims: dict[str, dict], orphans: list[dict], cands: dict[str, d
     for rank, lane, cid, status, headline, n, surv, cheapest, failing, folder in rows:
         lines.append(f"| {rank if rank != 99 else '—'} | {lane} | {cid} | {status} | {clip(headline, 160)} | {n} ({surv}) | {cheapest} | "
                      f"{clip(failing, 60)} | [`{folder}`](./{folder}/THREAD.md) |")
+    programs = sorted(p.name for p in THREADS.glob("PROGRAM-*.md"))
+    if programs:
+        lines += ["", "## Program notes — what several claims add up to", ""]
+        for name in programs:
+            first = next((l.lstrip("# ").strip() for l in (THREADS / name).read_text().splitlines() if l.startswith("# ")), name)
+            lines.append(f"- [`{name}`](./{name}) — {clip(first, 140)}")
     scouts = recent_scouts()
     if scouts:
         lines += ["", "## Scouts — off-lane papers kept on the headline test (lane L0)", "",

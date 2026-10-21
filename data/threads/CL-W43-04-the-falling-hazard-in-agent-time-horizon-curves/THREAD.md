@@ -1,6 +1,6 @@
 # The falling hazard in agent time-horizon curves is between-task frailty, not within-task degradation: hold the task fixed and the per-minute hazard is flat.
 
-`CL-W43-04` · lane **L1** · status **open** · rank 3 · position solo · refreshed 2026-10-20
+`CL-W43-04` · lane **L1** · status **open** · rank 3 · position solo · refreshed 2026-10-21
 
 ## Status
 
@@ -39,7 +39,7 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 
 
 | Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |
 | --- | --- | --- | --- | --- |
-| X-2026-W42 | X-2026-W42-S7F9 (frailty refit of METR-Horizon-v1.1 runs; $0, 3 d; no scorecard) | — | — | not a candidate record (seed or import) |
+| X-2026-W42-S7F9 | X-2026-W42-S7F9 (frailty refit of METR-Horizon-v1.1 runs; $0, 3 d; no scorecard) | — | — | not a candidate record (seed or import) |
 
 Also under this claim (no scorecard yet): import:2026-W43-S7xF9 (step-clock hazard on tau-bench; ~$300-600 + 60 GPU-h; no scorecard)
 
@@ -77,4 +77,4 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 ## Records
 
 - claim record: `data/claims/claims.jsonl` (id `CL-W43-04`, version 2)
-- `X-2026-W42`: seed or import record (no candidate yet)
+- `X-2026-W42-S7F9`: seed or import record (no candidate yet)
