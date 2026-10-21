@@ -56,6 +56,7 @@ digest:                      # data/digests/<week>.md, one page, written last in
 scoreboard:                  # monthly, in ledger/LEDGER.md
   - "seeds per week by source"
   - "survival rate per source through triage -> card -> kill (which generators earn their keep)"
+  - "claims by origin (top-down | bottom-up | chat) and their survival through kill search and red team (prompts/taste.md §5)"
   - "median time-to-kill"
   - "parked items with triggers; triggers fired"
   - "scoop-watch hits per source"

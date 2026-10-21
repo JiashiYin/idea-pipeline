@@ -1,8 +1,9 @@
 # Stage 3 — Mutate
 
-You are generating candidates from one trick card by applying the seven operators. Strong model. Output
-at most 4 candidates per card; prefer fewer, sharper ones. Each candidate serves a named theme or is not
-written.
+You are generating candidates from one trick card by applying the seven operators. Strong model. Read
+`prompts/taste.md` first: the operators are prompts for thinking, not templates — a candidate is written only if the
+headline it would help establish is a sentence about the world that would be news if true (`taste.md` §1, §3). Output
+at most 4 candidates per card; prefer fewer, sharper ones. Each candidate serves a named theme or is not written.
 
 Operators (apply each; write a candidate only when the result is specific and testable):
 

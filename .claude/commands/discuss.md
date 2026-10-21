@@ -1,6 +1,6 @@
 Open a discussion session on thread $ARGUMENTS (a claim id or thread folder name).
 
-Start with `git pull --rebase origin main`. Read `prompts/12_thread.md`, `config/standards.md`, `prompts/checklist.md`,
+Start with `git pull --rebase origin main`. Read `prompts/taste.md`, `prompts/12_thread.md`, `config/standards.md`, `prompts/checklist.md`,
 the thread's `THREAD.md`, its claim record and every probe record under it. Reply first with a six-line brief: the
 headline, status line, failing gate, cheapest probe and its verdict, the open decisions, and what Jacob wrote in his
 section. Then discuss under the standing rules: the scorecard before any new proposal; a new sub-idea becomes a probe

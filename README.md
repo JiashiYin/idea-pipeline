@@ -128,13 +128,36 @@ cs.SE, cs.MA, cs.RO, plus author and citation watchlists. Since 2026-10-19 there
 papers the community is reading this week regardless of our lanes (Hugging Face daily papers, ranked by reader
 upvotes; the day's top 6 and anything over 60 upvotes), judged at triage only on whether they could carry a headline.
 
+**Are the claims reasoned or glued together by rules?** Reasoned, by a Claude session — but until 2026-10-21 by an
+unattended one whose only memory was the repo, working bottom-up from cards (what one paper leaves out), which is why
+the first batch read as footnotes lifted into headlines. `prompts/taste.md` now carries the judgment from the live
+sessions (what made ideas alive, what killed them, your stated taste), every generating stage reads it first, and the
+claims stage runs a top-down pass (from lane sentences, pressure points and the field's own stated assumptions) before
+the bottom-up one. Each claim records its `origin` (top-down | bottom-up | chat) and the scoreboard shows which origin
+survives kill searches and red teams, so the question "is the distribution his or the cards'?" gets a number.
+
 **Is the claim the paper's claim or ours?** Ours. A card records what a paper does and what it leaves out; the
 mutation operators turn that into probes; the claims stage writes the headline those probes would establish if they
 came out one way. The paper's own claim becomes the "current belief" line in the thread note.
 
+**How are the "top 3 probes" picked, and what is the difference between a probe and a claim?** A claim is the
+sentence about the world; a probe is an experiment that could kill it, with a cost and a pre-written kill criterion.
+The claims stage ranks *claims* by the gates (community-wide consumers and durability weigh most) and writes its
+reasons in the record's `grading`; within a claim, probes are ordered by cost. The week's kill budget then takes the
+cheapest live probe of the top-ranked claim, then of the second, then of the third. It is a judgment ranking with
+stated reasons, not a formula; your `promote` / `jacob-dropped` marks override it.
+
 **Do kill searches and red teams run on everything?** No — on the top of the ranking, within the weekly budget (3
 and 3). The rest of the queue waits with status `proposed`. A sprint runs them on demand (`/sprint kill`, or
 `/sprint <claim-id>` for one thread).
+
+**Which stage does `/sprint` run?** Whichever is owed. `/sprint <claim-id>` reads the thread's First steps and
+runs the next gate for it — kill search if none has run, red team if a probe survived, report if the red team passed,
+then the probe's own pre-registered run plan — stopping at the first verdict. `/sprint generate` runs cards → mutate →
+claims on the backlog; `/sprint scout` refreshes and triages the scout stream; `/sprint kill` runs the owed kill
+searches. For thinking rather than running — an old topic or a new thread — use `/discuss <claim-id>` (the full record
+is loaded and the conclusions land in the thread's Log) or simply talk in a session; a new headline that emerges is
+`/capture`d within one reply.
 
 **Is the machine idle between Sundays?** Only if you let it be. `/sprint` runs any stage on demand with the same
 rules; the Sunday run picks up whatever you did (it pulls first and skips what is already done).
