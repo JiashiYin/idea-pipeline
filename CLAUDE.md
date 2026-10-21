@@ -168,7 +168,7 @@ without a new reason in `history`.
 
 ## What is code and what is an agent
 
-Only `scripts/fetch_arxiv.py`, `scripts/run_week.sh` and `scripts/threads.py` are code. Every other stage is an agent run from a
+Only `scripts/fetch_arxiv.py`, `scripts/run_week.sh`, `scripts/threads.py` and Jacob's `scripts/start.sh` / `scripts/done.sh` are code. Every other stage is an agent run from a
 slash command in `.claude/commands/`, reading its prompt in `prompts/`. The ledger renderer and the GitHub
 complaint fetcher are specified, not built; until they exist the agent does their job by hand and says so.
 

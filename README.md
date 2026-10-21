@@ -5,7 +5,7 @@ is true of the repository as it stands; when the machine changes, this file chan
 operator to keep it so). The operator's manual is `CLAUDE.md`; the two laws are `config/themes.yaml` (lanes) and
 `config/standards.md` (gates).
 
-Last revised 2026-10-19.
+Last revised 2026-10-21.
 
 ## 1. What this is, in one paragraph
 
@@ -71,7 +71,10 @@ Push and email notifications tell you when a scheduled run has finished and push
 
 ## 6. What you do in a Claude Code session (your PC, repo open)
 
-Always start with `git pull --rebase origin main`. Then:
+Always start with `bash scripts/start.sh` — it pulls, shows whether a run is live, lists marks of yours waiting to be
+applied, and prints the threads index. End with `bash scripts/done.sh "what you did"` — it refreshes the notes, commits
+and pushes (rebasing once if the cloud pushed meanwhile). Yes, every time: the cloud writes to `main` while you are
+away. The slash commands below pull for themselves, but your hand edits (marks, config) need the two scripts. Then:
 
 | You want to… | Type |
 | --- | --- |
@@ -86,6 +89,22 @@ Always start with `git pull --rebase origin main`. Then:
 
 Never run `/week` yourself; the Sunday task owns it. Everything else is yours any day.
 
+## 6b. The names
+
+| Code | Reads as | Example |
+| --- | --- | --- |
+| `2026-W43` | ISO week: year and week number, Monday to Sunday, in New York time. Sunday night's run belongs to the week that is ending. | `data/digests/2026-W43.md` |
+| `L1` … `L5`, `L0` | Lanes; `L0` is the open scout lane. `T1`, `T2` are retired themes, kept only so old records read. | `config/themes.yaml` |
+| `CL-W43-01` | **Claim** 01, written by the machine in week 43. | thread folder `data/threads/CL-W43-01-…` |
+| `CL-W43-J01` | Claim 01 **captured from Jacob** (J) in week 43 — a `/capture`; status `thought` until its kill search. | |
+| `C-W43-15` | **Candidate** (probe) 15 of week 43, a record in `data/candidates/2026-W43.jsonl`. | |
+| `P-W43-J01-a` | Probe a of captured claim J01, specified on the claim and not yet a candidate record. | |
+| `X-2026-W42-S7F9`, `import:2026-W43-S4xF9` | Cross-field import: problem **shape** 7 × **field** 9 of `config/fields.yaml`, week 42. | |
+| `2610.22276` | A seed is named by its arXiv id; a chat seed is `chat-<date>-<slug>`. | |
+| `2026-W43-kill-C-W43-15.md`, `2026-W43-redteam-C-W43-15.md` | Kill record and red-team log of probe C-W43-15, in `data/reports/`. | |
+| `ORPHANS-W43` | The week's register of probes with no claim. | in `claims.jsonl` |
+| git branch `capture-w43-j01`, `shakedown-w42`, `pending-rule-14` | Housekeeping, not content: a branch is used only when `main` is locked by a live run or when output is experimental; each was merged into `main` and can be deleted on GitHub. You never need to check one out. | |
+
 ## 7. Two operators, one repository — the sync rules
 
 The Sunday task and your PC both push to `main`. The rules that keep them from racing:
@@ -97,7 +116,9 @@ The Sunday task and your PC both push to `main`. The rules that keep them from r
 3. One stage, one commit, one push. Small commits rebase cleanly.
 4. If a `.jsonl` file conflicts, keep both sides' lines — the files are append-only and the last record per id wins —
    then `python scripts/threads.py`. If a `THREAD.md` conflicts, regenerate it; notes are views of the records.
-5. Your own edits (`## Jacob` sections, config files) are ordinary commits: `git add -A && git commit -m "<week>: Jacob marks" && git push`.
+5. Your own edits (`## Jacob` sections, config files) are ordinary commits: `bash scripts/done.sh "marks"` does the
+   add, commit and push for you (or `git add -A && git commit -m "<week>: Jacob — marks" && git push`).
+6. If a push is rejected, the cloud pushed first: `git pull --rebase origin main`, resolve as in rule 4, push again.
 
 ## 8. Questions you have asked
 
