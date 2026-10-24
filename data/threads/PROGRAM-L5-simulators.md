@@ -13,12 +13,16 @@ surprising measurement about exploitation among them.
 
 **The instrument — the simulator-budget 2×2.** Train a policy at the shipped solver budget and at the converged budget
 under the full training protocol (domain randomization, kicks, noise), at matched wall-clock; evaluate every policy in
-both engines with paired draws. Write J_e(π) for the return of policy π evaluated in engine e. The exploit is the
-interaction term:
+both engines with paired draws. Write $J_e(\pi)$ for the return of policy $\pi$ evaluated in engine $e$, with
+$e \in \{\mathrm{cap}, \mathrm{conv}\}$ (the shipped budget and the converged one) and $\pi_{\mathrm{cap}}, \pi_{\mathrm{conv}}$
+the policies trained in each. The exploit is the interaction term
 
-  X = [J_conv(π_conv) − J_conv(π_cap)] − [J_cap(π_conv) − J_cap(π_cap)]
+$$
+X = \big[J_{\mathrm{conv}}(\pi_{\mathrm{conv}}) - J_{\mathrm{conv}}(\pi_{\mathrm{cap}})\big]
+  - \big[J_{\mathrm{cap}}(\pi_{\mathrm{conv}}) - J_{\mathrm{cap}}(\pi_{\mathrm{cap}})\big],
+$$
 
-(what the converged engine takes away from the cap-trained policy beyond what it takes from any policy). Alongside it:
+what the converged engine takes away from the cap-trained policy beyond what it takes from any policy. Alongside it:
 the solver's own certificate per step (gradient norm at the cap, `nchange`) as the fidelity column; sim2sim across
 engines (the field's standard exploit test, shipped by Playground and Humanoid-Gym) as the transfer proxy; hardware as
 the ceiling arm. This replaces ρ_L5, which the red team showed does not estimate exploitation (it counts reward on
@@ -148,53 +152,77 @@ metamorphic testing, the method of manufactured solutions, LINPACK/HPCG and MLPe
 
 ## The ruler — four design rules, five functionals, two measures
 
-**Rules.** R1 *dimensionless*: every quantity is normalised by the scene's own scales — an energy scale E₀ (actuator
-work budget per step, or m g ℓ₀), a length ℓ₀ (smallest feature or contact radius), a force F₀ (weight of the
-manipulated body); a threshold is a fraction, never a metre. R2 *oracle-free where possible, reality-anchored where
+**Rules.** R1 *dimensionless*: every quantity is normalised by the scene's own scales — an energy scale $E_0$ (actuator
+work budget per step, or $m g \ell_0$), a length $\ell_0$ (smallest feature or contact radius), a force $F_0$ (weight of
+the manipulated body); a threshold is a fraction, never a metre. R2 *oracle-free where possible, reality-anchored where
 not*: no reference engine is truth. R3 *adaptive*: worst case under optimisation with a stated budget, reported as a
 curve, never as a list. R4 *consumer-validated*: a functional is admitted into the ruler only after it predicts a
 consumer outcome in a pre-registered test.
 
-**Functionals along a trajectory (x_t, u_t).** Let E_t be the scene's mechanical energy (kinetic + potential +
-elastic), W_t^act the actuator work in step t, W_t^ext the work of prescribed or kinematic bodies.
+**Functionals along a trajectory $(x_t, u_t)$.** Let $E_t$ be the scene's mechanical energy (kinetic + potential +
+elastic), $\Delta E_t = E_{t+1} - E_t$, $W_t^{\mathrm{act}}$ the actuator work in step $t$, and $W_t^{\mathrm{ext}}$ the
+work of prescribed or kinematic bodies.
 
 - Energy from nothing (work–energy bookkeeping; dissipation can only remove energy):
 
-  ε_t^E = max(0, ΔE_t − W_t^act − W_t^ext) / E₀
+$$
+\varepsilon^{E}_t = \frac{\max\!\big(0,\; \Delta E_t - W_t^{\mathrm{act}} - W_t^{\mathrm{ext}}\big)}{E_0}
+$$
 
   Catches box-surfing, twitch-to-speed, penetration springs. Needs only energies and actuator torques, which every
   engine exposes; for soft bodies the elastic term needs the material model and nodal positions (a design task; PBD
   engines have no energy, which is itself a finding).
-- Complementarity residual (non-penetration and friction cone), for contacts i with gap g_i, normal force λ_i and
-  tangential force f_i:
+- Complementarity residual (non-penetration and friction cone), for contacts $i$ with gap $g_i$, normal force
+  $\lambda_i$, tangential force $f_i$ and friction coefficient $\mu$:
 
-  ε_t^C = Σ_i [ max(0, −g_i)/ℓ₀ · λ_i/F₀ + max(0, |f_i| − μ λ_i)/F₀ ]
+$$
+\varepsilon^{C}_t = \sum_i \left[ \frac{\max(0, -g_i)}{\ell_0}\,\frac{\lambda_i}{F_0}
+  + \frac{\max\!\big(0,\; |f_i| - \mu \lambda_i\big)}{F_0} \right]
+$$
 
   (the NCP violation of 2304.06372, made dimensionless and taken along visited states).
-- Metamorphic defects, for a transformation T in {translate, rotate, mirror, rescale units, permute bodies or batch
-  slots, halve dt with doubled substeps}, where physics demands S(Tx) = T S(x):
+- Metamorphic defects, for a transformation $T$ in {translate, rotate, mirror, rescale units, permute bodies or batch
+  slots, halve $\Delta t$ with doubled substeps}, where physics demands $S(Tx) = T\,S(x)$ for the step map $S$:
 
-  ε_T^M = ‖S(Tx) − T S(x)‖ / ℓ₀
+$$
+\varepsilon^{M}_T = \frac{\lVert S(Tx) - T\,S(x) \rVert}{\ell_0}
+$$
 
   Oracle-free. The batch-slot permutation defect is GPUSimBench's nondeterminism and CL-W43-09's floor.
-- Convergence (verification), from three resolutions h, 2h, 4h of the shipped setting (dt or solver budget):
+- Convergence (verification), from three resolutions $h, 2h, 4h$ of the shipped setting ($\Delta t$ or solver budget),
+  with $x_h$ the trajectory computed at resolution $h$:
 
-  p̂ = log(‖x_{2h} − x_{4h}‖ / ‖x_h − x_{2h}‖) / log 2,   ε^R = ‖x_h − x_{2h}‖ / ((2^p̂ − 1) ℓ₀)
+$$
+\hat p = \frac{\log\big(\lVert x_{2h} - x_{4h} \rVert / \lVert x_h - x_{2h} \rVert\big)}{\log 2},
+\qquad
+\varepsilon^{R} = \frac{\lVert x_h - x_{2h} \rVert}{(2^{\hat p} - 1)\,\ell_0}
+$$
 
   Richardson's estimate of the discretisation error at the shipped setting; the order degrades at impacts, which is
   reported, not hidden. This is the "law" half of Part I done the standard way.
 - Validation (reality-anchored): on public paired sim/real data, trajectory discrepancy at matched protocol, or
   outcome-level rank agreement κ with chance correction (CL-W43-02's instrument, which survives that claim's refutation).
 
-**Two measures.** Fidelity is the mean of the functionals over motions a fixed protocol chose (demonstrations, trained
-policies):  F(S) = E_{τ∼π_ref}[Σ_t ε_t]. Exploitability is their worst case over motions an optimiser chose, under a
-budget B of GPU-hours:  X(S; B) = max_{π∈Π_B} E_{τ∼π}[Σ_t ε_t], reported as the curve X against B — exploits per
-GPU-hour, the way fuzzers report crashes per CPU-hour. Reinforcement learning lives under the second measure. The
-return-weighted version (how much task return is reachable only through violations) is what the 2×2 of Part I
-estimates with a reference engine; the oracle-free version weights return by ε along the trajectory and must use the
-energy and complementarity functionals, not a count — the ρ_L5 lesson.
+**Two measures.** Write $\varepsilon_t$ for the sum of the functionals at step $t$ and $\tau$ for a trajectory. Fidelity
+is their mean over motions a fixed protocol chose (demonstrations, trained policies $\pi_{\mathrm{ref}}$):
 
-**Speed** is quoted only at a fixed accuracy (time to ε^R or ε^V below a target), and **hardware affinity** is scaling,
+$$
+F(S) = \mathbb{E}_{\tau \sim \pi_{\mathrm{ref}}}\Big[\sum_t \varepsilon_t\Big]
+$$
+
+Exploitability is their worst case over motions an optimiser chose, within the set $\Pi_B$ of policies reachable with
+a budget $B$ of GPU-hours:
+
+$$
+X(S; B) = \max_{\pi \in \Pi_B} \; \mathbb{E}_{\tau \sim \pi}\Big[\sum_t \varepsilon_t\Big]
+$$
+
+reported as the curve of $X$ against $B$ — exploits per GPU-hour, the way fuzzers report crashes per CPU-hour. Reinforcement learning lives under the second measure. The
+return-weighted version (how much task return is reachable only through violations) is what the 2×2 of Part I
+estimates with a reference engine; the oracle-free version weights return by $\varepsilon_t$ along the trajectory and
+must use the energy and complementarity functionals, not a count — the $\rho_{L5}$ lesson.
+
+**Speed** is quoted only at a fixed accuracy (time to $\varepsilon^{R}$ or the validation error below a target), and **hardware affinity** is scaling,
 memory, batch-permutation defect and the resolution floor.
 
 ## Claims this adds (thoughts until their kill searches run)

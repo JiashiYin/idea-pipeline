@@ -15,9 +15,10 @@ repeat it at lunch, it is not clear yet. If it needs a second sentence, it is tw
 ## 2. Where the live ideas came from (2026-10-08 → 10-20)
 
 - **A conservation law or identity that reorganises a messy quantity.** The per-turn variance split began as
-  Var[R] = p(1−p) = Σ_k E[D_k²], with p the task's root success probability and D_k the change in the value process
-  V(h_k) = E[R | h_k] at move k. Signal versus headroom at a compaction node: C(h) = Var_σ[V(h,σ)] (how much the
-  summary σ moves the value) against H(h) = V_full − E_σ V (what the best summary leaves on the table). An identity a
+  $\mathrm{Var}[R] = p(1-p) = \sum_k \mathbb{E}[D_k^2]$, with $p$ the task's root success probability and $D_k$ the change
+  in the value process $V(h_k) = \mathbb{E}[R \mid h_k]$ at move $k$. Signal versus headroom at a compaction node:
+  $C(h) = \mathrm{Var}_\sigma[V(h,\sigma)]$ (how much the summary $\sigma$ moves the value) against
+  $H(h) = V_{\mathrm{full}} - \mathbb{E}_\sigma V$ (what the best summary leaves on the table). An identity a
   stranger can check on a napkin outranks a pipeline diagram.
 - **An identifiability question asked before any method.** "Random *given what*?" "Whose temperature?" "A seed is
   not a state of the world." The strongest moves were finding that a quantity people report is a property of the
@@ -48,7 +49,7 @@ repeat it at lunch, it is not clear yet. If it needs a second sentence, it is tw
   claims layer exists because seventeen such probes read as nothing. (2026-10-19)
 - **A degenerate null**: a shuffle that any monotone curve beats; a placebo that cannot fire on an all-failed set. If
   the null is beaten by linear decay, the test measures nothing. (C-W43-01, 2026-10-20)
-- **An estimator that does not estimate the named quantity**: ρ_L5 counted reward on threshold-crossing steps when the
+- **An estimator that does not estimate the named quantity**: $\rho_{L5}$ counted reward on threshold-crossing steps when the
   return gap is a signed, value-weighted sum of one-step errors; the 2×2 train-in-each / test-in-both matrix was the
   estimator and was cheaper. Write the quantity's definition, then ask whether the probe computes it. (C-W43-15)
 - **A "surprise" that equals the field's stated knowledge**: the per-state convergence law was the engine manual's own
@@ -65,7 +66,8 @@ repeat it at lunch, it is not clear yet. If it needs a second sentence, it is tw
 ## 4. Jacob's stated taste (apply, do not argue)
 
 Headlines over scopes; the plain one-sentence trick for every paper; equations with every symbol when depth is
-needed; no hedging words; the scorecard every time; cross-field connections he may lack the background to see, said
+needed, written in LaTeX (`$...$`, `$$...$$`) and never in Unicode math (Jacob, 2026-10-24: Unicode math is hard to
+read), each display equation short and self-contained; no hedging words; the scorecard every time; cross-field connections he may lack the background to see, said
 plainly; on radar but not head-to-head with frontier labs; academic value plus a shippable artifact (an instrument,
 a standard, a definitive comparison); measurement and benchmark work is where the heavy hitters are; a result rather
 than a reading is the point of the first year. His background is computer engineering and theoretical physics —

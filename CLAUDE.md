@@ -60,7 +60,8 @@ survived a kill search done this week.
    it. Conference exports (NeurIPS/ICML/ICLR `Downloads` pages) count as literature; abstracts-only entries
    are marked `abstract-only`.
 4. **Equations when a method is explained in depth.** Define every symbol. Prose paraphrases of math are
-   not acceptable in cards or reports.
+   not acceptable in cards or reports. Math is written in LaTeX (`$...$` inline, `$$...$$` display), never in Unicode
+   symbols (Jacob, 2026-10-24); each display equation short and self-contained — this holds in files and in chat.
 5. **Dated, append-only.** Every record carries a `history` list of `(date, status, note)`. Nothing is
    deleted; superseded entries are marked.
 6. **Budget.** A week is: ≤ 40 seeds triaged, ≤ 8 cards, ≤ 20 candidates, ≤ 3 kill searches, ≤ 2 reports.
