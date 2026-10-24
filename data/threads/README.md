@@ -1,6 +1,6 @@
 # Threads — one folder per claim, one note per folder
 
-Refreshed 2026-10-21. Each `THREAD.md` is regenerated from the records by `python scripts/threads.py`; your
+Refreshed 2026-10-23. Each `THREAD.md` is regenerated from the records by `python scripts/threads.py`; your
 `## Jacob` section is preserved verbatim. Read a note top to bottom: Status, the claim, scorecard, gates, probes,
 kill search, red team, first steps, decisions — then write in your section. Ranked by the claims stage.
 Lost? The user guide is [`README.md`](../../README.md) at the repository root.
@@ -18,10 +18,12 @@ Lost? The user guide is [`README.md`](../../README.md) at the repository root.
 | 9 | L5 | CL-W43-09 | open | GPU physics engines cannot resolve the policy-return differences that robot-RL papers report as improvements: engine-only repeatability and batch-position vari… | 1 (0) | P-W43-09-lit | Gate 6 not yet established; Gate 1 blocked on paperwork (no… | [`CL-W43-09-gpu-physics-engines-cannot-resolve-the-policy-re`](./CL-W43-09-gpu-physics-engines-cannot-resolve-the-policy-re/THREAD.md) |
 | — | L1 | CL-W43-J01 | thought | The run-to-run variance that agent benchmarks report at temperature 0 is the serving stack's batch-dependent arithmetic, not the agent, and over multi-turn tra… | 1 (0) | P-W43-J01-a | none recorded | [`CL-W43-J01-the-run-to-run-variance-that-agent-benchmarks-re`](./CL-W43-J01-the-run-to-run-variance-that-agent-benchmarks-re/THREAD.md) |
 | — | L5 | CL-W43-J02 | thought | A GPU simulator's physics budget is a dose: transferable policy return follows one dose-response curve in solver budget per task class, so fidelity can be sche… | 2 (0) | P-W43-01-2x2 | none recorded | [`CL-W43-J02-a-gpu-simulator-s-physics-budget-is-a-dose-trans`](./CL-W43-J02-a-gpu-simulator-s-physics-budget-is-a-dose-trans/THREAD.md) |
+| — | L5 | CL-W43-J03 | thought | The fidelity scores physics engines report do not predict whether policies trained in them transfer; the worst-case physical violation a budgeted optimiser can… | 1 (0) | P-W43-J03-a | none recorded | [`CL-W43-J03-the-fidelity-scores-physics-engines-report-do-no`](./CL-W43-J03-the-fidelity-scores-physics-engines-report-do-no/THREAD.md) |
+| — | L5 | CL-W43-J04 | thought | At the settings they ship, physics engines differ in what a budgeted optimiser can extract from them by more than their fidelity scores differ, and their speed… | 1 (0) | P-W43-J04-a | none recorded | [`CL-W43-J04-at-the-settings-they-ship-physics-engines-differ`](./CL-W43-J04-at-the-settings-they-ship-physics-engines-differ/THREAD.md) |
 
 ## Program notes — what several claims add up to
 
-- [`PROGRAM-L5-simulators.md`](./PROGRAM-L5-simulators.md) — Program note — L5, the simulator thread (shaped 2026-10-21 with Jacob)
+- [`PROGRAM-L5-simulators.md`](./PROGRAM-L5-simulators.md) — Program note — L5, the simulator thread (Part I shaped 2026-10-21; Part II, the meta-benchmark, 2026-10-23)
 
 ## Orphan probes (no claim yet)
 

@@ -1,6 +1,6 @@
 # GPU physics engines cannot resolve the policy-return differences that robot-RL papers report as improvements: engine-only repeatability and batch-position variance exceed 30% of the policy-to-policy spread on contact-rich tasks.
 
-`CL-W43-09` · lane **L5** · status **open** · rank 9 · position both · refreshed 2026-10-21
+`CL-W43-09` · lane **L5** · status **open** · rank 9 · position both · refreshed 2026-10-23
 
 ## Status
 

@@ -1,6 +1,6 @@
 # Compaction summaries fail by unsourced persistence — claims no observation supports — not by length.
 
-`CL-W43-05` · lane **L4** · status **open** · rank 5 · position both · refreshed 2026-10-21
+`CL-W43-05` · lane **L4** · status **open** · rank 5 · position both · refreshed 2026-10-23
 
 ## Status
 

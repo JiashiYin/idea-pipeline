@@ -1,6 +1,6 @@
 # The falling hazard in agent time-horizon curves is between-task frailty, not within-task degradation: hold the task fixed and the per-minute hazard is flat.
 
-`CL-W43-04` · lane **L1** · status **open** · rank 3 · position solo · refreshed 2026-10-21
+`CL-W43-04` · lane **L1** · status **open** · rank 3 · position solo · refreshed 2026-10-23
 
 ## Status
 

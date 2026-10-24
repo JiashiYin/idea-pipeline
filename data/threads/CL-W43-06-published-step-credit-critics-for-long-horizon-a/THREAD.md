@@ -1,6 +1,6 @@
 # Published step-credit critics for long-horizon agents do not beat their own shuffled control in the first two thirds of a trajectory.
 
-`CL-W43-06` · lane **L2** · status **parked** · rank 4 · position both · refreshed 2026-10-21
+`CL-W43-06` · lane **L2** · status **parked** · rank 4 · position both · refreshed 2026-10-23
 
 ## Status
 
