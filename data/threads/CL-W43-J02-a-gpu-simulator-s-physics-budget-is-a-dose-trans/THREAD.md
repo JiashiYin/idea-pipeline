@@ -1,6 +1,6 @@
 # A GPU simulator's physics budget is a dose: transferable policy return follows one dose-response curve in solver budget per task class, so fidelity can be scheduled during training like a learning rate instead of fixed by a config file.
 
-`CL-W43-J02` · lane **L5** · status **thought** · rank — · position solo · refreshed 2026-10-24
+`CL-W43-J02` · lane **L5** · status **thought** · rank — · position solo · refreshed 2026-10-25
 
 ## Status
 

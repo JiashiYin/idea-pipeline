@@ -1,6 +1,6 @@
 # At the settings they ship, physics engines differ in what a budgeted optimiser can extract from them by more than their fidelity scores differ, and their speed claims reorder once speed is quoted at a fixed accuracy.
 
-`CL-W43-J04` · lane **L5** · status **thought** · rank — · position solo · refreshed 2026-10-24
+`CL-W43-J04` · lane **L5** · status **thought** · rank — · position solo · refreshed 2026-10-25
 
 ## Status
 

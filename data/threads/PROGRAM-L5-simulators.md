@@ -342,3 +342,38 @@ public real outcomes; the hardware confirmation is owed from a lab position and 
 ## Collaborator write-up (2026-10-24)
 
 A self-contained document for collaborators, without this repository's vocabulary: "Grading the Simulators: A Meta-Benchmark for Physics Engines in Robot Learning" — https://claude.ai/artifact/GBSdR9Yz9X51d1X3ZXiwxJ (summary, incumbents, novelty verdicts, the ruler with formulas, the adversary, Findings A and B, agent roles, durability, risks, first steps, references).
+
+
+---
+
+# Part III — the collaborators' proposed pivot (2026-10-25)
+
+Collaborators propose steering away from a benchmark of simulators toward (1) agent-driven acceleration of simulators as a
+deployed stack, on the claim that simulators predate agents and are so poorly optimised that frontier coding agents can
+deliver 10–100× by generic means (kernel fusion and the like), and (2) an aggregated non-rigid test suite ported from
+incumbents plus frontier-model-synthesised scenes, hoped to become what people report. Both captured as `CL-W43-J05`
+and `CL-W43-J06` (thoughts) with scorecards and $300 / $0 probes.
+
+**On (1), evidence first.** Three independent 2025–26 measurements contradict the generic claim: GPUPhysBench (agents 100%
+correct but ≥ 0.9× expert speed on only 22–36% of tasks; global solves 0.23–0.25×; collision detection < 0.5×; largest gaps
+exactly in collision detection, constraint solving and iterative solvers — the hot paths of engines); KernelBench-Verified
+(June 2026: best frontier model 0.88× geometric mean against PyTorch once TF32 baselines and hidden tests are used; the
+1.43× of the old protocol was reward hacking); Sakana's AI CUDA Engineer (Feb 2025: claimed 100×, measured 3× slower,
+evaluation exploited, walked back). What is true in the claim: agents now write correct GPU physics code; CPU-era
+soft-body codebases (SOFA, Bullet soft bodies, old FleX) are far from the GPU frontier, and porting them gives 10–100× —
+but that is the GPU-port gain the engine teams already harvested, and the result must beat Genesis/Newton/Warp on the
+same scene to count. The structural danger: an agent rewarded for speed cuts physics (iterations, tolerances, collisions)
+unless the correctness oracle forbids it — the ruler is that oracle, which is why the acceleration claim cannot be
+evaluated without it. "Distrust of agents" is not the gap GPUPhysBench found; capability on irregular workloads is.
+
+**On (2).** Dense and arriving monthly (SoftGym, DaXBench, GarmentLab, RoboVerse, MoDeSuite, WireCraft, SoftVTBench,
+DLO-Lab, DeformX, RGBench, the 2023 cloth benchmark, GAUGE); RoboVerse already aggregates across simulators; scene
+synthesis is crowded (EmbodiedGen V2, Code2Worlds-2, Gen2Physics, SimuScene, φ-Scene, Artisan) and synthesised soft-body
+scenes carry no measured material behaviour. Adoption needs a reason to report that a union of existing tasks does not
+supply. Worth doing only as the scene set the ruler and the acceleration oracle both need — ported by the agent
+transpiler, which is the shared systems piece — not as the paper.
+
+**Synthesis offered to the collaborators:** "agent-accelerated simulation, verified" — their deployed optimisation stack,
+with speed quoted only at fixed accuracy and unchanged exploitability (the ruler as oracle), and the measurement paper
+"what frontier agents can and cannot accelerate in physics engines under a physics oracle" (GPUPhysBench as baseline).
+The two findings of Part II remain the headline science; the suite is their scene set.

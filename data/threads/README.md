@@ -1,6 +1,6 @@
 # Threads — one folder per claim, one note per folder
 
-Refreshed 2026-10-24. Each `THREAD.md` is regenerated from the records by `python scripts/threads.py`; your
+Refreshed 2026-10-25. Each `THREAD.md` is regenerated from the records by `python scripts/threads.py`; your
 `## Jacob` section is preserved verbatim. Read a note top to bottom: Status, the claim, scorecard, gates, probes,
 kill search, red team, first steps, decisions — then write in your section. Ranked by the claims stage.
 Lost? The user guide is [`README.md`](../../README.md) at the repository root.
@@ -20,6 +20,8 @@ Lost? The user guide is [`README.md`](../../README.md) at the repository root.
 | — | L5 | CL-W43-J02 | thought | A GPU simulator's physics budget is a dose: transferable policy return follows one dose-response curve in solver budget per task class, so fidelity can be sche… | 2 (0) | P-W43-01-2x2 | none recorded | [`CL-W43-J02-a-gpu-simulator-s-physics-budget-is-a-dose-trans`](./CL-W43-J02-a-gpu-simulator-s-physics-budget-is-a-dose-trans/THREAD.md) |
 | — | L5 | CL-W43-J03 | thought | Among the numbers one can compute about a simulator without a robot, the fidelity scores engines report predict policy transfer worst, and the worst-case physi… | 1 (0) | P-W43-J03-a | none recorded | [`CL-W43-J03-among-the-numbers-one-can-compute-about-a-simula`](./CL-W43-J03-among-the-numbers-one-can-compute-about-a-simula/THREAD.md) |
 | — | L5 | CL-W43-J04 | thought | At the settings they ship, physics engines differ in what a budgeted optimiser can extract from them by more than their fidelity scores differ, and their speed… | 1 (0) | P-W43-J04-a | none recorded | [`CL-W43-J04-at-the-settings-they-ship-physics-engines-differ`](./CL-W43-J04-at-the-settings-they-ship-physics-engines-differ/THREAD.md) |
+| — | L5 | CL-W43-J05 | thought | Frontier coding agents can speed up shipped physics engines 10-100x at fixed accuracy by generic optimisation (kernel fusion and the like), because the engines… | 1 (0) | P-W43-J05-a | none recorded | [`CL-W43-J05-frontier-coding-agents-can-speed-up-shipped-phys`](./CL-W43-J05-frontier-coding-agents-can-speed-up-shipped-phys/THREAD.md) |
+| — | L5 | CL-W43-J06 | thought | A non-rigid-body robotics test suite assembled by porting and collecting the incumbents' tasks, plus frontier-model-synthesised scenes, will become the suite p… | 1 (0) | P-W43-J06-a | none recorded | [`CL-W43-J06-a-non-rigid-body-robotics-test-suite-assembled-b`](./CL-W43-J06-a-non-rigid-body-robotics-test-suite-assembled-b/THREAD.md) |
 
 ## Program notes — what several claims add up to
 
