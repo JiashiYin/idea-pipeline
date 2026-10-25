@@ -316,3 +316,24 @@ $F$ on fixed scenes, $X(B)$. Plot speed against $F$ (today's frontier) and again
 engine on the speed–fidelity frontier drops off the speed–exploitability frontier (its speed was bought with exploitable
 shortcuts), or none does (then exploitability is fidelity in disguise — also a finding). Speed is also re-quoted at a
 fixed accuracy (time to $\varepsilon^{R}$ below target), the MLPerf rule.
+
+
+## Kill search of the concepts (2026-10-24) — `data/reports/2026-W43-kill-CL-W43-J03-J04.md`
+
+Jacob's null hypothesis ("none of the framing or proxies is novel") tested with eight arXiv queries, five web searches
+and twelve fetched abstracts. Verdicts: the **proxies are not novel** — NCP violation is the solver literature's own test
+(2304.06372), metamorphic testing is routine for CPS and driving simulators, Richardson is textbook — and are recorded as
+instrument, not claim. **Exploitability is an occupied word** (best-response value in game theory; model exploitation and
+the simulation lemma in MBRL; preference reversal, 2605.15960; the adversarial objective for learned simulators,
+2605.29032); the unoccupied piece is the oracle-free conservation-law reward applied by a calibrated budgeted optimiser
+portfolio to engineered engines — a mechanism difference, so `CL-W43-J04` survives weakly. **The fidelity axis is
+occupied by GAUGE** 2608.05948 (Aug 2026: 22 real-grounded task families across rigid, cable, textile and volumetric
+materials; Isaac Sim, Genesis, Newton scored by trajectory error) — far stronger than GPUSimBench; the ruler's
+validation layer uses GAUGE's numbers rather than competing. **Trace-free prediction of transfer has a precedent**,
+RoboGauge 2602.00678 (Jan 2026: sim-to-sim robustness metrics predict a policy's transferability without hardware), and
+Kadian 2019 (1912.06321) is the single-artifact datum that an engine exploit ruined predictivity (SRCC 0.18 → 0.844
+after tuning). Not found: a simulator-level number tested as a predictor of transfer, or any test of whether GAUGE-type
+fidelity predicts it. `CL-W43-J03` survives on that gap, **redesigned as a horse race** of trace-free predictors — GAUGE
+fidelity, sim-to-sim robustness, Richardson error, $X(B)$ — against the public real outcomes, with power bounded by tens
+of triples. **No hardware is required** for either claim; persuasion comes from adversary calibration and from predicting
+public real outcomes; the hardware confirmation is owed from a lab position and the paper says so.

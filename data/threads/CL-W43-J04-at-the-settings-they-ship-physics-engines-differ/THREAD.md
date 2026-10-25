@@ -39,7 +39,7 @@ A thought from `/capture`: not yet graded against the gates; its kill search has
 
 | Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |
 | --- | --- | --- | --- | --- |
-| P-W43-J04-a | Two tasks (a cloth task with public real data - the 2024 cloth sim-to-real benchmark or RGBench garments - and the Leap… | Pre-registered: dead if every engine's X(5 GPU-h) exceeds a gross violation (all break instantly) or none exceeds the batch-permutation floor (none breaks) - no separation; dead as a headline if the X ranking equals the fidelity ranking an… | thought | not run (no candidate record yet) |
+| P-W43-J04-a | GAUGE's three engines (Isaac Sim, Genesis, Newton) plus MuJoCo/MJX, on one GAUGE cloth or cable task family and one rig… | Pre-registered: dead if every engine's X(5 GPU-h) exceeds a gross violation (all break instantly) or none exceeds the batch-permutation floor (none breaks) - no separation; dead as a headline if the X ranking equals the fidelity ranking an… | thought | not run (no candidate record yet) |
 
 ## Kill search
 
@@ -71,8 +71,9 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 - 2026-10-23 — claim thought: captured 2026-10-23 from the non-rigid session's headline, with the ruler under it; kill search owed
 - 2026-10-24 — claim thought: Jacob's critiques answered (program note addendum): incumbents inspected, functionals are self-consistency against the declared model, adversary = calibrated optimiser portfolio on an auxiliary MDP, both capacity and realised exploitation reported
+- 2026-10-24 — claim thought: kill search (concept-level): survived-kill, weak; the fidelity side is GAUGE's (2608.05948) and the engine set becomes GAUGE's three plus MuJoCo; the exploitability term is defined against its three literatures
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-J04`, version 2)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-J04`, version 3)
 - `P-W43-J04-a`: seed or import record (no candidate yet)
