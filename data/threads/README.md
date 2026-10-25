@@ -1,6 +1,6 @@
 # Threads — one folder per claim, one note per folder
 
-Refreshed 2026-10-23. Each `THREAD.md` is regenerated from the records by `python scripts/threads.py`; your
+Refreshed 2026-10-24. Each `THREAD.md` is regenerated from the records by `python scripts/threads.py`; your
 `## Jacob` section is preserved verbatim. Read a note top to bottom: Status, the claim, scorecard, gates, probes,
 kill search, red team, first steps, decisions — then write in your section. Ranked by the claims stage.
 Lost? The user guide is [`README.md`](../../README.md) at the repository root.

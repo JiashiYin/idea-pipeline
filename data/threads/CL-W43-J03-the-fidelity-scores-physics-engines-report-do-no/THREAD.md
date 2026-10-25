@@ -1,6 +1,6 @@
 # The fidelity scores physics engines report do not predict whether policies trained in them transfer; the worst-case physical violation a budgeted optimiser can extract from the engine does.
 
-`CL-W43-J03` · lane **L5** · status **thought** · rank — · position solo · refreshed 2026-10-23
+`CL-W43-J03` · lane **L5** · status **thought** · rank — · position solo · refreshed 2026-10-24
 
 ## Status
 
@@ -67,12 +67,12 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - status mark: (none)
 - notes:
 
-
 ## Log
 
 - 2026-10-23 — claim thought: captured in the 2026-10-23 session on the meta-benchmark; consequence claim of the ruler; kill search owed
+- 2026-10-24 — claim thought: Jacob's critiques answered (program note addendum): incumbents inspected, functionals are self-consistency against the declared model, adversary = calibrated optimiser portfolio on an auxiliary MDP, both capacity and realised exploitation reported
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-J03`, version 1)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-J03`, version 2)
 - `P-W43-J03-a`: seed or import record (no candidate yet)

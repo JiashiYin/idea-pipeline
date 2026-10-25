@@ -244,3 +244,75 @@ policy–sim–real triples in the public tables, enough for a first correlation
 term for soft bodies; adversarial search cost on non-differentiable engines (budget-normalise, start where gradients
 exist); race flags on the GPUSimBench team (soft-body extension is the obvious next paper), NVIDIA (Newton validation)
 and the Policy-Aware Simulator Learning group (the adversarial framing for learned simulators).
+
+
+## Addendum 2026-10-24 — Jacob's critiques and the answers
+
+**Incumbents, inspected (PDFs fetched 2026-10-24).** GPUSimBench 2607.13059: authors from Shanghai AI Laboratory, Nanyang
+Technological University, Nanjing University (LAMDA) and two Moscow institutes; cs.RO, IEEE format. One real-matched
+scene (a steel ball rolls down an incline into a cube array; final cube positions compared with a physical apparatus
+at the distribution level), plus scalability scenes (free-falling cube arrays) and the run-to-run / inter-environment
+nondeterminism measurement. Jacob's reading — one scene, a headline-claiming benchmark — is fair on scope; its one
+durable datum is the nondeterminism measurement. GPUPhysBench 2609.35639: Georgia Institute of Technology (Bo Zhu's
+group — a credible simulation lab); 50 tasks for *coding agents*, graded against "expert-optimized" references that
+the paper says were produced by translating upstream code to CUDA with a model and then hand-optimising. It is not
+an incumbent for a measurement of simulators at all; it is evidence that agents write physics code. Consequence for
+us: both occupy *title space* ("benchmark" + "GPU simulators"), which bears on how a reviewer reads novelty, not on
+substance — one more reason the headline must be a finding, never "a benchmark".
+
+**Should we hand-pick quirks?** Not as the core; yes as a dated regression corpus appended to the suite, the way fuzzers
+keep a crash corpus beside their property checks. The functionals are not quirks: they are conservation laws and the
+engine's own constraint residuals. One correction to Part II that Jacob's objection forces: the complementarity
+residual must be computed against the engine's *declared* contact model. MuJoCo's soft constraints permit penetration
+by design, so penetration per se is not a violation there; the violation is inconsistency with the engine's own force
+law at its shipped setting. The functionals measure *self-consistency* (verification), not conformity to an external
+ideal.
+
+**"Responsible makers already attend to these."** True at converged settings on simple scenes, and that near-zero
+reading is itself a profile worth printing. The violations live elsewhere: (i) at shipped speed settings — a Newton
+solve capped at one iteration is unconverged by construction, and the 2023 contact-solver comparison measured
+non-converged PGS and NCP violations; (ii) at batch scale — GPUSimBench's divergence of identical worlds is a
+permutation-symmetry violation in shipped engines; (iii) in soft bodies and self-collision — position-based engines
+have no energy (PBD-R 2603.14634 had to add momentum conservation); (iv) under adversarial optimisation — SAPU's
+interpenetration exploit in assembly (success 85–88% falling under 40% under strict evaluation). Each method is anchored
+to one invariant and leaks on others: PBD exact on constraints, wrong on momentum and energy; capped Newton good on
+energy, wrong on constraints; soft contact exact on its own law, soft on penetration. The ruler's value is printing all
+the leaks on one scale — the profile — not catching a blatant bug.
+
+**The adversary.** Jacob is right that a pass over a priori exploits persuades nobody. Exploitability is defined as the
+optimal value of an auxiliary decision problem, approximated by a *portfolio* of optimisers under a budget, calibrated
+on settings where exploits are known to exist:
+
+- State $s_t$: the engine state. Action $a_t$: within the task's own actuator limits (no superhuman torques). Reward:
+  $r_t = \varepsilon_t$, the violation sum of Part II. Horizon $H$: the task's. Nothing about the exploit is given.
+- Optimisers at budget $B$ GPU-hours: sampling MPC / CEM over action sequences (engine-agnostic, GPU-parallel, no
+  training — the natural fit for batched engines); PPO or SAC for long-horizon exploits; gradient ascent through the
+  engine where it is differentiable (MJX, Warp, DaXBench). $X(S;B)$ is the best over the portfolio, the way fuzzing
+  papers report the best of several fuzzers.
+- Calibration: the portfolio must rediscover, unprompted, exploits known to exist — penetration exploits at one Newton
+  iteration, cloth self-intersection with self-collision off, box-surfing — before any new reading is believed.
+- Two readings, both reported: *capacity* (the adversary's $X$) and *realised* exploitation (violations along
+  task-trained policies' own rollouts, and the 2×2 interaction where retraining is cheap). Capacity is the worst case;
+  realised is what practitioners get.
+- Every discovered exploit is kept as a trajectory with its violation profile — the dated regression corpus.
+
+**The ceiling numbers.** The 0.6 / 0.25 / 0.1 beside floor / middle / ceiling are the operator's subjective
+probabilities, labelled judgment per the scorecard rule, that an executed project reaches at least that scenario. They
+are not calibrated estimates; they exist to force the three scenarios to be written with what each requires, and to be
+moved by evidence (a kill search, a pilot).
+
+**The two findings, elaborated.** Yes: the benchmark is the instrument; the paper's contributions are the findings.
+
+*A. Does physics-prior violation predict bad transfer?* Units are (policy, simulator, task) triples with a measured real
+success and a sim success — the public tables already in our records (R2S-Eval $n=20$, SimFoundry $n=25$, Kaedim's five
+tasks, SIMPLER's policies). For each: fidelity $F$ along that policy's own sim rollouts; exploitability $X(B)$ of that
+simulator–task; the 2×2 interaction where retraining is cheap. Outcome: the real–sim gap. Pre-registered three results:
+expected (judgment) — $F$ weak, $X$ moderate; the field's assumption — fidelity suffices; belief-changing — $F$ near
+zero correlation with transfer (the fidelity numbers engines report are uninformative) and $X$ strong. Stated limit:
+the real–sim gap includes perception; this analysis measures the physics-attributable part, and a null is informative.
+
+*B. Speed–fidelity becomes speed–exploitability.* Engines × settings grid; for each, wall-clock per step at batch $N$,
+$F$ on fixed scenes, $X(B)$. Plot speed against $F$ (today's frontier) and against $X$; pre-registered: at least one
+engine on the speed–fidelity frontier drops off the speed–exploitability frontier (its speed was bought with exploitable
+shortcuts), or none does (then exploitability is fidelity in disguise — also a finding). Speed is also re-quoted at a
+fixed accuracy (time to $\varepsilon^{R}$ below target), the MLPerf rule.
