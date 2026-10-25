@@ -337,3 +337,8 @@ fidelity predicts it. `CL-W43-J03` survives on that gap, **redesigned as a horse
 fidelity, sim-to-sim robustness, Richardson error, $X(B)$ — against the public real outcomes, with power bounded by tens
 of triples. **No hardware is required** for either claim; persuasion comes from adversary calibration and from predicting
 public real outcomes; the hardware confirmation is owed from a lab position and the paper says so.
+
+
+## Collaborator write-up (2026-10-24)
+
+A self-contained document for collaborators, without this repository's vocabulary: "Grading the Simulators: A Meta-Benchmark for Physics Engines in Robot Learning" — https://claude.ai/artifact/GBSdR9Yz9X51d1X3ZXiwxJ (summary, incumbents, novelty verdicts, the ruler with formulas, the adversary, Findings A and B, agent roles, durability, risks, first steps, references).
