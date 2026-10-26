@@ -1,10 +1,10 @@
 # GPU physics engines trade physics for speed through solver iteration caps, and RL policies trained in them exploit the difference.
 
-`CL-W43-01` · lane **L5** · status **open** · rank 1 · position both · refreshed 2026-10-25
+`CL-W43-01` · lane **L5** · status **open** · rank 1 · position both · refreshed 2026-10-26
 
 ## Status
 
-Open claim. Nothing under it has survived a kill search yet. Failing gate: G1 (no live probe of the exploit clause) and headline defects (actor; exploit clause as news; 'silent'). Grade on paper: open, re-probe owed; headline rewrite owed in the next /claims run; not proper. Next action: see First steps.
+Open claim. Nothing under it has survived a kill search yet. Failing gate: G1 (no live probe of the exploit clause) and headline defects (actor; exploit clause as news; 'silent'). Grade on paper: open; kill search on C-W43-17 this run (automatic, rank 1); headline rewrite still waiting on Jacob's mark (decision 1 in the thread). Next action: see First steps.
 
 ## The claim
 
@@ -28,7 +28,7 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: G1 (n
 | Gate | Test | Verdict |
 | --- | --- | --- |
 | G0 | premise hygiene (conditioning set, whose temperature, fetched numbers) | fails as written for the exploit half: rho_L5 was a protocol artifact (kappa asymmetric by warm-start protocol; mean-action rollouts off the training protocol; number format unstated) |
-| G1 | cheap to kill (cheapest probe under one GPU-week, kill result pre-registered) | UNSATISFIED for the claim after the red team: the cheapest probe is killed and no remaining probe tests the exploit clause; the 2x2 return-matrix probe (~2-6 GPU-h, pre-registered kill: interaction inside the seed interval of zero) must be written with a scorecard |
+| G1 | cheap to kill (cheapest probe under one GPU-week, kill result pre-registered) | cheapest scorecarded probe C-W43-17 (6 GPU-h, $20) tests the premise half (free per-step fidelity flag); C-W43-27 (8 GPU-h, $30) tests the speed half with the Amdahl bound as the kill; the exploit clause still has no scorecarded probe (P-W43-01-2x2 is a thought); Gate 1 satisfied for the claim as a whole only by its premise and speed halves |
 | G2 | pressure (stated strain, or ruler with pre-registered surprise) | weakened, route A: the engine's own performance page states the trade and justifies it by DR noise (MJX docs), so the strain is asserted away rather than asserted; GPUSimBench and 2610.17221 App. G still stand as the other two source types; route B fails for the law half (expected result = the manual's description) |
 | G3 | consumers (three classes, the action each changes; community-wide for golden) | unchanged if the exploit clause holds; the 'engine builders expose a per-step fidelity flag' consequence is already shipped on CPU (mjData.solver, fwdinv) and partly on Warp (solver_niter, per-world tolerance) — strike it |
 | G4 | mechanism and consequence | mechanism rewritten: the Newton solve at iterations=1 is one exact step from the previous step's warm start, exact when the active set is unchanged and short when it changes; the consequence for the exploit clause is the 2x2 interaction term, not a per-state law |
@@ -44,6 +44,7 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: G1 (n
 | C-W43-14 | Does the real winner survive the engine's speed knobs? | Pilot: 2 tasks x 3 policies x 5 iteration settings x 3 batch seeds x 100 episodes with d_t against the finest setting; ~15 GPU-hours, $0 on public assets, 5 days; dead if absolute rates move < 5 points everywhere and no resolvable pair fli… | proposed | — |
 | C-W43-16 | Compute-matched fidelity mixture versus fixed solver cap in GPU RL | 30 PPO runs at equal solver-iteration budget across 5 arms, 2 tasks, 3 seeds, evaluated under the converged engine with the per-step audit; 50 GPU-hours, about $150, 7 days; dead if the mixture is no better than fixed K=1 in R_conv and rho… | proposed | — |
 | P-W43-01-2x2 | The simulator-budget 2x2: train a policy at the shipped solver budget (Go1 iterations=1; Leap iterations=5) and at the… | Dead if the interaction term lies inside the batch-seed interval of zero on BOTH Go1 rough terrain and the Leap cube task. Pre-registered (judgment): Go1 interaction about zero (sticking contacts; the hardware prior), Leap interaction posi… | thought (spec written in the 2026-10-21 discuss session; scorecard and kill search owed before it is a candidate) | not run (no candidate record yet) |
+| C-W43-27 | Price the lockstep barrier in batched GPU physics from the solver's own iteration log | Half a day of source reading, then 4 tasks x 3 checkpoints x 1000 steps x 4096 worlds with the cap lifted plus an eight-point timing sweep, about 8 GPU-hours (about $30), 4 days; kills if the Amdahl upper bound $S < 1.15$ on all four tasks… | proposed | — |
 
 Also under this claim (no scorecard yet): owed: 2x2 return matrix on Go1 rough terrain (pi_1 vs pi_100 under the training protocol, wall-clock matched, each evaluated in both engines, paired DR draws;…; import:2026-W43-S4xF4 and X-2026-W42-S4F4 (instrument variants; no scorecard)
 
@@ -94,12 +95,14 @@ Closest neighbors (one-sentence trick; one-line difference):
 - 2026-10-20 — C-W43-15 survived-kill: kill search (stage 4, automatic, claim-ranked): survived-kill — No fetched paper sweeps a GPU contact solver's iteration cap along policy-visited states or reports a per-state convergence rate; the closest work (2304.06372 fixed scenes, GPUSimBench fixed settings, Ostrich time-step axis, MFPG-PPO bundled cap) each stops one step short; survival is 'first to measure' with a race flag on engine tea…
 - 2026-10-20 — C-W43-15 killed: red team (stage 5, automatic, three personas, 20 objections: 15 conceded, 3 answered, 2 open after two rounds): killed as a probe of CL-W43-01 — rho_L5 is not an estimator of the capped-vs-converged return gap (telescoping identity: the gap is a signed, value-weighted sum of one-step errors; the 2x2 train-in/evaluate-in matrix is the estimator and is cheaper), and the 'law' half re-derives the Mu…
 - 2026-10-21 — claim open: discuss session with Jacob (2026-10-21): shape chosen = measurement first (the 2x2 budget matrix as the general instrument for 'what a policy owes its simulator's shortcuts'), systems piece (fidelity scheduling, CL-W43-J02) only as the consequence, benchmark suites out (occupied, consumed); proposed headline with the locomotion-vs-manipulation contrast recorded for the claims stage; probe spec P-…
+- 2026-10-25 — claim open: claims (closing W43): C-W43-27 attached (speed clause, from card 2610.29506 barrier model); proposed headline not adopted because the decision sits unanswered in Jacob's section (his mark wins; the operator does not pre-empt it); rank 1 kept; C-W43-17 is this run's first automatic kill search
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-01`, version 4)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-01`, version 5)
 - probe `C-W43-15`: `data/candidates/2026-W43.jsonl`; kill record `data/reports/2026-W43-kill-C-W43-15.md`
 - probe `C-W43-17`: `data/candidates/2026-W43.jsonl`
 - probe `C-W43-14`: `data/candidates/2026-W43.jsonl`
 - probe `C-W43-16`: `data/candidates/2026-W43.jsonl`
 - `P-W43-01-2x2`: seed or import record (no candidate yet)
+- probe `C-W43-27`: `data/candidates/2026-W43.jsonl`

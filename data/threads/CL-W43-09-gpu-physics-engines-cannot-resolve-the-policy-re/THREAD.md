@@ -1,6 +1,6 @@
 # GPU physics engines cannot resolve the policy-return differences that robot-RL papers report as improvements: engine-only repeatability and batch-position variance exceed 30% of the policy-to-policy spread on contact-rich tasks.
 
-`CL-W43-09` · lane **L5** · status **open** · rank 9 · position both · refreshed 2026-10-25
+`CL-W43-09` · lane **L5** · status **open** · rank 12 · position both · refreshed 2026-10-26
 
 ## Status
 
@@ -73,8 +73,9 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 - 2026-10-20 — claim open: new claim from import:2026-W43-S4xF9 (gauge R&R); second L5 claim this week
 - 2026-10-21 — claim open: discuss session with Jacob (2026-10-21): this is the resolution-floor claim of the L5 program; literature table P-W43-09-lit written as the $0 first step (quantifier before headline, per CL-W43-02's refutation); noted as the twin of CL-W43-J01
+- 2026-10-25 — claim open: claims (closing W43): re-ranked to 12 — no new probe, Gate 6 still not established; scorecards still owed on import probes
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-09`, version 2)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-09`, version 3)
 - `P-W43-09-lit`: seed or import record (no candidate yet)

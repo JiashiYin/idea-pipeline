@@ -1,6 +1,6 @@
 # A non-rigid-body robotics test suite assembled by porting and collecting the incumbents' tasks, plus frontier-model-synthesised scenes, will become the suite people report when they train policies.
 
-`CL-W43-J06` · lane **L5** · status **thought** · rank — · position solo · refreshed 2026-10-25
+`CL-W43-J06` · lane **L5** · status **thought** · rank — · position solo · refreshed 2026-10-26
 
 ## Status
 
@@ -66,7 +66,6 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 - status mark: (none)
 - notes:
-
 
 ## Log
 

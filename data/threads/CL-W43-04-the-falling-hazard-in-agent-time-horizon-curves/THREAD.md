@@ -1,6 +1,6 @@
 # The falling hazard in agent time-horizon curves is between-task frailty, not within-task degradation: hold the task fixed and the per-minute hazard is flat.
 
-`CL-W43-04` · lane **L1** · status **open** · rank 3 · position solo · refreshed 2026-10-25
+`CL-W43-04` · lane **L1** · status **open** · rank 9 · position solo · refreshed 2026-10-26
 
 ## Status
 
@@ -73,8 +73,9 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 - 2026-10-19 — claim open: seeded 2026-10-19 so the W43 probes hang under claims; grade and rewrite in the next /claims run
 - 2026-10-20 — claim open: headline rewritten: the 10-19 sentence (reliability unchanged across generations at fixed difficulty) was not what X-2026-W42-S7F9 tests; the probe tests frailty versus within-task hazard; import S7xF9 attached as the step-clock probe; scorecard owed on both seeds before any kill search
+- 2026-10-25 — claim open: claims (closing W43): re-ranked to 9 — no new probe, Gate 6 still not established; scorecards still owed on import probes
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-04`, version 2)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-04`, version 3)
 - `X-2026-W42-S7F9`: seed or import record (no candidate yet)

@@ -1,6 +1,6 @@
 # Whether prefill-decode disaggregation pays for an agent workload is set by the measured temporal overlap of prefill with decode, not by turn count.
 
-`CL-W43-07` · lane **L3** · status **open** · rank 7 · position both · refreshed 2026-10-25
+`CL-W43-07` · lane **L3** · status **open** · rank 10 · position both · refreshed 2026-10-26
 
 ## Status
 
@@ -71,8 +71,9 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 - 2026-10-19 — claim open: seeded 2026-10-19 so the W43 probes hang under claims; grade and rewrite in the next /claims run
 - 2026-10-20 — claim open: headline split into one sentence per claim: the switching half moved to CL-W43-08; this record keeps the overlap statistic with C-W43-05
+- 2026-10-25 — claim open: claims (closing W43): re-ranked to 10 — no new probe this week
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-07`, version 2)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-07`, version 3)
 - probe `C-W43-05`: `data/candidates/2026-W43.jsonl`
