@@ -1,6 +1,6 @@
 # Reported scaffold gains on agent benchmarks are mostly reasoning-effort and restart effects, not scaffold design.
 
-`CL-W43-03` · lane **L1** · status **open** · rank 4 · position both · refreshed 2026-10-26
+`CL-W43-03` · lane **L1** · status **open** · rank 2 · position both · refreshed 2026-10-26
 
 ## Status
 
@@ -75,10 +75,11 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - 2026-10-19 — claim open: seeded 2026-10-19 so the W43 probes hang under claims; grade and rewrite in the next /claims run
 - 2026-10-20 — claim open: graded: C-W43-06 and C-W43-07 detached (they test sibling claims, now orphans); cheapest attached probe is C-W43-12; kill search owed; dollar-equivalent of a GPU-week raised as a decision
 - 2026-10-25 — claim open: claims (closing W43): C-W43-18 (card 2610.30499) and C-W43-19 (card 2610.28802) attached; C-W43-19's attachment reads 'adding a model' as a restart (fresh run) effect — detach to orphan if Jacob reads 'which models to run' as outside scaffold design; rank 4
+- 2026-10-25 — claim open: claims (closing W43, after kills): re-ranked 4 -> 2 after the kill run: two fresh scorecarded probes with a zero-dollar step 0 (C-W43-19), no probe killed
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-03`, version 3)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-03`, version 4)
 - probe `C-W43-19`: `data/candidates/2026-W43.jsonl`
 - probe `C-W43-18`: `data/candidates/2026-W43.jsonl`
 - probe `C-W43-12`: `data/candidates/2026-W43.jsonl`

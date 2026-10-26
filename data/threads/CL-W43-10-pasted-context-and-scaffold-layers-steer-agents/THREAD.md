@@ -1,6 +1,6 @@
 # Pasted context and scaffold layers steer agents by presence, not content: a same-length block from the wrong source moves a model's yield as much as the right one does.
 
-`CL-W43-10` · lane **L1** · status **open** · rank 5 · position solo · refreshed 2026-10-26
+`CL-W43-10` · lane **L1** · status **open** · rank 4 · position solo · refreshed 2026-10-26
 
 ## Status
 
@@ -69,14 +69,14 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - status mark: (none)
 - notes:
 
-
 ## Log
 
 - 2026-10-25 — claim open: written by the closing-W43 claims run from three orphans on one theme (prompts/11_claims.md rule: three orphans = a missing claim)
+- 2026-10-25 — claim open: claims (closing W43, after kills): re-ranked 5 -> 4 after the kill run
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-10`, version 1)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-10`, version 2)
 - probe `C-W43-07`: `data/candidates/2026-W43.jsonl`
 - probe `C-W43-20`: `data/candidates/2026-W43.jsonl`
 - probe `C-W43-06`: `data/candidates/2026-W43.jsonl`

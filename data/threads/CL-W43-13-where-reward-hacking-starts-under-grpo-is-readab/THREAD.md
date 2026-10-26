@@ -67,12 +67,12 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - status mark: (none)
 - notes:
 
-
 ## Log
 
 - 2026-10-25 — claim open: written by the closing-W43 claims run so L2 has an open claim (portfolio rule); single-probe claim, flagged
+- 2026-10-25 — claim open: claims (closing W43, after kills): re-ranked 8 (unchanged)
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-13`, version 1)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-13`, version 2)
 - probe `C-W43-26`: `data/candidates/2026-W43.jsonl`

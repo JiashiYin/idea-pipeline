@@ -1,4 +1,4 @@
-# Digest 2026-W43 (run 2026-10-19; law `config/themes.yaml` v2026-10-17, lanes L1–L5)
+# Digest 2026-W43 — opening run (run 2026-10-18 evening New York, 2026-10-19 UTC; labelled W43 under UTC before the New York rule of 2026-10-18 landed; the closing digest for W43 is `2026-W43.md`; law `config/themes.yaml` v2026-10-17, lanes L1–L5)
 
 ## 1. Actuals vs targets
 
