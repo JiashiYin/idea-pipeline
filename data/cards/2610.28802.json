@@ -1,74 +1,80 @@
 {
-  "id": "2610.28802",
-  "title": "How Much Does the Harness Matter, and for Whom? A Multi-Model Study of Context in LLM-Driven Vulnerability Discovery",
-  "url": "https://arxiv.org/abs/2610.28802",
-  "week_carded": "2026-W43",
-  "seed_week": "2026-W43",
-  "trick": "Hold the vulnerability-scanning harness fixed, swap only the prompt and a static call-graph context block per model: weak models' yield rises, the frontier model's does not; the best single model covers 60% of the union.",
-  "framing_stripped": "Called 'a multi-model, cost-aware study of how much the harness matters and for whom'; it is (a) a 24-configuration leaderboard on one TypeScript repository in which model and agent runner (Codex, Cursor, Claude Agent SDK, OpenCode, mini-SWE-agent) are never crossed, and (b) a 4-model x 8-arm x 2-run A/B test of pasting deterministic static-analysis output (CodeQL or Trailmark call graph, source/sink hints, repo docs) into the discovery prompt, scored by each model's own self-filtered findings after a shared dedupe, cross-family review and proof-of-concept gate (sec. 3, 4.1, 4.2).",
-  "method_equations": "Yield of a cell is the number of confirmed security root causes (identities) $Y$; each model-run cell gets at most one credit per identity after canonical mapping (sec. 13). False-report rate (sec. 3), used because the true-negative universe of a live repository is unknown: $\\mathrm{FRR} = \\frac{\\mathrm{FP} + \\mathrm{U} + \\mathrm{B}}{\\mathrm{TP} + \\mathrm{FP} + \\mathrm{U} + \\mathrm{B}}$, where $\\mathrm{TP}$ = identities confirmed by independent review and PoC, $\\mathrm{FP}$ = rejected, $\\mathrm{U}$ = unresolved or uncertain, $\\mathrm{B}$ = proof-blocked; all counted over the set the model itself kept at self-revalidation. Criticality-weighted security yield (Fig. 1, Table 4): $W = \\sum_{f \\in \\mathrm{Sec\\text{-}TP}} w_{s(f)}$ with $w_{\\mathrm{Critical}} = 5$, $w_{\\mathrm{High}} = 4$, $w_{\\mathrm{Medium}} = 3$, $w_{\\mathrm{Low}} = 2$, correctness bugs excluded; severities $s(f)$ are model-assigned then review-corrected. Cost per finding (Table 2): $\\$/\\mathrm{vuln} = C_{\\mathrm{two\\text{-}run}} / \\mathrm{Sec\\text{-}TP}_{\\mathrm{two\\text{-}run}}$, where $C$ is experienced or API-equivalent spend on discovery plus self-revalidation only; weighted yield per dollar (Table 4): $W / C_{\\mathrm{run}}$. Headline lift (Fig. 1, Table 3): $\\ell = (Y_{\\mathrm{cpg}} - Y_{A0}) / Y_{A0}$ with $Y_{A0}$ the minimal-prompt yield and $Y_{\\mathrm{cpg}}$ the engineered-prompt-plus-CodeQL yield, each a two-run mean. Decomposition (Table 11): $Y_{\\mathrm{cpg}} - Y_{A0} = (Y_{A1} - Y_{A0}) + (Y_{\\mathrm{cpg}} - Y_{A1})$, prompt engineering plus targeted context; observed per model: GPT-5.5 $+6.5, -6.5$; Composer $+19.0, -4.5$; GLM-5.1 $+41.0, -29.5$; Gemma $+8.0, +4.5$. Run-to-run overlap (sec. 5, Table 9): $J = |R_1 \\cap R_2| / |R_1 \\cup R_2|$ over confirmed identity sets of run 1 and run 2, $J \\in [0.35, 0.83]$; single-run recovery $\\frac{1}{2}(|R_1| + |R_2|) / |R_1 \\cup R_2| \\in [0.68, 0.91]$. Coverage: $|R_{\\mathrm{best}}| / |\\bigcup_m R_m| = 160/265 = 0.604$; single-model share $38/265 = 0.143$. CyberGym transfer (Table 5): target recall = (instances where the known upstream vulnerability is found in the oracle file) / 21.",
-  "load_bearing_assumption": "That a model's confirmed-identity count is comparable across models even though each model first filters its own output at a different strictness and through a different runner: of 1,232 explicitly self-rejected reports, 680 were later confirmed true positives and 455 distinct identities were lost to self-rejection (sec. 4.1, Table 8), so 'yield' is yield-after-self-censorship; and that A0 is a common 'no scaffolding' floor although Codex, Cursor and the Claude Agent SDK each add their own system prompt and tools under it (sec. 7, sec. 10.1). If either fails, the 24-way ranking and the per-model 'who needs context' ordering are runner and self-judge artifacts.",
-  "weakest_component": "The headline is an un-decomposed and under-replicated comparison. (1) Fig. 1 and the abstract compare A0 to engineered-prompt-plus-CodeQL; when A1 is inserted (Table 11, sec. 17) the targeted-context increment is negative for 3 of 4 models (GLM-5.1: prompt $+41.0$, context $-29.5$) and positive only for Gemma ($+4.5$), so 'context helps weaker models' is mostly 'the engineered prompt helps everyone'. (2) Two runs per cell with within-condition spread larger than the effects: GLM-5.1 codeql-cpg runs are 29 and 55 (Table 10) against a reported $\\Delta A0 = +11.5$; GPT-5.5 A0 runs are 88 and 72; the authors say an A0 yield 'can shift by a third between runs' (sec. 7); no confidence intervals anywhere. (3) C1 does not cross model and runner, and reasoning effort differs by runner (xhigh for GPT-5.5, none exposed for the OpenRouter lane), so the $\\$/\\mathrm{vuln}$ and FRR ranking across 24 configurations is a ranking of model-runner-effort bundles (sec. 7). (4) No length-matched context control: the untargeted context-gathering arm lowers yield while adding tokens, which the authors use to rule out 'more tokens', but a same-length irrelevant block was not run (sec. 7). (5) Severity weights are the models' own labels, acknowledged as 'typically overstated' by maintainers (sec. 4.1, 14).",
-  "regime": "C1: 24 model-runner configurations (GPT-5.5/5.6 on Codex SDK; Opus 4.6/4.8/5 on Claude Agent SDK; Composer-2.5 and Grok 4.6 on Cursor CLI; GLM-5.3-Flash on OpenCode; 15 OpenRouter models incl. GLM-5.1/5.3, Qwen 3.8 27B, Gemma-4-31B, Kimi K3 on mini-SWE-agent), two runs each, on 'Conduit', a production TypeScript LLM API gateway, ~150 candidate files at one pinned commit, vulnerabilities non-public at scan time. Corpus: 1,091 identities, 841 confirmed (265 security root causes: 29 critical, 62 high, 169 medium, 5 low; 511 correctness bugs). Security yield per cell 11.5 (Gemini-3.1-Flash-Lite) to 121.0 (GLM-5.3); FRR 5.5% to 34.5%; $/vuln $0.01 (Gemma) to $2.90 (Gemini-3.5-Flash); Jaccard between runs 0.35-0.83. C2: 4 models x 8 conditions x 2 runs; cost per run $0.12 (Gemma A0) to $119.5 (GPT-5.5 cg-enrichment); context block 1,467 (Trailmark) vs 2,415 (CodeQL) rendered tokens per batch. Transfer: 21 CyberGym Level-0 C/C++ file instances, oracle file given, description withheld; recall 4/21 to 19/21. Static-analysis-only agents (no execution); horizon per batch of files, step counts not reported.",
-  "information_asymmetry": "(1) Deployment vs post-hoc: the quantity a security team needs before a scan, 'which context arm pays for this model on this repo', exists only after the full 8-arm x 2-run grid ($\\sim$64 cells); the paper's forward rule (lift declines monotonically with baseline capability) rests on four points and is reversed on the A1-relative decomposition, so the forward predictor of harness sensitivity from a cheap baseline run is the open instrument (sec. 4.2, 6, 17). (2) Yield vs trace: whether the model actually consumed the injected context is visible in the Process logs (Table 6: GPT-5.5 made 144 graph-query calls in 38 of 38 batches, Gemma 9 calls in 3 of 32, Cursor's trace has no auditable invocation at all) but never enters the metric; the paper measures dose offered, not dose taken, and names a length-matched control and auditable tool use across every runner as future work (sec. 7, 10.2). (3) Per-model vs per-finding: the corpus records, for each of 265 root causes, which of 48 cells found it (the 'models: multiple' field, sec. 14), i.e. a full item-by-configuration response matrix, but only its marginals are reported (coverage 60.4%, single-model share 14.3%, per-model Jaccard); item difficulty, which configurations are redundant, and the marginal coverage of adding a cheap model to a frontier one are all computable from that matrix and absent. (4) Self-judge vs external judge: the model's own revalidation verdict is known per report, and 680 of 1,232 self-rejected reports were later confirmed true; the FRR therefore mixes discovery precision with self-judge strictness, and a fixed external judge shared across models is named but not run (sec. 4.1, 7, Table 8). (5) Source vs deployment: compensating controls (upstream auth, WAF, rate limits) that decide real severity live outside the scanned source, so model-assigned severities and the weighted yield $W$ are inflated by an unmeasured amount (sec. 8, 14). For L1 this is a scaffold-sensitivity and cost-accounting dataset whose variance has not yet been attributed to model, runner, prompt, context or run noise.",
-  "occupies": "A published multi-model (24-configuration), two-run, cost-per-finding measurement on a non-public-vulnerability production codebase with the open DeepSec harness, showing that a general engineered prompt lifts every model, that an added CodeQL call-graph block lifts A0 yield for sub-frontier models and not GPT-5.5 (and lifts A1 yield only for the smallest model), that yield and false-report rate move independently, that the best single configuration covers 60.4% of 265 confirmed root causes with 14.3% found by exactly one model, and that the same direction holds on 21 CyberGym Level-0 C/C++ instances.",
-  "neighbors": [
-    {
-      "id": "2506.02548",
-      "title": "CyberGym: Evaluating AI Agents' Real-World Cybersecurity Capabilities at Scale",
-      "trick": "Give an agent a vulnerability's text description plus the codebase and score whether its proof-of-concept fires, over 1,507 real vulnerabilities in 188 projects; this card's paper borrows its Level-0 (no-description) setting as a 21-instance transfer check."
-    },
-    {
-      "id": "2603.02297",
-      "title": "ZeroDayBench: Evaluating LLM Agents on Unseen Zero-Day Vulnerabilities for Cyberdefense",
-      "trick": "Have three frontier agents find and patch 22 novel critical vulnerabilities that were never public, so success cannot be recall of a disclosure; same contamination fix as this card's paper, but three frontier models and a fixed harness, no harness ablation and no cost."
-    },
-    {
-      "id": "2505.15216",
-      "title": "BountyBench: Dollar Impact of AI Agent Attackers and Defenders on Real-World Cybersecurity Systems",
-      "trick": "Stand up 25 real systems with 40 paid bug bounties and score Detect, Exploit and Patch in bounty dollars across 10 agents, with task difficulty dialed by how much information is given; dollar value of the finding, where this card's paper reports dollar cost of finding it."
-    },
-    {
-      "id": "2405.17238",
-      "title": "IRIS: LLM-Assisted Static Analysis for Detecting Security Vulnerabilities",
-      "trick": "Use the LLM to infer taint source and sink specifications that CodeQL then runs, finding 55 of 120 Java vulnerabilities where CodeQL alone finds 27; the arrow is reversed relative to this card's paper, which feeds CodeQL's call graph to the LLM."
-    },
-    {
-      "id": "2604.20801",
-      "title": "Synthesizing Multi-Agent Harnesses for Vulnerability Discovery (AgentFlow)",
-      "trick": "Search over agent roles, prompts, tools and communication topology with a typed graph language, using runtime signals from the target program to diagnose and rewrite the failing harness part; the 'harness changes success several-fold at fixed model' claim this card's paper sets out to measure per model."
-    }
-  ],
-  "theme_fit": [
-    {
-      "theme_id": "L1",
-      "score": 3,
-      "why": "scaffold and context sensitivity measured per model, cost per confirmed finding, run-to-run reliability (Jaccard 0.35-0.83), and the un-done attribution of yield variance to model vs runner vs prompt vs context vs noise are the lane's core questions"
-    },
-    {
-      "theme_id": "L3",
-      "score": 1,
-      "why": "cost accounting of an agentic workload ($/vuln, $/run, weighted yield per dollar) with an explicit note that costs exclude review and PoC stages; cost is reported, not modeled"
-    },
-    {
-      "theme_id": "L4",
-      "score": 1,
-      "why": "externally generated context blocks (call graph, source/sink hints) handed to the agent and shown to steer the class of finding, but the context is static-analysis output, not a message the agent writes to itself"
-    }
-  ],
-  "limitations_as_complaints": [
-    "My headline lift (A0 to engineered prompt plus CodeQL) mixes prompt engineering with context; when I insert the engineered prompt alone, the CodeQL block adds yield only for Gemma and subtracts it for GPT-5.5, Composer and GLM-5.1 (GLM: prompt $+41.0$, context $-29.5$), so I cannot say which ingredient caused the effect (sec. 7, sec. 17, Table 11).",
-    "I ran each treatment cell only twice and a model's minimal-prompt yield shifts by a third between runs (GPT-5.5 A0: 88 vs 72; GLM-5.1 codeql-cpg: 29 vs 55), so my four-point capability trend is an effect-size sketch with no interval around it (sec. 7, Table 10).",
-    "My 24-configuration ranking never crosses model with runner or reasoning effort, my costs are experienced or API-equivalent spend on discovery and self-revalidation only, and my false-report rate is measured after each model censored its own output at its own strictness (680 of 1,232 self-rejected reports were real), so cross-model precision and $/vuln are indicative, not a clean comparison (sec. 7, sec. 4.1, Table 8)."
-  ],
-  "evidence_level": "full-text",
-  "status": "carded",
-  "history": [
-    {
-      "date": "2026-10-25",
-      "status": "carded",
-      "note": "full-text via arxiv.org/html/2610.28802 (LaTeXML, 17 sections incl. appendices); abstract and metadata via export.arxiv.org API (CAMLIS 2026); five neighbor abstracts via one API id_list call",
-      "model": "worker"
-    }
-  ]
+ "id": "2610.28802",
+ "title": "How Much Does the Harness Matter, and for Whom? A Multi-Model Study of Context in LLM-Driven Vulnerability Discovery",
+ "url": "https://arxiv.org/abs/2610.28802",
+ "week_carded": "2026-W43",
+ "seed_week": "2026-W43",
+ "trick": "Hold the vulnerability-scanning harness fixed, swap only the prompt and a static call-graph context block per model: weak models' yield rises, the frontier model's does not; the best single model covers 60% of the union.",
+ "framing_stripped": "Called 'a multi-model, cost-aware study of how much the harness matters and for whom'; it is (a) a 24-configuration leaderboard on one TypeScript repository in which model and agent runner (Codex, Cursor, Claude Agent SDK, OpenCode, mini-SWE-agent) are never crossed, and (b) a 4-model x 8-arm x 2-run A/B test of pasting deterministic static-analysis output (CodeQL or Trailmark call graph, source/sink hints, repo docs) into the discovery prompt, scored by each model's own self-filtered findings after a shared dedupe, cross-family review and proof-of-concept gate (sec. 3, 4.1, 4.2).",
+ "method_equations": "Yield of a cell is the number of confirmed security root causes (identities) $Y$; each model-run cell gets at most one credit per identity after canonical mapping (sec. 13). False-report rate (sec. 3), used because the true-negative universe of a live repository is unknown: $\\mathrm{FRR} = \\frac{\\mathrm{FP} + \\mathrm{U} + \\mathrm{B}}{\\mathrm{TP} + \\mathrm{FP} + \\mathrm{U} + \\mathrm{B}}$, where $\\mathrm{TP}$ = identities confirmed by independent review and PoC, $\\mathrm{FP}$ = rejected, $\\mathrm{U}$ = unresolved or uncertain, $\\mathrm{B}$ = proof-blocked; all counted over the set the model itself kept at self-revalidation. Criticality-weighted security yield (Fig. 1, Table 4): $W = \\sum_{f \\in \\mathrm{Sec\\text{-}TP}} w_{s(f)}$ with $w_{\\mathrm{Critical}} = 5$, $w_{\\mathrm{High}} = 4$, $w_{\\mathrm{Medium}} = 3$, $w_{\\mathrm{Low}} = 2$, correctness bugs excluded; severities $s(f)$ are model-assigned then review-corrected. Cost per finding (Table 2): $\\$/\\mathrm{vuln} = C_{\\mathrm{two\\text{-}run}} / \\mathrm{Sec\\text{-}TP}_{\\mathrm{two\\text{-}run}}$, where $C$ is experienced or API-equivalent spend on discovery plus self-revalidation only; weighted yield per dollar (Table 4): $W / C_{\\mathrm{run}}$. Headline lift (Fig. 1, Table 3): $\\ell = (Y_{\\mathrm{cpg}} - Y_{A0}) / Y_{A0}$ with $Y_{A0}$ the minimal-prompt yield and $Y_{\\mathrm{cpg}}$ the engineered-prompt-plus-CodeQL yield, each a two-run mean. Decomposition (Table 11): $Y_{\\mathrm{cpg}} - Y_{A0} = (Y_{A1} - Y_{A0}) + (Y_{\\mathrm{cpg}} - Y_{A1})$, prompt engineering plus targeted context; observed per model: GPT-5.5 $+6.5, -6.5$; Composer $+19.0, -4.5$; GLM-5.1 $+41.0, -29.5$; Gemma $+8.0, +4.5$. Run-to-run overlap (sec. 5, Table 9): $J = |R_1 \\cap R_2| / |R_1 \\cup R_2|$ over confirmed identity sets of run 1 and run 2, $J \\in [0.35, 0.83]$; single-run recovery $\\frac{1}{2}(|R_1| + |R_2|) / |R_1 \\cup R_2| \\in [0.68, 0.91]$. Coverage: $|R_{\\mathrm{best}}| / |\\bigcup_m R_m| = 160/265 = 0.604$; single-model share $38/265 = 0.143$. CyberGym transfer (Table 5): target recall = (instances where the known upstream vulnerability is found in the oracle file) / 21.",
+ "load_bearing_assumption": "That a model's confirmed-identity count is comparable across models even though each model first filters its own output at a different strictness and through a different runner: of 1,232 explicitly self-rejected reports, 680 were later confirmed true positives and 455 distinct identities were lost to self-rejection (sec. 4.1, Table 8), so 'yield' is yield-after-self-censorship; and that A0 is a common 'no scaffolding' floor although Codex, Cursor and the Claude Agent SDK each add their own system prompt and tools under it (sec. 7, sec. 10.1). If either fails, the 24-way ranking and the per-model 'who needs context' ordering are runner and self-judge artifacts.",
+ "weakest_component": "The headline is an un-decomposed and under-replicated comparison. (1) Fig. 1 and the abstract compare A0 to engineered-prompt-plus-CodeQL; when A1 is inserted (Table 11, sec. 17) the targeted-context increment is negative for 3 of 4 models (GLM-5.1: prompt $+41.0$, context $-29.5$) and positive only for Gemma ($+4.5$), so 'context helps weaker models' is mostly 'the engineered prompt helps everyone'. (2) Two runs per cell with within-condition spread larger than the effects: GLM-5.1 codeql-cpg runs are 29 and 55 (Table 10) against a reported $\\Delta A0 = +11.5$; GPT-5.5 A0 runs are 88 and 72; the authors say an A0 yield 'can shift by a third between runs' (sec. 7); no confidence intervals anywhere. (3) C1 does not cross model and runner, and reasoning effort differs by runner (xhigh for GPT-5.5, none exposed for the OpenRouter lane), so the $\\$/\\mathrm{vuln}$ and FRR ranking across 24 configurations is a ranking of model-runner-effort bundles (sec. 7). (4) No length-matched context control: the untargeted context-gathering arm lowers yield while adding tokens, which the authors use to rule out 'more tokens', but a same-length irrelevant block was not run (sec. 7). (5) Severity weights are the models' own labels, acknowledged as 'typically overstated' by maintainers (sec. 4.1, 14).",
+ "regime": "C1: 24 model-runner configurations (GPT-5.5/5.6 on Codex SDK; Opus 4.6/4.8/5 on Claude Agent SDK; Composer-2.5 and Grok 4.6 on Cursor CLI; GLM-5.3-Flash on OpenCode; 15 OpenRouter models incl. GLM-5.1/5.3, Qwen 3.8 27B, Gemma-4-31B, Kimi K3 on mini-SWE-agent), two runs each, on 'Conduit', a production TypeScript LLM API gateway, ~150 candidate files at one pinned commit, vulnerabilities non-public at scan time. Corpus: 1,091 identities, 841 confirmed (265 security root causes: 29 critical, 62 high, 169 medium, 5 low; 511 correctness bugs). Security yield per cell 11.5 (Gemini-3.1-Flash-Lite) to 121.0 (GLM-5.3); FRR 5.5% to 34.5%; $/vuln $0.01 (Gemma) to $2.90 (Gemini-3.5-Flash); Jaccard between runs 0.35-0.83. C2: 4 models x 8 conditions x 2 runs; cost per run $0.12 (Gemma A0) to $119.5 (GPT-5.5 cg-enrichment); context block 1,467 (Trailmark) vs 2,415 (CodeQL) rendered tokens per batch. Transfer: 21 CyberGym Level-0 C/C++ file instances, oracle file given, description withheld; recall 4/21 to 19/21. Static-analysis-only agents (no execution); horizon per batch of files, step counts not reported.",
+ "information_asymmetry": "(1) Deployment vs post-hoc: the quantity a security team needs before a scan, 'which context arm pays for this model on this repo', exists only after the full 8-arm x 2-run grid ($\\sim$64 cells); the paper's forward rule (lift declines monotonically with baseline capability) rests on four points and is reversed on the A1-relative decomposition, so the forward predictor of harness sensitivity from a cheap baseline run is the open instrument (sec. 4.2, 6, 17). (2) Yield vs trace: whether the model actually consumed the injected context is visible in the Process logs (Table 6: GPT-5.5 made 144 graph-query calls in 38 of 38 batches, Gemma 9 calls in 3 of 32, Cursor's trace has no auditable invocation at all) but never enters the metric; the paper measures dose offered, not dose taken, and names a length-matched control and auditable tool use across every runner as future work (sec. 7, 10.2). (3) Per-model vs per-finding: the corpus records, for each of 265 root causes, which of 48 cells found it (the 'models: multiple' field, sec. 14), i.e. a full item-by-configuration response matrix, but only its marginals are reported (coverage 60.4%, single-model share 14.3%, per-model Jaccard); item difficulty, which configurations are redundant, and the marginal coverage of adding a cheap model to a frontier one are all computable from that matrix and absent. (4) Self-judge vs external judge: the model's own revalidation verdict is known per report, and 680 of 1,232 self-rejected reports were later confirmed true; the FRR therefore mixes discovery precision with self-judge strictness, and a fixed external judge shared across models is named but not run (sec. 4.1, 7, Table 8). (5) Source vs deployment: compensating controls (upstream auth, WAF, rate limits) that decide real severity live outside the scanned source, so model-assigned severities and the weighted yield $W$ are inflated by an unmeasured amount (sec. 8, 14). For L1 this is a scaffold-sensitivity and cost-accounting dataset whose variance has not yet been attributed to model, runner, prompt, context or run noise.",
+ "occupies": "A published multi-model (24-configuration), two-run, cost-per-finding measurement on a non-public-vulnerability production codebase with the open DeepSec harness, showing that a general engineered prompt lifts every model, that an added CodeQL call-graph block lifts A0 yield for sub-frontier models and not GPT-5.5 (and lifts A1 yield only for the smallest model), that yield and false-report rate move independently, that the best single configuration covers 60.4% of 265 confirmed root causes with 14.3% found by exactly one model, and that the same direction holds on 21 CyberGym Level-0 C/C++ instances.",
+ "neighbors": [
+  {
+   "id": "2506.02548",
+   "title": "CyberGym: Evaluating AI Agents' Real-World Cybersecurity Capabilities at Scale",
+   "trick": "Give an agent a vulnerability's text description plus the codebase and score whether its proof-of-concept fires, over 1,507 real vulnerabilities in 188 projects; this card's paper borrows its Level-0 (no-description) setting as a 21-instance transfer check."
+  },
+  {
+   "id": "2603.02297",
+   "title": "ZeroDayBench: Evaluating LLM Agents on Unseen Zero-Day Vulnerabilities for Cyberdefense",
+   "trick": "Have three frontier agents find and patch 22 novel critical vulnerabilities that were never public, so success cannot be recall of a disclosure; same contamination fix as this card's paper, but three frontier models and a fixed harness, no harness ablation and no cost."
+  },
+  {
+   "id": "2505.15216",
+   "title": "BountyBench: Dollar Impact of AI Agent Attackers and Defenders on Real-World Cybersecurity Systems",
+   "trick": "Stand up 25 real systems with 40 paid bug bounties and score Detect, Exploit and Patch in bounty dollars across 10 agents, with task difficulty dialed by how much information is given; dollar value of the finding, where this card's paper reports dollar cost of finding it."
+  },
+  {
+   "id": "2405.17238",
+   "title": "IRIS: LLM-Assisted Static Analysis for Detecting Security Vulnerabilities",
+   "trick": "Use the LLM to infer taint source and sink specifications that CodeQL then runs, finding 55 of 120 Java vulnerabilities where CodeQL alone finds 27; the arrow is reversed relative to this card's paper, which feeds CodeQL's call graph to the LLM."
+  },
+  {
+   "id": "2604.20801",
+   "title": "Synthesizing Multi-Agent Harnesses for Vulnerability Discovery (AgentFlow)",
+   "trick": "Search over agent roles, prompts, tools and communication topology with a typed graph language, using runtime signals from the target program to diagnose and rewrite the failing harness part; the 'harness changes success several-fold at fixed model' claim this card's paper sets out to measure per model."
+  }
+ ],
+ "theme_fit": [
+  {
+   "theme_id": "L1",
+   "score": 3,
+   "why": "scaffold and context sensitivity measured per model, cost per confirmed finding, run-to-run reliability (Jaccard 0.35-0.83), and the un-done attribution of yield variance to model vs runner vs prompt vs context vs noise are the lane's core questions"
+  },
+  {
+   "theme_id": "L3",
+   "score": 1,
+   "why": "cost accounting of an agentic workload ($/vuln, $/run, weighted yield per dollar) with an explicit note that costs exclude review and PoC stages; cost is reported, not modeled"
+  },
+  {
+   "theme_id": "L4",
+   "score": 1,
+   "why": "externally generated context blocks (call graph, source/sink hints) handed to the agent and shown to steer the class of finding, but the context is static-analysis output, not a message the agent writes to itself"
+  }
+ ],
+ "limitations_as_complaints": [
+  "My headline lift (A0 to engineered prompt plus CodeQL) mixes prompt engineering with context; when I insert the engineered prompt alone, the CodeQL block adds yield only for Gemma and subtracts it for GPT-5.5, Composer and GLM-5.1 (GLM: prompt $+41.0$, context $-29.5$), so I cannot say which ingredient caused the effect (sec. 7, sec. 17, Table 11).",
+  "I ran each treatment cell only twice and a model's minimal-prompt yield shifts by a third between runs (GPT-5.5 A0: 88 vs 72; GLM-5.1 codeql-cpg: 29 vs 55), so my four-point capability trend is an effect-size sketch with no interval around it (sec. 7, Table 10).",
+  "My 24-configuration ranking never crosses model with runner or reasoning effort, my costs are experienced or API-equivalent spend on discovery and self-revalidation only, and my false-report rate is measured after each model censored its own output at its own strictness (680 of 1,232 self-rejected reports were real), so cross-model precision and $/vuln are indicative, not a clean comparison (sec. 7, sec. 4.1, Table 8)."
+ ],
+ "evidence_level": "full-text",
+ "status": "mutated",
+ "history": [
+  {
+   "date": "2026-10-25",
+   "status": "carded",
+   "note": "full-text via arxiv.org/html/2610.28802 (LaTeXML, 17 sections incl. appendices); abstract and metadata via export.arxiv.org API (CAMLIS 2026); five neighbor abstracts via one API id_list call",
+   "model": "worker"
+  },
+  {
+   "date": "2026-10-25",
+   "status": "mutated",
+   "note": "stage 3 run; 2 candidate(s) in data/candidates/2026-W43.jsonl",
+   "model": "claude-fable-5-1"
+  }
+ ]
 }

@@ -1,79 +1,85 @@
 {
-  "id": "2610.30499",
-  "title": "Can LLMs Improve Their Own Harness? A Controlled Study on ARC-AGI-3",
-  "url": "https://arxiv.org/abs/2610.30499",
-  "week_carded": "2026-W43",
-  "seed_week": "2026-W43",
-  "trick": "Let a frontier model write its own ARC-AGI-3 agent code, revise it twice from five games' traces and dollar meters, and score every version on twenty untouched games: development gains barely transfer.",
-  "framing_stripped": "Called 'autonomous harness adaptation' and a 'harness adaptation gap' (a capability of general intelligence); it is a 27-arm train/test generalization measurement of a coding agent (OpenCode driving the same model it plays with) editing its own game-playing scaffold twice from a five-game feedback bundle, with every snapshot measured once on 20 held-out games and the dollar bill kept per game.",
-  "method_equations": "Deployed agent $S_t = (M, H_t)$: $M$ is the frozen pretrained model, $H_t$ the executable harness (the code that handles perception, memory, tools, recovery and inference allocation) after $t$ revisions. For task distribution $\\mathcal{D}$, $J_{\\mathcal{D}}(H_t; M)$ is the expected task utility of the pair with $M$ fixed. Outer-loop update: $H_{t+1} = U(M, H_{\\mathrm{boot}}, H_t, E_t^{\\mathrm{dev}})$, where $H_{\\mathrm{boot}}$ is the fixed general-purpose coding harness (OpenCode) the model edits through and $E_t^{\\mathrm{dev}}$ is the development evidence bundle (own source, traces, scores, actions, inference costs on the five development games); the same $M$ runs both loops. Harness adaptation gap (Sec. 2): $G_t = [J_{\\mathcal{D}_{\\mathrm{dev}}}(H_t) - J_{\\mathcal{D}_{\\mathrm{dev}}}(H_0)] - [J_{\\mathcal{D}_{\\mathrm{test}}}(H_t) - J_{\\mathcal{D}_{\\mathrm{test}}}(H_0)]$, positive when apparent adaptation on feedback games exceeds held-out benefit; estimated by mean RHAE over the 5 development and 20 held-out games, $G_2 = 5.62$ (95% bootstrap interval $[1.78, 9.77]$). Joint objective: $(J_{\\mathcal{D}_{\\mathrm{test}}}(H_t), -C_{\\mathrm{run}}(H_t), -C_{\\mathrm{outer}}(H_{0:t}))$, with $C_{\\mathrm{run}}$ the expected dollar inference cost per task of the deployed harness and $C_{\\mathrm{outer}}$ the cumulative dollar cost of constructing and revising it; Pareto plots use the first two. RHAE (Relative Human Action Efficiency, App. A): for a game with levels $\\ell = 1, \\ldots, L$, hidden human action baselines $b_\\ell$ and system actions $a_\\ell$, a level completed within the $5 b_\\ell$ action budget scores $s_\\ell = \\min\\{100 (b_\\ell / a_\\ell)^2, 115\\}$, others score 0; with weights $w_\\ell = \\ell$ and $C$ the completed prefix of levels, the game score is $\\min\\{ \\sum_{\\ell=1}^{L} w_\\ell s_\\ell / \\sum_{\\ell=1}^{L} w_\\ell,\\; 100 \\sum_{\\ell=1}^{C} w_\\ell / \\sum_{\\ell=1}^{L} w_\\ell \\}$, so credit is capped by weighted completion and later levels weigh more. Uncertainty: percentile intervals from 100,000 whole-lineage bootstrap resamples (each lineage keeps all three snapshots and all games, preserving paired comparisons).",
-  "load_bearing_assumption": "That one evaluation per frozen snapshot on 20 games measures the harness and not the run: every one of the 81 snapshots is scored once, and the only repeat measurement is ten runs of one post hoc chosen Sol-high $H_2$ harness (suite SD 3.99 RHAE, range 43.38 to 55.37; median within-game SD 18.78), which is assumed to stand for all 27 lineages across seven model families. And that 5 development plus 20 held-out public games are a fair generalization split although the games are public and the authors state that training-set exposure of some models cannot be excluded (Sec. 8).",
-  "weakest_component": "The noise floor relative to the effect sizes. The headline held-out gain is +2.80 RHAE (interval $[-1.44, 7.35]$) and the 'gap' is 5.62, measured with single evaluations whose one measured run-to-run suite SD is 3.99 and whose mean absolute difference between two evaluations of the same harness is 4.73 (App. D.1); 15 of 27 lineages count as 'gains' and 12 as 'losses' by strict sign ($p = .70$), and at a 5-point threshold 15 of 27 are 'within threshold'. The gap itself leans on one development game: omitting r11l from the development summary drops it from 5.62 to 3.02 while omitting any other game gives 4.68 to 7.84 (App. D). Second target: the behavioural analysis (Sec. 6.2) rests on two LLM coding passes (GPT-5.6 Sol xhigh) over summarized records, never checked against humans, with diagnosis ($\\kappa = 0.35$), incumbent protection (0.47), resource metareasoning (0.29) and diagnostic probing (0.66) below the preset 0.67 reliability threshold and the planning label missing from 27 of 54 packets (Sec. 6.2, 8). Third: three replicates per condition and a single revision count (two), so condition differences are 'descriptive' by the authors' own statement.",
-  "regime": "ARC-AGI-3 public games (interactive $64 \\times 64$ grid worlds, multiple levels, rules to be discovered): 5 development games fixed at random (tr87, vc33, r11l, bp35, ft09), 20 held-out. Nine model-effort conditions across seven families at reasoning effort 'high' (GPT-6 Astra, GPT-5.6 Sol, GPT-5.6 Terra, GPT-5.6 Luna, Claude Fable 5, Claude Opus 5, Claude Sonnet 5) plus Sol and Opus 5 at 'xhigh'; 3 independent constructions per condition; 27 lineages, 81 frozen snapshots ($H_0, H_1, H_2$), 2,025 game evaluations (2,130 attempts; 63 of 2,025 slots needed more than one). Coding bootstrap OpenCode; up to 10 smoke-repair cycles per stage; 24-hour wall clock per coding and per gameplay session; 1 GiB workspace; no dollar cap on gameplay inference. Scores: initial held-out mean 24.54 RHAE (range 0 to 97.14), revision 1 25.87, revision 2 27.34; held-out complete games 73/540 (13.5%) at $H_0$ and 94/540 (17.4%) at $H_2$; development mean up 8.42 points. Cost: mean $10.30 per held-out game at $H_0$, $7.15 at $H_1$, $7.57 at $H_2$ (median $9.18 to $7.18); 9 of 27 revision-2 descendants are Pareto gains (score up, cost down), 6 score up at higher cost, 9 cheaper and worse, 3 worse on both; whole program at least $18,129.27 at frozen Sept-13-2026 list prices, of which $16,130.09 is held-out gameplay inference and $1,352.34 the coding loop. Per-condition revision-2 held-out means: Sol high 28.58, Sol xhigh 41.94, Opus high 15.43, Opus xhigh 39.95, against 100 RHAE for the human-steered Tycho on the same 20 games with Opus 5 xhigh. Audited transitions: 22 of 27 first revisions reorient the harness, 4 extend, 1 preserve; second revisions 12 reorient, 12 extend, 3 preserve; 0 of 54 keep the parent unchanged.",
-  "information_asymmetry": "Four asymmetries, concretely. (1) Revision time vs evaluation time: the updater $U$ sees $E_t^{\\mathrm{dev}}$, a five-game bundle, and never a held-out score; the 20-game held-out outcome of its own edit exists only after the stage is frozen. A post hoc rule that picks the snapshot with the highest development RHAE (information the updater already has) yields +4.53 held-out over $H_0$ against +2.80 for always deploying $H_2$ (interval $[0.38, 3.67]$ for the difference), and a held-out oracle yields +6.13 (Table 5): the gap between +2.80 and +4.53 is the value of deciding whether to ship an edit, and the gap to +6.13 is the value of the held-out signal itself. Every one of the 54 episodes changed the code though keeping the parent was allowed (Sec. 7, 'Abstention is part of adaptation'). (2) Signal precision: in the feedback bundle the dollar meter per game is exact, while the five-game development RHAE is a sample whose per-game SD is about 18.78 (the one harness measured), so a five-game mean carries a standard error near $18.78 / \\sqrt{5} \\approx 8.4$ points (my arithmetic on the paper's numbers), the same size as the 8.42-point mean development gain being chased; the build prompt also asks for economical inference. The updater therefore edits against one precisely observed quantity and one noisy one, and 9 of 27 lineages end cheaper and worse (Table 7; the T007 case drops 43.95 to 21.99 RHAE as cost drops $31.39 to $7.18 per game after replacing response-ID chaining and history compaction with a bounded notebook, App. E). The paper records this as an outcome, never as a variance-of-signal explanation, and never gives the updater a repeat measurement or a noise estimate. (3) Single-shot vs repeated measurement at evaluation time: the study has run-to-run variance for one harness (10 runs) and none for the other 80 snapshots, so the per-lineage gain/loss classification of 15/12 is made without the information that would separate harness effect from execution noise; the authors say so (Sec. 8). (4) Process vs outcome: the outcome-blind coder sees what the updater inspected, planned, edited and tested; the linkage to held-out change is exploratory and the labels that would carry mechanism (diagnosis, incumbent protection, resource metareasoning) are the unreliable ones; whether the updater's verbalized diagnosis is faithful is explicitly unknown (Sec. 6.2). For L1: this is a scaffold-sensitivity and cost-accounting dataset of 81 harnesses times 25 games with per-game dollar ledgers and a frozen price schedule, released with source snapshots, and the one quantity it lacks for every snapshot but one is the within-harness repeat variance that would set the detectable effect size.",
-  "occupies": "The 'harness adaptation gap' definition $G_t$ and the all-snapshot strict-held-out protocol (every prescribed revision evaluated, no selection among descendants) on ARC-AGI-3, with the numbers: +2.80 held-out RHAE over two revisions, $G_2 = 5.62$, 9/27 Pareto gains and 9/27 cheaper-but-worse, 0/54 abstentions, the post hoc development-selection diagnostic (+4.53), the ten-run fixed-harness variance (SD 3.99) and the outcome-blind LLM coding of 54 revision episodes, plus the released 81 source snapshots and per-game dollar ledgers.",
-  "neighbors": [
-    {
-      "id": "2603.28052",
-      "title": "Meta-Harness: End-to-End Optimization of Model Harnesses",
-      "trick": "An agentic proposer rewrites harness code while reading the source, scores and execution traces of all earlier candidates from a filesystem, and the best harness found is reported; this card's paper evaluates every prescribed revision instead of a searched-and-selected one."
-    },
-    {
-      "id": "2609.24972",
-      "title": "RRSI: Regularized Recursive Self-Improvement of Agent Harnesses",
-      "trick": "Cap how many edits a proposed harness change bundles (annealed over time), screen proposals for benchmark-specific tricks with a critic, and prune changes that are too small, too costly or stale, so evolved harnesses keep gains on out-of-distribution benchmarks; it is the acceptance rule this card's paper says its updaters lacked."
-    },
-    {
-      "id": "2608.06301",
-      "title": "HarnessOpt-Bench: Evaluating LLMs at Harness Optimization",
-      "trick": "Give an optimizer LLM a seed harness, graded feedback and a fixed evaluation budget inside a trusted execution environment, and score its single nominated candidate by normalized gain on an inaccessible test partition; one nomination with search, where this card's paper has two prescribed revisions with none."
-    },
-    {
-      "id": "2607.12227",
-      "title": "Rethinking the Evaluation of Harness Evolution for Agents",
-      "trick": "Compare harness evolution against plain test-time scaling under matched feedback and inference budgets with held-out tasks, finding it loses on Terminal-Bench 2.1 but beats the search baseline by 80% on ARC-AGI-3 games; the matched-budget control this card's paper does not run."
-    },
-    {
-      "id": "2608.01918",
-      "title": "HarnessCompass: Guiding Automatic Harness Evolution toward Generalizable and Effective Agent Harnesses",
-      "trick": "Restrict harness edits to task-agnostic changes, add the agent's own first-person feedback about harness usage to the trajectory evidence, and optimize harness components separately before merging, lifting SWE-bench Verified Pass@1 from 54% to 66% in five iterations with transfer to held-out tasks."
-    }
-  ],
-  "theme_fit": [
-    {
-      "theme_id": "L1",
-      "score": 3,
-      "why": "scaffold sensitivity (81 harnesses, 0 to 97 RHAE on one model set), dollar cost accounting per game with a frozen price schedule, held-out validity vs development overfitting, and the single-evaluation noise floor (SD 3.99 suite, 18.78 per game) that decides whether a 3-point gain is real"
-    },
-    {
-      "theme_id": "L4",
-      "score": 2,
-      "why": "revisions mostly reorganize memory, context persistence, replay and compaction; the T007 case prices one lossy handoff (compaction and response chaining replaced by a bounded notebook: 43.95 to 21.99 RHAE, $31.39 to $7.18 per game), confounded but measured"
-    },
-    {
-      "theme_id": "L3",
-      "score": 1,
-      "why": "the true cost structure of an agentic workload is recorded (mean $10.30 to $7.57 per game, program $18,129), but as a ledger, with no serving or rollout mechanism studied"
-    },
-    {
-      "theme_id": "L2",
-      "score": 1,
-      "why": "an outer improvement loop with frozen weights; same words (self-improvement, held-out transfer), no RL training dynamics or credit signal"
-    }
-  ],
-  "limitations_as_complaints": [
-    "I scored each of my 81 harness snapshots exactly once, and the one harness I re-ran ten times moved by a suite SD of 3.99 RHAE and a median per-game SD of 18.78, so I cannot tell which of my 15 'gains' and 12 'losses' are revisions and which are dice (Sec. 8; App. D.1).",
-    "I report score and dollars together, but I cannot separate model capability, harness design and spending into independent effects, so when nine of my revisions got cheaper and worse I cannot say whether they bought less reasoning or broke the scaffold (Sec. 8; Sec. 5; App. E, T007).",
-    "My account of how models revise comes from two LLM coding passes over summarized execution records, never checked against human annotators, with diagnosis, incumbent protection and resource-metareasoning labels below my own 0.67 reliability bar, so I cannot name a revision behavior that causes held-out improvement (Sec. 6.2; Sec. 8)."
-  ],
-  "evidence_level": "full-text",
-  "status": "carded",
-  "history": [
-    {
-      "date": "2026-10-25",
-      "status": "carded",
-      "note": "full-text via /html (LaTeXML, incl. appendices A-G); abstract via API; 5 neighbor abstracts via one API id_list call",
-      "model": "worker"
-    }
-  ]
+ "id": "2610.30499",
+ "title": "Can LLMs Improve Their Own Harness? A Controlled Study on ARC-AGI-3",
+ "url": "https://arxiv.org/abs/2610.30499",
+ "week_carded": "2026-W43",
+ "seed_week": "2026-W43",
+ "trick": "Let a frontier model write its own ARC-AGI-3 agent code, revise it twice from five games' traces and dollar meters, and score every version on twenty untouched games: development gains barely transfer.",
+ "framing_stripped": "Called 'autonomous harness adaptation' and a 'harness adaptation gap' (a capability of general intelligence); it is a 27-arm train/test generalization measurement of a coding agent (OpenCode driving the same model it plays with) editing its own game-playing scaffold twice from a five-game feedback bundle, with every snapshot measured once on 20 held-out games and the dollar bill kept per game.",
+ "method_equations": "Deployed agent $S_t = (M, H_t)$: $M$ is the frozen pretrained model, $H_t$ the executable harness (the code that handles perception, memory, tools, recovery and inference allocation) after $t$ revisions. For task distribution $\\mathcal{D}$, $J_{\\mathcal{D}}(H_t; M)$ is the expected task utility of the pair with $M$ fixed. Outer-loop update: $H_{t+1} = U(M, H_{\\mathrm{boot}}, H_t, E_t^{\\mathrm{dev}})$, where $H_{\\mathrm{boot}}$ is the fixed general-purpose coding harness (OpenCode) the model edits through and $E_t^{\\mathrm{dev}}$ is the development evidence bundle (own source, traces, scores, actions, inference costs on the five development games); the same $M$ runs both loops. Harness adaptation gap (Sec. 2): $G_t = [J_{\\mathcal{D}_{\\mathrm{dev}}}(H_t) - J_{\\mathcal{D}_{\\mathrm{dev}}}(H_0)] - [J_{\\mathcal{D}_{\\mathrm{test}}}(H_t) - J_{\\mathcal{D}_{\\mathrm{test}}}(H_0)]$, positive when apparent adaptation on feedback games exceeds held-out benefit; estimated by mean RHAE over the 5 development and 20 held-out games, $G_2 = 5.62$ (95% bootstrap interval $[1.78, 9.77]$). Joint objective: $(J_{\\mathcal{D}_{\\mathrm{test}}}(H_t), -C_{\\mathrm{run}}(H_t), -C_{\\mathrm{outer}}(H_{0:t}))$, with $C_{\\mathrm{run}}$ the expected dollar inference cost per task of the deployed harness and $C_{\\mathrm{outer}}$ the cumulative dollar cost of constructing and revising it; Pareto plots use the first two. RHAE (Relative Human Action Efficiency, App. A): for a game with levels $\\ell = 1, \\ldots, L$, hidden human action baselines $b_\\ell$ and system actions $a_\\ell$, a level completed within the $5 b_\\ell$ action budget scores $s_\\ell = \\min\\{100 (b_\\ell / a_\\ell)^2, 115\\}$, others score 0; with weights $w_\\ell = \\ell$ and $C$ the completed prefix of levels, the game score is $\\min\\{ \\sum_{\\ell=1}^{L} w_\\ell s_\\ell / \\sum_{\\ell=1}^{L} w_\\ell,\\; 100 \\sum_{\\ell=1}^{C} w_\\ell / \\sum_{\\ell=1}^{L} w_\\ell \\}$, so credit is capped by weighted completion and later levels weigh more. Uncertainty: percentile intervals from 100,000 whole-lineage bootstrap resamples (each lineage keeps all three snapshots and all games, preserving paired comparisons).",
+ "load_bearing_assumption": "That one evaluation per frozen snapshot on 20 games measures the harness and not the run: every one of the 81 snapshots is scored once, and the only repeat measurement is ten runs of one post hoc chosen Sol-high $H_2$ harness (suite SD 3.99 RHAE, range 43.38 to 55.37; median within-game SD 18.78), which is assumed to stand for all 27 lineages across seven model families. And that 5 development plus 20 held-out public games are a fair generalization split although the games are public and the authors state that training-set exposure of some models cannot be excluded (Sec. 8).",
+ "weakest_component": "The noise floor relative to the effect sizes. The headline held-out gain is +2.80 RHAE (interval $[-1.44, 7.35]$) and the 'gap' is 5.62, measured with single evaluations whose one measured run-to-run suite SD is 3.99 and whose mean absolute difference between two evaluations of the same harness is 4.73 (App. D.1); 15 of 27 lineages count as 'gains' and 12 as 'losses' by strict sign ($p = .70$), and at a 5-point threshold 15 of 27 are 'within threshold'. The gap itself leans on one development game: omitting r11l from the development summary drops it from 5.62 to 3.02 while omitting any other game gives 4.68 to 7.84 (App. D). Second target: the behavioural analysis (Sec. 6.2) rests on two LLM coding passes (GPT-5.6 Sol xhigh) over summarized records, never checked against humans, with diagnosis ($\\kappa = 0.35$), incumbent protection (0.47), resource metareasoning (0.29) and diagnostic probing (0.66) below the preset 0.67 reliability threshold and the planning label missing from 27 of 54 packets (Sec. 6.2, 8). Third: three replicates per condition and a single revision count (two), so condition differences are 'descriptive' by the authors' own statement.",
+ "regime": "ARC-AGI-3 public games (interactive $64 \\times 64$ grid worlds, multiple levels, rules to be discovered): 5 development games fixed at random (tr87, vc33, r11l, bp35, ft09), 20 held-out. Nine model-effort conditions across seven families at reasoning effort 'high' (GPT-6 Astra, GPT-5.6 Sol, GPT-5.6 Terra, GPT-5.6 Luna, Claude Fable 5, Claude Opus 5, Claude Sonnet 5) plus Sol and Opus 5 at 'xhigh'; 3 independent constructions per condition; 27 lineages, 81 frozen snapshots ($H_0, H_1, H_2$), 2,025 game evaluations (2,130 attempts; 63 of 2,025 slots needed more than one). Coding bootstrap OpenCode; up to 10 smoke-repair cycles per stage; 24-hour wall clock per coding and per gameplay session; 1 GiB workspace; no dollar cap on gameplay inference. Scores: initial held-out mean 24.54 RHAE (range 0 to 97.14), revision 1 25.87, revision 2 27.34; held-out complete games 73/540 (13.5%) at $H_0$ and 94/540 (17.4%) at $H_2$; development mean up 8.42 points. Cost: mean $10.30 per held-out game at $H_0$, $7.15 at $H_1$, $7.57 at $H_2$ (median $9.18 to $7.18); 9 of 27 revision-2 descendants are Pareto gains (score up, cost down), 6 score up at higher cost, 9 cheaper and worse, 3 worse on both; whole program at least $18,129.27 at frozen Sept-13-2026 list prices, of which $16,130.09 is held-out gameplay inference and $1,352.34 the coding loop. Per-condition revision-2 held-out means: Sol high 28.58, Sol xhigh 41.94, Opus high 15.43, Opus xhigh 39.95, against 100 RHAE for the human-steered Tycho on the same 20 games with Opus 5 xhigh. Audited transitions: 22 of 27 first revisions reorient the harness, 4 extend, 1 preserve; second revisions 12 reorient, 12 extend, 3 preserve; 0 of 54 keep the parent unchanged.",
+ "information_asymmetry": "Four asymmetries, concretely. (1) Revision time vs evaluation time: the updater $U$ sees $E_t^{\\mathrm{dev}}$, a five-game bundle, and never a held-out score; the 20-game held-out outcome of its own edit exists only after the stage is frozen. A post hoc rule that picks the snapshot with the highest development RHAE (information the updater already has) yields +4.53 held-out over $H_0$ against +2.80 for always deploying $H_2$ (interval $[0.38, 3.67]$ for the difference), and a held-out oracle yields +6.13 (Table 5): the gap between +2.80 and +4.53 is the value of deciding whether to ship an edit, and the gap to +6.13 is the value of the held-out signal itself. Every one of the 54 episodes changed the code though keeping the parent was allowed (Sec. 7, 'Abstention is part of adaptation'). (2) Signal precision: in the feedback bundle the dollar meter per game is exact, while the five-game development RHAE is a sample whose per-game SD is about 18.78 (the one harness measured), so a five-game mean carries a standard error near $18.78 / \\sqrt{5} \\approx 8.4$ points (my arithmetic on the paper's numbers), the same size as the 8.42-point mean development gain being chased; the build prompt also asks for economical inference. The updater therefore edits against one precisely observed quantity and one noisy one, and 9 of 27 lineages end cheaper and worse (Table 7; the T007 case drops 43.95 to 21.99 RHAE as cost drops $31.39 to $7.18 per game after replacing response-ID chaining and history compaction with a bounded notebook, App. E). The paper records this as an outcome, never as a variance-of-signal explanation, and never gives the updater a repeat measurement or a noise estimate. (3) Single-shot vs repeated measurement at evaluation time: the study has run-to-run variance for one harness (10 runs) and none for the other 80 snapshots, so the per-lineage gain/loss classification of 15/12 is made without the information that would separate harness effect from execution noise; the authors say so (Sec. 8). (4) Process vs outcome: the outcome-blind coder sees what the updater inspected, planned, edited and tested; the linkage to held-out change is exploratory and the labels that would carry mechanism (diagnosis, incumbent protection, resource metareasoning) are the unreliable ones; whether the updater's verbalized diagnosis is faithful is explicitly unknown (Sec. 6.2). For L1: this is a scaffold-sensitivity and cost-accounting dataset of 81 harnesses times 25 games with per-game dollar ledgers and a frozen price schedule, released with source snapshots, and the one quantity it lacks for every snapshot but one is the within-harness repeat variance that would set the detectable effect size.",
+ "occupies": "The 'harness adaptation gap' definition $G_t$ and the all-snapshot strict-held-out protocol (every prescribed revision evaluated, no selection among descendants) on ARC-AGI-3, with the numbers: +2.80 held-out RHAE over two revisions, $G_2 = 5.62$, 9/27 Pareto gains and 9/27 cheaper-but-worse, 0/54 abstentions, the post hoc development-selection diagnostic (+4.53), the ten-run fixed-harness variance (SD 3.99) and the outcome-blind LLM coding of 54 revision episodes, plus the released 81 source snapshots and per-game dollar ledgers.",
+ "neighbors": [
+  {
+   "id": "2603.28052",
+   "title": "Meta-Harness: End-to-End Optimization of Model Harnesses",
+   "trick": "An agentic proposer rewrites harness code while reading the source, scores and execution traces of all earlier candidates from a filesystem, and the best harness found is reported; this card's paper evaluates every prescribed revision instead of a searched-and-selected one."
+  },
+  {
+   "id": "2609.24972",
+   "title": "RRSI: Regularized Recursive Self-Improvement of Agent Harnesses",
+   "trick": "Cap how many edits a proposed harness change bundles (annealed over time), screen proposals for benchmark-specific tricks with a critic, and prune changes that are too small, too costly or stale, so evolved harnesses keep gains on out-of-distribution benchmarks; it is the acceptance rule this card's paper says its updaters lacked."
+  },
+  {
+   "id": "2608.06301",
+   "title": "HarnessOpt-Bench: Evaluating LLMs at Harness Optimization",
+   "trick": "Give an optimizer LLM a seed harness, graded feedback and a fixed evaluation budget inside a trusted execution environment, and score its single nominated candidate by normalized gain on an inaccessible test partition; one nomination with search, where this card's paper has two prescribed revisions with none."
+  },
+  {
+   "id": "2607.12227",
+   "title": "Rethinking the Evaluation of Harness Evolution for Agents",
+   "trick": "Compare harness evolution against plain test-time scaling under matched feedback and inference budgets with held-out tasks, finding it loses on Terminal-Bench 2.1 but beats the search baseline by 80% on ARC-AGI-3 games; the matched-budget control this card's paper does not run."
+  },
+  {
+   "id": "2608.01918",
+   "title": "HarnessCompass: Guiding Automatic Harness Evolution toward Generalizable and Effective Agent Harnesses",
+   "trick": "Restrict harness edits to task-agnostic changes, add the agent's own first-person feedback about harness usage to the trajectory evidence, and optimize harness components separately before merging, lifting SWE-bench Verified Pass@1 from 54% to 66% in five iterations with transfer to held-out tasks."
+  }
+ ],
+ "theme_fit": [
+  {
+   "theme_id": "L1",
+   "score": 3,
+   "why": "scaffold sensitivity (81 harnesses, 0 to 97 RHAE on one model set), dollar cost accounting per game with a frozen price schedule, held-out validity vs development overfitting, and the single-evaluation noise floor (SD 3.99 suite, 18.78 per game) that decides whether a 3-point gain is real"
+  },
+  {
+   "theme_id": "L4",
+   "score": 2,
+   "why": "revisions mostly reorganize memory, context persistence, replay and compaction; the T007 case prices one lossy handoff (compaction and response chaining replaced by a bounded notebook: 43.95 to 21.99 RHAE, $31.39 to $7.18 per game), confounded but measured"
+  },
+  {
+   "theme_id": "L3",
+   "score": 1,
+   "why": "the true cost structure of an agentic workload is recorded (mean $10.30 to $7.57 per game, program $18,129), but as a ledger, with no serving or rollout mechanism studied"
+  },
+  {
+   "theme_id": "L2",
+   "score": 1,
+   "why": "an outer improvement loop with frozen weights; same words (self-improvement, held-out transfer), no RL training dynamics or credit signal"
+  }
+ ],
+ "limitations_as_complaints": [
+  "I scored each of my 81 harness snapshots exactly once, and the one harness I re-ran ten times moved by a suite SD of 3.99 RHAE and a median per-game SD of 18.78, so I cannot tell which of my 15 'gains' and 12 'losses' are revisions and which are dice (Sec. 8; App. D.1).",
+  "I report score and dollars together, but I cannot separate model capability, harness design and spending into independent effects, so when nine of my revisions got cheaper and worse I cannot say whether they bought less reasoning or broke the scaffold (Sec. 8; Sec. 5; App. E, T007).",
+  "My account of how models revise comes from two LLM coding passes over summarized execution records, never checked against human annotators, with diagnosis, incumbent protection and resource-metareasoning labels below my own 0.67 reliability bar, so I cannot name a revision behavior that causes held-out improvement (Sec. 6.2; Sec. 8)."
+ ],
+ "evidence_level": "full-text",
+ "status": "mutated",
+ "history": [
+  {
+   "date": "2026-10-25",
+   "status": "carded",
+   "note": "full-text via /html (LaTeXML, incl. appendices A-G); abstract via API; 5 neighbor abstracts via one API id_list call",
+   "model": "worker"
+  },
+  {
+   "date": "2026-10-25",
+   "status": "mutated",
+   "note": "stage 3 run; 1 candidate(s) in data/candidates/2026-W43.jsonl",
+   "model": "claude-fable-5-1"
+  }
+ ]
 }

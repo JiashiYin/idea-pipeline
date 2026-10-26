@@ -1,79 +1,85 @@
 {
-  "id": "2610.28577",
-  "title": "Cache Engineering for Agents",
-  "url": "https://arxiv.org/abs/2610.28577",
-  "week_carded": "2026-W43",
-  "seed_week": "2026-W43",
-  "trick": "Instead of summarizing old context and re-prefilling, the agent tells the server which old tool-response KV entries to stop attending to, and rotates the surviving keys to compact positions, so nothing is recomputed.",
-  "framing_stripped": "Called 'cache engineering' with 'recursive self-improvement' of policies; it is harness-controlled KV eviction (drop the KV of all but the latest K = 12 tool responses, keep all reasoning) plus a RoPE re-rotation that resets position indices, served by an SGLang fork whose radix tree keys on (token, cache-operation) history instead of tokens alone; the 'RSI' is an LLM editing the drop policy on 20 tasks and keeping what scores better.",
-  "method_equations": "Standard KV-cached decoding (eq. 2): $p_\\theta(x_{t+1} \\mid x_t, \\mathcal{C}_{1:t-1})$, where $x_{1:t}$ is the logical token sequence (the full text trajectory), $\\theta$ the model, and $\\mathcal{C}_{1:t-1}$ the KV states of $x_{1:t-1}$. The active cache $\\mathcal{C}$ is the set of KV entries attention sees; its size need not equal $t$. Three operations on $\\mathcal{C}$ (eqs. 3-5): $\\operatorname{append}(x_{t+1}): \\mathcal{C} \\leftarrow [\\mathcal{C}; C_{t+1}]$, computing the new entry $C_{t+1}$ against the current active cache and advancing the position index by one; $\\operatorname{drop}(P): \\mathcal{C} \\leftarrow \\mathcal{C} \\setminus \\{C_i : i \\in P\\}$, with $P$ a set of active logical token indices, retained entries, their position encodings and the text unchanged, and the next position index not reset; $\\operatorname{repos}$: with $r$ retained entries, their position indices become $0, \\ldots, r-1$ and the next appended token takes index $r$, realised for RoPE by $K \\leftarrow R(q) R(p)^{-1} K$ where $K$ is a cached key, $p$ its old and $q$ its new position index and $R(p)$ the rotation matrix at position $p$; values are untouched. A cache operation sequence (eq. 6) $o_{1:m} = (o_1, \\ldots, o_m)$, $o_j \\in \\{\\operatorname{append}(x), \\operatorname{drop}(P), \\operatorname{repos}\\}$, determines the cache state from empty for a fixed model; the same retained tokens and positions under two different sequences give different states (history dependence, Figure 5), so the serving tree matches on $(x, p)$ token nodes plus drop nodes $\\Delta P$ and reposition nodes $R$. Exact match: $T(x,p) \\equiv T(x',p') \\iff x = x' \\land p = p'$ with identical operation nodes. Retrigger match: the projection $\\phi(T(x,p)) = T(x)$, $\\phi(\\Delta P) = \\Delta P$, $\\phi(R) = R$; two prefixes with equal projections share hidden states and unrotated KV, so a source version $s$ is reused as target version $t$ by $K_t = R(p_t) R(p_s)^{-1} K_s$, $V_t = V_s$ (App. A.1.2; exact under exact arithmetic, rounding error otherwise). The evaluated policy: after each turn, drop the KV of every tool response older than the latest $K = 12$; issue $\\operatorname{repos}$ when the position index reaches the threshold $\\tau$ ($\\tau = 96$K tokens for GPT-OSS-120B and MiniMax-M2.7, $192$K for MiroThinker-1.7-Mini), the same $\\tau$ at which the Standard baseline summarizes. Cost (App. A.3): $c = p_{\\text{miss}} n_{\\text{miss}} + p_{\\text{hit}} (n_{\\text{hit}} + n_{\\text{repos}}) + p_{\\text{out}} n_{\\text{out}}$ in USD, with $n$ token counts for cache-miss input, cache-hit input, repositioned entries (charged at the hit rate as an overestimate) and output, and $p$ the per-token prices of Table 6 (GPT-OSS-120B: $0.150 / 0.075 / 0.600$ per million).",
-  "load_bearing_assumption": "A model trained only on contiguous, fully visible context tolerates two kinds of off-distribution cache without retraining: (a) retained entries that were computed while attending to tokens the current query can no longer see (the paper counts this as a feature, 'retained KV can still carry information from dropped history', Figure 1 and sec. 3.2, citing attention-sink work rather than testing it), and (b) keys re-rotated to compacted positions while the values and the hidden states that produced them were computed at the old positions. If either breaks, the pass-rate gain reverses; the paper's own evidence that it holds is Table 1 plus the GPT-OSS-20B note that a weaker model is 'more sensitive to cache modifications' (App. A.4.4). Second assumption: older tool responses are the right thing to drop because they receive the least attention (10 BCP trajectories, Figures 2 and 15); dropping reasoning KV instead costs 4.5 to 6.5 SWE points (Table 3).",
-  "weakest_component": "The baseline set. The headline (+1.7 points average pass rate, -27.7% cost) is against Pi-style LLM summarization triggered at 96K or 48K tokens (Table 1; App. A.2.2), never against the matched text-level trim (drop the same tool responses as text and re-prefill the suffix) in the main table; that trim appears only in the motivation on 100 BCP tasks with one model as 'costs 1.85x the full-context baseline' with no accuracy reported (sec. 3.2), which contradicts the paper's own cited neighbor 2508.21433, where observation masking halves cost on SWE-bench Verified. So the paper does not separate 'dropping tool responses helps' (which the cited trimming literature already claims) from 'dropping the KV instead of the text helps', which is the new part. Second target: the cost number is API-equivalent arithmetic at fixed cache-hit and cache-miss prices (App. A.3, Table 6), so the 27.7% depends on a price ratio (hit = half of miss for GPT-OSS-120B) not on measured hardware; the measured serving gains (1.18x output throughput, 1.51x P95 latency, Table 2) come from the 80 longest-context SWE-bench tasks, replaying each method's own trajectories with different turn counts, with the Standard baseline at C = 14 and 16 reported over a fixed one-hour window with requests unfinished (App. A.1.4). Third: Table 1 is single-run with no variance, and AKV loses to Standard on 3 of 12 model-benchmark cells (MiniMax SWE 74.4 vs 75.2; GPT-OSS xbench 37.5 vs 38.5; MiroThinker SWE 7.4 vs 7.8) while the average gain over Standard is 1.3 to 2.1 points.",
-  "regime": "Models: MiniMax-M2.7 (230B total, 10B active, thinking mode), GPT-OSS-120B (5.1B active, high reasoning effort), MiroThinker-1.7-Mini (30B total, 3B active, thinking), GPT-OSS-20B in App. A.4.4; all RoPE, full attention (linear attention named as unsupported). Benchmarks: BrowseComp-Plus (deep research, fixed corpus, Qwen3-Embedding-8B retrieval, step limit 100), GAIA-Text (103-task text-only validation subset, limit 200), SWE-bench Verified (500 tasks, mini-SWE-agent, limit 250, official tests), xbench-DeepSearch-2510 (limit 100, GLM-5.2 page reader); GLM-5.2 is the answer judge on the three QA benchmarks. Pass-rate bands: 7.4 to 75.2% across cells (Table 1). Policy: retain the latest K = 12 tool responses' KV, drop older; repos at 96K (192K for MiroThinker); summarization baselines at 96K/192K (Standard) and 48K (Text Engineering) with Pi prompts, reserveTokens 16,384, keepRecentTokens 20,000. Costs 2.4 to 33.6 US cents per task. Serving: SGLang v0.5.20, eight A800-80GB, prefill TP4 + decode TP4, BF16 weights, Mooncake KV transfer, one-token pages, concurrency 8 to 16 on the 80 longest-context SWE-bench tasks, temperature 0 replay with recorded tool responses (Table 2, App. A.1.3-A.1.4). Online run: 100 SWE-bench tasks, three runs per method, pass rate vs GPU-hours (Figure 9a). RSI: MiniMax-M2.7 edits the policy on 20 BCP tasks, evaluated on 100 held-out; iterations 3 and 6 cut cost 15.6% and 17.8% vs Standard (Figure 4). Cache-as-tool on 100 BCP tasks: 61.0% (GPT-OSS-120B) and 64.0% (MiniMax) pass, MiniMax cost up 5.4 to 5.9 cents (Table 4). Intro claim: KV-cache reads are 82.4% of total API cost (Figure 14 reference).",
-  "information_asymmetry": "Four asymmetries. (1) Harness vs server: the harness knows message roles, recency and task phase (which tool responses are stale), the server knows only tokens; AKV moves the eviction decision up to the harness through the 'cache' field (sec. 4.1). The reverse information, which cache entries the model actually attends to per layer, exists only on the server; the paper read it offline for 10 BCP trajectories to justify dropping old tool responses (Figures 2 and 15) but no run-time policy uses it, and nothing in the paper reports attention to a dropped entry's content after the drop. (2) Inference vs training: every model here was trained on contiguous fully visible context and is run on caches with holes and re-rotated keys; what dropping does to hidden states, and whether a policy trained under drop/repos recovers the 3 of 12 cells where AKV loses, is named as future work ('training agents under this scheme', sec. 6). For RL on agents served this way, a trajectory's log-probabilities depend on the operation sequence $o_{1:m}$, not on the token sequence, so any trainer that recomputes log-probs from text alone recomputes the wrong distribution; the paper formalizes the dependence (sec. 3.4) and does not mention the training-side consequence. (3) Logical vs active context: the dropped text still exists in the harness (the logical trajectory is unchanged, sec. 3.1), so a dropped tool response is recoverable by re-prefilling it, but no 'undo' or recall operation is defined; drop is one-way at the cache level and the policy cannot know at drop time which old tool response a later step will need. (4) Measurement vs recipe, for L4: Figure 7 (pass rate by logical length on 100 BCP tasks, GPT-OSS-120B) is a direct per-length measurement of what threshold summarization costs in accuracy (lowest in the 48 to 96K band for the 48K policy, lowest above 96K for the 96K policy) against a drop policy that holds accuracy; it is one model, one benchmark, one run, and the paper uses it as a motivation figure, not as a ruler; the matched-retention text trim that would isolate 'KV drop vs text drop' is the missing arm.",
-  "occupies": "The append/drop/repos formalization of agent-controlled KV eviction and the history-dependence observation (identical tokens and positions, different states under different operation orders); the AKV engine on SGLang (stateless 'cache' field in the chat API, radix tree extended with drop and reposition nodes, exact and retrigger matching with key re-rotation, drop-aware eviction, segment-batch attention restoring any operation history in one prefill); the result that a K = 12 tool-response rolling drop beats Pi-style threshold summarization on average across three models and four agent benchmarks on both pass rate and API-equivalent cost, with 1.18x throughput and 1.51x P95 latency on long SWE-bench trajectories; cache management exposed as an agent tool; LLM-driven search over cache policies; code at github.com/thu-nics/AKV.",
-  "neighbors": [
-    {
-      "id": "2602.22603",
-      "title": "SideQuest: Model-Driven KV Cache Management for Long-Horizon Agentic Reasoning",
-      "trick": "Run a side reasoning branch, trained on 215 samples, that judges which retrieved tokens are no longer useful and issues cache-deletion commands, cutting peak token use up to 65%; the model decides the drop, where this card's paper lets the harness decide and builds the server that serves any such policy."
-    },
-    {
-      "id": "2609.37725",
-      "title": "Context Language Models",
-      "trick": "Treat the context window as a file the model edits freely and learn the editing by prompting, skill evolution and online RL, with a suffix-cache-reuse trick that keeps unchanged downstream KV after a text edit; the edits are to text, so reuse is session-local, where this card's paper keeps text fixed and edits the cache."
-    },
-    {
-      "id": "2606.17016",
-      "title": "TokenPilot: Cache-Efficient Context Management for LLM Agents",
-      "trick": "Keep prompt prefixes stable by cleaning tool output at ingestion and evicting context segments only in batched turns when their utility expires, so text edits rarely break the prefix cache; a text-level answer to the same invalidation problem that this card's paper removes by never editing text."
-    },
-    {
-      "id": "2607.00151",
-      "title": "SmoothAgent: Efficient Long-Horizon LLM-Based Agent Serving with Lookahead Context Engineering",
-      "trick": "Since a context transformation of a prefix does not depend on future tokens, compute the summarized or trimmed prefix's KV ahead of time in the background and swap it in without blocking, cutting time-to-first-token up to 11.9x; it hides the re-prefill that this card's paper avoids."
-    },
-    {
-      "id": "2508.21433",
-      "title": "The Complexity Trap: Simple Observation Masking Is as Efficient as LLM Summarization for Agent Context Management",
-      "trick": "On SWE-bench Verified across five model configurations, simply omitting older environment observations from the prompt halves cost relative to the raw agent and matches LLM summarization's solve rate; the text-level version of this card's drop, which the paper's sec. 3.2 reports as costing 1.85x on BCP."
-    }
-  ],
-  "theme_fit": [
-    {
-      "theme_id": "L3",
-      "score": 3,
-      "why": "directly answers the lane sentence: prefix and KV-cache reuse under history-dependent states, compaction as a serving and cost lever, the cost structure of agent workloads (KV reads 82.4% of API cost; hit vs miss pricing; throughput and P95 under concurrency)"
-    },
-    {
-      "theme_id": "L4",
-      "score": 2,
-      "why": "supplies a baseline and a per-length measurement (Figure 7) of what threshold summarization costs in accuracy, and the cache-level alternative to the lossy summary; the controlled comparison the lane wants (KV drop vs matched text drop) is the arm the paper skipped"
-    },
-    {
-      "theme_id": "L2",
-      "score": 1,
-      "why": "same words (compaction, memory), different problem: training under drop/repos is named as future work, and log-probs under cache engineering depend on the operation sequence, a train-serve mismatch for agent RL that the paper does not address"
-    },
-    {
-      "theme_id": "L1",
-      "score": 1,
-      "why": "the API-equivalent cost accounting (cache-hit, cache-miss, output tokens at fixed prices, App. A.3) is a cost instrument for agent benchmarks, but the paper uses it for its own comparison only"
-    }
-  ],
-  "limitations_as_complaints": [
-    "I can only use this on full-attention RoPE models: the serving engine has no support for linear-attention or hybrid models, and the only drop policy evaluated at scale is one hand-set rule (keep the latest 12 tool responses); other strategies and training the agent to work under dropped caches are left as future work (sec. 6, Limitations).",
-    "On my smaller model the gains shrink or reverse: GPT-OSS-20B wins on average but loses to a baseline on several cells, and the authors say a weaker model is 'less able to effectively leverage the retained information under cache engineering, making it more sensitive to cache modifications', with no way to predict which model or benchmark will tolerate the drop (App. A.4.4).",
-    "When I let the agent manage its own cache as a tool, pass rate rises but MiniMax-M2.7's cost goes up from 5.4 to 5.9 cents per task because it takes more turns, and reused caches after a reposition are only equivalent to recomputation under exact arithmetic, with finite-precision rounding error unmeasured (sec. 5.4, Table 4; App. A.1.2)."
-  ],
-  "evidence_level": "full-text",
-  "status": "carded",
-  "history": [
-    {
-      "date": "2026-10-25",
-      "status": "carded",
-      "note": "full-text via /html (LaTeXML, all sections and appendix A.1-A.5 read); abstract via API; 5 neighbors via one API id_list call (2602.22603, 2609.37725, 2606.17016, 2607.00151, 2508.21433)",
-      "model": "worker"
-    }
-  ]
+ "id": "2610.28577",
+ "title": "Cache Engineering for Agents",
+ "url": "https://arxiv.org/abs/2610.28577",
+ "week_carded": "2026-W43",
+ "seed_week": "2026-W43",
+ "trick": "Instead of summarizing old context and re-prefilling, the agent tells the server which old tool-response KV entries to stop attending to, and rotates the surviving keys to compact positions, so nothing is recomputed.",
+ "framing_stripped": "Called 'cache engineering' with 'recursive self-improvement' of policies; it is harness-controlled KV eviction (drop the KV of all but the latest K = 12 tool responses, keep all reasoning) plus a RoPE re-rotation that resets position indices, served by an SGLang fork whose radix tree keys on (token, cache-operation) history instead of tokens alone; the 'RSI' is an LLM editing the drop policy on 20 tasks and keeping what scores better.",
+ "method_equations": "Standard KV-cached decoding (eq. 2): $p_\\theta(x_{t+1} \\mid x_t, \\mathcal{C}_{1:t-1})$, where $x_{1:t}$ is the logical token sequence (the full text trajectory), $\\theta$ the model, and $\\mathcal{C}_{1:t-1}$ the KV states of $x_{1:t-1}$. The active cache $\\mathcal{C}$ is the set of KV entries attention sees; its size need not equal $t$. Three operations on $\\mathcal{C}$ (eqs. 3-5): $\\operatorname{append}(x_{t+1}): \\mathcal{C} \\leftarrow [\\mathcal{C}; C_{t+1}]$, computing the new entry $C_{t+1}$ against the current active cache and advancing the position index by one; $\\operatorname{drop}(P): \\mathcal{C} \\leftarrow \\mathcal{C} \\setminus \\{C_i : i \\in P\\}$, with $P$ a set of active logical token indices, retained entries, their position encodings and the text unchanged, and the next position index not reset; $\\operatorname{repos}$: with $r$ retained entries, their position indices become $0, \\ldots, r-1$ and the next appended token takes index $r$, realised for RoPE by $K \\leftarrow R(q) R(p)^{-1} K$ where $K$ is a cached key, $p$ its old and $q$ its new position index and $R(p)$ the rotation matrix at position $p$; values are untouched. A cache operation sequence (eq. 6) $o_{1:m} = (o_1, \\ldots, o_m)$, $o_j \\in \\{\\operatorname{append}(x), \\operatorname{drop}(P), \\operatorname{repos}\\}$, determines the cache state from empty for a fixed model; the same retained tokens and positions under two different sequences give different states (history dependence, Figure 5), so the serving tree matches on $(x, p)$ token nodes plus drop nodes $\\Delta P$ and reposition nodes $R$. Exact match: $T(x,p) \\equiv T(x',p') \\iff x = x' \\land p = p'$ with identical operation nodes. Retrigger match: the projection $\\phi(T(x,p)) = T(x)$, $\\phi(\\Delta P) = \\Delta P$, $\\phi(R) = R$; two prefixes with equal projections share hidden states and unrotated KV, so a source version $s$ is reused as target version $t$ by $K_t = R(p_t) R(p_s)^{-1} K_s$, $V_t = V_s$ (App. A.1.2; exact under exact arithmetic, rounding error otherwise). The evaluated policy: after each turn, drop the KV of every tool response older than the latest $K = 12$; issue $\\operatorname{repos}$ when the position index reaches the threshold $\\tau$ ($\\tau = 96$K tokens for GPT-OSS-120B and MiniMax-M2.7, $192$K for MiroThinker-1.7-Mini), the same $\\tau$ at which the Standard baseline summarizes. Cost (App. A.3): $c = p_{\\text{miss}} n_{\\text{miss}} + p_{\\text{hit}} (n_{\\text{hit}} + n_{\\text{repos}}) + p_{\\text{out}} n_{\\text{out}}$ in USD, with $n$ token counts for cache-miss input, cache-hit input, repositioned entries (charged at the hit rate as an overestimate) and output, and $p$ the per-token prices of Table 6 (GPT-OSS-120B: $0.150 / 0.075 / 0.600$ per million).",
+ "load_bearing_assumption": "A model trained only on contiguous, fully visible context tolerates two kinds of off-distribution cache without retraining: (a) retained entries that were computed while attending to tokens the current query can no longer see (the paper counts this as a feature, 'retained KV can still carry information from dropped history', Figure 1 and sec. 3.2, citing attention-sink work rather than testing it), and (b) keys re-rotated to compacted positions while the values and the hidden states that produced them were computed at the old positions. If either breaks, the pass-rate gain reverses; the paper's own evidence that it holds is Table 1 plus the GPT-OSS-20B note that a weaker model is 'more sensitive to cache modifications' (App. A.4.4). Second assumption: older tool responses are the right thing to drop because they receive the least attention (10 BCP trajectories, Figures 2 and 15); dropping reasoning KV instead costs 4.5 to 6.5 SWE points (Table 3).",
+ "weakest_component": "The baseline set. The headline (+1.7 points average pass rate, -27.7% cost) is against Pi-style LLM summarization triggered at 96K or 48K tokens (Table 1; App. A.2.2), never against the matched text-level trim (drop the same tool responses as text and re-prefill the suffix) in the main table; that trim appears only in the motivation on 100 BCP tasks with one model as 'costs 1.85x the full-context baseline' with no accuracy reported (sec. 3.2), which contradicts the paper's own cited neighbor 2508.21433, where observation masking halves cost on SWE-bench Verified. So the paper does not separate 'dropping tool responses helps' (which the cited trimming literature already claims) from 'dropping the KV instead of the text helps', which is the new part. Second target: the cost number is API-equivalent arithmetic at fixed cache-hit and cache-miss prices (App. A.3, Table 6), so the 27.7% depends on a price ratio (hit = half of miss for GPT-OSS-120B) not on measured hardware; the measured serving gains (1.18x output throughput, 1.51x P95 latency, Table 2) come from the 80 longest-context SWE-bench tasks, replaying each method's own trajectories with different turn counts, with the Standard baseline at C = 14 and 16 reported over a fixed one-hour window with requests unfinished (App. A.1.4). Third: Table 1 is single-run with no variance, and AKV loses to Standard on 3 of 12 model-benchmark cells (MiniMax SWE 74.4 vs 75.2; GPT-OSS xbench 37.5 vs 38.5; MiroThinker SWE 7.4 vs 7.8) while the average gain over Standard is 1.3 to 2.1 points.",
+ "regime": "Models: MiniMax-M2.7 (230B total, 10B active, thinking mode), GPT-OSS-120B (5.1B active, high reasoning effort), MiroThinker-1.7-Mini (30B total, 3B active, thinking), GPT-OSS-20B in App. A.4.4; all RoPE, full attention (linear attention named as unsupported). Benchmarks: BrowseComp-Plus (deep research, fixed corpus, Qwen3-Embedding-8B retrieval, step limit 100), GAIA-Text (103-task text-only validation subset, limit 200), SWE-bench Verified (500 tasks, mini-SWE-agent, limit 250, official tests), xbench-DeepSearch-2510 (limit 100, GLM-5.2 page reader); GLM-5.2 is the answer judge on the three QA benchmarks. Pass-rate bands: 7.4 to 75.2% across cells (Table 1). Policy: retain the latest K = 12 tool responses' KV, drop older; repos at 96K (192K for MiroThinker); summarization baselines at 96K/192K (Standard) and 48K (Text Engineering) with Pi prompts, reserveTokens 16,384, keepRecentTokens 20,000. Costs 2.4 to 33.6 US cents per task. Serving: SGLang v0.5.20, eight A800-80GB, prefill TP4 + decode TP4, BF16 weights, Mooncake KV transfer, one-token pages, concurrency 8 to 16 on the 80 longest-context SWE-bench tasks, temperature 0 replay with recorded tool responses (Table 2, App. A.1.3-A.1.4). Online run: 100 SWE-bench tasks, three runs per method, pass rate vs GPU-hours (Figure 9a). RSI: MiniMax-M2.7 edits the policy on 20 BCP tasks, evaluated on 100 held-out; iterations 3 and 6 cut cost 15.6% and 17.8% vs Standard (Figure 4). Cache-as-tool on 100 BCP tasks: 61.0% (GPT-OSS-120B) and 64.0% (MiniMax) pass, MiniMax cost up 5.4 to 5.9 cents (Table 4). Intro claim: KV-cache reads are 82.4% of total API cost (Figure 14 reference).",
+ "information_asymmetry": "Four asymmetries. (1) Harness vs server: the harness knows message roles, recency and task phase (which tool responses are stale), the server knows only tokens; AKV moves the eviction decision up to the harness through the 'cache' field (sec. 4.1). The reverse information, which cache entries the model actually attends to per layer, exists only on the server; the paper read it offline for 10 BCP trajectories to justify dropping old tool responses (Figures 2 and 15) but no run-time policy uses it, and nothing in the paper reports attention to a dropped entry's content after the drop. (2) Inference vs training: every model here was trained on contiguous fully visible context and is run on caches with holes and re-rotated keys; what dropping does to hidden states, and whether a policy trained under drop/repos recovers the 3 of 12 cells where AKV loses, is named as future work ('training agents under this scheme', sec. 6). For RL on agents served this way, a trajectory's log-probabilities depend on the operation sequence $o_{1:m}$, not on the token sequence, so any trainer that recomputes log-probs from text alone recomputes the wrong distribution; the paper formalizes the dependence (sec. 3.4) and does not mention the training-side consequence. (3) Logical vs active context: the dropped text still exists in the harness (the logical trajectory is unchanged, sec. 3.1), so a dropped tool response is recoverable by re-prefilling it, but no 'undo' or recall operation is defined; drop is one-way at the cache level and the policy cannot know at drop time which old tool response a later step will need. (4) Measurement vs recipe, for L4: Figure 7 (pass rate by logical length on 100 BCP tasks, GPT-OSS-120B) is a direct per-length measurement of what threshold summarization costs in accuracy (lowest in the 48 to 96K band for the 48K policy, lowest above 96K for the 96K policy) against a drop policy that holds accuracy; it is one model, one benchmark, one run, and the paper uses it as a motivation figure, not as a ruler; the matched-retention text trim that would isolate 'KV drop vs text drop' is the missing arm.",
+ "occupies": "The append/drop/repos formalization of agent-controlled KV eviction and the history-dependence observation (identical tokens and positions, different states under different operation orders); the AKV engine on SGLang (stateless 'cache' field in the chat API, radix tree extended with drop and reposition nodes, exact and retrigger matching with key re-rotation, drop-aware eviction, segment-batch attention restoring any operation history in one prefill); the result that a K = 12 tool-response rolling drop beats Pi-style threshold summarization on average across three models and four agent benchmarks on both pass rate and API-equivalent cost, with 1.18x throughput and 1.51x P95 latency on long SWE-bench trajectories; cache management exposed as an agent tool; LLM-driven search over cache policies; code at github.com/thu-nics/AKV.",
+ "neighbors": [
+  {
+   "id": "2602.22603",
+   "title": "SideQuest: Model-Driven KV Cache Management for Long-Horizon Agentic Reasoning",
+   "trick": "Run a side reasoning branch, trained on 215 samples, that judges which retrieved tokens are no longer useful and issues cache-deletion commands, cutting peak token use up to 65%; the model decides the drop, where this card's paper lets the harness decide and builds the server that serves any such policy."
+  },
+  {
+   "id": "2609.37725",
+   "title": "Context Language Models",
+   "trick": "Treat the context window as a file the model edits freely and learn the editing by prompting, skill evolution and online RL, with a suffix-cache-reuse trick that keeps unchanged downstream KV after a text edit; the edits are to text, so reuse is session-local, where this card's paper keeps text fixed and edits the cache."
+  },
+  {
+   "id": "2606.17016",
+   "title": "TokenPilot: Cache-Efficient Context Management for LLM Agents",
+   "trick": "Keep prompt prefixes stable by cleaning tool output at ingestion and evicting context segments only in batched turns when their utility expires, so text edits rarely break the prefix cache; a text-level answer to the same invalidation problem that this card's paper removes by never editing text."
+  },
+  {
+   "id": "2607.00151",
+   "title": "SmoothAgent: Efficient Long-Horizon LLM-Based Agent Serving with Lookahead Context Engineering",
+   "trick": "Since a context transformation of a prefix does not depend on future tokens, compute the summarized or trimmed prefix's KV ahead of time in the background and swap it in without blocking, cutting time-to-first-token up to 11.9x; it hides the re-prefill that this card's paper avoids."
+  },
+  {
+   "id": "2508.21433",
+   "title": "The Complexity Trap: Simple Observation Masking Is as Efficient as LLM Summarization for Agent Context Management",
+   "trick": "On SWE-bench Verified across five model configurations, simply omitting older environment observations from the prompt halves cost relative to the raw agent and matches LLM summarization's solve rate; the text-level version of this card's drop, which the paper's sec. 3.2 reports as costing 1.85x on BCP."
+  }
+ ],
+ "theme_fit": [
+  {
+   "theme_id": "L3",
+   "score": 3,
+   "why": "directly answers the lane sentence: prefix and KV-cache reuse under history-dependent states, compaction as a serving and cost lever, the cost structure of agent workloads (KV reads 82.4% of API cost; hit vs miss pricing; throughput and P95 under concurrency)"
+  },
+  {
+   "theme_id": "L4",
+   "score": 2,
+   "why": "supplies a baseline and a per-length measurement (Figure 7) of what threshold summarization costs in accuracy, and the cache-level alternative to the lossy summary; the controlled comparison the lane wants (KV drop vs matched text drop) is the arm the paper skipped"
+  },
+  {
+   "theme_id": "L2",
+   "score": 1,
+   "why": "same words (compaction, memory), different problem: training under drop/repos is named as future work, and log-probs under cache engineering depend on the operation sequence, a train-serve mismatch for agent RL that the paper does not address"
+  },
+  {
+   "theme_id": "L1",
+   "score": 1,
+   "why": "the API-equivalent cost accounting (cache-hit, cache-miss, output tokens at fixed prices, App. A.3) is a cost instrument for agent benchmarks, but the paper uses it for its own comparison only"
+  }
+ ],
+ "limitations_as_complaints": [
+  "I can only use this on full-attention RoPE models: the serving engine has no support for linear-attention or hybrid models, and the only drop policy evaluated at scale is one hand-set rule (keep the latest 12 tool responses); other strategies and training the agent to work under dropped caches are left as future work (sec. 6, Limitations).",
+  "On my smaller model the gains shrink or reverse: GPT-OSS-20B wins on average but loses to a baseline on several cells, and the authors say a weaker model is 'less able to effectively leverage the retained information under cache engineering, making it more sensitive to cache modifications', with no way to predict which model or benchmark will tolerate the drop (App. A.4.4).",
+  "When I let the agent manage its own cache as a tool, pass rate rises but MiniMax-M2.7's cost goes up from 5.4 to 5.9 cents per task because it takes more turns, and reused caches after a reposition are only equivalent to recomputation under exact arithmetic, with finite-precision rounding error unmeasured (sec. 5.4, Table 4; App. A.1.2)."
+ ],
+ "evidence_level": "full-text",
+ "status": "mutated",
+ "history": [
+  {
+   "date": "2026-10-25",
+   "status": "carded",
+   "note": "full-text via /html (LaTeXML, all sections and appendix A.1-A.5 read); abstract via API; 5 neighbors via one API id_list call (2602.22603, 2609.37725, 2606.17016, 2607.00151, 2508.21433)",
+   "model": "worker"
+  },
+  {
+   "date": "2026-10-25",
+   "status": "mutated",
+   "note": "stage 3 run; 2 candidate(s) in data/candidates/2026-W43.jsonl",
+   "model": "claude-fable-5-1"
+  }
+ ]
 }
