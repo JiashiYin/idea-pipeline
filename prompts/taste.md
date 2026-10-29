@@ -63,6 +63,12 @@ repeat it at lunch, it is not clear yet. If it needs a second sentence, it is tw
 - **Research-tool landscapes mistaken for kill searches**: a tool said "wide open"; the arXiv count said 39 papers and
   a benchmark the week before. Density is measured on the day of writing, by us.
 
+- **Parking a correct instrument because its first consumer was weak lost a race.** The per-turn luck/skill split was
+  parked on 2026-10-14 because its evaluation consumer (benchmark owners) already assumed the answer; within six weeks
+  the training consumer published it under our own words ('Luck Is Not Skill', 2609.24144; TWICE 2610.31544; OSCC
+  2609.33543). Before parking an instrument, enumerate its consumers across registers (evaluation, training, systems,
+  standards); park only when none has a surprise. (2026-10-29)
+
 ## 4. Jacob's stated taste (apply, do not argue)
 
 Headlines over scopes; the plain one-sentence trick for every paper; equations with every symbol when depth is

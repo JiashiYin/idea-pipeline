@@ -1,6 +1,6 @@
 # At the settings they ship, physics engines differ in what a budgeted optimiser can extract from them by more than their fidelity scores differ, and their speed claims reorder once speed is quoted at a fixed accuracy.
 
-`CL-W43-J04` · lane **L5** · status **thought** · rank — · position solo · refreshed 2026-10-26
+`CL-W43-J04` · lane **L5** · status **thought** · rank — · position solo · refreshed 2026-10-29
 
 ## Status
 
@@ -72,8 +72,9 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - 2026-10-23 — claim thought: captured 2026-10-23 from the non-rigid session's headline, with the ruler under it; kill search owed
 - 2026-10-24 — claim thought: Jacob's critiques answered (program note addendum): incumbents inspected, functionals are self-consistency against the declared model, adversary = calibrated optimiser portfolio on an auxiliary MDP, both capacity and realised exploitation reported
 - 2026-10-24 — claim thought: kill search (concept-level): survived-kill, weak; the fidelity side is GAUGE's (2608.05948) and the engine set becomes GAUGE's three plus MuJoCo; the exploitability term is defined against its three literatures
+- 2026-10-29 — claim thought: dependence discussion with Jacob: imported the tail-competition (EVT) view of selection under an incomplete selector from 2610.19362 as the theoretical spine for exploitability; fidelity is covariance-level dependence, exploitability is tail dependence
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-J04`, version 3)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-J04`, version 4)
 - `P-W43-J04-a`: seed or import record (no candidate yet)

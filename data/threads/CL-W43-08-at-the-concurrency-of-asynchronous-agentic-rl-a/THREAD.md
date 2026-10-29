@@ -1,6 +1,6 @@
 # At the concurrency of asynchronous agentic RL, a backlog-threshold rule captures as much of the hindsight-optimal prefill-decode role-switching headroom as a demand forecaster does.
 
-`CL-W43-08` · lane **L3** · status **open** · rank 11 · position both · refreshed 2026-10-26
+`CL-W43-08` · lane **L3** · status **open** · rank 11 · position both · refreshed 2026-10-29
 
 ## Status
 

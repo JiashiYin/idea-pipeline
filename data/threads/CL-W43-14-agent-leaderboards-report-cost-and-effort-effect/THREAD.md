@@ -1,6 +1,6 @@
 # Agent leaderboards report cost and effort effects from single runs whose run-to-run spread is larger than the differences they rank.
 
-`CL-W43-14` · lane **L1** · status **open** · rank 7 · position solo · refreshed 2026-10-26
+`CL-W43-14` · lane **L1** · status **open** · rank 7 · position solo · refreshed 2026-10-29
 
 ## Status
 

@@ -1,6 +1,6 @@
 # GPU physics engines trade physics for speed through solver iteration caps, and RL policies trained in them exploit the difference.
 
-`CL-W43-01` · lane **L5** · status **open** · rank 1 · position both · refreshed 2026-10-26
+`CL-W43-01` · lane **L5** · status **open** · rank 1 · position both · refreshed 2026-10-29
 
 ## Status
 

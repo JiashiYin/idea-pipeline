@@ -1,11 +1,9 @@
 # Threads — one folder per claim, one note per folder
 
-Refreshed 2026-10-26. Each `THREAD.md` is regenerated from the records by `python scripts/threads.py`; your
+Refreshed 2026-10-29. Each `THREAD.md` is regenerated from the records by `python scripts/threads.py`; your
 `## Jacob` section is preserved verbatim. Read a note top to bottom: Status, the claim, scorecard, gates, probes,
 kill search, red team, first steps, decisions — then write in your section. Ranked by the claims stage.
 Lost? The user guide is [`README.md`](../../README.md) at the repository root.
-
-> **A run is in progress** (weekly run, started 2026-10-26T00:55:58Z UTC) on: the whole week. Leave those records alone until it pushes.
 
 | Rank | Lane | Claim | Status | Headline | Probes (survived) | Cheapest | Failing gate | Folder |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -24,6 +22,7 @@ Lost? The user guide is [`README.md`](../../README.md) at the repository root.
 | 11 | L3 | CL-W43-08 | open | At the concurrency of asynchronous agentic RL, a backlog-threshold rule captures as much of the hindsight-optimal prefill-decode role-switching headroom as a d… | 1 (0) | C-W43-04 | Gate 6 not yet established | [`CL-W43-08-at-the-concurrency-of-asynchronous-agentic-rl-a`](./CL-W43-08-at-the-concurrency-of-asynchronous-agentic-rl-a/THREAD.md) |
 | 12 | L5 | CL-W43-09 | open | GPU physics engines cannot resolve the policy-return differences that robot-RL papers report as improvements: engine-only repeatability and batch-position vari… | 1 (0) | P-W43-09-lit | Gate 6 not yet established; Gate 1 blocked on paperwork (no… | [`CL-W43-09-gpu-physics-engines-cannot-resolve-the-policy-re`](./CL-W43-09-gpu-physics-engines-cannot-resolve-the-policy-re/THREAD.md) |
 | — | L1 | CL-W43-J01 | thought | The run-to-run variance that agent benchmarks report at temperature 0 is the serving stack's batch-dependent arithmetic, not the agent, and over multi-turn tra… | 1 (0) | P-W43-J01-a | none recorded | [`CL-W43-J01-the-run-to-run-variance-that-agent-benchmarks-re`](./CL-W43-J01-the-run-to-run-variance-that-agent-benchmarks-re/THREAD.md) |
+| — | L2 | CL-W44-J01 | thought | Most of the environments used for agentic RL today are luck-dominated at the group sizes people train with: at G = 8, more than half of the within-group reward… | 1 (0) | P-W44-J01-a | none recorded | [`CL-W44-J01-most-of-the-environments-used-for-agentic-rl-tod`](./CL-W44-J01-most-of-the-environments-used-for-agentic-rl-tod/THREAD.md) |
 | — | L5 | CL-W43-J02 | thought | A GPU simulator's physics budget is a dose: transferable policy return follows one dose-response curve in solver budget per task class, so fidelity can be sche… | 2 (0) | P-W43-01-2x2 | none recorded | [`CL-W43-J02-a-gpu-simulator-s-physics-budget-is-a-dose-trans`](./CL-W43-J02-a-gpu-simulator-s-physics-budget-is-a-dose-trans/THREAD.md) |
 | — | L5 | CL-W43-J03 | thought | Among the numbers one can compute about a simulator without a robot, the fidelity scores engines report predict policy transfer worst, and the worst-case physi… | 1 (0) | P-W43-J03-a | none recorded | [`CL-W43-J03-among-the-numbers-one-can-compute-about-a-simula`](./CL-W43-J03-among-the-numbers-one-can-compute-about-a-simula/THREAD.md) |
 | — | L5 | CL-W43-J04 | thought | At the settings they ship, physics engines differ in what a budgeted optimiser can extract from them by more than their fidelity scores differ, and their speed… | 1 (0) | P-W43-J04-a | none recorded | [`CL-W43-J04-at-the-settings-they-ship-physics-engines-differ`](./CL-W43-J04-at-the-settings-they-ship-physics-engines-differ/THREAD.md) |
