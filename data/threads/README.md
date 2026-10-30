@@ -1,6 +1,6 @@
 # Threads — one folder per claim, one note per folder
 
-Refreshed 2026-10-29. Each `THREAD.md` is regenerated from the records by `python scripts/threads.py`; your
+Refreshed 2026-10-30. Each `THREAD.md` is regenerated from the records by `python scripts/threads.py`; your
 `## Jacob` section is preserved verbatim. Read a note top to bottom: Status, the claim, scorecard, gates, probes,
 kill search, red team, first steps, decisions — then write in your section. Ranked by the claims stage.
 Lost? The user guide is [`README.md`](../../README.md) at the repository root.
@@ -31,6 +31,7 @@ Lost? The user guide is [`README.md`](../../README.md) at the repository root.
 
 ## Program notes — what several claims add up to
 
+- [`PROGRAM-L1-evaluation-floors.md`](./PROGRAM-L1-evaluation-floors.md) — Program note — L1, "the noise floor of agent evaluation" (proposed 2026-10-30, after Jacob asked for a champion outside L5)
 - [`PROGRAM-L5-simulators.md`](./PROGRAM-L5-simulators.md) — Program note — L5, the simulator thread (Part I shaped 2026-10-21; Part II, the meta-benchmark, 2026-10-23)
 
 ## Scouts — off-lane papers kept on the headline test (lane L0)

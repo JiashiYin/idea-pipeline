@@ -1,6 +1,6 @@
 # Pasted context and scaffold layers steer agents by presence, not content: a same-length block from the wrong source moves a model's yield as much as the right one does.
 
-`CL-W43-10` · lane **L1** · status **open** · rank 4 · position solo · refreshed 2026-10-29
+`CL-W43-10` · lane **L1** · status **open** · rank 4 · position solo · refreshed 2026-10-30
 
 ## Status
 

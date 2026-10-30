@@ -1,6 +1,6 @@
 # Agent leaderboards report cost and effort effects from single runs whose run-to-run spread is larger than the differences they rank.
 
-`CL-W43-14` · lane **L1** · status **open** · rank 7 · position solo · refreshed 2026-10-29
+`CL-W43-14` · lane **L1** · status **open** · rank 7 · position solo · refreshed 2026-10-30
 
 ## Status
 
@@ -59,7 +59,7 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 ## Decisions for Jacob
 
-- None pending; the machine runs the next kill search on its own. Mark `jacob-dropped` here if the headline is not worth a week of yours.
+- Promote? Princeton-local consumer (HAL); $0 first step; part of the proposed L1 'noise floor' program.
 
 ## Jacob
 
@@ -73,7 +73,8 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 - 2026-10-25 — claim open: written top-down by the closing-W43 claims run; the two cost/effort imports attached as probes; scorecards owed before it is kill-applicable
 - 2026-10-25 — claim open: claims (closing W43, after kills): re-ranked 7 (unchanged)
+- 2026-10-30 — claim open: nominated as a core-ML champion candidate (Jacob asked for a champion outside L5); kill search requested ahead of rank order; see PROGRAM-L1-evaluation-floors.md
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-14`, version 2)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-14`, version 3)

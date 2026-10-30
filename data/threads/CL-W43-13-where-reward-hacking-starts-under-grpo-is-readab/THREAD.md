@@ -1,6 +1,6 @@
 # Where reward hacking starts under GRPO is readable from the untrained model: the few prompts it occasionally hacks but cannot solve seed the hacking, and removing them delays onset more than removing matched-difficulty prompts.
 
-`CL-W43-13` · lane **L2** · status **open** · rank 8 · position solo · refreshed 2026-10-29
+`CL-W43-13` · lane **L2** · status **open** · rank 8 · position solo · refreshed 2026-10-30
 
 ## Status
 

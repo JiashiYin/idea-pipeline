@@ -1,6 +1,6 @@
 # The falling hazard in agent time-horizon curves is between-task frailty, not within-task degradation: hold the task fixed and the per-minute hazard is flat.
 
-`CL-W43-04` · lane **L1** · status **open** · rank 9 · position solo · refreshed 2026-10-29
+`CL-W43-04` · lane **L1** · status **open** · rank 9 · position solo · refreshed 2026-10-30
 
 ## Status
 
@@ -59,7 +59,7 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 ## Decisions for Jacob
 
-- None pending; the machine runs the next kill search on its own. Mark `jacob-dropped` here if the headline is not worth a week of yours.
+- Promote? This is the cheapest headline in the portfolio ($0, 3 days) and the kill search decides it; part of the proposed L1 'noise floor' program (PROGRAM-L1-evaluation-floors.md).
 
 ## Jacob
 
@@ -74,8 +74,9 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - 2026-10-19 — claim open: seeded 2026-10-19 so the W43 probes hang under claims; grade and rewrite in the next /claims run
 - 2026-10-20 — claim open: headline rewritten: the 10-19 sentence (reliability unchanged across generations at fixed difficulty) was not what X-2026-W42-S7F9 tests; the probe tests frailty versus within-task hazard; import S7xF9 attached as the step-clock probe; scorecard owed on both seeds before any kill search
 - 2026-10-25 — claim open: claims (closing W43): re-ranked to 9 — no new probe, Gate 6 still not established; scorecards still owed on import probes
+- 2026-10-30 — claim open: nominated as a core-ML champion candidate (Jacob asked for a champion outside L5); kill search requested ahead of rank order; see PROGRAM-L1-evaluation-floors.md
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-04`, version 3)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-04`, version 4)
 - `X-2026-W42-S7F9`: seed or import record (no candidate yet)

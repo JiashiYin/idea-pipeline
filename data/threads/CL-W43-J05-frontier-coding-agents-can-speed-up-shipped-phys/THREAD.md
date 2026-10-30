@@ -1,6 +1,6 @@
 # Frontier coding agents can speed up shipped physics engines 10-100x at fixed accuracy by generic optimisation (kernel fusion and the like), because the engines predate agents and are poorly optimised.
 
-`CL-W43-J05` · lane **L5** · status **thought** · rank — · position solo · refreshed 2026-10-29
+`CL-W43-J05` · lane **L5** · status **thought** · rank — · position solo · refreshed 2026-10-30
 
 ## Status
 

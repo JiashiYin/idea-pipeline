@@ -1,6 +1,6 @@
 # An agent served under KV-cache eviction is not the agent its transcript describes: it keeps using tool outputs it can no longer see, and a trainer recomputing log-probabilities from the text does not reproduce the policy it sampled from.
 
-`CL-W43-11` · lane **L3** · status **open** · rank 6 · position both · refreshed 2026-10-29
+`CL-W43-11` · lane **L3** · status **open** · rank 6 · position both · refreshed 2026-10-30
 
 ## Status
 
@@ -58,7 +58,7 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 ## Decisions for Jacob
 
-- None pending; the machine runs the next kill search on its own. Mark `jacob-dropped` here if the headline is not worth a week of yours.
+- Promote as the systems-route champion candidate? Kill search owed; probe needs the released AKV engine.
 
 ## Jacob
 
@@ -72,9 +72,10 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 - 2026-10-25 — claim open: written by the closing-W43 claims run from card 2610.28577's probes; C-W43-22 (pricing) attached to CL-W43-12 instead
 - 2026-10-25 — claim open: claims (closing W43, after kills): re-ranked 6 (unchanged) after the kill run
+- 2026-10-30 — claim open: nominated as a core-ML champion candidate (Jacob asked for a champion outside L5); kill search requested ahead of rank order; see PROGRAM-L1-evaluation-floors.md
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-11`, version 2)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-11`, version 3)
 - probe `C-W43-25`: `data/candidates/2026-W43.jsonl`
 - probe `C-W43-24`: `data/candidates/2026-W43.jsonl`

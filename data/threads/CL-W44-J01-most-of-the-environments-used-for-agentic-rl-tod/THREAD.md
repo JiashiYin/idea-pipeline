@@ -1,6 +1,6 @@
 # Most of the environments used for agentic RL today are luck-dominated at the group sizes people train with: at G = 8, more than half of the within-group reward variance in user-simulator and flaky-tool environments is environment randomness, not the agent's choices.
 
-`CL-W44-J01` · lane **L2** · status **thought** · rank — · position solo · refreshed 2026-10-29
+`CL-W44-J01` · lane **L2** · status **thought** · rank — · position solo · refreshed 2026-10-30
 
 ## Status
 
@@ -66,7 +66,6 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 - status mark: (none)
 - notes:
-
 
 ## Log
 
