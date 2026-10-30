@@ -19,7 +19,8 @@ throughput_targets:          # per week; the digest reports actuals against thes
   seeds_into_triage: [10, 25]
   trick_cards: 8
   imports: 4
-  kill_searches: 3
+  kill_searches: 12
+  red_teams: 6
   reports: 1
 
 scout_quota_per_week: 5      # 2026-10-19 (Jacob: lanes are priorities, not walls): off-lane seeds kept as lane L0 on the headline
@@ -32,10 +33,15 @@ portfolio_rule: "at least 3 live seeds (status proposed or survived-kill) in 3 d
 
 auto_kill_monday: true       # Jacob 2026-10-19: kill searches run automatically whenever applicable — the top `kill_budget_per_week`
                              # proposed candidates by scorecard, inside the Sunday run; Jacob's marks (`jacob-dropped`, `promote`) still win
-kill_budget_per_week: 3
+kill_budget_per_week: 12     # 2026-10-30 (Jacob: the pace is wrong): the gate, not the generator, was the bottleneck — 21 claims, 3 kill searches a week;
+                             # kill searches are automatic agent runs, parallelisable, and cost tokens, not Jacob's time
 auto_redteam: true           # 2026-10-19: the gate after the kill search also runs on its own — every survivor without a redteam block,
                              # inside the Sunday run (or a one-off scheduled run); nothing is called proper before it
-redteam_budget_per_week: 3
+redteam_budget_per_week: 6
+kill_order: "promoted claims first (Jacob's `promote` mark), then claim rank; one concept-level kill search per claim before any probe is designed"
+design_after_kill: true      # 2026-10-30: probes are designed only for claims whose concept survived its kill search, with the neighbours'
+                             # limitation text and vocabulary in hand; the W43 red teams killed probe designs that reading the neighbours first would have fixed
+funnel_metrics: true         # the digest reports claims born -> kill-searched -> survived -> red-teamed -> proper, and median days from birth to verdict
 kill_applicable: "status proposed, scorecard complete, kill probe <= 1 GPU-week, not jacob-dropped; ranked by scorecard, claim-level first"
 
 claims:                      # the headline layer (Jacob 2026-10-19): candidates are probes OF claims, and claims are what gets ranked
@@ -50,6 +56,7 @@ digest:                      # data/digests/<week>.md, one page, written last in
     - "Scoop watch: papers that landed on parked or killed items (counted as generator hits)"
     - "Claims ranked (headline, belief it would change, probes under it, status), then the top 3 probes by scorecard with kill-probe cost — Jacob's hour"
     - "Scouts kept this week and any proposed lane (three scouts on a theme) or proposed retirement (no live claim for two months)"
+    - "Funnel: claims born -> kill-searched -> survived -> red-teamed -> proper this week and cumulative; median days from a claim's birth to its verdict"
     - "Checklist lessons added this week"
   max_words: 600
 

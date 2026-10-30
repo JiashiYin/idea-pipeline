@@ -15,10 +15,14 @@ Read `CLAUDE.md`, `config/themes.yaml`, `config/standards.md`, `config/generatio
 4. `/crossfield $ARGUMENTS` — 4 imports.
 5. `/mutate <id>` for the cards whose `information_asymmetry` field is non-empty, up to 20 candidates total.
 6. Monthly only (first run of the month): `/pressure $ARGUMENTS`, `/owned $ARGUMENTS`, `/definitive $ARGUMENTS`.
-6b. `/claims $ARGUMENTS` — attach every candidate to a claim or mark it orphan; write and rank claims.
-7. If `auto_kill_monday` is true in `config/generation.yaml` (it is): `/kill` on the top `kill_budget_per_week` probes,
-   taken claim by claim in claim rank order (the cheapest probe of the top claim first); record each verdict on the
-   candidate and its effect on the claim's status.
+6b. `/claims $ARGUMENTS` — attach every candidate to a claim or mark it orphan; write and rank claims (top-down pass first).
+6c. Concept-level kill searches (`design_after_kill`): one `/kill` per claim that has none yet — promoted claims first, then
+   rank order, up to `kill_budget_per_week` — run as parallel subagents, each following prompts/03_kill.md with the
+   neighbours' own vocabulary; record the verdict on the claim (killed / parked / survived) with the two closest papers'
+   limitation text.
+6d. Probe design for survivors only: rewrite or write the cheapest probe with the neighbours in hand (scorecard, pre-registered
+   kill, cost), then its probe-level `/kill` if the design changed what is being claimed.
+7. (superseded by 6c–6d; kept for records that predate 2026-10-30)
 7b. If `auto_redteam` is true in `config/generation.yaml` (it is): `/redteam` on every probe that survived a kill search
    and has no `redteam` block yet, up to `redteam_budget_per_week`, claim rank order; a probe Jacob marked
    `jacob-dropped` is skipped. Record the verdict on the probe and its effect on the claim.

@@ -64,8 +64,10 @@ survived a kill search done this week.
    symbols (Jacob, 2026-10-24); each display equation short and self-contained — this holds in files and in chat.
 5. **Dated, append-only.** Every record carries a `history` list of `(date, status, note)`. Nothing is
    deleted; superseded entries are marked.
-6. **Budget.** A week is: ≤ 40 seeds triaged, ≤ 8 cards, ≤ 20 candidates, ≤ 3 kill searches, ≤ 2 reports.
-   If the fetch returns more, triage harder. Quality beats coverage.
+6. **Budget** (revised 2026-10-30 — the gate was the bottleneck). A week is: ≤ 40 seeds triaged, ≤ 8 cards, ≤ 20 candidates,
+   ≤ 12 kill searches (automatic, run as parallel subagents; every new claim gets its concept-level kill search the week it is
+   born), ≤ 6 red teams, ≤ 2 reports. If the fetch returns more, triage harder. Quality beats coverage; but a claim that waits
+   three weeks for its kill search is a race lost, so the gate's throughput is matched to the generator's.
 7. **Hedging words are banned in reports**: "may", "could potentially", "it is possible that". Say what the
    evidence supports and name the uncertainty with a number or a missing experiment.
 8. **No new jargon without a gloss** on first use in any file Jacob reads (cards, reports, ledger).
@@ -102,6 +104,11 @@ survived a kill search done this week.
     `prompts/13_sprint.md` — pull first, a lock in `data/runs/ACTIVE.json` with the ids in scope (stale after 3 hours),
     one stage per commit and push, never inside another operator's live scope, `.jsonl` conflicts keep both sides.
     Scheduled runs write the same lock. Only `/week` is Sunday's alone.
+17. **Design after kill** (2026-10-30). The W43 red teams killed probe designs — a non-estimator, a degenerate null, a result
+    five days in print — that reading the neighbours first would have fixed. Order is now: claim → concept-level kill search
+    (neighbours' limitation text and vocabulary in hand) → probe design for survivors only → design red team → run. A probe
+    written before its claim's kill search is a sketch, not a design. Jacob's `promote` mark triggers the kill search at once
+    (`/inbox`), not at the next Sunday.
 
 ## Definitions
 

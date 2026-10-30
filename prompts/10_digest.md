@@ -20,6 +20,8 @@ Written last in the weekly run, from the files, never from memory of the run. Fo
 6. Claims, ranked (from `data/claims/claims.jsonl`), each linked to its folder under `data/threads/`: headline, the belief it would change and for whom, the probes
    under it with costs, status, failing gate if any. Then the top 3 probes by scorecard with kill-probe cost and
    position. This is Jacob's hour. Kill searches run automatically on the top probes; say which ran and their verdicts.
+6b. Funnel (the pace): claims born → kill-searched → survived → red-teamed → proper, this week and cumulative since
+   2026-10-19; median days from a claim's birth to its first verdict; the claims still waiting and for how long.
 7. Scouts and proposed lanes: the scouts kept this week (paper, scout_theme, the headline it could carry); any theme
    with three scouts in six weeks becomes a **proposed lane** here — sentence, hints, out_of_scope, routes drafted in
    the themes.yaml format, ready to paste; any lane with no live claim for two months is proposed for retirement.

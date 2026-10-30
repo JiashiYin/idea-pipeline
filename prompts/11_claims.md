@@ -32,6 +32,10 @@ and `data/claims/claims.jsonl`.
    (the belief or ruler that changes, and for whom — Gate 3), `if_false` (what is learned anyway), `probes`
    (candidate ids with their kill-probe cost), `cheapest_probe`, `position` (solo | lab | both), `origin` (top-down | bottom-up | chat), `status`
    (thought | open | supported | refuted | killed | parked — `thought` is a claim from `/capture` not yet graded), `history`.
+2b. Concept-level kill search for every new claim (rule 17, `design_after_kill`): before any probe is elaborated, search
+   the claim's headline in the neighbours' vocabulary (mechanism words AND the field's role words), fetch the two closest
+   papers' limitation text, and record the verdict on the claim. Probes are designed only for claims that survive, with
+   those limitation texts in hand.
 3. Grade each claim against the gates in `config/standards.md`: Gates 2–6 apply to the claim; Gate 1 is
    satisfied by its cheapest probe. Name the gate that fails. A claim with no probe under one GPU-week is a
    thought until one exists.

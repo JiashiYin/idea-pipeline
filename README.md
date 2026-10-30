@@ -5,7 +5,7 @@ is true of the repository as it stands; when the machine changes, this file chan
 operator to keep it so). The operator's manual is `CLAUDE.md`; the two laws are `config/themes.yaml` (lanes) and
 `config/standards.md` (gates).
 
-Last revised 2026-10-21.
+Last revised 2026-10-30.
 
 ## 1. What this is, in one paragraph
 
@@ -63,9 +63,10 @@ Push and email notifications tell you when a scheduled run has finished and push
 - **Sunday 20:53 New York time** (scheduled task "Idea pipeline weekly run"): pull → apply your marks → fetch (lane
   queries + scout stream) → triage → cards → cross-field imports → mutate → claims (grade and rank) → kill searches on
   the top 3 probes, claim by claim → red teams on the survivors → refresh every thread note → digest → push.
-- **Kill searches and red teams run automatically** on the top-ranked probes within the weekly budget
-  (`kill_budget_per_week: 3`, `redteam_budget_per_week: 3`). Everything else waits in the queue with status
-  `proposed` until it is ranked high enough — or until you run it in a sprint.
+- **Kill searches and red teams run automatically.** Since 2026-10-30 every new claim gets its concept-level kill
+  search the week it is born (`kill_budget_per_week: 12`, run as parallel subagents), probes are designed only for
+  claims that survive, with the neighbours' limitation text in hand, and survivors get red teams
+  (`redteam_budget_per_week: 6`). Your `promote` mark triggers a kill search immediately at the next session or run.
 - One-off scheduled runs (a kill run, a red-team run) are created when a batch is owed and would otherwise wait a
   week; they announce themselves in `data/runs/ACTIVE.json` while they run.
 
