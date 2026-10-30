@@ -377,3 +377,22 @@ transpiler, which is the shared systems piece — not as the paper.
 with speed quoted only at fixed accuracy and unchanged exploitability (the ruler as oracle), and the measurement paper
 "what frontier agents can and cannot accelerate in physics engines under a physics oracle" (GPUPhysBench as baseline).
 The two findings of Part II remain the headline science; the suite is their scene set.
+
+
+---
+
+# Part IV — the ruler as a training ingredient without becoming a reward (2026-10-30)
+
+Jacob asked whether GRAFT — *Gradient Routing Localizes and Removes Unintended Behaviors in RL* (2610.17062, 12 Oct 2026;
+trick: when a misspecified reward produces unintended behaviour and the monitor that flags it makes systematic errors,
+do not penalise or filter flagged samples — that teaches the model to hack where the monitor cannot see — but route the
+flagged samples' gradients into a sacrificial set of adapter parameters and ablate them at deployment) carries over to
+simulator RL. It does, structurally: the imperfect monitor is our physics-violation ruler; penalise-or-filter is what the
+robotics field does today (interpenetration filtering in SAPU, action-smoothness and Lipschitz penalties, domain
+randomisation); ablation at deployment is sim-to-real transfer without fixing the simulator; and the in-engine return
+lost by ablating the sacrificial branch is a *causal, policy-internal exploit share* that needs no converged reference —
+so it exists for soft bodies, where the 2×2 does not. Captured as `CL-W44-J02` with a two-week, $50–100 probe on Leap and
+Go1 (plain / penalty / filter / routed × DR, evaluated in the training engine, the converged engine and a second
+engine, branch on and off). No application of gradient routing to robot policies or simulators exists in the fetched set.
+Pre-registered death: nothing exploit-specific localised (ablation drop equal in training and converged engines), or no
+transfer gain over DR and penalties.
