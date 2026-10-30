@@ -28,7 +28,7 @@ A thought from `/capture`: not yet graded against the gates; its kill search has
 | Gate | Test | Verdict |
 | --- | --- | --- |
 | G0 | premise hygiene (conditioning set, whose temperature, fetched numbers) | untested |
-| G1 | cheap to kill (cheapest probe under one GPU-week, kill result pre-registered) | carried by the cheapest probe P-W44-J02-a (see Probes for its cost and verdict) |
+| G1 | cheap to kill (cheapest probe under one GPU-week, kill result pre-registered) | carried by the cheapest probe P-W44-J02-b (see Probes for its cost and verdict) |
 | G2 | pressure (stated strain, or ruler with pre-registered surprise) | untested |
 | G3 | consumers (three classes, the action each changes; community-wide for golden) | untested |
 | G4 | mechanism and consequence | untested |
@@ -40,6 +40,7 @@ A thought from `/capture`: not yet graded against the gates; its kill search has
 | Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |
 | --- | --- | --- | --- | --- |
 | P-W44-J02-a | Implement step-level gradient routing in the PPO update (two parameter groups; flagged steps' loss terms update only th… | Pre-registered: dead if the ablation drop in the converged engine equals the drop in the training engine on both tasks (nothing exploit-specific was localised), or if the routed-and-ablated policy transfers no better than DR alone and no b… | thought | not run (no candidate record yet) |
+| P-W44-J02-b | GRAFT's own regime ported to simulation robotics: the policy is an open-weights code-writing model (Qwen3-8B or -32B cl… | Pre-registered: dead if ablating the adapter costs as much in the trusted engines as in the training engine (nothing exploit-specific localised), or if routing transfers no better than the penalty and filter arms. Expected (judgment): the… | thought (Jacob's preferred shape, 2026-10-30: no real robot; code-as-policy LLM agent; avoids the small-MLP representation question) | not run (no candidate record yet) |
 
 ## Kill search
 
@@ -51,8 +52,8 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 ## First steps if pursued
 
-1. Wait for the automatic kill search on **P-W44-J02-a** (Sunday run), or run `/kill P-W44-J02-a` in a session.
-2. If it survives: `/redteam P-W44-J02-a`, then the probe as pre-registered — Pre-registered: dead if the ablation drop in the converged engine equals the drop in the training engine on both tasks (nothing exploit-specific was localised), or if the routed-and-ablated policy transfers no better than DR alone and no better than the penalty arm. Expected (judgment): on Leap, penalty and filter arms show lower monitor-visible violations but equal or higher held-out violations…
+1. Wait for the automatic kill search on **P-W44-J02-b** (Sunday run), or run `/kill P-W44-J02-b` in a session.
+2. If it survives: `/redteam P-W44-J02-b`, then the probe as pre-registered — Pre-registered: dead if ablating the adapter costs as much in the trusted engines as in the training engine (nothing exploit-specific localised), or if routing transfers no better than the penalty and filter arms. Expected (judgment): the frontier model's code-as-policy trajectories contain a measurable exploit fraction on contact-rich tasks (penetration-assisted grasps, solver-error-assisted ins…
 3. Write results into the records and this Log; status moves only on evidence.
 
 ## Decisions for Jacob
@@ -67,12 +68,13 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - status mark: (none)
 - notes:
 
-
 ## Log
 
 - 2026-10-30 — claim thought: captured from Jacob's question about GRAFT 2610.17062; density checked (no robotics application); kill search owed
+- 2026-10-30 — claim thought: Jacob 2026-10-30: no real robot; prefer a code-as-policy frontier-model-based agent in simulation; asked whether a prior catalogue of hacks is needed. Variant b written: GRAFT's own LLM regime (RL or distillation into an open student) with the ruler as the imperfect monitor and a trusted-simulator ladder as the deployment test; no hack catalogue required
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W44-J02`, version 1)
+- claim record: `data/claims/claims.jsonl` (id `CL-W44-J02`, version 2)
 - `P-W44-J02-a`: seed or import record (no candidate yet)
+- `P-W44-J02-b`: seed or import record (no candidate yet)
