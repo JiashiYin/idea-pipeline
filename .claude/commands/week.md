@@ -9,6 +9,12 @@ Read `CLAUDE.md`, `config/themes.yaml`, `config/standards.md`, `config/generatio
    `python scripts/threads.py --inbox`: apply every mark Jacob left (`promote`, `jacob-dropped`, `park: <reason>`) to the
    records with a dated history entry, answer his questions in the Log, `--mark-applied` each. His marks win.
 1. `/fetch` — `bash scripts/run_week.sh` (arXiv watch and import streams; complaint stream if GitHub access exists).
+1b. Banter and inbox (2026-10-30): read `data/inbox/links.md`; for each line fetch the paper's abstract (arXiv API) or
+   note it as an idea for `/capture`; then run four to six web searches for arXiv papers argued about this week on the
+   Alignment Forum, LessWrong, Hacker News, r/MachineLearning and Zhihu (a Chinese query: 论文 反直觉 OR 出人意料
+   强化学习 OR 智能体 OR 仿真 site:zhihu.com), extract arXiv ids, fetch their abstracts, and add them to this week's
+   seeds as stream `scout`, source `banter` (inbox lines: source `jacob-banter`). Move processed inbox lines to
+   `data/inbox/processed.md` with the verdict. Read at most 15 banter abstracts.
 2. `/triage $ARGUMENTS` — against the lanes, with the scout rule (lanes are priorities, not walls: off-lane seeds that
    pass the headline test are kept as L0 scouts, at most `scout_quota_per_week`); record `source` and lane fits on every seed.
 3. `/card <id>` for each kept seed, up to 8, newest first; append limitations as complaint seeds.

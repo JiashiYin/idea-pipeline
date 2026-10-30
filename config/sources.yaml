@@ -27,6 +27,13 @@ arxiv:
   max_results_per_query: 50
   categories: [cs.LG, cs.CL, cs.AI, cs.DC, cs.SE, cs.MA, cs.RO]   # cs.RO added 2026-10-19 for L5 (robot learning)
   queries:
+    # ---- L0 scout: the counterfactual stream (2026-10-30, Jacob: 'how do I regularly get a feed of weird, interesting,
+    #      counterfactual papers') — abstracts that announce a result against a common practice or belief. Triage keeps
+    #      at most 3 by the counterfactual test in prompts/00_triage.md (name the belief it contradicts, or drop).
+    - id: q_scout_surprise
+      stream: scout
+      themes: [L0]
+      q: '(abs:surprisingly OR abs:"contrary to" OR abs:counterintuitive OR abs:counterintuitively OR abs:"does not improve" OR abs:"fails to" OR abs:"no evidence" OR abs:"negative result" OR abs:"we find no" OR abs:"is not necessary" OR abs:"are not necessary" OR abs:"without any" OR abs:"reverses" OR abs:"unlearn" OR abs:"localize" OR abs:"sacrificial") AND (abs:agent OR abs:"reinforcement learning" OR abs:policy OR abs:benchmark OR abs:simulator OR abs:"language model")'
     # ---- L1 evaluation and measurement ----
     - id: q_reliability_passk
       stream: watch

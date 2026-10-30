@@ -12,6 +12,7 @@ sources:                     # every seed and candidate carries exactly one sour
   - { tag: owned,       stage: 8,  cadence: monthly, what: "questions only an artifact's owner can answer cheaply (prompts/08_owned_artifact.md)" }
   - { tag: definitive,  stage: 9,  cadence: monthly, what: "dense lanes with no compute-matched controlled comparison (prompts/09_definitive.md)" }
   - { tag: chat,        stage: 0,  cadence: ad hoc,  what: "ideas raised in conversation, filed by /capture the moment they are said" }
+  - { tag: banter,      stage: 0,  cadence: weekly,  what: "papers people are arguing about: links Jacob drops in data/inbox/links.md (jacob-banter), and the weekly web sweep of Alignment Forum, LessWrong, Hacker News, r/MachineLearning and Zhihu for arXiv ids (prompts/00_triage.md counterfactual test)" }
 
 positions: [solo, lab]       # every candidate carries a position tag; verdicts are recorded per position
 

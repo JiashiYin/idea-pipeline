@@ -15,7 +15,7 @@ records and the same quality as the scheduled run, and without racing it.
 - `/sprint generate` — an extra generation pass on the backlog: trick cards for kept seeds without cards (newest and
   scouts first, within the card budget), `/mutate` on cards with a non-empty `information_asymmetry`, then `/claims`
   for the week so every new probe hangs under a headline or is flagged orphan. No fetch; the backlog is enough.
-- `/sprint scout` — fetch the scout stream alone (`python scripts/fetch_arxiv.py --only scout_hf_daily` is not
+- `/sprint scout` — first process `data/inbox/links.md` (Jacob's dropped links) as in week.md step 1b, then fetch the scout stream alone (`python scripts/fetch_arxiv.py --only scout_hf_daily` is not
   supported; run `bash scripts/run_week.sh 3` to refresh the last three days, which is idempotent), triage the new
   scouts on the headline test, write a card for the best one, and say whether any theme now has three scouts.
 - `/sprint inbox` — apply Jacob's marks and answer his questions (same as `/inbox`), then refresh the notes.

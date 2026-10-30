@@ -87,8 +87,18 @@ away. The slash commands below pull for themselves, but your hand edits (marks, 
 | File a new idea of your own (becomes a claim with `status: thought` and its own thread folder) | `/capture <one sentence>` |
 | Have your `## Jacob` marks applied and your questions answered right now | `/inbox` |
 | Refresh the notes after a run | `/thread all` (or `python scripts/threads.py`) |
+| Feed the machine a paper or thread you spotted (Zhihu, X, a talk) | paste the link or id as a line in `data/inbox/links.md` from any device; the next run judges it and files the keepers (or `/capture <one sentence>` if it is an idea) |
 
 Never run `/week` yourself; the Sunday task owns it. Everything else is yours any day.
+
+## 6a. Where the weird, counterfactual papers come from
+
+Three scout streams feed triage every week, all judged by one question — *what common belief does this contradict?*:
+the Hugging Face daily papers (what the community is reading); the counterfactual arXiv query (abstracts that say
+"surprisingly", "contrary to", "does not improve", "fails to", "no evidence", "is not necessary"); and the banter sweep
+(arXiv ids argued about this week on the Alignment Forum, LessWrong, Hacker News, r/MachineLearning and Zhihu). The
+fourth stream is you: `data/inbox/links.md`. Social banter is the best sensor for this class of paper and you are the
+only one with a Zhihu feed, so the inbox file makes you a first-class source rather than an exception.
 
 ## 6b. The names
 

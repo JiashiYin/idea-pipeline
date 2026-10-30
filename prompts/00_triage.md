@@ -8,8 +8,12 @@ Lanes are priorities, not walls (2026-10-19). A seed that fits no lane is not dr
 as a **scout** (lane L0) if it passes the headline test in `themes.yaml` — its result or gap can be said as one
 sentence a stranger would repeat and that would be news if true; the positioning spec holds; it is not a frontier
 lab's recipe fight. At most `scout_quota_per_week` scouts (config/generation.yaml) per week, best first; upvotes,
-fame and polish are not reasons. The `scout` stream (Hugging Face daily papers, source `hf_daily`) is judged on the
-headline test only; rank it by upvotes, read the top 30 abstracts, keep ≤ 5. A scout record gets `scout: true`,
+fame and polish are not reasons. Every `scout`-stream seed — Hugging Face daily papers (source `hf_daily`), the counterfactual arXiv query
+(`q_scout_surprise`), the weekly banter sweep (source `banter`) and Jacob's inbox (source `jacob-banter`) — is judged
+on the headline test plus the **counterfactual test** (2026-10-30): write the common practice or belief the abstract
+contradicts, in one line; if you cannot name one, it is not a scout. Rank hf_daily by upvotes and read the top 30; read
+every surprise-query, banter and inbox abstract; keep ≤ 5 in all, inbox lines first (Jacob already judged them worth a
+look — drop one only with the reason written in `data/inbox/processed.md`). A scout record gets `scout: true`,
 `scout_theme: <two or three words naming the theme>`, `theme_fit: {L0: 3, ...}`, and a reason that states the
 one-sentence headline it could carry.
 
