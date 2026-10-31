@@ -1,10 +1,14 @@
 #!/usr/bin/env bash
-# End of a working session on Jacob's PC: refresh the notes, commit everything, push; rebase once if the remote moved.
+# End of a working session on Jacob's PC: refresh the notes, commit everything, push main; rebase once if the remote moved.
 # Usage: bash scripts/done.sh "what you did"     (the week label is added for you)
 set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"; cd "$ROOT"
 MSG="${1:-Jacob marks}"
 WEEK="$(TZ=America/New_York date +%G-W%V)"
+BRANCH="$(git branch --show-current)"
+if [ "$BRANCH" != "main" ]; then
+  echo "You are on branch '$BRANCH'. Run 'bash scripts/start.sh' first — it moves you and your edits onto main. Nothing pushed."; exit 1
+fi
 python3 scripts/threads.py >/dev/null || true
 git add -A
 git diff --cached --quiet || git commit -q -m "$WEEK: Jacob — $MSG"
