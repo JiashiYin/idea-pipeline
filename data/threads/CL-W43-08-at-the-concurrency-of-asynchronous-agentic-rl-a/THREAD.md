@@ -1,6 +1,6 @@
 # At the concurrency of asynchronous agentic RL, a backlog-threshold rule captures as much of the hindsight-optimal prefill-decode role-switching headroom as a demand forecaster does.
 
-`CL-W43-08` · lane **L3** · status **open** · rank 11 · position both · refreshed 2026-10-30
+`CL-W43-08` · lane **L3** · status **open** · rank 6 · position both · refreshed 2026-11-02
 
 ## Status
 
@@ -29,7 +29,7 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 
 | --- | --- | --- |
 | G0 | premise hygiene (conditioning set, whose temperature, fetched numbers) | untested |
 | G1 | cheap to kill (cheapest probe under one GPU-week, kill result pre-registered) | carried by the cheapest probe C-W43-04 (see Probes for its cost and verdict) |
-| G2 | pressure (stated strain, or ruler with pre-registered surprise) | pass, route A: Prorsa (no oracle, no throughput cost of forecast error), FluidPD (observation-only rule in serving), ConServe (observation, not prediction); all papers — the issue-tracker check in verl/SGLang is owed |
+| G2 | pressure (stated strain, or ruler with pre-registered surprise) | pass, route A: Prorsa (no oracle, no throughput cost of forecast error), FluidPD (observation-only rule in serving), ConServe (observation, not prediction); all papers — the issue-tracker check in verl/SGLang is owed; 2026-11-02, pressure #10: the demand the switching rule schedules is length-censored at both ends in the labs' own words — L21 DeepSeek 'shorter sequences tend to complete first and thus dominate the initial training batches [...] we support discarding early-returned short samples', L24 prime-rl 'Timed-out rollouts are now their own outcome: scored in evals, and kept out of trai… |
 | G3 | consumers (three classes, the action each changes; community-wide for golden) | pass at one community: RL-infra teams choosing topology, rollout-engine maintainers (default switching policy), serving teams |
 | G4 | mechanism and consequence | pass: mechanism — many independent trajectory renewal processes superpose into a smooth prefill-to-decode demand ratio, so headroom over a static split shrinks with concurrency and asynchrony; consequence — delete the forecaster, or report its oracle-normalized capture |
 | G5 | durability; lab-adjacent | pass with a flag: system constants enter through the switch cost and the prefill/decode speeds, which are reported as the two calibration numbers |
@@ -71,8 +71,11 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 - 2026-10-20 — claim open: new claim, split from CL-W43-07 (one sentence per headline); probe C-W43-04
 - 2026-10-25 — claim open: claims (closing W43): re-ranked to 11 — no new probe this week
+- 2026-11-01 — claim open: ranked 6 after the W44 kill searches: unchanged; kill search owed
+- 2026-11-02 — claim open: pressure #10 (2026-11-02): L21 'discarding early-returned short samples', L24 'kept out of training batches [...] the orchestrator backfills samples that were filtered out', L23 '33 billion tokens per day [...] around 16 billion are trainable'; density P10a = 0, P10b = 1; the length-fate question is unposed and bears on this claim's demand model; records L21, L23, L24, Q09 routed here
+- 2026-11-02 — claim open: claims (W44 weekly run, 2026-11-02): no new probe; rank 11 -> 14
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-08`, version 2)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-08`, version 4)
 - probe `C-W43-04`: `data/candidates/2026-W43.jsonl`

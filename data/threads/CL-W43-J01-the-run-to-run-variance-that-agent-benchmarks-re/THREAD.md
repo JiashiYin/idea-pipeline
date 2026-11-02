@@ -1,10 +1,10 @@
 # The run-to-run variance that agent benchmarks report at temperature 0 is the serving stack's batch-dependent arithmetic, not the agent, and over multi-turn trajectories it is large enough to reorder leaderboards.
 
-`CL-W43-J01` · lane **L1** · status **thought** · rank — · position solo · refreshed 2026-10-30
+`CL-W43-J01` · lane **L1** · status **killed** · rank None · position solo · refreshed 2026-11-02
 
 ## Status
 
-A thought from `/capture`: not yet graded against the gates; its kill search has not run. Failing gate: none recorded. Next action: see First steps.
+Killed — see the kill section. Failing gate: Gate 6 not yet established (kill search owed). Grade on paper: open as of 2026-11-02 (graded; first scorecarded probe attached); kill search owed before it is proper. Next action: see First steps.
 
 ## The claim
 
@@ -15,30 +15,32 @@ A thought from `/capture`: not yet graded against the gates; its kill search has
 
 ## Scorecard (from the cheapest probe's record, or the claim's skeleton for a thought)
 
-- **Target value:** Asked in print: the TML post (fetched) calls reproducibility 'a bedrock of scientific progress' and shows 80 unique completions in 1000 at temperature 0, but stops before evaluation - that is the gap. Who pays: benchmark owners who report temperature-0 numbers, and anyone ranking agents a few points apart. Missing: a benchmark owner's own statement about temperature-0 variance - kill search.
-- **Impact ceiling:** **floor**: A measured flip-rate and first-divergence-turn table for one benchmark and one model; a note people cite when they report temperature-0 numbers. Requires the probe. p = 0.7 (judgment).; **middle**: The number is large enough that benchmark owners add a serving-stack column or adopt batch-invariant decoding for official runs. Requires flips over 5 percent or a rank swap. p = 0.25 (judgment).; **ceiling**: The exact zero-variance agent arm re-opens the parked per-turn luck-skill instrument with a clean identification, and the pair becomes a standards paper on deterministic evaluation of agents. Requires the middle result plus the parked item's consumer objection answered. p = 0.1 (judgment).
-- **Relevance:** L1 (reliability, variance attribution): direct. L3 and the systems route (Lloyd, Netravali, Dao): batch-invariant kernels are their vocabulary; direct. Narasimhan route via tau-bench as the natural testbed. Industry: every eval team. Jacob's edge: GPU numerics and kernels (computer engineering) load-bearing. Zero for L5 and for any robotics consumer.
-- **Kill probe:** P-W43-J01-a above: 15-25 GPU-h, $50-80, 4 days; dead if flips under 2 percent and ranks identical across ten repeats.
-- **Density and ownership:** Unknown until the kill search (12-month arXiv API count with mechanism words - batch invariance, reduction order, nondeterminism - AND role words - benchmark, evaluation, agent, pass^k; two pre-window precedents; the two closest papers' limitation text). Incumbents to check: TML's kernels, vLLM/SGLang deterministic modes, any 'temperature 0 is not deterministic' measurement.
-- **Why now:** Batch-invariant kernels (2025-09-10) make a truly zero-variance agent arm available for the first time; before them, stack noise and agent decision variance at temperature 0 could not be separated, so nobody could measure the first in isolation.
-- **Register, and what it is not:** Measurement (a ruler for serving-stack noise at benchmark scale) with a standards consequence (what a temperature-0 report must state). It is not a new kernel, not a benchmark, not a method, and not a claim about sampling at temperature above 0.
+- **Target value:** In print: EnvOS states its intervals omit 'repeated-model-sampling variation' (sec. 7.3) and that server-side changes 'would not be detectable'; the log-analysis position paper (2605.08545, card neighbour) asks for input-level evidence of what the agent saw; HAL 2510.11977 relies on single runs. Who pays: benchmark owners reporting temperature-0 numbers as reproducible, evaluators certifying agents before deployment, the systems route (serving nondeterminism as a measured quantity on an agent workload) and CL-W43-J01's own program.
+- **Impact ceiling:** **floor**: A measured first-divergence distribution and flip count at temperature 0 on one certified testbed and one provider stack, cited as the API-side boundary of J01. Requires step 1. Judgment p 0.5.; **middle**: The serving share $S$ of within-cell variance on the same cells as the temperature-1.0 matrix, giving the first instance / sampling / serving split for an agent benchmark with environment and grader at certified zero; adopted as a reporting line by one benchmark. Requires step 1 plus the sibling matrix. Judgment p 0.3.; **ceiling**: The same split on an open-weight model served with and without batch-invariant kernels on the same testbed (J01's probe moved onto EnvOS), turning 'temperature-0 variance is the serving stack' into a controlled result with a systems fix. Requires about 40 GPU-hours and the batch-invariant serving path. Judgment p 0.15.
+- **Relevance:** Systems route (Lloyd / Netravali / Dao): direct, serving nondeterminism measured on an agent workload. HAL and tau-bench owners: direct for the replicate rule at temperature 0. Narasimhan: moderate. Industry: direct for certification of deployed agents. Jacob's edge: GPU numerics and batch-dependent arithmetic are his background and load-bearing for the mechanism; theoretical physics zero; the measurement itself is API calls.
+- **Kill probe:** 100 rollouts of Gemini 3.1 Pro Preview at temperature 0 on the released claims block plus 20 single-step re-sends, about $300, 0 GPU-hours, 5 days including the rebuild shared with the sibling; dead if 90 of 100 pairs are action-identical through the commit and no cell flips.
+- **Density and ownership:** Occupied by the card: the certification protocol and the temperature-1.0 single-rollout results. The serving-nondeterminism mechanism is in print as a systems blog and as single-call measurements (the batch-invariant decoding line, to be fetched by the kill search; a 2024 arXiv measurement of nondeterminism under 'deterministic' settings exists and must be fetched, not cited from memory). No fetched source measures first-divergence steps or outcome flips inside a certified-static agent loop. The kill search must use the neighbours' words (nondeterminism, batch invariance, greedy decoding, reproducibility, floating-point, divergence, agent trajectory, repeated runs) and quote the limitation text of the batch-invariant line and of 2605.08545; density is counted on the day of writing.
+- **Why now:** EnvOS supplement (2026-10-29 / 2026-11-02) with journaled request digests and a certified-static environment; Gemini's REST path exposes temperature; CL-W43-J01 is a thought awaiting a testbed. The mechanism (batch-dependent kernels) is a 2025 systems result; the enabling piece is the hashed-observation harness.
+- **Register, and what it is not:** —
 
 ## Gates (config/standards.md)
 
 | Gate | Test | Verdict |
 | --- | --- | --- |
-| G0 | premise hygiene (conditioning set, whose temperature, fetched numbers) | untested |
-| G1 | cheap to kill (cheapest probe under one GPU-week, kill result pre-registered) | carried by the cheapest probe P-W43-J01-a (see Probes for its cost and verdict) |
-| G2 | pressure (stated strain, or ruler with pre-registered surprise) | untested |
-| G3 | consumers (three classes, the action each changes; community-wide for golden) | untested |
-| G4 | mechanism and consequence | untested |
-| G5 | durability; lab-adjacent | untested |
-| G6 | ownership, density, race window; position clause | untested |
+| G0 | premise hygiene (conditioning set, whose temperature, fetched numbers) | pass: the premise number is fetched and dated (TML 2025-09-10: 80 unique completions in 1,000 at temperature 0; Qwen3-235B-A22B); the quantity is conditioned — random given byte-identical inputs (journaled digests), certified-static environment, pinned sampling parameters, one launch window — so whatever varies is the server; the plain trick exists (batch composition changes reduction order, so a request's numerics depend on its neighbours in the batch) |
+| G1 | cheap to kill (cheapest probe under one GPU-week, kill result pre-registered) | pass as of 2026-11-02: C-W44-07 is scorecarded at ~$300 with a pre-registered kill; P-W43-J01-a (15-25 GPU-h) carries the leaderboard clause and is still a thought |
+| G2 | pressure (stated strain, or ruler with pre-registered surprise) | pass, route A: a lab blog (TML), a system card (L08 attributes the error bar to tasks 'rather than run-to-run variance' at single-run protocols), a benchmark paper (EnvOS sec. 7.3 omits 'repeated-model-sampling variation' from every interval and states server-side changes 'would not be detectable'), a meta-paper (2607.17136: run-to-run nondeterminism a named variance component); route B: the serving share S of within-cell variance is identifiable on a certified-static testbed with a pre-registered surprise (expected S between 0.3 and 0.7 of the T = 1 within-cell variance; field assumes temper… |
+| G3 | consumers (three classes, the action each changes; community-wide for golden) | pass, community-wide if true: every temperature-0 benchmark report states its stack and whether decoding was batch-invariant; leaderboards add a stack-noise column; benchmark owners certifying reproducibility; the luck/skill split gains its zero-variance agent arm |
+| G4 | mechanism and consequence | pass: mechanism — kernels whose reduction order changes with batch size make a request's numerics depend on the other requests in the batch; over a 40-action episode one flipped token changes an action and the outcome; consequence — batch-invariant official runs or a declared stack-noise column, or (if flips are under 2%) temperature-0 reports keep their single-run convention |
+| G5 | durability; lab-adjacent | pass: a ruler on any serving stack and any agent; the specific flip rates are model- and provider-bound; lab-adjacent (the kernels exist; the measurement at benchmark scale does not) |
+| G6 | ownership, density, race window; position clause | open: kill search owed (12-month count with batch invariance, reduction order, nondeterminism AND benchmark, evaluation, agent, pass^k); incumbents TML's kernels, vLLM and SGLang deterministic modes, 2602.07150's power analysis, HAL's reliability paper (attributes temperature-0 variance to 'non-sampling sources' and does not separate the user simulator — C-W44-OWN-2's question); density P7b (agent AND benchmark AND bimodal AND seed) = 0 |
 
 ## Probes under this claim
 
 | Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |
 | --- | --- | --- | --- | --- |
+| C-W44-07 | Temperature zero in a certified-static world: the serving stack's share of agent outcome flips | 100 rollouts of Gemini 3.1 Pro Preview at temperature 0 on the released claims block plus 20 single-step re-sends, about $300, 0 GPU-hours, 5 days including the rebuild shared with the sibling; dead if 90 of 100 pairs are action-identical… | proposed | — |
+| C-W44-OWN-2 | Where HAL's five temperature-zero runs first diverge on tau-bench airline: the agent, the simulated user, or the stack | The diff over the owner's traces (zero dollars, two days) plus the three-model pinned re-run ($200, one day); dead if $U \le 0.2$ and pinning moves no consistency column by more than 0.05. | parked | — |
 | P-W43-J01-a | Outcome-flip rate at temperature 0: default serving stack (batch composition varied by concurrency) versus batch-invari… | Dead if the default arm's outcome-flip rate is under 2 percent of tasks AND the rank order of the three agent variants is identical across all ten repeats. Expected (judgment): 5-15 percent flips on 30-turn tasks and at least one adjacent-… | thought | not run (no candidate record yet) |
 
 ## Kill search
@@ -51,9 +53,7 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 ## First steps if pursued
 
-1. Wait for the automatic kill search on **P-W43-J01-a** (Sunday run), or run `/kill P-W43-J01-a` in a session.
-2. If it survives: `/redteam P-W43-J01-a`, then the probe as pre-registered — Dead if the default arm's outcome-flip rate is under 2 percent of tasks AND the rank order of the three agent variants is identical across all ten repeats. Expected (judgment): 5-15 percent flips on 30-turn tasks and at least one adjacent-rank swap. Field's assumption: temperature 0 is deterministic or noise of a point. Belief-changing: over 15 percent or a non-adjacent rank reversal. 15-25 GPU-h…
-3. Write results into the records and this Log; status moves only on evidence.
+1. Read the kill section; the claim is closed unless a new probe or a new enabling piece re-opens it (write that in your section).
 
 ## Decisions for Jacob
 
@@ -70,8 +70,16 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 ## Log
 
 - 2026-10-20 — claim thought: captured from chat (Jacob raised the TML nondeterminism post as adjacent to the luck-subtraction thread); scorecard skeleton filled where the fetched post supports it; kill search owed before it is a proposal
+- 2026-11-01 — claim killed: concept-level kill search (data/reports/2026-W44-kill-CL-W43-J01.md): killed (weak) — Gate 2B on clause 1 (HAL 2602.16666 §4 states the serving-stack attribution as its protocol assumption, citing the same TML post) and occupation of clause 2 by 2602.07150 (temperature-0 agent variance, first-divergence distributions, compounding over the trajectory, 2–3 point improvements inside noise); the prem…
+- 2026-11-01 — C-W44-OWN-2 parked: stage 8 owned-artifact prospecting (W44 monthly run); lab position
+- 2026-11-01 — C-W44-OWN-2 parked: claim CL-W43-J01 concept-level kill search (killed): probe effect 'unchanged' — lab-parked; its U (first divergence at a user turn) is the inverted claim's natural surprise on the one public temperature-0 replicate set with a second sampling party; re-home under the inverted claim.
+- 2026-11-01 — C-W44-OWN-2 parked: claim_id CL-W43-J01 -> CL-W44-07 (re-homed after the kill searches)
+- 2026-11-02 — claim open: pressure #7 (2026-11-02): L08 'most of the uncertainty comes from tasks rather than run-to-run variance' bounds the serving term from above on bimodal suites; B01 Terminal-Bench 4.0 pass_at_5 ties across ranks 1-5; banter 2607.17136 names run-to-run nondeterminism as a variance component beside the data draw; records R01, L08, L16 routed here
+- 2026-11-02 — claim open: claims (W44 weekly run, 2026-11-02): C-W44-07 (card 2610.40246, certified-static testbed, scorecarded) and C-W44-OWN-2 (lab, HAL traces) attached; graded against gates 0-6; status thought -> open on the strength of a scorecarded probe under one GPU-week (the kill search, owed, decides proper); rank 8
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-J01`, version 1)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-J01`, version 3)
+- probe `C-W44-07`: `data/candidates/2026-W44.jsonl`
+- probe `C-W44-OWN-2`: `data/candidates/2026-W44.jsonl`
 - `P-W43-J01-a`: seed or import record (no candidate yet)

@@ -1,10 +1,10 @@
 # Where reward hacking starts under GRPO is readable from the untrained model: the few prompts it occasionally hacks but cannot solve seed the hacking, and removing them delays onset more than removing matched-difficulty prompts.
 
-`CL-W43-13` · lane **L2** · status **open** · rank 8 · position solo · refreshed 2026-10-30
+`CL-W43-13` · lane **L2** · status **killed** · rank None · position solo · refreshed 2026-11-02
 
 ## Status
 
-Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 6 (density unmeasured in a dense, lab-contested area); Gate 1 at the budget edge (166 GPU-h). Grade on paper: open, weak; single probe. Next action: see First steps.
+Killed — see the kill section. Failing gate: Gate 6 (density unmeasured in a dense, lab-contested area); Gate 1 at the budget edge (166 GPU-h). Grade on paper: open, weak; single probe. Next action: see First steps.
 
 ## The claim
 
@@ -29,17 +29,17 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 
 | --- | --- | --- |
 | G0 | premise hygiene (conditioning set, whose temperature, fetched numbers) | untested |
 | G1 | cheap to kill (cheapest probe under one GPU-week, kill result pre-registered) | carried by the cheapest probe C-W43-26 (see Probes for its cost and verdict) |
-| G2 | pressure (stated strain, or ruler with pre-registered surprise) | pass, route A: the paper's own introduction claims a removal experiment it does not report; the RLVR filtering literature's zero-variance rule is the field's stated practice |
+| G2 | pressure (stated strain, or ruler with pre-registered surprise) | pass, route A: the paper's own introduction claims a removal experiment it does not report; the RLVR filtering literature's zero-variance rule is the field's stated practice; 2026-11-02, pressure #1: the environment-side term the claim's mechanism needs is stated by a system card and measured by an outside audit — L06 'every model is flagged for attempts on roughly 20% to 28% of episodes [...] Because attempt rates depend heavily on the environments themselves [...] we do not compare them across models', B13 'in 1,795 of them (67%), the fix commit survives as unreachable objects'; the decompo… |
 | G3 | consumers (three classes, the action each changes; community-wide for golden) | one community (RLVR training teams and verifier builders); proper-shaped, not golden |
 | G4 | mechanism and consequence | pass: mechanism — the step-zero GRPO advantage mass on hacking rollouts $w_i = h_{i,0}\sqrt{(1-s_{i,0})/s_{i,0}}$ (defined in C-W43-26) is the gradient push toward hacking before any update; consequence — screen or harden those prompts |
 | G5 | durability; lab-adjacent | flagged: tied to GRPO's group structure and to detectable hacking; frontier labs own the topic (race risk stated in C-W43-26's positioning note) |
-| G6 | ownership, density, race window; position clause | open and at risk: the RLVR data-selection literature is dense and not in the card's neighbors; kill search must use its words (zero-variance prompts, pass-rate filtering, exploitable prompts, test-case hacking); position solo in a lab-contested lane — survives only as a controlled comparison |
+| G6 | ownership, density, race window; position clause | open and at risk: the RLVR data-selection literature is dense and not in the card's neighbors; kill search must use its words (zero-variance prompts, pass-rate filtering, exploitable prompts, test-case hacking); position solo in a lab-contested lane — survives only as a controlled comparison; 2026-11-02, pressure #1 density: P1a = 1 (Countdown-Code 2603.07084, 'As little as 1% contamination in distillation SFT' teaches hacking — the kill search must quote it), P1b = 2, neither an audit |
 
 ## Probes under this claim
 
 | Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |
 | --- | --- | --- | --- | --- |
-| C-W43-26 | Hack-seeding prompts are readable from the base model's rollouts | Pre-RL rollouts (8-12 GPU-hours) plus 3 arms x 4 seeds of 0.6B GRPO (about 156 GPU-hours), about $500 at A100 rates, 10 days including environment setup; kills if the $w_i$ arm's median $t_{50}$ falls inside the matched-random arm's seed i… | proposed | — |
+| C-W43-26 | Hack-seeding prompts are readable from the base model's rollouts | Pre-RL rollouts (8-12 GPU-hours) plus 3 arms x 4 seeds of 0.6B GRPO (about 156 GPU-hours), about $500 at A100 rates, 10 days including environment setup; kills if the $w_i$ arm's median $t_{50}$ falls inside the matched-random arm's seed i… | parked | — |
 
 ## Kill search
 
@@ -51,13 +51,11 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 ## First steps if pursued
 
-1. Wait for the automatic kill search on **C-W43-26** (Sunday run), or run `/kill C-W43-26` in a session.
-2. If it survives: `/redteam C-W43-26`, then the probe as pre-registered — Pre-RL rollouts (8-12 GPU-hours) plus 3 arms x 4 seeds of 0.6B GRPO (about 156 GPU-hours), about $500 at A100 rates, 10 days including environment setup; kills if the $w_i$ arm's median $t_{50}$ falls inside the matched-random arm's seed interquartile range, or both removal arms fall inside the full pool's.
-3. Write results into the records and this Log; status moves only on evidence.
+1. Read the kill section; the claim is closed unless a new probe or a new enabling piece re-opens it (write that in your section).
 
 ## Decisions for Jacob
 
-- None pending; the machine runs the next kill search on its own. Mark `jacob-dropped` here if the headline is not worth a week of yours.
+- C-W43-26 is parked — SimHack's 325-run dataset released with per-prompt per-step labels (then the w_i-vs-first-hack-step table costs $0); add 2607.11022's static-audit ranking as the incumbent arm: fund it, or leave it parked?
 
 ## Jacob
 
@@ -71,8 +69,14 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 - 2026-10-25 — claim open: written by the closing-W43 claims run so L2 has an open claim (portfolio rule); single-probe claim, flagged
 - 2026-10-25 — claim open: claims (closing W43, after kills): re-ranked 8 (unchanged)
+- 2026-11-01 — claim killed: concept-level kill search (data/reports/2026-W44-kill-CL-W43-13.md): killed — The untrained model's per-prompt hack-only-success already predicts where GRPO pays for hacks in print (2607.11022, Spearman 0.80, difficulty-controlled, three families, GRPO advantage argument in its text); the onset levers are in print at the pool level (CATCH: lower initial tendency delays, harder reward accelerates)…
+- 2026-11-01 — C-W43-26 killed: killed with claim CL-W43-13 (concept-level kill search, data/reports/2026-W44-kill-CL-W43-13.md): Retained as an orphan probe in footnote register with a $0 trigger (SimHack dataset release); if run, add the 2607.11022 static-audit ranking as the incumbent arm and pre-register the no-growth outcome.
+- 2026-11-01 — C-W43-26 killed: claim_id CL-W43-13 -> orphan (re-homed after the kill searches)
+- 2026-11-01 — C-W43-26 parked: kill note retains it as an orphan probe in footnote register: parked (not killed) with the trigger written
+- 2026-11-02 — claim open: pressure #1 (2026-11-02): L06 'attempts on roughly 20% to 28% of episodes [...] attempt rates depend heavily on the environments themselves'; L07 'around half of our computer-use environments incentivized hacking or had accessible hack surfaces [...] QA'd against older, less capable models'; B13 '67%' leak; Countdown-Code 2603.07084 named for the kill search; records L06, L07, R13, R07, Q24, Q25…
+- 2026-11-02 — claim open: claims (W44 weekly run, 2026-11-02): no new probe; single 166 GPU-h probe; rank 8 -> 12
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-13`, version 2)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-13`, version 4)
 - probe `C-W43-26`: `data/candidates/2026-W43.jsonl`

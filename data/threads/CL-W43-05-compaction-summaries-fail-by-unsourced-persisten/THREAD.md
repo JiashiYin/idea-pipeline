@@ -1,10 +1,10 @@
 # Compaction summaries fail by unsourced persistence — claims no observation supports — not by length.
 
-`CL-W43-05` · lane **L4** · status **open** · rank 3 · position both · refreshed 2026-10-30
+`CL-W43-05` · lane **L4** · status **killed** · rank None · position both · refreshed 2026-11-02
 
 ## Status
 
-Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 0 (premise number corrected; headline quantifier unwritten); Gate 6 race window; Gate 5 weak. Grade on paper: open, re-probe owed; headline quantifier to be pre-registered or removed at the next claims run; proper-shaped at best. Next action: see First steps.
+Killed — see the kill section. Failing gate: Gate 0 (headline quantifier still unwritten; each W44 probe pre-registers its own); Gate 6 race window (densest lane); Gate 5 weak. Grade on paper: open, re-probe owed; six new scorecarded probes including the uncompacted control and the lab-position definitive spec; proper-shaped at best. Next action: see First steps.
 
 ## The claim
 
@@ -15,35 +15,42 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 
 
 ## Scorecard (from the cheapest probe's record, or the claim's skeleton for a thought)
 
-- **Target value:** In print: 2607.13071 names the mechanism as 'a conflation of observation and persistence' in Claude Code compaction summaries and calls for re-verification; SJC's card states the agent 'cannot distinguish the two' after compaction and the paper never passes the bit forward; transparent-compact argues for maximal transparency of the agent's view of its compacted context. Who pays: harness and product teams writing structured-summary prompts; memory-system authors who rely on provenance tags being read.
-- **Impact ceiling:** **floor**: A negative: agents ignore provenance labels in their own summaries; a footnote cited by memory-schema papers; requires the two arms; probability 0.35 (judgment).; **middle**: Tag matches delete on one model and benchmark; a typed-summary default proposed to harness builders; requires replication on M3; probability 0.45 (judgment).; **ceiling**: Tag-plus-delete beats SJC and the typed schema is adopted by two public harnesses; requires OfficeBench and one coding harness (another ~$1,500); probability 0.2 (judgment).
-- **Relevance:** L4 routes: product teams directly (a template change); all compaction and memory groups (whether the reader uses provenance); Narasimhan's self-evolving interest moderately (what a self-written memory should mark). Industry: direct. Jacob's edge: zero.
-- **Kill probe:** Two arms x 168 x 3 runs on GPT; ~$450 marginal on the sibling candidate's harness; kills if tag-only is within 1 Pass3 point of Prompting and pattern counts do not fall by a third; 10 days shared.
-- **Density and ownership:** Occupied: SJC delete-only gate; transparent-compact (deterministic verbatim retention plus flags of stripped information, Pi agent, lightweight models); MemTrace 2610.04838 (provenance-aware memory traces with validity checks before restoring evidence, coding agents); Memory Echo 2610.17763 (Family-Provenance-Authority gating in long-term memory); REMORY 2610.11287 (soft residual tokens improving source attribution on SummHay); When History Lies 2608.06057 (polluted history hijacks tool-use policy; Oracle State view). arXiv API: compactor/condenser/compaction-summary x agent x provenance/fabricated/unsupported = 24 total, 19 in window, closest Slipstream 2605.08580 (judge validates the summary against the agent's asynchronous continuation) and 2607.13071; broad provenance x compaction x agent query hit the 100-result cap (198 total) and is uninformative. No in-window hit renders a per-e…
-- **Why now:** SJC 2026-10-14 (the bit exists and is discarded); 2607.13071 (2026-07-11) names the failure in a production tool; transparent-compact 2026-10-14 shows flags are consumed by lightweight models.
-- **Register, and what it is not:** Controlled comparison of a mechanism's two uses (label vs delete) in the measurement register, with a template consequence. Not a new compressor, not a judge, not a training method, not a memory system.
+- **Target value:** In print: HSC-Bench sec. 6, 'was the completion record missing, or did the receiver repeat the operation despite having that record? This distinction identifies whether an observed problem concerns the information passed to the receiver or its use during continuation'; Compact-Bench's abstract, 'retaining relevant information alone does not ensure successful continuation'; CL-W43-05's own open gate (red team 2026-10-25: a census with the uncompressed control and a pre-registered matcher is owed). Who pays: compactor and handoff-writer builders choosing between a provenance gate, retention and receiver prompting; compaction evaluators choosing the axis to add; product teams running orchestrator handoffs.
+- **Impact ceiling:** **floor**: A three-cell table on one benchmark, one writer, six receivers, cited by the next handoff or compaction evaluation. Requires step 0 or step 2. Judgment p 0.5.; **middle**: The use axis (in view and unused) adopted as a reported column by one compaction benchmark (Compact-Bench or HSC-Bench) and CL-W43-05 re-scoped to iterative compaction. Requires both corpora agreeing. Judgment p 0.3.; **ceiling**: The census on production compaction chains (Compact-Bench's 106 chains) shows the same ordering and 'in view and unused' becomes the standard decomposition for every lossy agent message. Requires the production chains and a second writer. Judgment p 0.1.
+- **Relevance:** Narasimhan (self-evolving agents, memory): moderate, the use axis is the measurement his memory work lacks. HAL and evaluators: direct, a column. Systems routes: zero. Industry (orchestrator and compaction teams): direct. Jacob's edge: computer engineering small (the labeler is parsing code); theoretical physics zero.
+- **Kill probe:** Step 0 email and step 1 labeler ($0, 5 days plus the wait); fallback step 2 at most $300, 0 GPU-hours, 7 days; dead if the family-clustered lower bound of $\pi_{\mathrm{inv}}$ is above 0.10 for three of six receivers.
+- **Density and ownership:** Fetched 2026-11-01: Compact-Bench 2610.31710 (2026-10-22; paired full-history / summary-only continuations, 14 summarizer backbones, 'LLM summaries retain at most 16.0% of recurring details, compared with 79.1% for mechanical extraction'; code and data public) measures retention and has no provenance cell in its abstract; 'Benchmarks Are Surprisingly Compaction-Friendly' 2610.31778 (2026-10-22) measures dropped constraints by number of compactions; 'Questions That Come Later' 2610.27301 (2026-10-19) compares every method with random deletion at the same budget; Slipstream 2605.08580 validates a summary against the agent's actual next steps at write time (a per-summary use signal, not a failure census); Handoff Debt 2606.02875 scores four handoff views by events and tokens; SJC 2610.20927 is the unsourced census by LLM annotation in the iterative regime; TRACE 2610.08722 the human causal…
+- **Why now:** HSC-Bench 2026-10-27 (full-history arm for six receivers, typed criteria); Compact-Bench 2026-10-22 (public pairs); the C-W43-23 red team 2026-10-25 (control and matcher specified).
+- **Register, and what it is not:** —
 
 ## Gates (config/standards.md)
 
 | Gate | Test | Verdict |
 | --- | --- | --- |
 | G0 | premise hygiene (conditioning set, whose temperature, fetched numbers) | flagged 2026-10-25: the claim's premise number was misquoted ('83% follow one unsourced bullet'); SJC 2610.20927 reports 29 of 35 analyzed failures following a summary entry (83%) and 25 of 35 (71%) following an unsupported or contradicted one, after a 9-run exclusion; corrected in current_belief |
-| G1 | cheap to kill (cheapest probe under one GPU-week, kill result pre-registered) | pass on paper: cheapest proposed probe is again C-W43-09 (~$450); no probe has survived a kill search and red team |
-| G2 | pressure (stated strain, or ruler with pre-registered surprise) | pass, route A: a paper census (2610.20927: 83% of failures follow one unsourced bullet; 67.7% of Open TODOs unsourced), a product-log study (2607.13071 on Claude Code summaries), a second recipe paper (transparent-compact 2610.20116 flags stripped information) |
+| G1 | cheap to kill (cheapest probe under one GPU-week, kill result pre-registered) | pass: C-W44-11 is $0 with the authors' outputs (fallback at most $300) and carries the uncompacted control; every W44 probe pre-registers one quantifier, which the headline still lacks |
+| G2 | pressure (stated strain, or ruler with pre-registered surprise) | pass, route A: a paper census (2610.20927: 83% of failures follow one unsourced bullet; 67.7% of Open TODOs unsourced), a product-log study (2607.13071 on Claude Code summaries), a second recipe paper (transparent-compact 2610.20116 flags stripped information); 2026-11-02, pressure #6 adds a system card (L03: competitor models run 'with OpenAI's own context compaction'), a blog (B06: 62.7% under the Standard harness against 99.9% under the Provider Adapter), a meta-paper (B19/Q01: 'the first compaction summary already drops about one third of the task's anticheating rules') and a benchmark pa… |
 | G3 | consumers (three classes, the action each changes; community-wide for golden) | pass, community-wide if true: compactor builders (label or delete unsourced entries by default), compaction evaluators (provenance axis), product teams (Claude Code, Codex, OpenHands) |
 | G4 | mechanism and consequence | pass: mechanism — after compaction the agent reads its own earlier plan as an observed fact and executes it; consequence — label or delete by provenance, or, if matched-count deletion matches the judge, provenance is a correlate of length and the gate is a length control; the two new probes split the mechanism into commission (kept unsourced bullets) and omission (dropped irrecoverable values) so each way the result comes out names a different compaction gate; 2026-10-25: 'not by length' is touched by none of the probes — a matched-length control (C-W43-08's arm) is the only one that tests th… |
 | G5 | durability; lab-adjacent | flagged: tied to the current generation of compactors and to one benchmark (AppWorld); a model that reads provenance labels changes the result; lane is lab-contested on the recipe side, and the claim is kept in measurement register |
-| G6 | ownership, density, race window; position clause | open and at risk: kill search owed; density is the highest of any lane (SJC, PAIR, TRACE, RECAP within one month); race window about one compaction paper a week against a 10-day probe plus a one-week harness build is under the 2x rule for golden; 2026-10-25: SJC already publishes the unsourced share by LLM annotation and TRACE's human causal audit (14 trajectories, 46 compactions) finds 0 pure compression-caused failures and 11 of 12 POLICY — the claim's quantifier is contested in print both ways |
+| G6 | ownership, density, race window; position clause | open and at risk: kill search owed; density is the highest of any lane (SJC, PAIR, TRACE, RECAP within one month); race window about one compaction paper a week against a 10-day probe plus a one-week harness build is under the 2x rule for golden; 2026-10-25: SJC already publishes the unsourced share by LLM annotation and TRACE's human causal audit (14 trajectories, 46 compactions) finds 0 pure compression-caused failures and 11 of 12 POLICY — the claim's quantifier is contested in print both ways; 2026-11-02, pressure #6: the lane is the densest in the pipeline (P6a = 7, P6b = 7; 11 compactio… |
 
 ## Probes under this claim
 
 | Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |
 | --- | --- | --- | --- | --- |
-| C-W43-09 | Label the unsourced bullet instead of deleting it | Two arms x 168 x 3 runs on GPT; ~$450 marginal on the sibling candidate's harness; kills if tag-only is within 1 Pass3 point of Prompting and pattern counts do not fall by a third; 10 days shared. | proposed | — |
-| C-W43-10 | Per-entry counterfactual value of compaction bullets on TRACE's paired-replay corpus | 60 boundaries, leave-one-entry-out, 4 paired continuations each; ~$600 API, 0 GPU-hours; kills if >= 70% of annotated entries flip or provenance AUROC >= 0.7, or if prefix re-execution reproduces < 90% of boundary states; 14 days. | proposed | — |
+| C-W43-09 | Label the unsourced bullet instead of deleting it | Two arms x 168 x 3 runs on GPT; ~$450 marginal on the sibling candidate's harness; kills if tag-only is within 1 Pass3 point of Prompting and pattern counts do not fall by a third; 10 days shared. | killed | — |
+| C-W43-10 | Per-entry counterfactual value of compaction bullets on TRACE's paired-replay corpus | 60 boundaries, leave-one-entry-out, 4 paired continuations each; ~$600 API, 0 GPU-hours; kills if >= 70% of annotated entries flip or provenance AUROC >= 0.7, or if prefix re-execution reproduces < 90% of boundary states; 14 days. | killed | — |
 | C-W43-08 | Does Source-Judged Compaction win by what it deletes or how much? | Four arms x 168 tasks x 3 runs on GPT-5.6 Luna; ~$700 API, 0 GPU-hours; kills if SJC beats both controls by >= 5 Pass3 with std < 3; 10 days including a one-week harness build. | proposed | — |
 | C-W43-21 | Omission of irrecoverable state versus commission of unsourced bullets: which predicts the compaction penalty on the sa… | Steps 1-3 on the TRACE corpus: ~$60 API, 0 GPU-hours, 5 days (10 with the optional cross-benchmark step at ~$300 more); kills if the unsourced count explains at least twice the penalty variance of the omission count or the omission coeffic… | proposed | — |
 | C-W43-23 | Omitted, never fetched, or overridden: a judge-free stage split of post-compaction failures | Parse the public corpus, build $P$ and $S$, label needed and emitted values, 50-label audit; 0 GPU-hours, about $50 (about $300 if the Prompting arm must be re-run, shared with C-W43-08), 6 days; kills if $\pi_{\mathrm{exp}} \geq 0.5$ (omi… | killed | survived-kill |
+| C-W44-11 | Where message-attributable handoff failures sit: dropped, in view and unused, or followed from an invented entry — the… | Step 0 email and step 1 labeler ($0, 5 days plus the wait); fallback step 2 at most $300, 0 GPU-hours, 7 days; dead if the family-clustered lower bound of $\pi_{\mathrm{inv}}$ is above 0.10 for three of six receivers. | proposed | — |
+| C-W44-12 | The provenance gate, judge-free, on a one-shot handoff sheet: delete the unsourced entries at matched tokens | At most $300, 0 GPU-hours, 10 days after the census labeler; dead as a claim if $|\Delta_D| \geq 2$ with interval excluding zero for three of six receivers. | proposed | — |
+| C-W44-13 | Unsourced entries by write regime: the same writer and budget, iterating on its own summary versus rewriting from the r… | At most $350, 0 GPU-hours, 12 days; dead if the upper bound of $\rho_u$ is below 2 on both corpora. | proposed | — |
+| C-W44-18 | One wrong bullet in the agent's own summary, the right value in a fresh tool output: which one does the agent act on? | 60 tasks x six cells x three runs in the public SJC harness on GPT, about $500 API, 0 GPU-hours, 12 days; dead if the fresh output displaces the planted value ($u_S, u_F < 0.25$) or if the fabricated value is taken up at under half the rat… | proposed | — |
+| C-W44-DEF-L4 | Damage versus dose: the compute-matched, dose-matched comparison of compaction recipes under a forced window, with rand… | The 60 GPU-hour pilot above; dead if random deletion is more than 10 points below both recipes on the paired readout. | parked | — |
+
+Also under this claim (no scorecard yet): import:2026-W44-S3xF11 (relaxation-time ruler: grade each kept entry by how fast the agent overwrites it in uncompacted sibling continuations; about $700-900 A…
 
 ## Kill search
 
@@ -67,13 +74,11 @@ Closest neighbors (one-sentence trick; one-line difference):
 
 ## First steps if pursued
 
-1. Wait for the automatic kill search on **C-W43-09** (Sunday run), or run `/kill C-W43-09` in a session.
-2. If it survives: `/redteam C-W43-09`, then the probe as pre-registered — Two arms x 168 x 3 runs on GPT; ~$450 marginal on the sibling candidate's harness; kills if tag-only is within 1 Pass3 point of Prompting and pattern counts do not fall by a third; 10 days shared.
-3. Write results into the records and this Log; status moves only on evidence.
+1. Read the kill section; the claim is closed unless a new probe or a new enabling piece re-opens it (write that in your section).
 
 ## Decisions for Jacob
 
-- None pending; the machine runs the next kill search on its own. Mark `jacob-dropped` here if the headline is not worth a week of yours.
+- C-W44-DEF-L4 is parked — lab compute of >= 3500 GPU-hours and a shared harness (one open scaffold with a pluggable compaction hook and the paired-continuation instrument): fund it, or leave it parked?
 
 ## Jacob
 
@@ -91,12 +96,26 @@ Closest neighbors (one-sentence trick; one-line difference):
 - 2026-10-25 — claim open: kill + red-team run (closing W43): C-W43-23 survived-kill (weak) then killed by the red team (19 merged objections: 10 answered, 9 conceded, 5 killing conceded); premise number corrected; rank 2 -> 3
 - 2026-10-25 — C-W43-23 survived-kill: kill search (stage 4, automatic, claim-ranked): survived-kill — No fetched paper computes the never-fetched / dropped / overridden split with executable labels on natural post-compaction failures, so no neighbour's difference is 'none'; survival is 'first to measure with a judge-free label', weak, and the probe's Gate 1 premise (a public corpus with summaries and full trajectories) is false, rais…
 - 2026-10-25 — C-W43-23 killed: red team (stage 5, automatic, three personas + separate defender; 30 objections merged to 19: 10 answered, 9 conceded, 5 killing conceded): killed — killed as a probe of CL-W43-05 as written: four killing objections conceded with evidence — (1) no uncompressed control, so 'compaction fails by X' does not follow from a census of post-compaction failures (SJC Table 3: 116.9 vs 80.1 failures of 504…
+- 2026-11-01 — claim killed: concept-level kill search (data/reports/2026-W44-kill-CL-W43-05.md): killed — SJC 2610.20927 occupies the headline's first clause (census: 71% of 35 analysed failures follow an unsupported or contradicted entry) and its consequence (delete unsourced entries, +8.9 Pass3), so the surprise equals the field's stated knowledge (Gate 2B, Gate 6); 'not by length' is untested by every probe but C-W43-08;…
+- 2026-11-01 — C-W43-09 killed: killed with claim CL-W43-05 (concept-level kill search, data/reports/2026-W44-kill-CL-W43-05.md): Label-instead-of-delete is a recipe variant of SJC's shipped gate; 2610.36308 already shows small readers do not consume provenance marks. Revive only if the followed-unsourced cell comes back above its base rate.
+- 2026-11-01 — C-W43-10 killed: killed with claim CL-W43-05 (concept-level kill search, data/reports/2026-W44-kill-CL-W43-05.md): Its $600 arm needs TRACE summary text, which the release does not carry (C-W43-23 kill search); the per-entry counterfactual question is answered in direction by Compact-Bench 4.4 and transparent-compact 5.1 (value in view, progress or binding lost).
+- 2026-11-01 — C-W43-23 killed: claim CL-W43-05 concept-level kill search (killed): probe effect 'unchanged' — Already killed 2026-10-25; its residue (census with control) is C-W44-11.
+- 2026-11-01 — C-W44-DEF-L4 parked: stage 9 definitive-comparison prospecting (W44 monthly run); lab position
+- 2026-11-01 — C-W44-DEF-L4 parked: claim CL-W43-05 concept-level kill search (killed): probe effect 'unchanged' — Lab, parked; random-deletion floor is the residue's length control at scale.
+- 2026-11-01 — C-W44-DEF-L4 parked: claim_id CL-W43-05 -> CL-W44-06 (re-homed after the kill searches)
+- 2026-11-02 — claim open: pressure #6 (2026-11-02): compaction is 'the uncontrolled third player in every cross-lab long-horizon number' — B19/Q01 'drops about one third of the task's anticheating rules', 'dropped around 6 times more than specifications'; Q02 '16.0% [...] compared with 79.1% for mechanical extraction'; B06 62.7% vs 99.9%; L03 vendor compaction on competitor runs; 2606.22528 named as the pre-window precede…
+- 2026-11-02 — claim open: claims (W44 weekly run, 2026-11-02): C-W44-11, 12, 13, 18 (cards 2610.36523, 2610.36308, 2610.31778), import S3xF11 and C-W44-DEF-L4 (lab) attached; cheapest probe moves from C-W43-09 ($450) to C-W44-11 ($0-300, with the control); rank 3 -> 4 (CL-W43-14 moves up); the one-shot handoff regime counts as a second regime of the claim's mechanism, and C-W44-11's expected result narrows the claim to it…
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-05`, version 4)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-05`, version 6)
 - probe `C-W43-09`: `data/candidates/2026-W43.jsonl`
 - probe `C-W43-10`: `data/candidates/2026-W43.jsonl`
 - probe `C-W43-08`: `data/candidates/2026-W43.jsonl`
 - probe `C-W43-21`: `data/candidates/2026-W43.jsonl`
 - probe `C-W43-23`: `data/candidates/2026-W43.jsonl`
+- probe `C-W44-11`: `data/candidates/2026-W44.jsonl`
+- probe `C-W44-12`: `data/candidates/2026-W44.jsonl`
+- probe `C-W44-13`: `data/candidates/2026-W44.jsonl`
+- probe `C-W44-18`: `data/candidates/2026-W44.jsonl`
+- probe `C-W44-DEF-L4`: `data/candidates/2026-W44.jsonl`

@@ -1,10 +1,10 @@
 # GPU physics engines trade physics for speed through solver iteration caps, and RL policies trained in them exploit the difference.
 
-`CL-W43-01` · lane **L5** · status **open** · rank 1 · position both · refreshed 2026-10-30
+`CL-W43-01` · lane **L5** · status **killed** · rank None · position both · refreshed 2026-11-02
 
 ## Status
 
-Open claim. Nothing under it has survived a kill search yet. Failing gate: G1 for the exploit clause (P-W43-01-2x2 needs a scorecard); headline rewrite waiting on Jacob's mark. Grade on paper: open, re-probe owed; one scorecarded live probe (C-W43-27, speed clause); not proper. Next action: see First steps.
+Killed — see the kill section. Failing gate: G1 for the exploit clause (P-W43-01-2x2 needs a scorecard); headline rewrite waiting on Jacob's mark. Grade on paper: open, re-probe owed; one scorecarded solo probe on the speed clause (C-W43-27), one solo probe on agent-chosen discretisations (C-W44-14), two lab-position specs (OWN-4, DEF-L5); exploit clause's solo probe (P-W43-01-2x2) still unscorecarded; not proper. Next action: see First steps.
 
 ## The claim
 
@@ -28,8 +28,8 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: G1 fo
 | Gate | Test | Verdict |
 | --- | --- | --- |
 | G0 | premise hygiene (conditioning set, whose temperature, fetched numbers) | fails as written for the exploit half: rho_L5 was a protocol artifact (kappa asymmetric by warm-start protocol; mean-action rollouts off the training protocol; number format unstated) |
-| G1 | cheap to kill (cheapest probe under one GPU-week, kill result pre-registered) | cheapest scorecarded live probe is C-W43-27 (8 GPU-h, $30; the speed clause with the Amdahl bound as kill); the exploit clause — the claim's actual test — still has only the unscorecarded P-W43-01-2x2; the premise clause ('a per-step fidelity flag') is shipped by the owners and no longer a probe |
-| G2 | pressure (stated strain, or ruler with pre-registered surprise) | weakened, route A: the engine's own performance page states the trade and justifies it by DR noise (MJX docs), so the strain is asserted away rather than asserted; GPUSimBench and 2610.17221 App. G still stand as the other two source types; route B fails for the law half (expected result = the manual's description) |
+| G1 | cheap to kill (cheapest probe under one GPU-week, kill result pre-registered) | cheapest scorecarded live probe is still C-W43-27 (8 GPU-h, $30; the speed clause); the exploit clause now carries a scorecarded lab-position spec (C-W44-DEF-L5: 90 GPU-h pilot, under the week on one engine, over it in the five-engine form) and a solo probe on agent-written simulators (C-W44-14, 120 GPU-h) that tests whether shipped solution policies depend on the agent-chosen discretisation, not whether RL policies exploit it; P-W43-01-2x2 is still unscorecarded |
+| G2 | pressure (stated strain, or ruler with pre-registered surprise) | weakened, route A: the engine's own performance page states the trade and justifies it by DR noise (MJX docs), so the strain is asserted away rather than asserted; GPUSimBench and 2610.17221 App. G still stand as the other two source types; route B fails for the law half (expected result = the manual's description); 2026-11-02, pressure #5: the strain is now in the engine builders' own documentation (Q19 MJWarp docs: 'Reducing these limits too much may prevent the constraint solver from converging'; Q21 Newton 1.0 launch: '252x for locomotion, and 475x for manipulation tasks' at MJWarp solver… |
 | G3 | consumers (three classes, the action each changes; community-wide for golden) | unchanged if the exploit clause holds; the 'engine builders expose a per-step fidelity flag' consequence is already shipped on CPU (mjData.solver, fwdinv) and partly on Warp (solver_niter, per-world tolerance) — strike it; confirmed 2026-10-25: the flag is shipped (MuJoCo 3.11.0, Warp, Isaac Lab), so the 'engine builders expose a flag' consequence is struck for good |
 | G4 | mechanism and consequence | mechanism rewritten: the Newton solve at iterations=1 is one exact step from the previous step's warm start, exact when the active set is unchanged and short when it changes; the consequence for the exploit clause is the 2x2 interaction term, not a per-state law |
 | G5 | durability; lab-adjacent | unchanged (a ruler on any engine), but the hardware prior at the shipped caps is against the exploit clause (Playground: cap-1 Go1 policies transfer robustly) |
@@ -45,6 +45,9 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: G1 fo
 | C-W43-16 | Compute-matched fidelity mixture versus fixed solver cap in GPU RL | 30 PPO runs at equal solver-iteration budget across 5 arms, 2 tasks, 3 seeds, evaluated under the converged engine with the per-step audit; 50 GPU-hours, about $150, 7 days; dead if the mixture is no better than fixed K=1 in R_conv and rho… | proposed | — |
 | P-W43-01-2x2 | The simulator-budget 2x2: train a policy at the shipped solver budget (Go1 iterations=1; Leap iterations=5) and at the… | Dead if the interaction term lies inside the batch-seed interval of zero on BOTH Go1 rough terrain and the Leap cube task. Pre-registered (judgment): Go1 interaction about zero (sticking contacts; the hardware prior), Leap interaction posi… | thought (spec written in the 2026-10-21 discuss session; scorecard and kill search owed before it is a candidate) | not run (no candidate record yet) |
 | C-W43-27 | Price the lockstep barrier in batched GPU physics from the solver's own iteration log | Half a day of source reading, then 4 tasks x 3 checkpoints x 1000 steps x 4096 worlds with the cap lifted plus an eight-point timing sweep, about 8 GPU-hours (about $30), 4 days; kills if the Amdahl upper bound $S < 1.15$ on all four tasks… | proposed | — |
+| C-W44-14 | Re-solve what the agent shipped: the per-command physics audit on agent-written simulators | Six simulations, 50 initial states each, per-command re-solve at $(h/2, 2K, 2m)$ and end-to-end refined runs, a second refinement level on the two worst; about 120 GPU-hours, about $300, 10 days; dead if median $d_k / \kappa < 0.1$, $\rho… | proposed | — |
+| C-W44-OWN-4 | How much of MuJoCo Warp's batched Newton solve is waiting for the slowest world: the per-world iteration distribution t… | The histogram and wait share on the nightly box (1 GPU-hour, one day) and the compacted-launch prototype (one engineer-week); dead if $W < 0.15$ everywhere and solve time moves under 10%. | parked | — |
+| C-W44-DEF-L5 | Reference return versus solver budget: the compute-matched comparison of shipped fidelity settings across five GPU engi… | The 90 GPU-hour one-engine sweep; dead if the shipped cap's reference return is within 5% of the converged cap's and the exploit share does not separate the policies. | parked | — |
 
 Also under this claim (no scorecard yet): owed: 2x2 return matrix on Go1 rough terrain (pi_1 vs pi_100 under the training protocol, wall-clock matched, each evaluated in both engines, paired DR draws;…; import:2026-W43-S4xF4 and X-2026-W42-S4F4 (instrument variants; no scorecard)
 
@@ -112,13 +115,27 @@ Closest neighbors (one-sentence trick; one-line difference):
 - 2026-10-25 — claim open: claims (closing W43): C-W43-27 attached (speed clause, from card 2610.29506 barrier model); proposed headline not adopted because the decision sits unanswered in Jacob's section (his mark wins; the operator does not pre-empt it); rank 1 kept; C-W43-17 is this run's first automatic kill search
 - 2026-10-25 — claim open: kill run (closing W43): C-W43-17 killed (occupied by MuJoCo 3.11.0's certificate, stiffness caveat and per-iteration log; Warp overflow bit; Isaac Lab solver_niter logger); cheapest live probe now C-W43-27; rank 1 kept — the lane is the program, and the exploit-clause probe P-W43-01-2x2 needs its scorecard before it can be killed or run
 - 2026-10-25 — C-W43-17 killed: kill search (stage 4, automatic, claim-ranked): killed — Occupied by the engine owners' own text and shipped defaults: MuJoCo 3.11.0 (2026-07-27) documents the strong-convexity certificate $\mathrm{cost}(a) - \mathrm{cost}^* \le \tfrac{1}{2} g^\top M^{-1} g$, terminates on the Newton decrement, states the stiffness caveat the candidate pre-registers as its finding, logs the statistic per iteratio…
+- 2026-11-01 — claim killed: concept-level kill search (data/reports/2026-W44-kill-CL-W43-01.md): killed (weak) — the exploit clause equals the field's stated knowledge (SPOTA 2019 defined and estimated it; SAPU 2023 stated it for GPU contact-rich RL; about 70 in-window papers assume it) — Gate 2B; the trade clause is the owners' own text; and the headline's attribution 'through solver iteration caps' has its first published…
+- 2026-11-01 — C-W43-15 killed: claim CL-W43-01 concept-level kill search (killed): probe effect 'killed-with-claim' — already killed 2026-10-20; its CPU certificate read is the first step of the redesigned 2x2
+- 2026-11-01 — C-W43-17 killed: claim CL-W43-01 concept-level kill search (killed): probe effect 'killed-with-claim' — already killed 2026-10-25; certificate column stays a diagnostic
+- 2026-11-01 — C-W44-OWN-4 parked: stage 8 owned-artifact prospecting (W44 monthly run); lab position
+- 2026-11-01 — C-W44-OWN-4 parked: claim CL-W43-01 concept-level kill search (killed): probe effect 'unchanged' — parked, lab; cite the MJWarp early-exit sentence in its scorecard
+- 2026-11-01 — C-W44-OWN-4 parked: claim_id CL-W43-01 -> CL-W44-08 (re-homed after the kill searches)
+- 2026-11-01 — C-W44-DEF-L5 parked: stage 9 definitive-comparison prospecting (W44 monthly run); lab position
+- 2026-11-01 — C-W44-DEF-L5 parked: claim CL-W43-01 concept-level kill search (killed): probe effect 'unchanged' — parked, lab; must cite SPOTA (quantity), 2605.15960 (definition) and SimuGuard (rerun protocol, collision confound) before any report
+- 2026-11-01 — C-W44-DEF-L5 parked: claim_id CL-W43-01 -> CL-W44-08 (re-homed after the kill searches)
+- 2026-11-02 — claim open: pressure #5 (2026-11-02): engine documentation states the trade in its own words — Q19 'Reducing these limits too much may prevent the constraint solver from converging and can lead to inaccurate or unstable simulation'; Q21 Newton 1.0 reports '252x for locomotion, and 475x for manipulation tasks' at 'MJWarp solver iterations = 20' with no accuracy number; density P5a = 0, P5b = 0; records Q19-Q2…
+- 2026-11-02 — claim open: claims (W44 weekly run, 2026-11-02): C-W44-14 (scout card 2610.40565), C-W44-OWN-4 (lab, MJWarp nightly) and C-W44-DEF-L5 (lab, five-engine envelope) attached; rank 1 kept — the lane is the program and the exploit clause now has its definitive lab-position spec, but its solo probe still lacks a scorecard (failing gate unchanged)
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-01`, version 6)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-01`, version 8)
 - probe `C-W43-15`: `data/candidates/2026-W43.jsonl`; kill record `data/reports/2026-W43-kill-C-W43-15.md`
 - probe `C-W43-17`: `data/candidates/2026-W43.jsonl`
 - probe `C-W43-14`: `data/candidates/2026-W43.jsonl`
 - probe `C-W43-16`: `data/candidates/2026-W43.jsonl`
 - `P-W43-01-2x2`: seed or import record (no candidate yet)
 - probe `C-W43-27`: `data/candidates/2026-W43.jsonl`
+- probe `C-W44-14`: `data/candidates/2026-W44.jsonl`
+- probe `C-W44-OWN-4`: `data/candidates/2026-W44.jsonl`
+- probe `C-W44-DEF-L5`: `data/candidates/2026-W44.jsonl`

@@ -1,6 +1,6 @@
 # Whether prefill-decode disaggregation pays for an agent workload is set by the measured temporal overlap of prefill with decode, not by turn count.
 
-`CL-W43-07` · lane **L3** · status **open** · rank 10 · position both · refreshed 2026-10-30
+`CL-W43-07` · lane **L3** · status **open** · rank 5 · position both · refreshed 2026-11-02
 
 ## Status
 
@@ -29,7 +29,7 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 
 | --- | --- | --- |
 | G0 | premise hygiene (conditioning set, whose temperature, fetched numbers) | untested |
 | G1 | cheap to kill (cheapest probe under one GPU-week, kill result pre-registered) | carried by the cheapest probe C-W43-05 (see Probes for its cost and verdict) |
-| G2 | pressure (stated strain, or ruler with pre-registered surprise) | pass: route A — Prorsa (paper: sign reversal math versus coding with the idle-ratio mechanism), PEARL (runtime selection by profiling), FluidPD and ConServe (serving-side observation rules); route B — the overlap statistic Omega with a pre-registered surprise (expected: Omega orders all four cells; field assumes workload type) |
+| G2 | pressure (stated strain, or ruler with pre-registered surprise) | pass: route A — Prorsa (paper: sign reversal math versus coding with the idle-ratio mechanism), PEARL (runtime selection by profiling), FluidPD and ConServe (serving-side observation rules); route B — the overlap statistic Omega with a pre-registered surprise (expected: Omega orders all four cells; field assumes workload type); 2026-11-02, pressure #9: the workload fact the claim needs is in print — Q05 TurnCost '98.6% of input tokens are served from a prefix cache [...] turn count explains 84% of the variance in log trajectory cost, compared with 4% for mean observation size'; Q07 vLLM Agent… |
 | G3 | consumers (three classes, the action each changes; community-wide for golden) | pass at one community: RL-infra teams, agentic-serving teams, rollout-engine maintainers |
 | G4 | mechanism and consequence | pass: mechanism — colocation hurts decode only during the fraction of decode time that overlaps a prefill; consequence — a threshold on Omega decides the topology before the second set of GPUs is bought |
 | G5 | durability; lab-adjacent | pass with a flag: the statistic is durable as a definition, its threshold is hardware- and engine-specific; lab-adjacent (systems labs publish measurements) |
@@ -72,8 +72,11 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - 2026-10-19 — claim open: seeded 2026-10-19 so the W43 probes hang under claims; grade and rewrite in the next /claims run
 - 2026-10-20 — claim open: headline split into one sentence per claim: the switching half moved to CL-W43-08; this record keeps the overlap statistic with C-W43-05
 - 2026-10-25 — claim open: claims (closing W43): re-ranked to 10 — no new probe this week
+- 2026-11-01 — claim open: ranked 5 after the W44 kill searches: unchanged; kill search owed (not reached in the W44 budget)
+- 2026-11-02 — claim open: pressure #9 (2026-11-02): Q05 'turn count explains 84% of the variance in log trajectory cost' and '98.6% of input tokens are served from a prefix cache' — the turn-count side of the headline's contrast is now measured on 600 trajectories; C-W44-08's prefill-share readout (under CL-W43-12) informs this claim and is not split; records Q05, Q07 routed here
+- 2026-11-02 — claim open: claims (W44 weekly run, 2026-11-02): no new probe; rank 10 -> 13 (four claims with new scorecarded probes enter above it)
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-07`, version 3)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-07`, version 5)
 - probe `C-W43-05`: `data/candidates/2026-W43.jsonl`

@@ -1,10 +1,10 @@
 # The falling hazard in agent time-horizon curves is between-task frailty, not within-task degradation: hold the task fixed and the per-minute hazard is flat.
 
-`CL-W43-04` · lane **L1** · status **open** · rank 9 · position solo · refreshed 2026-10-30
+`CL-W43-04` · lane **L1** · status **killed** · rank None · position solo · refreshed 2026-11-02
 
 ## Status
 
-Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 6 not yet established; Gate 1 blocked on paperwork (no scorecard on the probe). Grade on paper: open; headline rewritten to the sentence its probe tests. Next action: see First steps.
+Killed — see the kill section. Failing gate: Gate 6 not yet established; Gate 1 blocked on paperwork (no scorecard on X-2026-W42-S7F9); testbed frozen (METR stopped). Grade on paper: open; headline rewritten to the sentence its probe tests. Next action: see First steps.
 
 ## The claim
 
@@ -32,7 +32,7 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 
 | G2 | pressure (stated strain, or ruler with pre-registered surprise) | pass, route B: sigma^2 and k_cond are identifiable from METR's released per-run file (27,119 runs, 4-8 runs per task); pre-registered surprise — expected k_cond in [0.8, 1.2] and sigma^2 above 0.3 for most agents, field assumes the pooled shape is an agent property, the ruler changes nothing if k_cond reproduces the pooled 0.6 within tasks |
 | G3 | consumers (three classes, the action each changes; community-wide for golden) | pass, community-wide if true: horizon producers and auditors, forecasters of high-reliability tails, pass^k and retry-model reporters |
 | G4 | mechanism and consequence | pass: mechanism — a pooled hazard falls at the rate of the survivors' hazard variance (Vaupel, Manton, Stallard 1979), so unequal fixed task difficulty produces a falling curve from flat units; consequence — the 80% horizon is read as reach, not reliability, or the within-task shape is confirmed and horizon extrapolation keeps its form |
-| G5 | durability; lab-adjacent | pass as a ruler; flagged: METR's suite is retired (checklist 2026-10-10), so the ruler needs a second suite with repeated runs to stay live |
+| G5 | durability; lab-adjacent | pass as a ruler; flag strengthened 2026-11-02: METR's tracker has stopped (B16: 'This page is no longer actively updated. LAST UPDATED September 8, 2026 [...] Measurements above 16 hrs are unreliable with our current task suite'; last model 2026-04-07), so the probe's dataset is frozen and the within-task test needs a second pool with repeated runs — Terminal-Bench 4.0's per-task expert-time annotations (median 4 hours, 35 entries x 330 trials) are the only public one |
 | G6 | ownership, density, race window; position clause | open: kill search owed; Ord reports Hamilton found the frailty and Weibull fits similar on the pooled curve (seed record), which is the sentence to quote; density on Weibull and agents = 13 hits, frailty decomposition from repeated runs found in no fetched source |
 
 ## Probes under this claim
@@ -53,9 +53,7 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 ## First steps if pursued
 
-1. Wait for the automatic kill search on **X-2026-W42-S7F9** (Sunday run), or run `/kill X-2026-W42-S7F9` in a session.
-2. If it survives: `/redteam X-2026-W42-S7F9`, then the probe as pre-registered — —
-3. Write results into the records and this Log; status moves only on evidence.
+1. Read the kill section; the claim is closed unless a new probe or a new enabling piece re-opens it (write that in your section).
 
 ## Decisions for Jacob
 
@@ -75,8 +73,11 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - 2026-10-20 — claim open: headline rewritten: the 10-19 sentence (reliability unchanged across generations at fixed difficulty) was not what X-2026-W42-S7F9 tests; the probe tests frailty versus within-task hazard; import S7xF9 attached as the step-clock probe; scorecard owed on both seeds before any kill search
 - 2026-10-25 — claim open: claims (closing W43): re-ranked to 9 — no new probe, Gate 6 still not established; scorecards still owed on import probes
 - 2026-10-30 — claim open: nominated as a core-ML champion candidate (Jacob asked for a champion outside L5); kill search requested ahead of rank order; see PROGRAM-L1-evaluation-floors.md
+- 2026-11-01 — claim killed: concept-level kill search (data/reports/2026-W44-kill-CL-W43-04.md): killed — Gate 6 occupied: the between-task frailty decomposition on METR's repeated runs is in print (Moss 2026-02-13; Nguyen & Fithian 2610.12466, 2026-10-08) including the claim's if_true consequence (typical vs marginal 80% horizon); the within-task half has no clock on horizon data (Gate 0) and on a step clock equals the fie…
+- 2026-11-02 — claim open: pressure #2 (2026-11-02): the horizon tracker is dead — B16 'This page is no longer actively updated [...] Measurements above 16 hrs are unreliable with our current task suite', last entry release_date 2026-04-07; the frailty test moves to the Terminal-Bench 4.0 pool (expert-time annotations, 330 trials per entry); records R16 and R04 routed here
+- 2026-11-02 — claim open: claims (W44 weekly run, 2026-11-02): no new probe; scorecard on X-2026-W42-S7F9 still owed before the requested kill search can run; rank 9 -> 10 (two new L1 claims with scorecarded probes enter above it)
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-04`, version 4)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-04`, version 6)
 - `X-2026-W42-S7F9`: seed or import record (no candidate yet)

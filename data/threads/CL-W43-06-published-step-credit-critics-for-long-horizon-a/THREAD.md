@@ -1,6 +1,6 @@
 # Published step-credit critics for long-horizon agents do not beat their own shuffled control in the first two thirds of a trajectory.
 
-`CL-W43-06` · lane **L2** · status **parked** · rank 4 · position both · refreshed 2026-10-30
+`CL-W43-06` · lane **L2** · status **parked** · rank None · position both · refreshed 2026-11-02
 
 ## Status
 
@@ -33,7 +33,7 @@ Parked — re-open trigger: the forward (prefix-only) frontier re-grade on 2610.
 | G3 | consumers (three classes, the action each changes; community-wide for golden) | one community; the 'validation column' exists in LVRL App. F and 2610.21088 Table 8 |
 | G4 | mechanism and consequence | fails: the headline's null (shuffle) is the random-step row; the mechanism sentence (outcome-reading vs step-reading) needs the linear-decay / outcome-blind null, which the headline does not name |
 | G5 | durability; lab-adjacent | unchanged |
-| G6 | ownership, density, race window; position clause | kill-search miss: 2610.21088 (five days before the search) inside the audit register; ownership adds the Probe-and-Resume group (Columbia; forkable terminal environments); lane vocabulary must add test-time search, MCTS, critic access, intermediate states, continuation pass rate |
+| G6 | ownership, density, race window; position clause | kill-search miss: 2610.21088 (five days before the search) inside the audit register; ownership adds the Probe-and-Resume group (Columbia; forkable terminal environments); lane vocabulary must add test-time search, MCTS, critic access, intermediate states, continuation pass rate; 2026-11-02, pressure #12: Q14 Probe-and-Resume 'At intermediate states, critics rank continuations only modestly better than chance, and environment access improves this little' confirms the published early null the re-open trigger asks to be reversed; B22 a placebo-controlled cheap critic 'raised cost per attempt by… |
 
 ## Probes under this claim
 
@@ -41,6 +41,7 @@ Parked — re-open trigger: the forward (prefix-only) frontier re-grade on 2610.
 | --- | --- | --- | --- | --- |
 | C-W43-01 | Placebo and dollar-matched audit of LVRL's anchored frontier critic on released V-curves | Step 0: oracle-vs-random VC_2 gap on the released curves, $0, 1 day, dead if intervals overlap. Step 1: critic plus controls and the dollar-matched MC arm, about $550 API and 10 GPU-hours, 5 days; claim dead if the critic beats its shuffle… | killed | survived-kill ([record](../../../data/reports/2026-W43-kill-C-W43-01.md)) |
 | C-W43-03 | Dollar-matched cold-start BabyAI: LVRL's critic bill as GRPO rollouts | GRPO G = 8 floor reproduction plus GRPO G = 32 on LVRL's BabyAI config, about 400 GPU-hours (about $1k cloud), 7 days; void if the floor is not reproduced; claim dead if G = 32 stays at or below 20% ID at 150 updates. | parked | — |
+| C-W44-DEF-L2 | Credit at matched compute: the definitive comparison of step-credit and critic recipes for long-horizon agent RL agains… | The 300 GPU-hour ALFWorld pilot; dead if GiGPO beats group-32 and its shuffled control by more than 5 points with credit quality above 0.3 in the first two thirds. | parked | — |
 
 ## Kill search
 
@@ -91,9 +92,13 @@ Closest neighbors (one-sentence trick; one-line difference):
 - 2026-10-20 — C-W43-01 survived-kill: kill search (stage 4, automatic, claim-ranked): survived-kill — No fetched paper grades an anchored sibling-conditioned frontier value critic against executed prefix values with a wrong-outcome placebo and a dollar-matched MC arm; CWGT audits a different signal class on ALFWorld and the curve owners grade no estimator; occupied_by none; probe stays under one GPU-week after adding ~25 GPU-h of sib…
 - 2026-10-20 — C-W43-01 killed: red team (stage 5, automatic, three personas, 20 objections: 18 conceded, 0 answered, 2 open after two rounds): killed as designed — the claim's shuffle null is degenerate (for a localizer the marginal-matched shuffle of an anchored curve has the random-step row's expected VC_k; any monotone curve beats it on rank correlation), the placebo clause cannot fire on an all-failed set, the dollar-match…
 - 2026-10-20 — C-W43-03 parked: claims (stage 11): attached to CL-W43-06 — secondary probe, lab position only (parked solo): tests the dollar-matched consequence (what the critic buys is rollout budget)
+- 2026-11-01 — C-W44-DEF-L2 parked: stage 9 definitive-comparison prospecting (W44 monthly run); lab position
+- 2026-11-02 — claim parked: pressure #12 (2026-11-02): re-open evidence recorded, trigger not fired — Q14 'critics rank continuations only modestly better than chance' is the published null itself, not its reversal; B22 '+19% [cost] at an identical pass rate', Q13 '+5.9-9.5 percentage points [...] at 1.13-1.25 times baseline cost' with same-family weights; the weight-independence arm (W41 #5 arm b) stays unmeasured; records…
+- 2026-11-02 — claim parked: claims (W44 weekly run, 2026-11-02): C-W44-DEF-L2 (lab, definitive comparison) attached as the lab-position re-open route; status unchanged (parked; the forward re-grade or a named consumer is still the trigger); rank cleared (only open claims are ranked)
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-06`, version 3)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-06`, version 4)
 - probe `C-W43-01`: `data/candidates/2026-W43.jsonl`; kill record `data/reports/2026-W43-kill-C-W43-01.md`
 - probe `C-W43-03`: `data/candidates/2026-W43.jsonl`
+- probe `C-W44-DEF-L2`: `data/candidates/2026-W44.jsonl`

@@ -1,10 +1,10 @@
 # A non-rigid-body robotics test suite assembled by porting and collecting the incumbents' tasks, plus frontier-model-synthesised scenes, will become the suite people report when they train policies.
 
-`CL-W43-J06` · lane **L5** · status **thought** · rank — · position solo · refreshed 2026-10-30
+`CL-W43-J06` · lane **L5** · status **open** · rank 8 · position solo · refreshed 2026-11-02
 
 ## Status
 
-A thought from `/capture`: not yet graded against the gates; its kill search has not run. Failing gate: none recorded. Next action: see First steps.
+Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 2 (no stated pressure, no ruler); Gate 4; Gate 5. Grade on paper: open as graded on 2026-11-02 so that the verdict is on the record: fails Gate 2, 4 and 5 as a product; alive only as the scene set for the ruler (J04) and the acceleration oracle (J05); the kill search, not this stage, parks or kills it. Next action: see First steps.
 
 ## The claim
 
@@ -27,19 +27,20 @@ A thought from `/capture`: not yet graded against the gates; its kill search has
 
 | Gate | Test | Verdict |
 | --- | --- | --- |
-| G0 | premise hygiene (conditioning set, whose temperature, fetched numbers) | untested |
-| G1 | cheap to kill (cheapest probe under one GPU-week, kill result pre-registered) | carried by the cheapest probe P-W43-J06-a (see Probes for its cost and verdict) |
-| G2 | pressure (stated strain, or ruler with pre-registered surprise) | untested |
-| G3 | consumers (three classes, the action each changes; community-wide for golden) | untested |
-| G4 | mechanism and consequence | untested |
-| G5 | durability; lab-adjacent | untested |
-| G6 | ownership, density, race window; position clause | untested |
+| G0 | premise hygiene (conditioning set, whose temperature, fetched numbers) | pass: premise numbers fetched (2610.40565: 76% blind-comparison win rate for agent-written solvers; GAUGE 2608.05948 'no uniformly faithful physics engine'); the plain trick exists (port and collect the incumbents' tasks plus synthesised scenes into one suite) |
+| G1 | cheap to kill (cheapest probe under one GPU-week, kill result pre-registered) | pass on paper: P-W43-J06-a ($0, 2 d overlap table) and C-W44-16 (~10 GPU-h) are under one GPU-week with pre-registered kills |
+| G2 | pressure (stated strain, or ruler with pre-registered surprise) | fails both routes: no fetched source asks for another soft-body suite (the record's own target_value: 'nobody in print asks'); no ruler with a pre-registered surprise — the suite is infrastructure, and C-W44-16's surprise belongs to the fidelity question (J03/J04), not to adoption |
+| G3 | consumers (three classes, the action each changes; community-wide for golden) | one community at best (soft-body robot-RL authors); the must-change action is 'report on this suite', which RoboVerse, GAUGE, DaXBench and GarmentLab already compete for |
+| G4 | mechanism and consequence | fails: the headline states an outcome (adoption) without a mechanism; the only mechanism offered is convenience |
+| G5 | durability; lab-adjacent | fails: a static suite is consumed in months (standards.md Gate 5); scene synthesis lowers the barrier for every competitor |
+| G6 | ownership, density, race window; position clause | dense (fourteen incumbents listed in current_belief); why now: none specific |
 
 ## Probes under this claim
 
 | Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |
 | --- | --- | --- | --- | --- |
 | P-W43-J06-a | Overlap table: proposed suite tasks versus the incumbents' task lists; adoption evidence for existing aggregators (cita… | Dead as a contribution if over 70% of the proposed tasks exist in incumbents and no incumbent aggregator shows adoption growth; alive only as the scene set on which the ruler runs (ported by the agent transpiler, which is the systems contr… | thought | not run (no candidate record yet) |
+| C-W44-16 | Score the agent's cloth and tissue against measured reality: GAUGE's trajectory error on agent-written solvers | Three GAUGE families ported to the agent's cloth, tissue and rigid stacks after a 10% port validation on Newton; about 10 GPU-hours, about $50, 12 days of mostly porting; dead if the agent solver's error lies within the Isaac / Genesis / N… | proposed | — |
 
 ## Kill search
 
@@ -70,8 +71,12 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 ## Log
 
 - 2026-10-25 — claim thought: captured from the collaborators' proposal; density from the non-rigid session and this week's fetches
+- 2026-11-01 — claim open: ranked 8 after the W44 kill searches: Gate 2/4/5 open; one scorecarded probe (C-W44-16)
+- 2026-11-02 — claim open: pressure #5 (2026-11-02): the LIBERO forks (B24: five forks in ten days, 17-42 point drops) are the field's answer to 'another suite' — perturbation axes on an existing suite, not a new one; records R24, R25 routed here
+- 2026-11-02 — claim open: claims (W44 weekly run, 2026-11-02): C-W44-16 (scout card 2610.40565 x GAUGE) attached — it tests the synthesised-scenes premise, not adoption; graded against gates 0-6; status thought -> open so the grading is on the record (fails Gate 2, 4, 5 as a product); rank 16 (last); not killed or parked here — the kill search decides
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-J06`, version 1)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-J06`, version 3)
 - `P-W43-J06-a`: seed or import record (no candidate yet)
+- probe `C-W44-16`: `data/candidates/2026-W44.jsonl`

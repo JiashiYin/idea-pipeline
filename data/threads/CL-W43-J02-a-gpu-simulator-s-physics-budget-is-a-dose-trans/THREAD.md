@@ -1,6 +1,6 @@
 # A GPU simulator's physics budget is a dose: transferable policy return follows one dose-response curve in solver budget per task class, so fidelity can be scheduled during training like a learning rate instead of fixed by a config file.
 
-`CL-W43-J02` · lane **L5** · status **thought** · rank — · position solo · refreshed 2026-10-30
+`CL-W43-J02` · lane **L5** · status **thought** · rank — · position solo · refreshed 2026-11-02
 
 ## Status
 
@@ -71,9 +71,10 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 ## Log
 
 - 2026-10-21 — claim thought: captured in the 2026-10-21 discuss session: the systems half of L5 re-framed as the consequence of a dose-response measurement; probe rides on CL-W43-01's 2x2
+- 2026-11-02 — claim thought: pressure #5 (2026-11-02): the dose's shipped values are documented by the builders — Q21 Isaac Lab Franka cube 'MJWarp solver iterations = 20, line-search iterations = 100, njmax = 2000, nconmax = 1000' at '475x for manipulation tasks'; Q20 Isaac Lab 'Keeping this number low is important for performance'; C-W44-OWN-4 (under CL-W43-01) is the fidelity-dose cousin; records Q19-Q21 routed here; stil…
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-J02`, version 1)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-J02`, version 2)
 - `P-W43-01-2x2`: seed or import record (no candidate yet)
 - probe `C-W43-16`: `data/candidates/2026-W43.jsonl`

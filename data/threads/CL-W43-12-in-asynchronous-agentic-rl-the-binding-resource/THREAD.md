@@ -1,10 +1,10 @@
 # In asynchronous agentic RL the binding resource of a training iteration is KV-cache residency, not decode compute, and the waste terms systems papers list do not add.
 
-`CL-W43-12` · lane **L3** · status **open** · rank 5 · position both · refreshed 2026-10-30
+`CL-W43-12` · lane **L3** · status **killed** · rank None · position both · refreshed 2026-11-02
 
 ## Status
 
-Open claim. Every probe under it has been killed; the claim needs a new probe or dies. Failing gate: Gate 1 blocked on paperwork (the only live probe, import S6xF7, has no scorecard); Gate 6 open for the training half. Grade on paper: open, narrowed to the training half; scorecard for import S6xF7's pass A ($0) owed, then kill search. Next action: see First steps.
+Killed — see the kill section. Failing gate: Gate 6 open for the training half (kill search owed); Gate 1 now carried by C-W44-08. Grade on paper: open, narrowed to the training half; first scorecarded probe attached (C-W44-08); kill search owed. Next action: see First steps.
 
 ## The claim
 
@@ -15,12 +15,12 @@ Open claim. Every probe under it has been killed; the claim needs a new probe or
 
 ## Scorecard (from the cheapest probe's record, or the claim's skeleton for a thought)
 
-- **Target value:** In print: AKV (per its card) states KV-cache reads are 82.4% of API cost and that a text trim costs 1.85x, against the Complexity Trap's 'halves cost' and 2609.20804's efficiency ranking: a contradiction between three papers on one operation. Who pays: every harness team choosing a context-management default on a cache-priced API, every paper reporting an agent cost column, and the systems groups (AKV, TokenPilot, SmoothAgent) whose motivation this quantifies.
-- **Impact ceiling:** **floor**: The identity plus a table showing the reversal is confined to windows under ~50k tokens; a footnote the systems papers cite for their motivation; requires steps 1-3; probability 0.35 (judgment).; **middle**: Published masking savings flip sign at $r \le 0.25$ on SWE-bench lengths and boundary-batched masking recovers them; a re-pricing note adopted as the cost-reporting standard in L4 evaluations and a default change in two harnesses; requires steps 1-3; probability 0.45 (judgment).; **ceiling**: The break-even curve $s = r + \delta$ becomes the standard cost ruler across providers and policies, with a measured accuracy-versus-computed-prefill frontier replacing token-count frontiers in the lane; requires a second benchmark (BrowseComp-Plus) and accuracy arms (another ~60 GPU-hours); probability 0.2 (judgment).
-- **Relevance:** **routes**: L3 route (Lloyd / Netravali / Tri Dao: cost structure of agentic serving, prefix-cache reuse); L4 (every compaction evaluation's cost column); L1 (cost-per-task accounting on leaderboards).; **industry**: Direct: harness defaults, provider pricing pages, and the cost claims in agent-framework READMEs.; **jacobs_edge**: High for this lane: a conservation-style identity, GPU prefill arithmetic, and cache-hit measurement on a serving stack.; **zero_where**: L5 and L2; nothing about what trimming does to accuracy, which is deliberately held out of this probe.
-- **Kill probe:** Step 1 analytic re-pricing on released trajectories ($0, 2 days); step 2 replay of 50 SWE-bench trajectories x 5 policies on SGLang with prefix caching, 30 GPU-hours, ~$100, 4 days; kills if per-turn masking computes fewer prefill tokens than full history on most turns at $r \le 0.25$ and the published savings keep their sign; 7 days in all.
-- **Density and ownership:** From the cards: AKV 2610.28577 (server-side drop/reposition, the 1.85x motivation number, 82.4% KV-read share), TokenPilot 2606.17016 (batched eviction to keep prefixes stable: the text-level fix our fifth arm is), SmoothAgent 2607.00151 (precompute the trimmed prefix in the background), Context Language Models 2609.37725 (suffix-cache reuse after text edits), the Complexity Trap 2508.21433 (the 'halves cost' claim), 2609.20804 (176 settings, efficiency ranking), card 2610.26632 (the measured 2.9-4.0x reversal). The systems papers know the mechanism and build around it; none re-prices the measurement lane's published results or states the break-even identity. The kill search counts 12 months with the neighbours' words (prefix cache, cache hit, invalidation, re-prefill, context management, observation masking, cost) and reads how the Complexity Trap and 2609.20804 computed cost before an…
-- **Why now:** Card 2610.26632 (October 2026) and AKV (October 2026) each report the reversal independently in the same month against the Complexity Trap's August 2025 halving; provider cache pricing with large discounts is the enabling piece, and open servers with radix prefix caching (SGLang, per AKV's regime) make the computed-prefill count measurable without provider logs.
+- **Target value:** In print: card sec. 7 lists batching and cache pressure as untested and sec. 5 leaves $\rho$ unmeasured; 2610.22863 (abstract): 'About 80% of context tokens are served from the prefix cache' in production and LRU makes 63% of calls recompute at one tenth of peak demand; MISA-T (abstract): rollout sessions' 'KV-residency times create substantially different serving demands'; WAKMan (abstract): 'even a single workload parameter can flip the winner'. Who pays: RL infrastructure teams sizing rollout sessions per GPU (FlashNext-RL, MISA-T, prime-rl and verl users); harness teams choosing a context default for training rollouts versus API serving; the systems groups (CADOC, TokenPilot, AKV, SmoothAgent) whose 'protect the cache' motivation is regime-bound; anyone reporting an executed-prefill or dollar column for a context policy.
+- **Impact ceiling:** **floor**: A regime label on the card's and CADOC's results ('single-tenant') plus the measured cliff on one engine, one model and one budget; a footnote the context-cost papers cite. Requires step 0 and the sweep at one budget. Judgment p 0.40.; **middle**: The cliff law validated on two engines (vLLM, SGLang) and two budgets, the $N \bar s / B$ ruler applied to the published rollout configurations, and a recipe consequence (trim above the cliff, admit below it) adopted as a default in one open RL framework's rollout configuration. Requires step 1 plus a second engine (about 30 more GPU-hours). Judgment p 0.35.; **ceiling**: Every context-management evaluation reports executed prefill with its regime; rollout concurrency in agentic RL is sized by the residency cliff; the lane's cost accounting splits into a below-cliff (cache-priced) and an above-cliff (prefill-priced) regime with one crossover number per model and device. Requires a live RL run instrumented at the rollout engine (lab position) and a second workload…
+- **Relevance:** L3 route (Lloyd / Netravali / Tri Dao): direct, the cost structure of agentic serving and rollout engines under cache reuse. L2: moderate, the rollout cost of agentic RL (the claim's training half). L4: direct for the measurement register, every compaction cost column gets a regime label; zero for recipes. L1: small (cost-per-task reporting). Industry: direct (RL infra defaults, harness defaults for training versus serving). Jacob's edge: high in computer engineering (stack-distance cache analysis, GPU memory arithmetic, a one-line law with a sharp transition); theoretical physics not needed. Zero: L5.
+- **Kill probe:** Step 0 at $0 (2 days), then one replay sweep: about 50 GPU-hours on one H100 (about $150), 5 days; dead if the identity arm's hit fraction stays above 0.55 and $L_5$'s executed prefill stays above identity's at $N = 128$, $W = 20$ s, $B = B_{\mathrm{full}}/2$.
+- **Density and ownership:** Counted 2026-11-01 on the arXiv API: Q1 (prefix or KV cache AND agent AND concurrency / multi-tenant / cache pressure / eviction / residency AND context management / masking / truncation / pruning / hit rate): 15 all-time, 14 in the 12-month window; Q2 (prefix cache AND rollout AND RL AND agent): 2 all-time. On target and fetched: 2610.22863 (trace replay of LRU under budgets, production M365 traces, Llama-2-70B KV layout stand-in; no context-policy arm; residency as a fleet question), 2608.11152 MISA-T (residency-time-aware admission for mixed RL rollouts on Step3.7 and Qwen3.6-35B-A3B, +43.6-53.3% rollout throughput 'while maintaining high prefix-cache hit rates', i.e. it stays below the cliff by admission and never asks what a context policy does to the cliff), 2610.36355 WAKMan (eviction-policy choice by workload mix; agentic steps favor recency), 2606.01065 Leyline and 2605.27744 /…
+- **Why now:** Card 2026-10-26 (physical accounting, $\rho$ left at ceiling); 2610.22863 2026-10-16 (residency replay under budgets); MISA-T 2026-08-11 (residency-aware rollout admission); WAKMan 2026-10-26 (agentic recency); FlashNext-RL 2026-10-20 (a published rollout configuration to grade). The law is from 1970; the flag is recorded.
 - **Register, and what it is not:** —
 
 ## Gates (config/standards.md)
@@ -28,8 +28,8 @@ Open claim. Every probe under it has been killed; the claim needs a new probe or
 | Gate | Test | Verdict |
 | --- | --- | --- |
 | G0 | premise hygiene (conditioning set, whose temperature, fetched numbers) | untested |
-| G1 | cheap to kill (cheapest probe under one GPU-week, kill result pre-registered) | carried by the cheapest probe import:2026-W43-S6xF7 (see Probes for its cost and verdict) |
-| G2 | pressure (stated strain, or ruler with pre-registered surprise) | pass, route A: a systems paper's own non-additive waste list (2610.28998), a harness paper's own dollars-vs-tokens inversion (2610.26632), and the serving literature's cached-input price tiers (three independent source types); route B: the import supplies the ruler (demand per station, utilization law) |
+| G1 | cheap to kill (cheapest probe under one GPU-week, kill result pre-registered) | pass as of 2026-11-02: C-W44-08 is scorecarded, ~50 GPU-h, with a $0 step 0 that reads the cliff N* = B / s-bar from the recorded trajectories and from FlashNext-RL's and MISA-T's stated configurations; import S6xF7's pass A is still unscorecarded |
+| G2 | pressure (stated strain, or ruler with pre-registered surprise) | pass, route A: a systems paper's own non-additive waste list (2610.28998), a harness paper's own dollars-vs-tokens inversion (2610.26632), and the serving literature's cached-input price tiers (three independent source types); route B: the import supplies the ruler (demand per station, utilization law); 2026-11-02, pressure #9 and #10: Q04 'keeping only the last five observations (Mask-5) cuts Eager's prompt volume by 33.3% but loses 135.9k reusable tokens per task. Uncached prefill rises by 608.5%'; Q06 'identical token sequences can yield different cache states under different cache operati… |
 | G3 | consumers (three classes, the action each changes; community-wide for golden) | pass, community-wide if true: systems authors (demand table), context-management authors (dollar sign of savings), billing comparisons on leaderboards (cached-input column), RL infra teams (KV release during tool waits) |
 | G4 | mechanism and consequence | pass: mechanism — sessions holding KV while waiting on tools consume the binding resource; trimming forces re-prefill at the uncached price; consequence — park KV during tool waits, keep history until the break-even ratio |
 | G5 | durability; lab-adjacent | pass: operational laws hold for any stack; the specific break-even depends on provider prices, which change |
@@ -40,6 +40,7 @@ Open claim. Every probe under it has been killed; the claim needs a new probe or
 | Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |
 | --- | --- | --- | --- | --- |
 | C-W43-22 | Re-price context management under prefix-cache billing: when does trimming cost more than keeping everything | Step 1 analytic re-pricing on released trajectories ($0, 2 days); step 2 replay of 50 SWE-bench trajectories x 5 policies on SGLang with prefix caching, 30 GPU-hours, ~$100, 4 days; kills if per-turn masking computes fewer prefill tokens t… | killed | killed |
+| C-W44-08 | The residency cliff: the sign of context trimming's prefill cost flips with serving concurrency | Step 0 at $0 (2 days), then one replay sweep: about 50 GPU-hours on one H100 (about $150), 5 days; dead if the identity arm's hit fraction stays above 0.55 and $L_5$'s executed prefill stays above identity's at $N = 128$, $W = 20$ s, $B =… | proposed | — |
 
 Also under this claim (no scorecard yet): import:2026-W43-S6xF7 (pass A: $0, one day, operational analysis of FlashNext-RL's published numbers; pass B: instrumented 8-GPU stack with KV release during t…
 
@@ -65,13 +66,11 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 ## First steps if pursued
 
-1. Wait for the automatic kill search on **import:2026-W43-S6xF7** (Sunday run), or run `/kill import:2026-W43-S6xF7` in a session.
-2. If it survives: `/redteam import:2026-W43-S6xF7`, then the probe as pre-registered — —
-3. Write results into the records and this Log; status moves only on evidence.
+1. Read the kill section; the claim is closed unless a new probe or a new enabling piece re-opens it (write that in your section).
 
 ## Decisions for Jacob
 
-- None pending; the machine runs the next kill search on its own. Mark `jacob-dropped` here if the headline is not worth a week of yours.
+- (none pending)
 
 ## Jacob
 
@@ -86,8 +85,13 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - 2026-10-25 — claim open: written top-down by the closing-W43 claims run (L3's cost sentence; the field's own accounting quoted); import S6xF7 and C-W43-22 attached
 - 2026-10-25 — claim open: kill run (closing W43): C-W43-22 killed; headline narrowed to the training half (one claim per sentence); previous headline kept in previous_headline; rank 3 -> 5
 - 2026-10-25 — C-W43-22 killed: kill search (stage 4, automatic, claim-ranked): killed — CADOC (2609.37012) states the general trim-versus-keep break-even for an edit inside a cached prefix, measures the token-versus-dollar reversal on real agent histories, replays 50 SWE-bench Verified histories under ten commit policies at five cache-read weights and ships batched commit as the fix; TurnCost (2610.15093) released the re-scori…
+- 2026-11-01 — claim killed: concept-level kill search (data/reports/2026-W44-kill-CL-W43-12.md): killed — The headline's first clause (residency binds, not decode) is MISA-T 2608.11152 Table 1 and section 2.5 (dominant agentic cost 'residency'; hit rate 92.4% to 4.5% and throughput -52.5% at a permissive ceiling; iteration time -22.8% with decode throughput +38.0% under residency-aware admission) and KV4-RL 2610.14448 Fig.…
+- 2026-11-01 — C-W43-22 killed: claim CL-W43-12 concept-level kill search (killed): probe effect 'unchanged' — Killed 2026-10-25 (CADOC, TokenPilot, TurnCost); the serving half stays refuted.
+- 2026-11-02 — claim open: pressure #9/#10 (2026-11-02): Q04 'Uncached prefill rises by 608.5%' under per-turn masking; Q05 '98.6% of input tokens are served from a prefix cache'; L21/L24 length censoring of what reaches the gradient; records Q04, Q05, Q06, L21, L23, L24 routed here
+- 2026-11-02 — claim open: claims (W44 weekly run, 2026-11-02): C-W44-08 (card 2610.34763) attached and becomes the cheapest probe (scorecarded, ~50 GPU-h) — Gate 1 unblocked; the C-W43-22 kill record's 'stable prefix caching' assumption is what this probe varies, so it does not revive the killed probe; the prefill-share readout informs CL-W43-07 and is not split; rank 5 -> 9 (claims with broader consumers move above; the…
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-12`, version 2)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-12`, version 4)
 - probe `C-W43-22`: `data/candidates/2026-W43.jsonl`
+- probe `C-W44-08`: `data/candidates/2026-W44.jsonl`

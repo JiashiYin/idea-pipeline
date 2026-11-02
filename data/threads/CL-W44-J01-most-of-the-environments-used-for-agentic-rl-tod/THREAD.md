@@ -1,6 +1,6 @@
 # Most of the environments used for agentic RL today are luck-dominated at the group sizes people train with: at G = 8, more than half of the within-group reward variance in user-simulator and flaky-tool environments is environment randomness, not the agent's choices.
 
-`CL-W44-J01` · lane **L2** · status **thought** · rank — · position solo · refreshed 2026-10-30
+`CL-W44-J01` · lane **L2** · status **thought** · rank — · position solo · refreshed 2026-11-02
 
 ## Status
 
@@ -70,8 +70,9 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 ## Log
 
 - 2026-10-29 — claim thought: captured from the 2026-10-29 dependence discussion; recipe half found occupied (2609.24144, 2609.33543, 2610.31544); the cross-environment measurement kept as the thought
+- 2026-11-02 — claim thought: pressure #8 (2026-11-02): B23 StressSim 'tau-bench pass^4 scores decreasing by up to 69% on gemini-3.8-flash and 62% on gpt-5.6-sol [...] using an optimisation budget of 20 rollouts per task' — the adversarial-cooperative spread is the part of within-group reward variance that is the simulator's plan; L22 DeepSeek trains against 'mocked tools that reproduce the interfaces and behaviors of real-wo…
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W44-J01`, version 1)
+- claim record: `data/claims/claims.jsonl` (id `CL-W44-J01`, version 2)
 - `P-W44-J01-a`: seed or import record (no candidate yet)

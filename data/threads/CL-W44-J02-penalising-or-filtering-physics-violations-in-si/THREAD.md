@@ -1,6 +1,6 @@
 # Penalising or filtering physics violations in simulation teaches robot policies to exploit the simulator where the checks cannot see; routing those gradients into sacrificial parameters and ablating them before deployment transfers better than penalties or filtering - and the ablation drop is the policy's exploit share.
 
-`CL-W44-J02` · lane **L5** · status **thought** · rank — · position solo · refreshed 2026-10-30
+`CL-W44-J02` · lane **L5** · status **thought** · rank — · position solo · refreshed 2026-11-02
 
 ## Status
 
@@ -72,9 +72,10 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 - 2026-10-30 — claim thought: captured from Jacob's question about GRAFT 2610.17062; density checked (no robotics application); kill search owed
 - 2026-10-30 — claim thought: Jacob 2026-10-30: no real robot; prefer a code-as-policy frontier-model-based agent in simulation; asked whether a prior catalogue of hacks is needed. Variant b written: GRAFT's own LLM regime (RL or distillation into an open student) with the ruler as the imperfect monitor and a trusted-simulator ladder as the deployment test; no hack catalogue required
+- 2026-11-02 — claim thought: pressure #5 (2026-11-02): Q19 and Q21 document the caps and overflow regimes whose exploits the routed sacrificial branch is meant to absorb; C-W44-15 (under CL-W44-05) tests the 'checks cannot see' premise where the check is an LLM auditor and the search is a budgeted optimiser; records Q19-Q21 routed here; still a thought (no scorecarded candidate; kill search owed)
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W44-J02`, version 2)
+- claim record: `data/claims/claims.jsonl` (id `CL-W44-J02`, version 3)
 - `P-W44-J02-a`: seed or import record (no candidate yet)
 - `P-W44-J02-b`: seed or import record (no candidate yet)

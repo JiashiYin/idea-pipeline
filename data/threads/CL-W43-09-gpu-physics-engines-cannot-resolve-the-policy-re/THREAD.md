@@ -1,6 +1,6 @@
 # GPU physics engines cannot resolve the policy-return differences that robot-RL papers report as improvements: engine-only repeatability and batch-position variance exceed 30% of the policy-to-policy spread on contact-rich tasks.
 
-`CL-W43-09` · lane **L5** · status **open** · rank 12 · position both · refreshed 2026-10-30
+`CL-W43-09` · lane **L5** · status **open** · rank 7 · position both · refreshed 2026-11-02
 
 ## Status
 
@@ -29,7 +29,7 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 
 | --- | --- | --- |
 | G0 | premise hygiene (conditioning set, whose temperature, fetched numbers) | untested |
 | G1 | cheap to kill (cheapest probe under one GPU-week, kill result pre-registered) | carried by the cheapest probe P-W43-09-lit (see Probes for its cost and verdict) |
-| G2 | pressure (stated strain, or ruler with pre-registered surprise) | pass, route B: %GRR and ndc are identifiable with deterministic frozen policies (temperature 0 by construction, so the policy contributes no decision variance); pre-registered surprise — expected %GRR above 30% on contact-rich tasks at batch sizes >= 4096, field assumes seed variance is the algorithm's, the ruler is a service if %GRR is under 10% everywhere |
+| G2 | pressure (stated strain, or ruler with pre-registered surprise) | pass, route B: %GRR and ndc are identifiable with deterministic frozen policies (temperature 0 by construction, so the policy contributes no decision variance); pre-registered surprise — expected %GRR above 30% on contact-rich tasks at batch sizes >= 4096, field assumes seed variance is the algorithm's, the ruler is a service if %GRR is under 10% everywhere; 2026-11-02, pressure #5: the engine documentation itself names the non-determinism and overflow regimes (Q19 'If warnings are disabled and Data.overflow is not checked, overflows will lead to undefined behavior'); Q21 quotes speedups with… |
 | G3 | consumers (three classes, the action each changes; community-wide for golden) | pass, community-wide if true: robot-RL authors, engine builders, simulation leaderboard owners, reproducibility researchers |
 | G4 | mechanism and consequence | pass: mechanism — floating-point reduction order under GPU thread scheduling flips contact ordering and diverges on contact-rich states; consequence — a minimum reportable gap per task, or a certified deterministic mode |
 | G5 | durability; lab-adjacent | pass: a ruler on any engine; lab-adjacent to engine builders |
@@ -74,8 +74,11 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - 2026-10-20 — claim open: new claim from import:2026-W43-S4xF9 (gauge R&R); second L5 claim this week
 - 2026-10-21 — claim open: discuss session with Jacob (2026-10-21): this is the resolution-floor claim of the L5 program; literature table P-W43-09-lit written as the $0 first step (quantifier before headline, per CL-W43-02's refutation); noted as the twin of CL-W43-J01
 - 2026-10-25 — claim open: claims (closing W43): re-ranked to 12 — no new probe, Gate 6 still not established; scorecards still owed on import probes
+- 2026-11-01 — claim open: ranked 7 after the W44 kill searches: Gate 1 blocked on paperwork
+- 2026-11-02 — claim open: pressure #5 (2026-11-02): Q19 MJWarp docs on overflow as undefined behaviour and the all-worlds early exit; Q21 Newton '252x [...] 475x' with no accuracy number; records Q19-Q21 routed here as the premise in the builders' words
+- 2026-11-02 — claim open: claims (W44 weekly run, 2026-11-02): no new probe; P-W43-09-lit ($0, 2 d) still the first step and still unrun; rank 12 -> 15
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-09`, version 3)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-09`, version 5)
 - `P-W43-09-lit`: seed or import record (no candidate yet)

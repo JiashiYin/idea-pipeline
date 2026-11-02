@@ -1,6 +1,6 @@
 # Among the numbers one can compute about a simulator without a robot, the fidelity scores engines report predict policy transfer worst, and the worst-case physical violation a budgeted optimiser can extract predicts it best.
 
-`CL-W43-J03` · lane **L5** · status **thought** · rank — · position solo · refreshed 2026-10-30
+`CL-W43-J03` · lane **L5** · status **thought** · rank — · position solo · refreshed 2026-11-02
 
 ## Status
 
@@ -72,8 +72,9 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - 2026-10-23 — claim thought: captured in the 2026-10-23 session on the meta-benchmark; consequence claim of the ruler; kill search owed
 - 2026-10-24 — claim thought: Jacob's critiques answered (program note addendum): incumbents inspected, functionals are self-consistency against the declared model, adversary = calibrated optimiser portfolio on an auxiliary MDP, both capacity and realised exploitation reported
 - 2026-10-24 — claim thought: kill search (concept-level, data/reports/2026-W43-kill-CL-W43-J03-J04.md): survived-kill, weak; redesigned as a horse race of trace-free predictors incl. RoboGauge-style sim-to-sim robustness and GAUGE fidelity; headline reworded; exploitability defined against game theory, MBRL model exploitation, 2605.15960, 2605.29032; still a thought until a probe runs
+- 2026-11-02 — claim thought: pressure #5 (2026-11-02): B25 SPECOLA 'success rate reports only whether a rollout completed the task, hiding by what margin it succeeded [...] requirements it may have violated' and UED quadrupeds 'the leader on in-distribution random levels is not the leader on held-out terrain' — two more trace-free predictors for the horse race; scout 2610.31670 (Sensorimotor Alignment S^2, 'a training-free o…
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-J03`, version 3)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-J03`, version 4)
 - `P-W43-J03-a`: seed or import record (no candidate yet)
