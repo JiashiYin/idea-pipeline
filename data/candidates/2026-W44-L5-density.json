@@ -1,0 +1,1422 @@
+{
+ "solver_iterations_timestep_rl": {
+  "n_in_window": 7,
+  "n_returned": 17,
+  "rows": [
+   [
+    "2026-10-29",
+    "2610.40902v1",
+    "FlapSim: A Composable MuJoCo Simulation Platform and Reduced-Order Aerodynamic Model Hierarchy for Flapping-Wing Robotics"
+   ],
+   [
+    "2026-09-12",
+    "2609.14087v2",
+    "Gradient-Free Neural Hamilton-Jacobi Reachability for Scalable Safety-Critical Control"
+   ],
+   [
+    "2026-09-09",
+    "2609.10286v2",
+    "GM-Loco: Terrain-Adaptive Humanoid Locomotion on Granular Media"
+   ],
+   [
+    "2026-06-18",
+    "2606.20426v1",
+    "TaCauchy: An Extensible FEM Framework for Vision-Based Tactile Simulation"
+   ],
+   [
+    "2026-05-29",
+    "2605.31120v2",
+    "SWIM: Compact Environment Representation for Reinforcement Learning Human Swimming"
+   ],
+   [
+    "2026-05-05",
+    "2605.04185v1",
+    "Constraint-Enhanced Reinforcement Learning Based on Dynamic Decoupled Spherical Radial Squashing"
+   ],
+   [
+    "2026-03-17",
+    "2603.16536v2",
+    "Kamino: GPU-based Simulation of Rigid Multi-Body Physics with Kinematic Loops"
+   ]
+  ]
+ },
+ "sim_fidelity_rl_robot": {
+  "n_in_window": 163,
+  "n_returned": 250,
+  "rows": [
+   [
+    "2026-10-29",
+    "2610.40902v1",
+    "FlapSim: A Composable MuJoCo Simulation Platform and Reduced-Order Aerodynamic Model Hierarchy for Flapping-Wing Robotics"
+   ],
+   [
+    "2026-10-29",
+    "2610.39582v1",
+    "Kinematic-Tactile Aligned Dexterous Retargeting with Contact Wrench Space Alignment"
+   ],
+   [
+    "2026-10-22",
+    "2610.31299v1",
+    "PiHand: Latent Hand-Object Interaction Priors for Physics-Based Policy Learning"
+   ],
+   [
+    "2026-10-21",
+    "2610.30540v2",
+    "Motion Retargeting with Spatiotemporal Preferences for Humanoid Loco-Manipulation"
+   ],
+   [
+    "2026-10-20",
+    "2610.28594v1",
+    "Learning the 4D World through Point Trajectory Forecasting"
+   ],
+   [
+    "2026-10-14",
+    "2610.19327v2",
+    "SonoWorld: Towards Interactive Pose-Controllable Ultrasound World Models"
+   ],
+   [
+    "2026-10-13",
+    "2610.19224v1",
+    "End-to-End Vision-Language-Action Policies for Autonomous Lunar Rover Docking"
+   ],
+   [
+    "2026-10-12",
+    "2610.17114v1",
+    "D-World: An Explicit World-Language-Action Model with Recursive Self-Improvement under Dual Control"
+   ],
+   [
+    "2026-10-11",
+    "2610.15294v1",
+    "ProWorld: Multi-View World Model with Proprioceptive Feedback for Closed-Loop Policy Evaluation"
+   ],
+   [
+    "2026-10-10",
+    "2610.14840v1",
+    "Push the Limit: Learning High-Speed Sprinting and Aggressive Cornering on a Full-Scale Humanoid"
+   ],
+   [
+    "2026-10-06",
+    "2610.08225v1",
+    "UWB Meets Crazyflow: Simulating Degraded Feedback at Scale for Aerial Robotics"
+   ],
+   [
+    "2026-10-05",
+    "2610.06400v1",
+    "Visual Swarm Navigation via Deep Reinforcement Learning and Evolutionary Hybrid Design"
+   ],
+   [
+    "2026-10-05",
+    "2610.06250v1",
+    "Generative World Models Enable Predictive Control of Laser Melt Pool Dynamics"
+   ],
+   [
+    "2026-10-01",
+    "2610.02505v1",
+    "Multi-Fidelity Policy Gradients Stabilize Data-Scarce Reinforcement Learning"
+   ],
+   [
+    "2026-09-30",
+    "2610.00731v2",
+    "Measuring Asset and Scene Reconstruction Effects in Real-to-Sim Robot Evaluation"
+   ],
+   [
+    "2026-09-30",
+    "2609.38966v1",
+    "Video2SwimFish: An Automated Pipeline for Reconstructing Controllable Fish Models and Biological Locomotion from Real Fish Videos"
+   ],
+   [
+    "2026-09-29",
+    "2609.37089v1",
+    "Real2Gym: Building Gyms from Videos, Bringing Skills to Robots"
+   ],
+   [
+    "2026-09-29",
+    "2609.37084v1",
+    "BCNav: Bearing-Conditioned Depth Policies for Sound Source Navigation"
+   ],
+   [
+    "2026-09-29",
+    "2609.36993v1",
+    "All You Need Is Low Fidelity: Zero-Shot Sim-to-Real of Learned Robotic Fish Control"
+   ],
+   [
+    "2026-09-27",
+    "2609.33872v1",
+    "Robot-GST: geometry-aware spatial-temporal robot policy representation and evaluation"
+   ],
+   [
+    "2026-09-25",
+    "2609.30951v1",
+    "Bundled Contact Gradients: Stabilizing Differentiable Simulation for Deployable Dynamic Tasks"
+   ],
+   [
+    "2026-09-22",
+    "2609.26420v1",
+    "Sample, Simulate, Select: Physics-in-the-Loop Text-to-Motion for Humanoids Without Training"
+   ],
+   [
+    "2026-09-22",
+    "2609.25653v1",
+    "PhyVisGen: Physically and Visually High-Fidelity Robotic Manipulation Data Generation"
+   ],
+   [
+    "2026-09-20",
+    "2609.23943v1",
+    "FinsSim: A Reality-Aligned Integrated Simulation Platform for Underwater Robot Learning"
+   ],
+   [
+    "2026-09-18",
+    "2609.21909v1",
+    "Beyond Kinematics: Benchmarking Simulation Fidelity for Muscle-Driven Imitation Learning"
+   ],
+   [
+    "2026-09-17",
+    "2609.21112v1",
+    "Demonstration Synthesis from a Single Scan via Gaussian Splatting for Visuomotor Policy Learning"
+   ],
+   [
+    "2026-09-17",
+    "2609.21045v2",
+    "DEXTERA: From a Single Image to Deployable Dexterous Manipulation via Real-to-Sim-to-Real"
+   ],
+   [
+    "2026-09-14",
+    "2609.15362v1",
+    "Understanding User Preferences of a Slope-Aware Variable-Admittance Filter for a Robot Guide Dog"
+   ],
+   [
+    "2026-09-13",
+    "2609.14567v1",
+    "Learning Multi-Agent Task Assignment and Navigation in the Factory: from Simulation to Real Robots"
+   ],
+   [
+    "2026-09-07",
+    "2609.07047v1",
+    "MEMOBench: A Process Level Memory Benchmark for Robotic Manipulation"
+   ],
+   [
+    "2026-09-05",
+    "2609.06046v1",
+    "FALCON-S: Fixed-wing ground-effect Aerodynamics Simulator and Flight Control Learning Suite"
+   ],
+   [
+    "2026-08-30",
+    "2608.29516v1",
+    "Task-Relevant Feature-Dynamics Fidelity Enables Zero-Shot Sim-to-Real Transfer for Robotic Ultrasound Scanning"
+   ],
+   [
+    "2026-08-27",
+    "2608.26578v1",
+    "TrapVLA: Trapping Vision-Language-Action Models in Configured Failure Modes"
+   ],
+   [
+    "2026-08-26",
+    "2608.26214v1",
+    "Surgical Video Generation From Diffusion to World Models: A Survey"
+   ],
+   [
+    "2026-08-21",
+    "2608.21358v1",
+    "Mining beyond Earth with Space Robots: Exploration, Sampling, and Extraction"
+   ],
+   [
+    "2026-08-19",
+    "2608.19375v1",
+    "Learning the Right Abstraction: Neural Reduced Dynamics for Complex Robot Control"
+   ],
+   [
+    "2026-08-16",
+    "2608.15897v3",
+    "Tactile Sim2Real without Tactile Simulation via Bottlenecked Latent Reconstruction"
+   ],
+   [
+    "2026-08-10",
+    "2609.26118v1",
+    "GDLAM: Group-Disentangled Latent Action Model for Highly Disentangled Embodied Pretraining"
+   ],
+   [
+    "2026-08-07",
+    "2608.07328v1",
+    "Learning Fault-Tolerant Locomotion with Adaptive Gait Timing"
+   ],
+   [
+    "2026-07-31",
+    "2607.29302v1",
+    "BWM: A Low-Cost High-Fidelity World Simulator for Robot Learning"
+   ],
+   [
+    "2026-07-28",
+    "2607.25895v1",
+    "HiFi-UMI: Learning Deployable Manipulation Policies from High-Fidelity UMI Data Alone"
+   ],
+   [
+    "2026-07-23",
+    "2607.21017v1",
+    "TableVerse: A Large-scale Tabletop Dataset with Real-world Grounded Layouts for Generalizable Manipulation"
+   ],
+   [
+    "2026-07-23",
+    "2607.21670v1",
+    "Ordered Action Tokens for Visuomotor Policy Learning"
+   ],
+   [
+    "2026-07-21",
+    "2607.19343v1",
+    "Masked Visual Actions for Unified World Modeling"
+   ],
+   [
+    "2026-07-10",
+    "2607.09519v1",
+    "DemoBridge: A Simulation-in-the-Loop Toolkit for Single-View Human Demonstration Retargeting"
+   ],
+   [
+    "2026-07-09",
+    "2610.00008v1",
+    "Bounded-Fidelity Sim-as-Demo-Stage: Mocap Handoff for Governance Benchmarks"
+   ],
+   [
+    "2026-07-08",
+    "2607.07196v1",
+    "Validate the Dream Before You Trust Its Verdict: Admissibility for World-Model Simulators"
+   ],
+   [
+    "2026-07-07",
+    "2607.06699v1",
+    "RoboSnap: One-Shot Real-to-Sim Scene Generation for Generalizable Robot Learning and Evaluation"
+   ],
+   [
+    "2026-07-02",
+    "2607.02205v2",
+    "Actuator Reality Shaping for Zero-Shot Sim-to-Real Robot Learning"
+   ],
+   [
+    "2026-06-30",
+    "2606.31912v2",
+    "Learning Locomotion on Discrete Terrain via Minimal Proximity Sensing"
+   ],
+   [
+    "2026-06-30",
+    "2607.00066v1",
+    "Learning Expert Strategy for Autonomous Robotic Endovascular Intervention via Decoupled Procedural Execution"
+   ],
+   [
+    "2026-06-30",
+    "2606.31260v1",
+    "Plan Right, Then Plan Tight: Symbolic RL for Efficient Embodied Reasoning"
+   ],
+   [
+    "2026-06-29",
+    "2606.30268v1",
+    "ConCent: Contact-Centric Real-to-Sim-to-Real Learning from One Demonstration"
+   ],
+   [
+    "2026-06-27",
+    "2606.28805v2",
+    "Physics Models for Sim-to-Real Transfer in Professional-Level Robot Table Tennis"
+   ],
+   [
+    "2026-06-23",
+    "2606.24742v1",
+    "World Value Models for Robotic Manipulation"
+   ],
+   [
+    "2026-06-23",
+    "2606.24552v2",
+    "Enabling Robust Cloth Manipulation via Inference-Time Simulator-in-the-Loop Refinement"
+   ],
+   [
+    "2026-06-22",
+    "2606.23153v1",
+    "Asymmetric physics enables efficient learning in quadrupedal robot swarms"
+   ],
+   [
+    "2026-06-20",
+    "2606.22116v1",
+    "DeformX: A Versatile Co-Simulation Framework for Deformable Linear Objects"
+   ],
+   [
+    "2026-06-18",
+    "2606.20426v1",
+    "TaCauchy: An Extensible FEM Framework for Vision-Based Tactile Simulation"
+   ],
+   [
+    "2026-06-16",
+    "2606.17520v1",
+    "GASE: Gaussian Splatting-Based Automated System for Reconstructing Embodied-Simulation Environments"
+   ],
+   [
+    "2026-06-13",
+    "2606.15032v2",
+    "How Should World Models Be Evaluated for Embodied Decision-Making? A Decision-Making-Centric Position"
+   ],
+   [
+    "2026-06-11",
+    "2606.13674v2",
+    "RepWAM: World Action Modeling with Representation Visual-Action Tokenizers"
+   ],
+   [
+    "2026-06-11",
+    "2606.13672v2",
+    "WEAVER, Better, Faster, Longer: An Effective World Model for Robotic Manipulation"
+   ],
+   [
+    "2026-06-10",
+    "2606.12604v1",
+    "EgoEngine: From Egocentric Human Videos to High-Fidelity Dexterous Robot Demonstrations"
+   ],
+   [
+    "2026-06-09",
+    "2606.10645v1",
+    "ManiSplat: Manipulation Trajectory Synthesis from Monocular Video via Decoupled 3D Gaussian Splatting"
+   ],
+   [
+    "2026-06-07",
+    "2606.08729v2",
+    "IR-SIM: A Lightweight Declarative Simulator for Navigation Learning and Benchmarking"
+   ],
+   [
+    "2026-06-07",
+    "2606.08564v1",
+    "Real-IKEA: Physical Fidelity is the Prerequisite for Robust Manipulation"
+   ],
+   [
+    "2026-06-07",
+    "2606.08513v1",
+    "Towards End to End Motion Planning and Execution for Autonomous Underwater Vehicles Using Reinforcement Learning"
+   ],
+   [
+    "2026-06-06",
+    "2606.08039v1",
+    "MuJoCo-Drones-Gym: A GPU-Accelerated Multi-Drone Simulator for Control and Reinforcement Learning"
+   ],
+   [
+    "2026-06-05",
+    "2606.06790v2",
+    "Learning All-Terrain Locomotion for a Planetary Rover with Actively Articulated Suspension"
+   ],
+   [
+    "2026-06-03",
+    "2606.04708v2",
+    "VISTA: Vision-Grounded and Physics-Validated Adaptation of UMI data for VLA Training"
+   ],
+   [
+    "2026-06-03",
+    "2606.04569v1",
+    "MineXplore: An Open-Source Reinforcement Learning Exploration Benchmark for GNSS-Denied Underground Environment"
+   ],
+   [
+    "2026-06-02",
+    "2606.03177v3",
+    "ConTrack: Constrained Hand Motion Tracking with Adaptive Trade-off Control"
+   ],
+   [
+    "2026-05-31",
+    "2606.01478v3",
+    "Crazyflow: An Accurate, GPU-Accelerated, Differentiable Drone Simulator in JAX"
+   ],
+   [
+    "2026-05-30",
+    "2606.00664v1",
+    "SKIP: Sparse Keyframe Interpolation Paradigm for Efficient Embodied World Models"
+   ],
+   [
+    "2026-05-27",
+    "2606.00113v1",
+    "World Models for Robotic Manipulation: A Survey"
+   ],
+   [
+    "2026-05-26",
+    "2605.27491v1",
+    "GE-Sim 2.0: A Roadmap Towards Comprehensive Closed-loop Video World Simulators for Robotic Manipulation"
+   ],
+   [
+    "2026-05-26",
+    "2605.26638v1",
+    "HyperSim: A Holistic Sim-To-Real Framework For Robust Robotic Manipulation"
+   ],
+   [
+    "2026-05-24",
+    "2605.25025v2",
+    "Micro-Swarm Locomotion Optimization in Dynamic Flow using Multi-Objective Multi-Agent Reinforcement Learning"
+   ],
+   [
+    "2026-05-24",
+    "2605.24985v1",
+    "Learning, locomotion, and navigation of soft synthetic snakes in three-dimensional, heterogeneous environments"
+   ],
+   [
+    "2026-05-22",
+    "2605.23386v1",
+    "Droneulator: A Portable UAV Simulator for Agricultural Workflows with RotorPy and Godot 4"
+   ],
+   [
+    "2026-05-19",
+    "2605.20373v1",
+    "SUGAR: A Scalable Human-Video-Driven Generalizable Humanoid Loco-Manipulation Learning Framework"
+   ],
+   [
+    "2026-05-15",
+    "2605.15650v1",
+    "MyoChallenge 2025: A New Benchmark for Human Athletic Intelligence"
+   ],
+   [
+    "2026-05-14",
+    "2605.14911v1",
+    "Chrono-Gymnasium: An Open-Source, Gymnasium-Compatible Distributed Simulation Framework"
+   ],
+   [
+    "2026-05-12",
+    "2605.12167v1",
+    "From Imagined Futures to Executable Actions: Mixture of Latent Actions for Robot Manipulation"
+   ],
+   [
+    "2026-05-12",
+    "2605.16395v2",
+    "OrbiSim: World Models as Differentiable Physics Engines for Embodied Intelligence"
+   ],
+   [
+    "2026-05-12",
+    "2605.12090v1",
+    "World Action Models: The Next Frontier in Embodied AI"
+   ],
+   [
+    "2026-05-12",
+    "2605.11762v1",
+    "NavOL: Navigation Policy with Online Imitation Learning"
+   ],
+   [
+    "2026-05-12",
+    "2605.11697v1",
+    "Rainbow Deep Q-Learning with Kinematics-Aware Design for Cooperative Delta and 3-RRS Parallel Robot Insertion"
+   ],
+   [
+    "2026-05-07",
+    "2605.06311v1",
+    "Toward Visually Realistic Simulation: A Benchmark for Evaluating Robot Manipulation in Simulation"
+   ],
+   [
+    "2026-05-05",
+    "2605.04185v1",
+    "Constraint-Enhanced Reinforcement Learning Based on Dynamic Decoupled Spherical Radial Squashing"
+   ],
+   [
+    "2026-04-28",
+    "2604.25459v2",
+    "GS-Playground: A High-Throughput Photorealistic Simulator for Vision-Informed Robot Learning"
+   ],
+   [
+    "2026-04-27",
+    "2604.24916v2",
+    "asRoBallet: Closing the Sim2Real Gap via Friction-Aware Reinforcement Learning for Underactuated Spherical Dynamics"
+   ],
+   [
+    "2026-04-27",
+    "2604.24086v1",
+    "AsyncShield: A Plug-and-Play Edge Adapter for Asynchronous Cloud-based VLA Navigation"
+   ],
+   [
+    "2026-04-22",
+    "2604.20295v1",
+    "ETac: A Lightweight and Efficient Tactile Simulation Framework for Learning Dexterous Manipulation"
+   ],
+   [
+    "2026-04-21",
+    "2604.19683v2",
+    "Mask World Model: Predicting What Matters for Robust Robot Policy Learning"
+   ],
+   [
+    "2026-04-17",
+    "2604.15805v1",
+    "From Seeing to Simulating: Generative High-Fidelity Simulation with Digital Cousins for Generalizable Robot Learning and Evaluation"
+   ],
+   [
+    "2026-04-11",
+    "2604.10351v2",
+    "Trajectory-based actuator identification via differentiable simulation"
+   ],
+   [
+    "2026-04-10",
+    "2604.09860v4",
+    "RoboLab: A High-Fidelity Simulation Benchmark for Analysis of Task Generalist Policies"
+   ],
+   [
+    "2026-04-09",
+    "2604.08544v2",
+    "SIM1: Physics-Aligned Simulator as Zero-Shot Data Scaler in Deformable Worlds"
+   ],
+   [
+    "2026-04-08",
+    "2604.07303v2",
+    "Robots that learn to evaluate models of collective behavior"
+   ],
+   [
+    "2026-04-03",
+    "2604.03023v1",
+    "Behavior-Constrained Reinforcement Learning with Receding-Horizon Credit Assignment for High-Performance Control"
+   ],
+   [
+    "2026-03-30",
+    "2603.28475v1",
+    "Tac2Real: Reliable and GPU Visuotactile Simulation for Online Reinforcement Learning and Zero-Shot Real-World Deployment"
+   ],
+   [
+    "2026-03-30",
+    "2603.28243v1",
+    "Cost-Matching Model Predictive Control for Efficient Reinforcement Learning in Humanoid Locomotion"
+   ],
+   [
+    "2026-03-30",
+    "2603.28032v2",
+    "CARLA-Air: Fly Drones Inside a CARLA World -- A Unified Infrastructure for Air-Ground Embodied Intelligence"
+   ],
+   [
+    "2026-03-26",
+    "2603.25725v1",
+    "SoftMimicGen: A Data Generation System for Scalable Robot Learning in Deformable Object Manipulation"
+   ],
+   [
+    "2026-03-26",
+    "2603.25685v2",
+    "Persistent Robot World Models: Stabilizing Multi-Step Rollouts via Reinforcement Learning"
+   ],
+   [
+    "2026-03-26",
+    "2603.25544v1",
+    "Towards Embodied AI with MuscleMimic: Unlocking full-body musculoskeletal motor learning at scale"
+   ],
+   [
+    "2026-03-20",
+    "2603.19794v1",
+    "Generalized Task-Driven Design of Soft Robots via Reduced-Order FEM-based Surrogate Modeling"
+   ],
+   [
+    "2026-03-19",
+    "2603.19063v2",
+    "Fire as a Service: Augmenting Robot Simulators with Thermally and Visually Accurate Fire Dynamics"
+   ],
+   [
+    "2026-03-19",
+    "2603.18811v1",
+    "V-Dreamer: Automating Robotic Simulation and Trajectory Synthesis via Video Generation Priors"
+   ],
+   [
+    "2026-03-17",
+    "2603.16536v2",
+    "Kamino: GPU-based Simulation of Rigid Multi-Body Physics with Kinematic Loops"
+   ],
+   [
+    "2026-03-16",
+    "2603.15612v1",
+    "HSImul3R: Physics-in-the-Loop Reconstruction of Simulation-Ready Human-Scene Interactions"
+   ],
+   [
+    "2026-03-16",
+    "2603.15186v1",
+    "NavGSim: High-Fidelity Gaussian Splatting Simulator for Large-Scale Navigation"
+   ],
+   [
+    "2026-03-14",
+    "2603.13833v2",
+    "ImagiNav: Scalable Embodied Navigation via Generative Visual Prediction and Inverse Dynamics"
+   ],
+   [
+    "2026-03-12",
+    "2603.12480v1",
+    "One-Step Flow Policy: Self-Distillation for Fast Visuomotor Policies"
+   ],
+   [
+    "2026-03-11",
+    "2603.10474v2",
+    "Muscle Synergy Priors Enhance Biomechanical Fidelity in Predictive Musculoskeletal Locomotion Simulation"
+   ],
+   [
+    "2026-03-09",
+    "2603.09030v3",
+    "PlayWorld: Learning Robot World Models from Autonomous Play"
+   ],
+   [
+    "2026-03-06",
+    "2603.06218v2",
+    "Few-Shot Neural Differentiable Simulator: Real-to-Sim Rigid-Contact Modeling"
+   ],
+   [
+    "2026-03-04",
+    "2603.04029v1",
+    "Self-adapting Robotic Agents through Online Continual Reinforcement Learning with World Model Feedback"
+   ],
+   [
+    "2026-03-04",
+    "2603.03953v2",
+    "RVN-Bench: A Benchmark for Reactive Visual Navigation"
+   ],
+   [
+    "2026-03-01",
+    "2603.01151v1",
+    "D-REX: Differentiable Real-to-Sim-to-Real Engine for Learning Dexterous Grasping"
+   ],
+   [
+    "2026-02-27",
+    "2602.23972v2",
+    "Learning Robust Control Policies for Inverted Pose on Miniature Blimp Robots"
+   ],
+   [
+    "2026-02-27",
+    "2602.23870v1",
+    "Hybrid Offline-Online Reinforcement Learning for Sensorless, High-Precision Force Regulation in Surgical Robotic Grasping"
+   ],
+   [
+    "2026-02-25",
+    "2602.21625v2",
+    "Tacmap: Bridging the Tactile Sim-to-Real Gap via Geometry-Consistent Penetration Depth Map"
+   ],
+   [
+    "2026-02-21",
+    "2602.18716v1",
+    "Temporal Action Representation Learning for Tactical Resource Control and Subsequent Maneuver Generation"
+   ],
+   [
+    "2026-02-15",
+    "2602.13977v2",
+    "WoVR: World Models as Reliable Simulators for Post-Training VLA Policies with RL"
+   ],
+   [
+    "2026-02-12",
+    "2602.12063v2",
+    "VLAW: Iterative Co-Improvement of Vision-Language-Action Policy and World Model"
+   ],
+   [
+    "2026-02-06",
+    "2602.06382v2",
+    "Now You See That: Learning End-to-End Humanoid Locomotion from Raw Pixels"
+   ],
+   [
+    "2026-02-05",
+    "2602.06219v3",
+    "Coupled Local and Global World Models for Efficient First Order RL"
+   ],
+   [
+    "2026-02-04",
+    "2602.04215v2",
+    "OAT: Ordered Action Tokenization"
+   ],
+   [
+    "2026-02-02",
+    "2602.02858v1",
+    "IMAGINE: Intelligent Multi-Agent Godot-based Indoor Networked Exploration"
+   ],
+   [
+    "2026-02-02",
+    "2602.02331v2",
+    "TTT-Parkour: Rapid Test-Time Training for Perceptive Robot Parkour"
+   ],
+   [
+    "2026-01-30",
+    "2602.00401v1",
+    "ZEST: Zero-shot Embodied Skill Transfer for Athletic Robot Control"
+   ],
+   [
+    "2026-01-29",
+    "2601.21570v2",
+    "From Digital to Physical: Digital Agents as Autonomous Coaches for Physical Intelligence"
+   ],
+   [
+    "2026-01-27",
+    "2601.19234v1",
+    "iFAN Ecosystem: A Unified AI, Digital Twin, Cyber-Physical Security, and Robotics Environment for Advanced Nuclear Simulation and Operations"
+   ],
+   [
+    "2026-01-26",
+    "2601.18923v3",
+    "DeFM: Learning Foundation Representations from Depth for Robotics"
+   ],
+   [
+    "2026-01-19",
+    "2601.12796v1",
+    "Contact-Aware Neural Dynamics"
+   ],
+   [
+    "2026-01-18",
+    "2601.12428v1",
+    "ReWorld: Multi-Dimensional Reward Modeling for Embodied World Models"
+   ],
+   [
+    "2026-01-12",
+    "2601.07823v2",
+    "Robotic Video World Models: A Survey of Applications, Research Challenges, Future Directions"
+   ],
+   [
+    "2026-01-05",
+    "2601.02078v4",
+    "Genie Sim 3.0 : A High-Fidelity Comprehensive Simulation Platform for Humanoid Robot"
+   ],
+   [
+    "2025-12-31",
+    "2512.24653v3",
+    "RoboMIND 2.0: A Multimodal, Bimanual Mobile Manipulation Dataset for Generalizable Embodied Intelligence"
+   ],
+   [
+    "2025-12-20",
+    "2512.18477v1",
+    "STORM: Search-Guided Generative World Models for Robotic Manipulation"
+   ],
+   [
+    "2025-12-19",
+    "2512.18081v2",
+    "Towards Autonomous Navigation in Endovascular Interventions"
+   ],
+   [
+    "2025-12-19",
+    "2512.17349v1",
+    "Flying in Clutter on Monocular RGB by Learning in 3D Radiance Fields with Domain Adaptation"
+   ],
+   [
+    "2025-12-18",
+    "2512.16881v2",
+    "PolaRiS: Scalable Real-to-Sim Evaluations for Generalist Robot Policies"
+   ],
+   [
+    "2025-12-16",
+    "2512.14217v1",
+    "DRAW2ACT: Turning Depth-Encoded Trajectories into Robotic Demonstration Videos"
+   ],
+   [
+    "2025-12-15",
+    "2512.12993v1",
+    "Learning Terrain Aware Bipedal Locomotion via Reduced Dimensional Perceptual Representations"
+   ],
+   [
+    "2025-12-12",
+    "2512.11797v2",
+    "AnchorDream: Repurposing Video Diffusion for Embodiment-Aware Robot Data Synthesis"
+   ],
+   [
+    "2025-12-11",
+    "2512.10675v2",
+    "Evaluating Gemini Robotics Policies in a Veo World Simulator"
+   ],
+   [
+    "2025-12-10",
+    "2512.09297v3",
+    "One-Shot Real-World Demonstration Synthesis for Scalable Bimanual Manipulation"
+   ],
+   [
+    "2025-12-08",
+    "2512.07359v1",
+    "Multi-Rigid-Body Approximation of Human Hands with Application to Digital Twin"
+   ],
+   [
+    "2025-12-08",
+    "2512.07114v1",
+    "Surrogate compliance modeling enables reinforcement learned locomotion gaits for soft robots"
+   ],
+   [
+    "2025-12-04",
+    "2512.04952v2",
+    "FASTer: Toward Efficient Autoregressive Vision Language Action Modeling via Neural Action Tokenization"
+   ],
+   [
+    "2025-12-01",
+    "2512.01204v4",
+    "TabletopGen: Tabletop Scene Generation and Interactive Simulation for Robotic Manipulation"
+   ],
+   [
+    "2025-11-28",
+    "2511.22963v3",
+    "Commanding Humanoid by Free-form Language: A Large Language Action Model with Unified Motion Vocabulary"
+   ],
+   [
+    "2025-11-18",
+    "2511.14625v1",
+    "Gallant: Voxel Grid-based Humanoid Locomotion and Local-navigation across 3D Constrained Terrains"
+   ],
+   [
+    "2025-11-12",
+    "2511.09737v1",
+    "Out-of-Distribution Generalization with a SPARC: Racing 100 Unseen Vehicles with a Single Policy"
+   ],
+   [
+    "2025-11-12",
+    "2511.09681v3",
+    "SEBA: Sample-Efficient Black-Box Attacks on Visual Reinforcement Learning"
+   ],
+   [
+    "2025-11-12",
+    "2511.09057v4",
+    "PAN: A World Model for General, Actionable, and Long-Horizon World Simulation"
+   ],
+   [
+    "2025-11-09",
+    "2511.06465v1",
+    "Sim-to-Real Transfer in Deep Reinforcement Learning for Bipedal Locomotion"
+   ],
+   [
+    "2025-11-06",
+    "2511.04831v1",
+    "Isaac Lab: A GPU-Accelerated Simulation Framework for Multi-Modal Robot Learning"
+   ],
+   [
+    "2025-11-06",
+    "2511.04665v2",
+    "Real-to-Sim Robot Policy Evaluation with Gaussian Splatting Simulation of Soft-Body Interactions"
+   ]
+  ]
+ },
+ "contact_softness_simtoreal": {
+  "n_in_window": 9,
+  "n_returned": 13,
+  "rows": [
+   [
+    "2026-10-20",
+    "2610.28470v1",
+    "Fast Motion Retargeting Pipeline for Scalable Humanoid Robot Learning"
+   ],
+   [
+    "2026-10-14",
+    "2610.19627v1",
+    "E2DRL: End-to-End Differentiable Reinforcement Learning for 3D Obstacle Avoidance in Quadruped Robots"
+   ],
+   [
+    "2026-09-01",
+    "2609.00771v1",
+    "Non-Prehensile Throwing: A Reinforcement Learning Perspective"
+   ],
+   [
+    "2026-04-27",
+    "2604.24916v2",
+    "asRoBallet: Closing the Sim2Real Gap via Friction-Aware Reinforcement Learning for Underactuated Spherical Dynamics"
+   ],
+   [
+    "2026-02-28",
+    "2603.00446v2",
+    "HydroShear: Hydroelastic Shear Simulation for Tactile Sim-to-Real Reinforcement Learning"
+   ],
+   [
+    "2026-02-25",
+    "2602.21625v2",
+    "Tacmap: Bridging the Tactile Sim-to-Real Gap via Geometry-Consistent Penetration Depth Map"
+   ],
+   [
+    "2026-02-21",
+    "2602.18707v2",
+    "CLASH: Collision Learning via Augmented Sim-to-real Hybridization to Bridge the Reality Gap"
+   ],
+   [
+    "2025-12-22",
+    "2512.18938v1",
+    "A Framework for Deploying Learning-based Quadruped Loco-Manipulation"
+   ],
+   [
+    "2025-11-09",
+    "2511.06465v1",
+    "Sim-to-Real Transfer in Deep Reinforcement Learning for Bipedal Locomotion"
+   ]
+  ]
+ },
+ "gpu_sim_benchmark": {
+  "n_in_window": 14,
+  "n_returned": 38,
+  "rows": [
+   [
+    "2026-10-06",
+    "2610.08225v1",
+    "UWB Meets Crazyflow: Simulating Degraded Feedback at Scale for Aerial Robotics"
+   ],
+   [
+    "2026-10-01",
+    "2610.02505v1",
+    "Multi-Fidelity Policy Gradients Stabilize Data-Scarce Reinforcement Learning"
+   ],
+   [
+    "2026-09-29",
+    "2609.36915v1",
+    "AeroManip-VLA: Scalable Vision-Language-Action Learning for Aerial Manipulation with RL-Generated Demonstrations"
+   ],
+   [
+    "2026-09-11",
+    "2609.12677v1",
+    "Size Doesn't Matter: Material-State Reinforcement Learning for Excavator Transferable Soil Manipulation"
+   ],
+   [
+    "2026-09-03",
+    "2609.13243v1",
+    "GzDRL: Reproducible and Scalable Deep Reinforcement Learning with Gazebo"
+   ],
+   [
+    "2026-08-25",
+    "2608.24479v1",
+    "WarpSAC: Towards the Pinnacle of Scalable Off-policy RL by Rethinking Exploration and Exploitation"
+   ],
+   [
+    "2026-06-30",
+    "2606.31260v1",
+    "Plan Right, Then Plan Tight: Symbolic RL for Efficient Embodied Reasoning"
+   ],
+   [
+    "2026-06-24",
+    "2606.26341v1",
+    "Scaling Nonlinear Optimization: Many Problems One GPU"
+   ],
+   [
+    "2026-06-18",
+    "2606.20426v1",
+    "TaCauchy: An Extensible FEM Framework for Vision-Based Tactile Simulation"
+   ],
+   [
+    "2026-06-18",
+    "2606.19729v3",
+    "VOiLA: Vectorized Online Planning with Learned Diffusion Models for POMDP Agents"
+   ],
+   [
+    "2026-06-14",
+    "2606.15846v2",
+    "FlashNav: Training Deployable Robot Navigation Policies in Seconds"
+   ],
+   [
+    "2026-05-29",
+    "2606.00252v1",
+    "HOIST: Humanoid Optimization with Imitation and Sample-efficient Tuning for Manipulating Suspended Loads"
+   ],
+   [
+    "2026-04-21",
+    "2604.19980v1",
+    "Efficient Reinforcement Learning using Linear Koopman Dynamics for Nonlinear Robotic Systems"
+   ],
+   [
+    "2026-03-17",
+    "2603.16536v2",
+    "Kamino: GPU-based Simulation of Rigid Multi-Body Physics with Kinematic Loops"
+   ]
+  ]
+ },
+ "multi_simulator_training": {
+  "n_in_window": 31,
+  "n_returned": 61,
+  "rows": [
+   [
+    "2026-10-29",
+    "2610.40799v1",
+    "CaPtain: A Pipeline for Post-Training Code-as-Policy Robot Agents"
+   ],
+   [
+    "2026-10-20",
+    "2610.28953v1",
+    "GGraph: A GPU-Accelerated Library for Graph-Based Robot Deployment and Learning"
+   ],
+   [
+    "2026-10-19",
+    "2610.25785v1",
+    "Long-Horizon Multi-Object Rearrangement via Distilled Tree Search over Continuous Actions"
+   ],
+   [
+    "2026-10-16",
+    "2610.22852v1",
+    "Sample-Efficient Reinforcement Learning for Policy Improvement via Flow-Reversed Action Anchors"
+   ],
+   [
+    "2026-10-15",
+    "2610.24008v1",
+    "Weakly Supervised Discovery of Motion Styles for Compositional Robot Control"
+   ],
+   [
+    "2026-10-05",
+    "2610.07527v2",
+    "Task-Space Imitation Guidance for Efficient Reinforcement Learning"
+   ],
+   [
+    "2026-10-01",
+    "2610.02505v1",
+    "Multi-Fidelity Policy Gradients Stabilize Data-Scarce Reinforcement Learning"
+   ],
+   [
+    "2026-09-28",
+    "2609.36171v1",
+    "SkillWeaver: Agentic Exploration over Neural Interaction Skills for Scalable Robot Data Generation"
+   ],
+   [
+    "2026-09-24",
+    "2609.29000v1",
+    "Learning from Mixed-Quality Deployment Experience for Robot Manipulation"
+   ],
+   [
+    "2026-09-16",
+    "2609.18651v1",
+    "FIERCE: From Generalist Robot Policies to Fast Specialists via Progress-Failure Feedback"
+   ],
+   [
+    "2026-09-15",
+    "2609.17745v1",
+    "REVERSAL-BENCH: A Reversibility Axis and Reset Oracle for Measuring the Reset-Free RL Cliff"
+   ],
+   [
+    "2026-09-12",
+    "2609.13761v1",
+    "Learning In-Hand Object Reaching to General 6D Poses"
+   ],
+   [
+    "2026-09-08",
+    "2609.08220v1",
+    "Bridging Language and Physics: Automated Design of Continuum Robots with Large Language Models"
+   ],
+   [
+    "2026-08-24",
+    "2608.23831v2",
+    "Learning to Act While Waiting: RL Finetuning of Generalist Robot Policies Under Inference Latency"
+   ],
+   [
+    "2026-08-24",
+    "2608.23452v1",
+    "Reward-Free Continual Adaptation for Resilient Space Robots"
+   ],
+   [
+    "2026-08-20",
+    "2608.20208v1",
+    "RoMAN-Flow: Taming Autoregressive Normalizing Flows for Offline Reinforcement Learning in Robotic Manipulation"
+   ],
+   [
+    "2026-08-15",
+    "2608.15139v1",
+    "StructRL: Structured Action-Space Exploration for Flow-Based VLAs"
+   ],
+   [
+    "2026-07-14",
+    "2607.12931v1",
+    "ExToken: Structured Exploration for Efficient Vision-Language-Action Reinforcement Fine-tuning"
+   ],
+   [
+    "2026-07-13",
+    "2607.11624v3",
+    "SKooP: Symmetric Koopman Predictions for Faster and More Generalizable Legged Robot Locomotion with Reinforcement Learning"
+   ],
+   [
+    "2026-07-08",
+    "2607.07459v3",
+    "EmbodiedGen V2: An Agentic, Simulation-Ready 3D World Engine for Embodied AI"
+   ],
+   [
+    "2026-06-30",
+    "2606.31132v1",
+    "ELASTIC: Efficiently Learning to Adaptively Scale Test-Time Compute for Generative Control Policies"
+   ],
+   [
+    "2026-06-12",
+    "2606.14375v1",
+    "Elastic Queries Reinforcement Learning: Self-Aware Policy Execution for VLA Models"
+   ],
+   [
+    "2026-05-29",
+    "2606.00313v1",
+    "DRL-Based Pose Control for Double-Ackermann Robots Under Actuation Uncertainties"
+   ],
+   [
+    "2026-04-30",
+    "2604.28192v3",
+    "LaST-R1: Reinforcing Robotic Manipulation via Adaptive Physical Latent Reasoning"
+   ],
+   [
+    "2026-03-30",
+    "2603.28730v2",
+    "SOLE-R1: Video-Language Reasoning as the Sole Reward for On-Robot Reinforcement Learning"
+   ],
+   [
+    "2026-03-23",
+    "2603.22263v1",
+    "DexDrummer: In-Hand, Contact-Rich, and Long-Horizon Dexterous Robot Drumming"
+   ],
+   [
+    "2026-03-21",
+    "2603.20607v1",
+    "Towards Practical World Model-based Reinforcement Learning for Vision-Language-Action Models"
+   ],
+   [
+    "2026-03-12",
+    "2603.11470v1",
+    "NFPO: Stabilized Policy Optimization of Normalizing Flow for Robotic Policy Learning"
+   ],
+   [
+    "2026-02-24",
+    "2602.20466v1",
+    "Grasp to Act: Dexterous Grasping for Tool Use in Dynamic Settings"
+   ],
+   [
+    "2026-02-06",
+    "2602.06508v2",
+    "World-VLA-Loop: Closed-Loop Learning of Video World Model and VLA Policy"
+   ],
+   [
+    "2025-11-20",
+    "2511.17653v1",
+    "MARL-CC: A Mathematical Framework forMulti-Agent Reinforcement Learning in ConnectedAutonomous Vehicles: Addressing Nonlinearity,Partial Observability, and Credit Assignment forOptimal Control"
+   ]
+  ]
+ },
+ "sim_exploit_artifacts": {
+  "n_in_window": 9,
+  "n_returned": 11,
+  "rows": [
+   [
+    "2026-10-02",
+    "2610.03196v1",
+    "Beyond Reward Hacking: Proxy Divergence Across Four Layers of a Staged Humanoid Learning Pipeline"
+   ],
+   [
+    "2026-09-25",
+    "2609.31855v1",
+    "PHIRL: Aligning Learned Rewards with Task Progress for Inverse Reinforcement Learning"
+   ],
+   [
+    "2026-09-22",
+    "2609.27068v1",
+    "HiRE: Hindsight Reward Editing for Policy Finetuning"
+   ],
+   [
+    "2026-09-14",
+    "2609.15399v1",
+    "Dynamics-Informed Reinforcement Learning for Agile and Energy-Efficient Locomotion of a Monopedal Hopping Quadcopter"
+   ],
+   [
+    "2026-08-18",
+    "2608.17423v1",
+    "Prism-GRPO: Faster VLA Policy Optimization via Splitting Same-outcome Groups"
+   ],
+   [
+    "2026-06-03",
+    "2606.05236v1",
+    "A New Quaternion-Joint Cable-Driven Redundant Manipulator Configuration and its Control Through FABRIK and Residual Reinforcement Learning"
+   ],
+   [
+    "2026-03-30",
+    "2603.28730v2",
+    "SOLE-R1: Video-Language Reasoning as the Sole Reward for On-Robot Reinforcement Learning"
+   ],
+   [
+    "2026-03-23",
+    "2603.22201v3",
+    "Make Tracking Easy: Neural Motion Retargeting for Humanoid Whole-body Control"
+   ],
+   [
+    "2026-02-07",
+    "2602.07326v1",
+    "Why Look at It at All?: Vision-Free Multifingered Blind Grasping Using Uniaxial Fingertip Force Sensing"
+   ]
+  ]
+ },
+ "engine_comparison": {
+  "n_in_window": 3,
+  "n_returned": 7,
+  "rows": [
+   [
+    "2026-07-17",
+    "2607.15935v1",
+    "Learning Reach-Avoid Task with Reinforcement Learning: Vectorized Simulation and Benchmark"
+   ],
+   [
+    "2025-12-22",
+    "2512.18938v1",
+    "A Framework for Deploying Learning-based Quadruped Loco-Manipulation"
+   ],
+   [
+    "2025-12-17",
+    "2512.15120v1",
+    "Automatic Reward Shaping from Multi-Objective Human Heuristics"
+   ]
+  ]
+ },
+ "sim2sim_cross_engine": {
+  "n_in_window": 27,
+  "n_returned": 53,
+  "rows": [
+   [
+    "2026-10-23",
+    "2610.32277v1",
+    "Delay Randomization Widens the Delay Margin of Learned Humanoid Motion Trackers"
+   ],
+   [
+    "2026-10-04",
+    "2610.05407v1",
+    "TUCO: Curating Simulation Demonstrations for Sim-to-Real Robot Policy Co-Training"
+   ],
+   [
+    "2026-10-03",
+    "2610.04231v1",
+    "Continual Humanoid Motion Learning"
+   ],
+   [
+    "2026-10-02",
+    "2610.02728v1",
+    "Around the World: Unified Learned Locomotion on a 270 g Continuous-Rotation Quadruped"
+   ],
+   [
+    "2026-09-30",
+    "2609.38982v1",
+    "SimEX: Simulation-Integrated Robotics AutoResearch"
+   ],
+   [
+    "2026-09-28",
+    "2609.36171v1",
+    "SkillWeaver: Agentic Exploration over Neural Interaction Skills for Scalable Robot Data Generation"
+   ],
+   [
+    "2026-09-21",
+    "2609.24054v1",
+    "AquaOrbit: Sim-to-Real Reinforcement Learning for Underwater Target Orbiting under Intermittent Visual Feedback"
+   ],
+   [
+    "2026-09-18",
+    "2609.21467v1",
+    "Learning Distance-Conditioned Object Transport for Humanoid Loco-Manipulation from a Single Motion Clip"
+   ],
+   [
+    "2026-08-19",
+    "2608.19425v1",
+    "SCAPE: Scenario-Conditioned Simulation-Augmented Policy Evaluation"
+   ],
+   [
+    "2026-08-18",
+    "2608.17320v1",
+    "Robust Brachiation on a Life-Sized Dual-Arm Robot Using Waypoint-Guided Reinforcement Learning"
+   ],
+   [
+    "2026-07-13",
+    "2607.12114v1",
+    "GaitSpan: Growing Humanoid Locomotion from Walking to Running"
+   ],
+   [
+    "2026-07-03",
+    "2607.03146v1",
+    "Exp2VLA: Enabling Vision-Language-Action for Drone Navigation from Expert Demonstrations"
+   ],
+   [
+    "2026-07-01",
+    "2607.01410v1",
+    "BIFROST: Bridging Invariant Feature Representation for Observation-space Sim2Real Transfer"
+   ],
+   [
+    "2026-06-20",
+    "2606.22062v2",
+    "How Should a Simulation-to-Reality Transfer Budget Be Spent?"
+   ],
+   [
+    "2026-06-17",
+    "2606.18625v1",
+    "SRL: Combining SLIP Model and Reinforcement Learning for Agile Robotic Jumping"
+   ],
+   [
+    "2026-06-02",
+    "2606.03297v1",
+    "SplitAdapter: Load-Aware Humanoid Loco-Manipulation via Factorized Adaptation"
+   ],
+   [
+    "2026-05-29",
+    "2606.00313v1",
+    "DRL-Based Pose Control for Double-Ackermann Robots Under Actuation Uncertainties"
+   ],
+   [
+    "2026-05-09",
+    "2605.08571v3",
+    "BEACON: Cross-Domain Co-Training of Generative Robot Policies via Best-Effort Adaptation"
+   ],
+   [
+    "2026-04-16",
+    "2604.15289v1",
+    "Abstract Sim2Real through Approximate Information States"
+   ],
+   [
+    "2026-04-15",
+    "2604.13645v1",
+    "A Mechanistic Analysis of Sim-and-Real Co-Training in Generative Robot Policies"
+   ],
+   [
+    "2026-04-13",
+    "2604.11090v1",
+    "Simulator Adaptation for Sim-to-Real Learning of Legged Locomotion via Proprioceptive Distribution Matching"
+   ],
+   [
+    "2026-03-11",
+    "2603.10878v1",
+    "RL-Augmented MPC for Non-Gaited Legged and Hybrid Locomotion"
+   ],
+   [
+    "2026-03-09",
+    "2603.08619v1",
+    "Embedding Classical Balance Control Principles in Reinforcement Learning for Humanoid Recovery"
+   ],
+   [
+    "2026-02-06",
+    "2602.06445v1",
+    "ECO: Energy-Constrained Optimization with Reinforcement Learning for Humanoid Walking"
+   ],
+   [
+    "2026-01-31",
+    "2602.00678v4",
+    "Toward Reliable Sim-to-Real Predictability for MoE-based Robust Quadrupedal Locomotion"
+   ],
+   [
+    "2025-12-22",
+    "2512.18938v1",
+    "A Framework for Deploying Learning-based Quadruped Loco-Manipulation"
+   ],
+   [
+    "2025-11-10",
+    "2511.06667v2",
+    "Rapidly Learning Soft Robot Control via Implicit Time-Stepping"
+   ]
+  ]
+ },
+ "substep_decimation_knobs": {
+  "n_in_window": 6,
+  "n_returned": 13,
+  "rows": [
+   [
+    "2026-10-29",
+    "2610.40902v1",
+    "FlapSim: A Composable MuJoCo Simulation Platform and Reduced-Order Aerodynamic Model Hierarchy for Flapping-Wing Robotics"
+   ],
+   [
+    "2026-10-21",
+    "2610.30540v2",
+    "Motion Retargeting with Spatiotemporal Preferences for Humanoid Loco-Manipulation"
+   ],
+   [
+    "2026-09-16",
+    "2609.18119v1",
+    "Fetch My Beer: Synthetic-to-real Hierarchical Policy for Smooth Pick-and-place"
+   ],
+   [
+    "2026-08-16",
+    "2608.15707v1",
+    "GAINS: Leveraging Inconsistent Human Intervention Signals in Reinforcement Learning"
+   ],
+   [
+    "2026-07-20",
+    "2607.17635v1",
+    "On Optimal Event-Triggered Distributed Control for Stochastic Multi-Agent Systems via Reinforcement Learning"
+   ],
+   [
+    "2025-11-15",
+    "2511.12390v1",
+    "Learning Adaptive Neural Teleoperation for Humanoid Robots: From Inverse Kinematics to End-to-End Control"
+   ]
+  ]
+ },
+ "contact_param_dr_physics": {
+  "n_in_window": 3,
+  "n_returned": 7,
+  "rows": [
+   [
+    "2026-08-23",
+    "2608.22629v1",
+    "Enhancing Sim2Real Transfer for Torque-Controlled Robots through Real2Sim Dynamics Estimation and Reinforcement Learning"
+   ],
+   [
+    "2026-06-09",
+    "2606.11396v1",
+    "PLUME: Probabilistic Latent Unified World Modeling and Parameter Estimation for Multi-Finger Manipulation"
+   ],
+   [
+    "2026-02-06",
+    "2602.06326v1",
+    "Online Adaptive Reinforcement Learning with Echo State Networks for Non-Stationary Dynamics"
+   ]
+  ]
+ }
+}

@@ -1,0 +1,2929 @@
+{
+ "step_credit_agent_rl": {
+  "n_in_window": 76,
+  "n_returned": 94,
+  "rows": [
+   [
+    "2026-10-26",
+    "2610.35801v1",
+    "FOCUS: Active Critic Learning for Long-Horizon Language Model Agents"
+   ],
+   [
+    "2026-10-26",
+    "2610.35497v1",
+    "When Fine-Grained Credit Assignment Helps and Hurts: Multimodal Agentic Reinforcement Learning through Video Editing"
+   ],
+   [
+    "2026-10-22",
+    "2610.30933v1",
+    "ReflectPO: Reflection-Guided Policy Optimization for Long-Horizon LLM Agents"
+   ],
+   [
+    "2026-10-21",
+    "2610.29427v1",
+    "One Act, Many Masks: Effect-Marginal Policy Optimization for Long-Horizon Agents"
+   ],
+   [
+    "2026-10-18",
+    "2610.25269v1",
+    "EG-GRPO: Evidence-Guided Step-level Credit Assignment for Deep Search Agents"
+   ],
+   [
+    "2026-10-16",
+    "2610.23181v1",
+    "Tree-Aware Posterior Distillation for Long-Horizon Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-10-13",
+    "2610.18807v1",
+    "SkillScaffold: Scaffolding Agentic Reinforcement Learning with Policy-Adaptive Skill Credit Assignment and Selective Injection"
+   ],
+   [
+    "2026-10-11",
+    "2610.15840v1",
+    "LLM Value Functions for Credit Assignment in Agentic RL"
+   ],
+   [
+    "2026-10-09",
+    "2610.23950v1",
+    "Compaction-Aware Reinforcement Learning For Ascend Triton Kernel Generation"
+   ],
+   [
+    "2026-10-07",
+    "2610.10179v1",
+    "Beyond Outcome Rewards: Constructing and Assigning Retrieval Credit for Search Agents"
+   ],
+   [
+    "2026-10-05",
+    "2610.06830v1",
+    "MemPilot: Orchestrating On-Demand Multimodal Memory Curation for LLM Agents"
+   ],
+   [
+    "2026-10-01",
+    "2610.01161v1",
+    "My FAULT: Self-Diagnosis as Credit Assignment in Self-Evolving Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-09-30",
+    "2610.00838v2",
+    "SHARPO: Segment-Level Credit Assignment for Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-09-27",
+    "2609.33243v2",
+    "CodeSkill: Latent Skill Abstraction for Long-Horizon Code Agents"
+   ],
+   [
+    "2026-09-24",
+    "2609.29444v1",
+    "IterSynth: Rethinking Deep Search Agents via Role-Decoupled Iterative Synthesis"
+   ],
+   [
+    "2026-09-24",
+    "2609.28963v1",
+    "Back to the Definition: Estimating Step-Level Advantages via Trajectory Graphs for Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-09-23",
+    "2609.28554v1",
+    "Pistis Technical Report"
+   ],
+   [
+    "2026-09-20",
+    "2609.23808v1",
+    "FLARE: A Full-Lifecycle Dense Supervision Paradigm for Long-Horizon Coding Agents via Generative Reward Model"
+   ],
+   [
+    "2026-09-11",
+    "2609.12424v2",
+    "Granularity-Adaptive Credit Assignment for Long-Horizon LLM Agent Reinforcement Learning"
+   ],
+   [
+    "2026-09-06",
+    "2609.22258v1",
+    "RS-Claw-Evolution: Environment-Feedback-Driven Evolution for Lightweight Remote Sensing Agents in Long-Horizon Tasks"
+   ],
+   [
+    "2026-09-02",
+    "2609.02236v1",
+    "PGPO: Potential-Guided Policy Optimization for Multi-Turn Agentic Tasks"
+   ],
+   [
+    "2026-09-02",
+    "2609.02042v1",
+    "Act More, Decide Less: Skill-Guided Adaptive Action Chunking for Long-Horizon LLM Agents"
+   ],
+   [
+    "2026-08-28",
+    "2608.28128v2",
+    "VICT: Verifier-Instrumented Credit Tracing for Long-Horizon LLM Agent Reinforcement Learning"
+   ],
+   [
+    "2026-08-25",
+    "2608.24588v2",
+    "IAPO: Influence-Aware Policy Optimization for Credit Assignment in Multi-Turn Service Agents"
+   ],
+   [
+    "2026-08-25",
+    "2608.24300v1",
+    "Contrastive Branch Policy Optimization"
+   ],
+   [
+    "2026-08-22",
+    "2608.21863v2",
+    "HiDiffTIR: Hierarchical Difficulty-Aware Policy Optimization for Multi-Turn Tool-Integrated Reasoning"
+   ],
+   [
+    "2026-08-19",
+    "2608.18682v3",
+    "RTPO: Reverse-Turn Policy Optimization for Stabilizing Agentic RL Training"
+   ],
+   [
+    "2026-08-18",
+    "2608.17310v2",
+    "Agentic ESOpt: Fine-Tuning Long-Horizon LLM Agents with Minimal GPU Requirements"
+   ],
+   [
+    "2026-08-17",
+    "2608.16156v2",
+    "TRCA: Transition-wise Rubric Credit Assignment for Long-horizon LLM Agents"
+   ],
+   [
+    "2026-08-04",
+    "2608.04007v1",
+    "TurnSight: Turn-Level Hindsight Self-Distillation for Tool-Integrated Reasoning"
+   ],
+   [
+    "2026-08-04",
+    "2608.03137v1",
+    "Verifiable Memory: Learning Unified Memory Management with Local and Global Verifiers for Large Language Model Agents"
+   ],
+   [
+    "2026-08-03",
+    "2608.01667v1",
+    "TCPO: Turn-Level Credit Policy Optimization"
+   ],
+   [
+    "2026-06-22",
+    "2606.22995v2",
+    "Group-Graph Policy Optimization for Long-Horizon Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-06-10",
+    "2606.12634v3",
+    "Keep Policy Gradient in Charge: Sibling-Guided Credit Distillation for Long-Horizon Tool-Use Agents"
+   ],
+   [
+    "2026-06-10",
+    "2606.12384v2",
+    "APPO: Agentic Procedural Policy Optimization"
+   ],
+   [
+    "2026-06-09",
+    "2606.10507v1",
+    "HIPIF: Hierarchical Planning and Information Folding for Long-Horizon LLM Agent Learning"
+   ],
+   [
+    "2026-06-08",
+    "2606.09961v1",
+    "3SPO: State-Score-Supervised Policy Optimization for LLM Agents"
+   ],
+   [
+    "2026-06-05",
+    "2606.07367v1",
+    "Self-evolving LLM agents with in-distribution Optimization"
+   ],
+   [
+    "2026-05-30",
+    "2606.00593v3",
+    "SPADER: Step-wise Peer Advantage with Diversity-Aware Exploration Rewards for Multi-Answer Question Answering"
+   ],
+   [
+    "2026-05-28",
+    "2605.30002v2",
+    "KairosAgent: Agentic Time Series Forecasting with Fused Semantic Reasoning"
+   ],
+   [
+    "2026-05-25",
+    "2605.25389v1",
+    "Evo-Attacker: Memory-Augmented Reinforcement Learning for Long-Horizon Tool Attacks on LLM-MAS"
+   ],
+   [
+    "2026-05-20",
+    "2605.21768v1",
+    "Memory-R2: Fair Credit Assignment for Long-Horizon Memory-Augmented LLM Agents"
+   ],
+   [
+    "2026-05-19",
+    "2605.20061v1",
+    "Rewarding Beliefs, Not Actions: Consistency-Guided Credit Assignment for Long-Horizon Agents"
+   ],
+   [
+    "2026-05-19",
+    "2605.19447v1",
+    "What and When to Distill: Selective Hindsight Distillation for Multi-Turn Agents"
+   ],
+   [
+    "2026-05-14",
+    "2605.14558v1",
+    "Resolving Action Bottleneck: Agentic Reinforcement Learning Informed by Token-Level Energy"
+   ],
+   [
+    "2026-05-13",
+    "2605.13217v1",
+    "GAGPO: Generalized Advantage Grouped Policy Optimization"
+   ],
+   [
+    "2026-05-12",
+    "2605.12289v1",
+    "PriorZero: Bridging Language Priors and World Models for Decision Making"
+   ],
+   [
+    "2026-05-12",
+    "2605.11853v2",
+    "GEAR: Granularity-Adaptive Advantage Reweighting for LLM Agents via Self-Distillation"
+   ],
+   [
+    "2026-05-11",
+    "2605.10325v3",
+    "Verifiable Process Rewards for Agentic Reasoning"
+   ],
+   [
+    "2026-05-10",
+    "2605.09359v1",
+    "Skill-R1: Agent Skill Evolution via Reinforcement Learning"
+   ],
+   [
+    "2026-05-10",
+    "2605.09287v3",
+    "PiCA: Pivot-Based Credit Assignment for Search Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-05-07",
+    "2605.06642v2",
+    "StraTA: Incentivizing Agentic Reinforcement Learning with Strategic Trajectory Abstraction"
+   ],
+   [
+    "2026-05-07",
+    "2605.06200v1",
+    "A$^2$TGPO: Agentic Turn-Group Policy Optimization with Adaptive Turn-level Clipping"
+   ],
+   [
+    "2026-05-01",
+    "2605.00425v4",
+    "AEM: Adaptive Entropy Modulation for Multi-Turn Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-04-21",
+    "2604.19859v1",
+    "DR-Venus: Towards Frontier Edge-Scale Deep Research Agents with Only 10K Open Data"
+   ],
+   [
+    "2026-04-21",
+    "2604.18982v1",
+    "SAVOIR: Learning Social Savoir-Faire via Shapley-based Reward Attribution"
+   ],
+   [
+    "2026-04-20",
+    "2604.18401v5",
+    "CAPO: Critic-Guided Action-Aligned Policy Optimization for Advancing LLM Agent Capabilities"
+   ],
+   [
+    "2026-04-11",
+    "2604.10029v2",
+    "Self-Distilled Reinforcement Learning for Co-Evolving Agentic Recommender Systems"
+   ],
+   [
+    "2026-04-10",
+    "2604.09508v3",
+    "VISOR: Agentic Visual Retrieval-Augmented Generation via Iterative Search and Over-horizon Reasoning"
+   ],
+   [
+    "2026-04-03",
+    "2604.02869v1",
+    "Multi-Turn Reinforcement Learning for Tool-Calling Agents with Iterative Reward Calibration"
+   ],
+   [
+    "2026-03-19",
+    "2603.18683v1",
+    "HISR: Hindsight Information Modulated Segmental Process Rewards For Multi-turn Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-03-18",
+    "2603.18079v1",
+    "SLEA-RL: Step-Level Experience Augmented Reinforcement Learning for Multi-Turn Agentic Training"
+   ],
+   [
+    "2026-03-13",
+    "2603.12631v2",
+    "Joint Optimization of Multi-agent Memory System"
+   ],
+   [
+    "2026-02-24",
+    "2602.21158v2",
+    "SELAUR: Self Evolving LLM Agent via Uncertainty-aware Rewards"
+   ],
+   [
+    "2026-02-18",
+    "2602.16165v2",
+    "HiPER: Hierarchical Reinforcement Learning with Explicit Credit Assignment for Large Language Model Agents"
+   ],
+   [
+    "2026-02-14",
+    "2602.13559v2",
+    "OpAgent: Operator Agent for Web Navigation"
+   ],
+   [
+    "2026-02-12",
+    "2602.12342v1",
+    "Intrinsic Credit Assignment for Long Horizon Interaction"
+   ],
+   [
+    "2026-02-10",
+    "2602.09598v1",
+    "Learning from the Irrecoverable: Error-Localized Policy Optimization for Tool-Integrated LLM Reasoning"
+   ],
+   [
+    "2026-02-10",
+    "2603.02216v1",
+    "ATPO: Adaptive Tree Policy Optimization for Multi-Turn Medical Dialogue"
+   ],
+   [
+    "2026-02-08",
+    "2602.07883v4",
+    "ToolSelf: Unifying Task Execution and Self-Reconfiguration via Tool-Driven Emergent Adaptation"
+   ],
+   [
+    "2026-01-14",
+    "2601.09667v2",
+    "Collaborative Multi-Agent Test-Time Reinforcement Learning for Reasoning"
+   ],
+   [
+    "2026-01-13",
+    "2601.08435v1",
+    "Fine-Mem: Fine-Grained Feedback Alignment for Long-Horizon Memory Management"
+   ],
+   [
+    "2026-01-08",
+    "2601.04767v1",
+    "AT$^2$PO: Agentic Turn-based Policy Optimization via Tree Search"
+   ],
+   [
+    "2026-01-07",
+    "2601.03555v3",
+    "SCRIBE: Structured Mid-Level Supervision for Tool-Using Language Models"
+   ],
+   [
+    "2025-12-15",
+    "2512.13043v2",
+    "GTR-Turbo: Merged Checkpoint is Secretly a Free Teacher for Agentic VLM Training"
+   ],
+   [
+    "2025-11-18",
+    "2511.14460v2",
+    "Agent-R1: A Unified and Modular Framework for Agentic Reinforcement Learning"
+   ]
+  ]
+ },
+ "turn_step_level_advantage": {
+  "n_in_window": 92,
+  "n_returned": 116,
+  "rows": [
+   [
+    "2026-10-29",
+    "2610.39264v1",
+    "Online Dense Reinforcement Learning with Planning-Grounding Agent for UI Navigation on Live IOS Apps"
+   ],
+   [
+    "2026-10-26",
+    "2610.35801v1",
+    "FOCUS: Active Critic Learning for Long-Horizon Language Model Agents"
+   ],
+   [
+    "2026-10-21",
+    "2610.29427v1",
+    "One Act, Many Masks: Effect-Marginal Policy Optimization for Long-Horizon Agents"
+   ],
+   [
+    "2026-10-18",
+    "2610.25269v1",
+    "EG-GRPO: Evidence-Guided Step-level Credit Assignment for Deep Search Agents"
+   ],
+   [
+    "2026-10-16",
+    "2610.23181v1",
+    "Tree-Aware Posterior Distillation for Long-Horizon Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-10-14",
+    "2610.19695v1",
+    "C3: Rethinking Process Supervision via Confidence-Guided Credit Correction in Multi-Turn Reinforcement Learning"
+   ],
+   [
+    "2026-10-13",
+    "2610.19103v1",
+    "Contextual Credit Policy Optimization"
+   ],
+   [
+    "2026-10-13",
+    "2610.18614v1",
+    "Can an Agent Learn to Predict Its Own Failure? Outcome-Grounded Confidence Calibration in LLM Agents"
+   ],
+   [
+    "2026-10-11",
+    "2610.15840v1",
+    "LLM Value Functions for Credit Assignment in Agentic RL"
+   ],
+   [
+    "2026-10-11",
+    "2610.15368v1",
+    "ANTE: Anticipate, Then Execute -- Learning Internal World Models for Coding Agents from Verified Beliefs"
+   ],
+   [
+    "2026-10-09",
+    "2610.23950v1",
+    "Compaction-Aware Reinforcement Learning For Ascend Triton Kernel Generation"
+   ],
+   [
+    "2026-10-06",
+    "2610.08959v2",
+    "GraphOPD: Graph-Augmented On-Policy Distillation for LLM Agents"
+   ],
+   [
+    "2026-10-05",
+    "2610.06829v1",
+    "CLIFT: Conformal Self-Verification for Web Agent Training and Test-Time Scaling"
+   ],
+   [
+    "2026-10-01",
+    "2610.01207v1",
+    "Dependency-Aware Reward Shaping for Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-10-01",
+    "2610.01161v1",
+    "My FAULT: Self-Diagnosis as Credit Assignment in Self-Evolving Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-09-30",
+    "2610.00388v1",
+    "T2SPO: Trajectory-to-Step Policy Optimization for Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-09-29",
+    "2609.36641v1",
+    "Inducing Process Supervision from Outcome-Only Reinforcement Learning"
+   ],
+   [
+    "2026-09-28",
+    "2609.35084v1",
+    "GraphHCA: Closed-Form Hindsight Credit Assignment for Long-Horizon LLM Agents"
+   ],
+   [
+    "2026-09-28",
+    "2609.35082v1",
+    "Cross-Rollout Bellman Closure for Long-Horizon Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-09-24",
+    "2609.29444v1",
+    "IterSynth: Rethinking Deep Search Agents via Role-Decoupled Iterative Synthesis"
+   ],
+   [
+    "2026-09-24",
+    "2609.28963v1",
+    "Back to the Definition: Estimating Step-Level Advantages via Trajectory Graphs for Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-09-22",
+    "2609.27035v2",
+    "Reinforcement Learning with Decomposed Subtasks"
+   ],
+   [
+    "2026-09-20",
+    "2609.23808v1",
+    "FLARE: A Full-Lifecycle Dense Supervision Paradigm for Long-Horizon Coding Agents via Generative Reward Model"
+   ],
+   [
+    "2026-09-19",
+    "2609.22746v1",
+    "ProcessLight: Process Supervision for Large Language Model Based Traffic Signal Control"
+   ],
+   [
+    "2026-09-18",
+    "2609.21378v1",
+    "ArenaFlow: From Trajectory Ranking to Hierarchical Credit Propagation for Open-Ended Agent RL"
+   ],
+   [
+    "2026-09-14",
+    "2609.15606v1",
+    "VideoScout: Learning Agentic Active Exploration with Adaptive Reasoning Pacing for Long Video Understanding"
+   ],
+   [
+    "2026-09-11",
+    "2609.12424v2",
+    "Granularity-Adaptive Credit Assignment for Long-Horizon LLM Agent Reinforcement Learning"
+   ],
+   [
+    "2026-09-09",
+    "2609.09783v2",
+    "BRACE: Anchored Bellman-Residual Correction for Stale Critics in Asynchronous RL"
+   ],
+   [
+    "2026-09-06",
+    "2609.22258v1",
+    "RS-Claw-Evolution: Environment-Feedback-Driven Evolution for Lightweight Remote Sensing Agents in Long-Horizon Tasks"
+   ],
+   [
+    "2026-09-02",
+    "2609.02236v1",
+    "PGPO: Potential-Guided Policy Optimization for Multi-Turn Agentic Tasks"
+   ],
+   [
+    "2026-08-25",
+    "2608.24588v2",
+    "IAPO: Influence-Aware Policy Optimization for Credit Assignment in Multi-Turn Service Agents"
+   ],
+   [
+    "2026-08-22",
+    "2608.21863v2",
+    "HiDiffTIR: Hierarchical Difficulty-Aware Policy Optimization for Multi-Turn Tool-Integrated Reasoning"
+   ],
+   [
+    "2026-08-21",
+    "2608.20707v1",
+    "Towards Faithful Simulation of Human Shopping Behavior"
+   ],
+   [
+    "2026-08-20",
+    "2608.19842v4",
+    "SAPO: Single-Rollout Autoregressive Policy Optimization for Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-08-19",
+    "2608.18682v3",
+    "RTPO: Reverse-Turn Policy Optimization for Stabilizing Agentic RL Training"
+   ],
+   [
+    "2026-08-17",
+    "2608.16156v2",
+    "TRCA: Transition-wise Rubric Credit Assignment for Long-horizon LLM Agents"
+   ],
+   [
+    "2026-08-14",
+    "2608.14109v1",
+    "A Graph-Based Reinforcement Learning Framework for Structured Drift Diagnosis and Recovery in Autonomous LLM Agents"
+   ],
+   [
+    "2026-08-06",
+    "2608.06128v3",
+    "Contextual Information Policy Optimization for Search Agents"
+   ],
+   [
+    "2026-08-04",
+    "2608.04007v1",
+    "TurnSight: Turn-Level Hindsight Self-Distillation for Tool-Integrated Reasoning"
+   ],
+   [
+    "2026-08-03",
+    "2608.01837v1",
+    "PCSD: Persistent Consistency for Self-Distillation in Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-08-03",
+    "2608.01667v1",
+    "TCPO: Turn-Level Credit Policy Optimization"
+   ],
+   [
+    "2026-07-30",
+    "2607.28076v2",
+    "Group-Reflective Self-Distillation for Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-07-15",
+    "2607.14171v1",
+    "Branching Policy Optimization: Sandbox-Native Language Agent Reinforcement Learning"
+   ],
+   [
+    "2026-07-12",
+    "2607.10601v1",
+    "Agentic-DPO: From Imitation to Agentic Policy Optimization on Expert Trajectories"
+   ],
+   [
+    "2026-07-06",
+    "2607.04963v1",
+    "STAPO: Selective Trajectory-Aware Policy Optimization for LLM Agent Training"
+   ],
+   [
+    "2026-07-05",
+    "2607.04242v1",
+    "Progress- and Reliability-Oriented Group Policy Optimization for Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-07-01",
+    "2607.01440v1",
+    "FaithMed: Training LLMs For Faithful Evidence-Based Medical Reasoning"
+   ],
+   [
+    "2026-06-26",
+    "2606.27814v6",
+    "ATOD: Annealed Turn-Aware On-Policy Distillation for Multi-Turn Agentic Tasks"
+   ],
+   [
+    "2026-06-24",
+    "2606.26080v1",
+    "Neglected Free Lunch from Post-training: Progress Advantage for LLM Agents"
+   ],
+   [
+    "2026-06-24",
+    "2606.25852v1",
+    "Semantic Consistency Policy Optimization for Reinforcement Learning of LLM Agents"
+   ],
+   [
+    "2026-06-22",
+    "2606.22995v2",
+    "Group-Graph Policy Optimization for Long-Horizon Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-06-19",
+    "2606.21262v2",
+    "ARCO: Adaptive Rubrics with Co-Evolution for Multi-Step LLM-Based Agents"
+   ],
+   [
+    "2026-06-16",
+    "2606.17871v1",
+    "StepGuard: Guarding Web Navigation via Single-Step Calibration"
+   ],
+   [
+    "2026-06-09",
+    "2606.11119v2",
+    "TRACE: A Unified Rollout Budget Allocation Framework for Efficient Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-06-04",
+    "2606.05885v1",
+    "When Denser Credit Is Not Enough: Evidence-Calibrated Policy Optimization for Long-Horizon LLM Agent Training"
+   ],
+   [
+    "2026-05-30",
+    "2606.00593v3",
+    "SPADER: Step-wise Peer Advantage with Diversity-Aware Exploration Rewards for Multi-Answer Question Answering"
+   ],
+   [
+    "2026-05-28",
+    "2605.30002v2",
+    "KairosAgent: Agentic Time Series Forecasting with Fused Semantic Reasoning"
+   ],
+   [
+    "2026-05-27",
+    "2605.28699v1",
+    "TRACER: Turn-level Regret Matching with Inner Reinforcement Credit for Cooperative Multi-LLM Reasoning"
+   ],
+   [
+    "2026-05-27",
+    "2605.28168v1",
+    "OccuReward: LLM-Guided Occupant-Centric Reward Shaping for Demographic Equity in Grid-Interactive Buildings"
+   ],
+   [
+    "2026-05-26",
+    "2605.26684v2",
+    "Beyond Trajectory-Level Attribution: Graph-Based Credit Assignment for Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-05-21",
+    "2605.22177v1",
+    "Maestro: Reinforcement Learning to Orchestrate Hierarchical Model-Skill Ensembles"
+   ],
+   [
+    "2026-05-19",
+    "2605.19447v1",
+    "What and When to Distill: Selective Hindsight Distillation for Multi-Turn Agents"
+   ],
+   [
+    "2026-05-18",
+    "2605.17873v3",
+    "HINT-SD: Targeted Hindsight Self-Distillation for Long-Horizon Agents"
+   ],
+   [
+    "2026-05-12",
+    "2605.11853v2",
+    "GEAR: Granularity-Adaptive Advantage Reweighting for LLM Agents via Self-Distillation"
+   ],
+   [
+    "2026-05-10",
+    "2605.09287v3",
+    "PiCA: Pivot-Based Credit Assignment for Search Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-05-09",
+    "2605.08715v2",
+    "AgentForesight: Online Auditing for Early Failure Prediction in Multi-Agent Systems"
+   ],
+   [
+    "2026-05-08",
+    "2605.07725v3",
+    "SOD: Step-wise On-policy Distillation for Small Language Model Agents"
+   ],
+   [
+    "2026-05-07",
+    "2605.06200v1",
+    "A$^2$TGPO: Agentic Turn-Group Policy Optimization with Adaptive Turn-level Clipping"
+   ],
+   [
+    "2026-04-27",
+    "2604.24320v1",
+    "DPEPO: Diverse Parallel Exploration Policy Optimization for LLM-based Agents"
+   ],
+   [
+    "2026-04-27",
+    "2604.24198v2",
+    "Rewarding the Scientific Process: Process-Level Reward Modeling for Agentic Data Analysis"
+   ],
+   [
+    "2026-04-24",
+    "2604.22558v1",
+    "SOLAR-RL: Semi-Online Long-horizon Assignment Reinforcement Learning"
+   ],
+   [
+    "2026-04-21",
+    "2604.19859v1",
+    "DR-Venus: Towards Frontier Edge-Scale Deep Research Agents with Only 10K Open Data"
+   ],
+   [
+    "2026-04-13",
+    "2606.00017v1",
+    "MindGames Arena Generalization Track: In2AI Solution with Delayed Per-Step Reward Attribution"
+   ],
+   [
+    "2026-04-12",
+    "2604.10493v1",
+    "SWE-Shepherd: Advancing PRMs for Reinforcing Code Agents"
+   ],
+   [
+    "2026-04-08",
+    "2604.07165v2",
+    "Reason in Chains, Learn in Trees: Self-Rectification and Grafting for Multi-turn Agent Policy Optimization"
+   ],
+   [
+    "2026-04-03",
+    "2604.02869v1",
+    "Multi-Turn Reinforcement Learning for Tool-Calling Agents with Iterative Reward Calibration"
+   ],
+   [
+    "2026-03-18",
+    "2603.18079v1",
+    "SLEA-RL: Step-Level Experience Augmented Reinforcement Learning for Multi-Turn Agentic Training"
+   ],
+   [
+    "2026-03-03",
+    "2603.03078v1",
+    "RAPO: Expanding Exploration for LLM Agents via Retrieval-Augmented Policy Optimization"
+   ],
+   [
+    "2026-03-02",
+    "2603.02119v1",
+    "Pencil Puzzle Bench: A Benchmark for Multi-Step Verifiable Reasoning"
+   ],
+   [
+    "2026-02-24",
+    "2602.21158v2",
+    "SELAUR: Self Evolving LLM Agent via Uncertainty-aware Rewards"
+   ],
+   [
+    "2026-02-13",
+    "2602.13367v1",
+    "Nanbeige4.1-3B: A Small General Model that Reasons, Aligns, and Acts"
+   ],
+   [
+    "2026-02-12",
+    "2602.11767v4",
+    "TSR: Trajectory-Search Rollouts for Multi-Turn RL of LLM Agents"
+   ],
+   [
+    "2026-02-10",
+    "2602.09598v1",
+    "Learning from the Irrecoverable: Error-Localized Policy Optimization for Tool-Integrated LLM Reasoning"
+   ],
+   [
+    "2026-01-29",
+    "2601.21699v5",
+    "Can David Beat Goliath? On Multi-Hop Reasoning with Resource-Constrained Agents"
+   ],
+   [
+    "2026-01-14",
+    "2601.09667v2",
+    "Collaborative Multi-Agent Test-Time Reinforcement Learning for Reasoning"
+   ],
+   [
+    "2026-01-13",
+    "2601.08435v1",
+    "Fine-Mem: Fine-Grained Feedback Alignment for Long-Horizon Memory Management"
+   ],
+   [
+    "2026-01-11",
+    "2601.06877v1",
+    "Personality-Aware Reinforcement Learning for Persuasive Dialogue with LLM-Driven Simulation"
+   ],
+   [
+    "2026-01-08",
+    "2601.04767v1",
+    "AT$^2$PO: Agentic Turn-based Policy Optimization via Tree Search"
+   ],
+   [
+    "2025-12-18",
+    "2512.17008v2",
+    "Turn-PPO: Turn-Level Advantage Estimation with PPO for Improved Multi-Turn RL in Agentic LLMs"
+   ],
+   [
+    "2025-12-15",
+    "2512.13043v2",
+    "GTR-Turbo: Merged Checkpoint is Secretly a Free Teacher for Agentic VLM Training"
+   ],
+   [
+    "2025-11-18",
+    "2511.14460v2",
+    "Agent-R1: A Unified and Modular Framework for Agentic Reinforcement Learning"
+   ],
+   [
+    "2025-11-15",
+    "2511.12159v1",
+    "CriticSearch: Fine-Grained Credit Assignment for Search Agents via a Retrospective Critic"
+   ]
+  ]
+ },
+ "critic_value_agent_rl": {
+  "n_in_window": 83,
+  "n_returned": 106,
+  "rows": [
+   [
+    "2026-10-29",
+    "2610.40799v1",
+    "CaPtain: A Pipeline for Post-Training Code-as-Policy Robot Agents"
+   ],
+   [
+    "2026-10-29",
+    "2610.40726v1",
+    "Li$^{2}$SAO: Lifting Light Singl-Rollout Asynchronous RL Optimization via Group-Relative Actor-Critic Bootstrapping"
+   ],
+   [
+    "2026-10-28",
+    "2610.38391v1",
+    "SCOPE: Selective Critical-Step On-Policy Self-Distillation for Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-10-26",
+    "2610.35801v1",
+    "FOCUS: Active Critic Learning for Long-Horizon Language Model Agents"
+   ],
+   [
+    "2026-10-26",
+    "2610.35398v1",
+    "Belief-Conditioned Multi-Agent Actor Critic for Decentralized LLM Collaboration"
+   ],
+   [
+    "2026-10-21",
+    "2610.29427v1",
+    "One Act, Many Masks: Effect-Marginal Policy Optimization for Long-Horizon Agents"
+   ],
+   [
+    "2026-10-21",
+    "2610.29426v1",
+    "BIRD-RL: Scaling Agentic Reinforcement Learning over Stateful Data-Centric Environments"
+   ],
+   [
+    "2026-10-16",
+    "2610.23181v1",
+    "Tree-Aware Posterior Distillation for Long-Horizon Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-10-15",
+    "2610.21640v1",
+    "ReFlow: Replay-Driven Decoupling for Efficient RL Post-Training"
+   ],
+   [
+    "2026-10-14",
+    "2610.19695v1",
+    "C3: Rethinking Process Supervision via Confidence-Guided Credit Correction in Multi-Turn Reinforcement Learning"
+   ],
+   [
+    "2026-10-13",
+    "2610.19103v1",
+    "Contextual Credit Policy Optimization"
+   ],
+   [
+    "2026-10-12",
+    "2610.16352v2",
+    "LoongSage: A Production-Grade, High-Efficiency Agentic RL Framework for Frontier LLMs with Validated Recipes"
+   ],
+   [
+    "2026-10-11",
+    "2610.15840v1",
+    "LLM Value Functions for Credit Assignment in Agentic RL"
+   ],
+   [
+    "2026-10-09",
+    "2610.13356v2",
+    "SWE-Critix: Post-Training Generalist Verifiers for Assessing Coding-Agent Trajectories"
+   ],
+   [
+    "2026-10-01",
+    "2610.02181v3",
+    "OmniSeek: Native Tool Integration for Multi-turn Audio-Visual Reasoning"
+   ],
+   [
+    "2026-09-28",
+    "2609.35082v1",
+    "Cross-Rollout Bellman Closure for Long-Horizon Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-09-25",
+    "2609.30906v1",
+    "ToolSearcher: Optimizing Tool Selection at Scale via Reinforcement Learning"
+   ],
+   [
+    "2026-09-24",
+    "2609.28963v1",
+    "Back to the Definition: Estimating Step-Level Advantages via Trajectory Graphs for Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-09-11",
+    "2609.12424v2",
+    "Granularity-Adaptive Credit Assignment for Long-Horizon LLM Agent Reinforcement Learning"
+   ],
+   [
+    "2026-09-09",
+    "2609.09783v2",
+    "BRACE: Anchored Bellman-Residual Correction for Stale Critics in Asynchronous RL"
+   ],
+   [
+    "2026-09-08",
+    "2609.08404v1",
+    "Environments as Scaffold: Enriching Feedback to Bootstrap Self-Evolving Agents in Long-Horizon Tasks"
+   ],
+   [
+    "2026-08-28",
+    "2608.28128v2",
+    "VICT: Verifier-Instrumented Credit Tracing for Long-Horizon LLM Agent Reinforcement Learning"
+   ],
+   [
+    "2026-08-25",
+    "2608.24114v1",
+    "AHEAD: Adaptive Hindsight with Environment-Augmented Distillation for Agentic RL"
+   ],
+   [
+    "2026-08-20",
+    "2608.19842v4",
+    "SAPO: Single-Rollout Autoregressive Policy Optimization for Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-08-12",
+    "2608.12253v2",
+    "One Frozen Simulator Is Not Enough: Simulator Collapse in Multi-Agent RL"
+   ],
+   [
+    "2026-08-12",
+    "2608.11967v1",
+    "LoongReflect: Boosting Long-Horizon Reflection in Search Agents via Global Perspective Distillation"
+   ],
+   [
+    "2026-08-07",
+    "2608.07148v1",
+    "A MARL Centered Reference Architecture for Large Language Model Augmentation in Smart Manufacturing"
+   ],
+   [
+    "2026-07-19",
+    "2607.17038v1",
+    "Reward-Driven LLM Agent Workflows: Synthesizing POMDP Routing and Self-Correction for Autonomous Decision-Making"
+   ],
+   [
+    "2026-07-14",
+    "2607.14145v1",
+    "ToolAnchor: Anchoring Counterfactual Context to Boost Agentic Tool-use Capability"
+   ],
+   [
+    "2026-07-08",
+    "2607.07508v1",
+    "Single-Rollout Asynchronous Optimization for Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-07-05",
+    "2607.04242v1",
+    "Progress- and Reliability-Oriented Group Policy Optimization for Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-06-22",
+    "2606.22995v2",
+    "Group-Graph Policy Optimization for Long-Horizon Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-06-10",
+    "2606.11680v1",
+    "Organize then Retrieve: Hierarchical Memory Navigation for Efficient Agents"
+   ],
+   [
+    "2026-06-08",
+    "2606.09961v1",
+    "3SPO: State-Score-Supervised Policy Optimization for LLM Agents"
+   ],
+   [
+    "2026-06-05",
+    "2606.07367v1",
+    "Self-evolving LLM agents with in-distribution Optimization"
+   ],
+   [
+    "2026-06-04",
+    "2606.05885v1",
+    "When Denser Credit Is Not Enough: Evidence-Calibrated Policy Optimization for Long-Horizon LLM Agent Training"
+   ],
+   [
+    "2026-05-30",
+    "2606.00593v3",
+    "SPADER: Step-wise Peer Advantage with Diversity-Aware Exploration Rewards for Multi-Answer Question Answering"
+   ],
+   [
+    "2026-05-27",
+    "2605.28069v1",
+    "ZipRL: Adaptive Multi-Turn Context Compression with Hindsight Response Replay"
+   ],
+   [
+    "2026-05-25",
+    "2605.25389v1",
+    "Evo-Attacker: Memory-Augmented Reinforcement Learning for Long-Horizon Tool Attacks on LLM-MAS"
+   ],
+   [
+    "2026-05-19",
+    "2605.19447v1",
+    "What and When to Distill: Selective Hindsight Distillation for Multi-Turn Agents"
+   ],
+   [
+    "2026-05-14",
+    "2605.14558v1",
+    "Resolving Action Bottleneck: Agentic Reinforcement Learning Informed by Token-Level Energy"
+   ],
+   [
+    "2026-05-13",
+    "2605.13217v1",
+    "GAGPO: Generalized Advantage Grouped Policy Optimization"
+   ],
+   [
+    "2026-05-12",
+    "2605.12289v1",
+    "PriorZero: Bridging Language Priors and World Models for Decision Making"
+   ],
+   [
+    "2026-05-11",
+    "2605.10481v1",
+    "Safe Multi-Agent Behavior Must Be Maintained, Not Merely Asserted: Constraint Drift in LLM-Based Multi-Agent Systems"
+   ],
+   [
+    "2026-05-10",
+    "2605.09287v3",
+    "PiCA: Pivot-Based Credit Assignment for Search Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-05-08",
+    "2605.07725v3",
+    "SOD: Step-wise On-policy Distillation for Small Language Model Agents"
+   ],
+   [
+    "2026-05-07",
+    "2605.06642v2",
+    "StraTA: Incentivizing Agentic Reinforcement Learning with Strategic Trajectory Abstraction"
+   ],
+   [
+    "2026-05-01",
+    "2605.00347v1",
+    "Odysseus: Scaling VLMs to 100+ Turn Decision-Making in Games via Reinforcement Learning"
+   ],
+   [
+    "2026-04-22",
+    "2604.20398v1",
+    "WebGen-R1: Incentivizing Large Language Models to Generate Functional and Aesthetic Websites with Reinforcement Learning"
+   ],
+   [
+    "2026-04-20",
+    "2604.18401v5",
+    "CAPO: Critic-Guided Action-Aligned Policy Optimization for Advancing LLM Agent Capabilities"
+   ],
+   [
+    "2026-04-13",
+    "2604.11462v1",
+    "Escaping the Context Bottleneck: Active Context Curation for LLM Agents via Reinforcement Learning"
+   ],
+   [
+    "2026-04-10",
+    "2604.09508v3",
+    "VISOR: Agentic Visual Retrieval-Augmented Generation via Iterative Search and Over-horizon Reasoning"
+   ],
+   [
+    "2026-04-02",
+    "2604.02006v1",
+    "ProCeedRL: Process Critic with Exploratory Demonstration Reinforcement Learning for LLM Agentic Reasoning"
+   ],
+   [
+    "2026-03-23",
+    "2603.21972v1",
+    "Demystifying Reinforcement Learning for Long-Horizon Tool-Using Agents: A Comprehensive Recipe"
+   ],
+   [
+    "2026-03-18",
+    "2603.18118v1",
+    "Insight-V++: Towards Advanced Long-Chain Visual Reasoning with Multimodal Large Language Models"
+   ],
+   [
+    "2026-03-18",
+    "2603.17312v1",
+    "Recurrent Reasoning with Vision-Language Models for Estimating Long-Horizon Embodied Task Progress"
+   ],
+   [
+    "2026-03-16",
+    "2603.15255v2",
+    "SAGE: Multi-Agent Self-Evolution for LLM Reasoning"
+   ],
+   [
+    "2026-03-13",
+    "2603.12631v2",
+    "Joint Optimization of Multi-agent Memory System"
+   ],
+   [
+    "2026-03-01",
+    "2603.01152v2",
+    "DeepResearch-9K: A Challenging Benchmark Dataset of Deep-Research Agent"
+   ],
+   [
+    "2026-03-01",
+    "2603.00977v2",
+    "HiMAC: Hierarchical Macro-Micro Learning for Long-Horizon LLM Agents"
+   ],
+   [
+    "2026-02-28",
+    "2603.00540v1",
+    "LOGIGEN: Logic-Driven Generation of Verifiable Agentic Tasks"
+   ],
+   [
+    "2026-02-12",
+    "2602.11551v1",
+    "SIGHT: Reinforcement Learning with Self-Evidence and Information-Gain Diverse Branching for Search Agent"
+   ],
+   [
+    "2026-02-11",
+    "2602.11351v2",
+    "Pushing Forward Pareto Frontiers of Proactive Agents with Behavioral Agentic Optimization"
+   ],
+   [
+    "2026-02-10",
+    "2602.09598v1",
+    "Learning from the Irrecoverable: Error-Localized Policy Optimization for Tool-Integrated LLM Reasoning"
+   ],
+   [
+    "2026-02-10",
+    "2603.02216v1",
+    "ATPO: Adaptive Tree Policy Optimization for Multi-Turn Medical Dialogue"
+   ],
+   [
+    "2026-02-06",
+    "2602.06554v1",
+    "SeeUPO: Sequence-Level Agentic-RL with Convergence Guarantees"
+   ],
+   [
+    "2026-02-02",
+    "2602.02395v1",
+    "David vs. Goliath: Verifiable Agent-to-Agent Jailbreaking via Reinforcement Learning"
+   ],
+   [
+    "2026-01-31",
+    "2602.00785v1",
+    "World Models as an Intermediary between Agents and the Real World"
+   ],
+   [
+    "2026-01-29",
+    "2601.21972v5",
+    "Learning Decentralized LLM Collaboration with Multi-Agent Actor Critic"
+   ],
+   [
+    "2026-01-28",
+    "2601.20209v2",
+    "Spark: Strategic Policy-Aware Exploration via Dynamic Branching for Long-Horizon Agentic Learning"
+   ],
+   [
+    "2026-01-24",
+    "2602.15854v2",
+    "Decoupling Strategy and Execution in Task-Focused Dialogue via Goal-Oriented Preference Optimization"
+   ],
+   [
+    "2026-01-14",
+    "2602.06052v4",
+    "A Survey of Agent Memory in the Second Half: Towards Self-Evolving and Long-Horizon Agents"
+   ],
+   [
+    "2026-01-12",
+    "2601.07264v1",
+    "The Confidence Dichotomy: Analyzing and Mitigating Miscalibration in Tool-Use Agents"
+   ],
+   [
+    "2026-01-11",
+    "2601.06794v2",
+    "No More Stale Feedback: Co-Evolving Critics for Open-World Agent Learning"
+   ],
+   [
+    "2026-01-08",
+    "2601.04767v1",
+    "AT$^2$PO: Agentic Turn-based Policy Optimization via Tree Search"
+   ],
+   [
+    "2026-01-06",
+    "2601.03164v2",
+    "WebAnchor: Anchoring Agent Planning to Stabilize Long-Horizon Web Reasoning"
+   ],
+   [
+    "2026-01-05",
+    "2601.01885v3",
+    "Agentic Memory: Learning Unified Long-Term and Short-Term Memory Management for Large Language Model Agents"
+   ],
+   [
+    "2025-12-28",
+    "2512.22733v1",
+    "FoldAct: Efficient and Stable Context Folding for Long-Horizon Search Agents"
+   ],
+   [
+    "2025-12-26",
+    "2512.22315v1",
+    "VideoZoomer: Reinforcement-Learned Temporal Focusing for Long Video Reasoning"
+   ],
+   [
+    "2025-12-23",
+    "2512.20173v1",
+    "Offline Safe Policy Optimization From Heterogeneous Feedback"
+   ],
+   [
+    "2025-11-14",
+    "2511.11793v3",
+    "MiroThinker: Pushing the Performance Boundaries of Open-Source Research Agents via Model, Context, and Interactive Scaling"
+   ],
+   [
+    "2025-11-08",
+    "2511.05951v1",
+    "Klear-AgentForge: Forging Agentic Intelligence through Posttraining Scaling"
+   ],
+   [
+    "2025-11-04",
+    "2511.02303v1",
+    "Unlocking the Power of Multi-Agent LLM for Reasoning: From Lazy Agents to Deliberation"
+   ]
+  ]
+ },
+ "group_relative_credit": {
+  "n_in_window": 151,
+  "n_returned": 166,
+  "rows": [
+   [
+    "2026-10-26",
+    "2610.35801v1",
+    "FOCUS: Active Critic Learning for Long-Horizon Language Model Agents"
+   ],
+   [
+    "2026-10-26",
+    "2610.35497v1",
+    "When Fine-Grained Credit Assignment Helps and Hurts: Multimodal Agentic Reinforcement Learning through Video Editing"
+   ],
+   [
+    "2026-10-24",
+    "2610.33746v1",
+    "ProtAgent: Post-Training Compact Protein Tool Agents with Interaction-Level Credit Assignment"
+   ],
+   [
+    "2026-10-24",
+    "2610.33527v1",
+    "Implicit Beliefs as Scalable Process Rewards for Strategic Persuasion"
+   ],
+   [
+    "2026-10-22",
+    "2610.31544v2",
+    "Same Luck, Different Choice: Twin-World Credit Assignment for Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-10-21",
+    "2610.29671v1",
+    "Uni-Mem: Learning a Long-Horizon Agentic Memory Manager with Unified Online Policy Optimization"
+   ],
+   [
+    "2026-10-18",
+    "2610.25269v1",
+    "EG-GRPO: Evidence-Guided Step-level Credit Assignment for Deep Search Agents"
+   ],
+   [
+    "2026-10-16",
+    "2610.24294v1",
+    "Not Every User Says It All: Training Tool-Using Agents Beyond Ideal Simulated Users"
+   ],
+   [
+    "2026-10-16",
+    "2610.23181v1",
+    "Tree-Aware Posterior Distillation for Long-Horizon Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-10-16",
+    "2610.23148v1",
+    "Grounded Credit Assignment in Reinforcement Learning for Multi-Turn Search Agents"
+   ],
+   [
+    "2026-10-14",
+    "2610.19705v3",
+    "RouteWeaver: Weaving Mode Selection and Execution into Unified LLM Routing"
+   ],
+   [
+    "2026-10-13",
+    "2610.19103v1",
+    "Contextual Credit Policy Optimization"
+   ],
+   [
+    "2026-10-13",
+    "2610.18683v2",
+    "ProAS: A Progress-Aware Advantage Shaping Framework for Multi-Turn Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-10-13",
+    "2610.18067v1",
+    "WorkRover: Scaling Long-Horizon Cowork Agent Training Via Recursive Environment Evolution"
+   ],
+   [
+    "2026-10-13",
+    "2610.17710v2",
+    "Adaptive-Group Process Rewards for GUI Agents"
+   ],
+   [
+    "2026-10-12",
+    "2610.16224v1",
+    "Look Back to Move Forward: Learning to Revisit for Agentic Compositional Image Generation"
+   ],
+   [
+    "2026-10-11",
+    "2610.15840v1",
+    "LLM Value Functions for Credit Assignment in Agentic RL"
+   ],
+   [
+    "2026-10-11",
+    "2610.15772v1",
+    "RSIPO: Recursive Self-Improving Policy Optimization for Agentic Reinforcement Learning via Skill-Policy Co-Evolution"
+   ],
+   [
+    "2026-10-10",
+    "2610.14636v1",
+    "PEARL: Process-Experience Aware Reinforcement Learning for Multi-Turn Agents"
+   ],
+   [
+    "2026-10-09",
+    "2610.23950v1",
+    "Compaction-Aware Reinforcement Learning For Ascend Triton Kernel Generation"
+   ],
+   [
+    "2026-10-09",
+    "2610.12828v1",
+    "TreeHCA: Hindsight-Guided Exploration and Credit Assignment for Multi-Turn LLM Agents"
+   ],
+   [
+    "2026-10-07",
+    "2610.09560v1",
+    "World Potential Model: Pretrained World Knowledge as Progress Potentials"
+   ],
+   [
+    "2026-10-05",
+    "2610.06269v2",
+    "Evolving in Thought Space: Training a Small Model at Test Time Unlocks Better Discoveries"
+   ],
+   [
+    "2026-10-01",
+    "2610.01161v1",
+    "My FAULT: Self-Diagnosis as Credit Assignment in Self-Evolving Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-09-30",
+    "2610.00838v2",
+    "SHARPO: Segment-Level Credit Assignment for Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-09-30",
+    "2609.40253v2",
+    "ComputerSD: Online Self-Distillation from Real-Time Feedback for Computer-Use Agents"
+   ],
+   [
+    "2026-09-30",
+    "2610.00388v1",
+    "T2SPO: Trajectory-to-Step Policy Optimization for Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-09-30",
+    "2609.38889v1",
+    "VERA: Verifiable Feasibility Representations with Counterfactual Credit for Constrained Multi-Agent Control"
+   ],
+   [
+    "2026-09-29",
+    "2609.36939v1",
+    "SCA: Spatial Credit Assignment for Reinforcement Learning of GUI Agents"
+   ],
+   [
+    "2026-09-29",
+    "2609.36641v1",
+    "Inducing Process Supervision from Outcome-Only Reinforcement Learning"
+   ],
+   [
+    "2026-09-28",
+    "2609.36178v1",
+    "Targeting Pivotal Decisions for Credit Assignment in Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-09-28",
+    "2609.35303v1",
+    "PIVOT: Pivot-Aware On Policy Self Distillation for Multi-Turn VLM Agents"
+   ],
+   [
+    "2026-09-28",
+    "2609.35084v1",
+    "GraphHCA: Closed-Form Hindsight Credit Assignment for Long-Horizon LLM Agents"
+   ],
+   [
+    "2026-09-28",
+    "2609.35082v1",
+    "Cross-Rollout Bellman Closure for Long-Horizon Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-09-28",
+    "2609.34296v1",
+    "Dr.Credit: Rubric-Grounded Process Credit Assignment for Deep Research Agents"
+   ],
+   [
+    "2026-09-27",
+    "2609.33875v3",
+    "Counterfactual Rollout Replay: Forkable Environments as Free Process Rewards for Software Engineering Agents"
+   ],
+   [
+    "2026-09-27",
+    "2609.33391v1",
+    "Beyond Timestamps: Decision-Aligned On-Policy Distillation for Long-Horizon Agents"
+   ],
+   [
+    "2026-09-26",
+    "2609.32694v1",
+    "IGSD: Environment-Verified Hindsight Self-Distillation for Search Agents"
+   ],
+   [
+    "2026-09-26",
+    "2609.32522v1",
+    "Beyond Dyadic Memory: Interaction-Aware Multimodal Memory with Adaptive Agentic Retrieval for Multi-Party Spoken Conversations"
+   ],
+   [
+    "2026-09-24",
+    "2609.29050v1",
+    "SLCA-GRPO: Resolving Cross-Segment Credit Misattribution in Tool-Calling RL"
+   ],
+   [
+    "2026-09-24",
+    "2609.28963v1",
+    "Back to the Definition: Estimating Step-Level Advantages via Trajectory Graphs for Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-09-22",
+    "2609.25678v1",
+    "Toolcompass: Guiding Tool Trialing, Not Suppressing It"
+   ],
+   [
+    "2026-09-21",
+    "2609.24259v3",
+    "MemCalib: Benchmarking and Optimizing Memory Use in LLM Agents"
+   ],
+   [
+    "2026-09-17",
+    "2609.20004v1",
+    "EPIG-Tree: Compute-Optimal Branching for Gradient-Efficient Reinforcement Learning"
+   ],
+   [
+    "2026-09-15",
+    "2609.16760v1",
+    "Turn-level Multiscale Density Ratio Estimation for LLM Agents"
+   ],
+   [
+    "2026-08-28",
+    "2608.28128v2",
+    "VICT: Verifier-Instrumented Credit Tracing for Long-Horizon LLM Agent Reinforcement Learning"
+   ],
+   [
+    "2026-08-27",
+    "2608.27508v1",
+    "WM-R1: Training GUI Agents to Reason and leverage World Models with Reinforcement Learning"
+   ],
+   [
+    "2026-08-26",
+    "2608.25559v2",
+    "AdaVDR: Adaptive Tool Use and Reflection for Video Deep Research"
+   ],
+   [
+    "2026-08-25",
+    "2608.24777v1",
+    "StepGuard: Learning Step-Level Guardrails with Scalable Supervision and Safety-Utility Balancing"
+   ],
+   [
+    "2026-08-20",
+    "2608.19842v4",
+    "SAPO: Single-Rollout Autoregressive Policy Optimization for Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-08-18",
+    "2608.17319v1",
+    "Wuying-Browser-Agent: Real-World Centric Fundamental Long-Horizon Browser Agents"
+   ],
+   [
+    "2026-08-18",
+    "2608.17289v1",
+    "PlanPO: Group Planning-Aware Policy Optimization for Multi-Turn Agentic LLMs"
+   ],
+   [
+    "2026-08-17",
+    "2608.16162v2",
+    "ACE-Cap: Active Evidence Acquisition via Agentic Co-Evolution for Long-Paragraph Fine-Grained Audio Captioning"
+   ],
+   [
+    "2026-08-13",
+    "2608.12764v1",
+    "Beyond Outcome Rewards: Step-Level Self-Distilled Policy Optimization for Deep Search Agents"
+   ],
+   [
+    "2026-08-10",
+    "2608.09251v1",
+    "MoRSE: Task-Oriented Multi-Agent System with Mixture of Role-Subtask Experts"
+   ],
+   [
+    "2026-08-08",
+    "2608.07959v1",
+    "SCOUT: Self-Checking and Recovery-Aware Tool-Thought Agents for Ultra-Long Egocentric Video Reasoning"
+   ],
+   [
+    "2026-08-07",
+    "2608.07371v1",
+    "Trajectory-Relative Hindsight Distillation for Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-08-06",
+    "2608.05987v1",
+    "AgentOPSD: Recursive Self-Distillation for Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-08-05",
+    "2608.05102v1",
+    "ABSeeker: Training Long-Horizon Search Agents via Answer-Backtracked Credit Assignment"
+   ],
+   [
+    "2026-08-03",
+    "2608.01837v1",
+    "PCSD: Persistent Consistency for Self-Distillation in Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-08-02",
+    "2608.01321v1",
+    "BiCAA: Bidirectional Credit Assignment for Search-Augmented Agent"
+   ],
+   [
+    "2026-08-01",
+    "2608.00485v4",
+    "SERL-SQL: Selective Hindsight Distillation for Text-to-SQL Reinforcement Agentic Learning"
+   ],
+   [
+    "2026-07-23",
+    "2607.21013v2",
+    "EmoAgent-R1: Towards Multimodal Emotion Understanding with Reinforcement Learning-based Dynamic Agent Specialization"
+   ],
+   [
+    "2026-07-13",
+    "2607.11070v1",
+    "MJ: Multi-turn LLM Jailbreaking via Decomposed Credit Assignment"
+   ],
+   [
+    "2026-07-12",
+    "2607.10601v1",
+    "Agentic-DPO: From Imitation to Agentic Policy Optimization on Expert Trajectories"
+   ],
+   [
+    "2026-07-10",
+    "2607.09092v1",
+    "AgentKGV: Agentic LLM-RAG Framework with Two-Stage Training for the Fact Verification of Knowledge Graphs"
+   ],
+   [
+    "2026-07-08",
+    "2607.07383v1",
+    "MMAgent-R$^2$: Learning to Rerank and Reject for Agentic mRAG"
+   ],
+   [
+    "2026-07-08",
+    "2607.07148v1",
+    "Decoupling Conversational Dynamics in Full-Duplex Spoken Models through Reinforcement Learning"
+   ],
+   [
+    "2026-06-30",
+    "2606.32017v3",
+    "TRIAGE: Role-Typed Credit Assignment for Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-06-29",
+    "2606.29745v2",
+    "ECHO: Learning Epistemically Adaptive Language Agents with Turn-Level Credit"
+   ],
+   [
+    "2026-06-28",
+    "2606.29476v1",
+    "CRAFT: Counterfactual Credit Assignment from Free Sibling Rollouts for Self-Distilled Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-06-26",
+    "2607.16244v1",
+    "CIGPO: Contextual Information-Gain Policy Optimization for Multi-Turn Evidence-Reading LLM Agents"
+   ],
+   [
+    "2026-06-26",
+    "2606.27814v6",
+    "ATOD: Annealed Turn-Aware On-Policy Distillation for Multi-Turn Agentic Tasks"
+   ],
+   [
+    "2026-06-26",
+    "2606.28434v1",
+    "SWE-MeM: Learning Adaptive Memory Management for Long-Horizon Coding Agents"
+   ],
+   [
+    "2026-06-24",
+    "2606.25556v1",
+    "BiPACE: Bisimulation-Guided Policy Optimization with Action Counterfactual Estimation for LLM Agents"
+   ],
+   [
+    "2026-06-24",
+    "2606.25451v2",
+    "Learning with a Single Rollout via Pass@k Policy Optimization"
+   ],
+   [
+    "2026-06-22",
+    "2606.22995v2",
+    "Group-Graph Policy Optimization for Long-Horizon Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-06-20",
+    "2606.22164v1",
+    "Drowning in Routine: Signal Dilution in Multi-Turn Agent Training"
+   ],
+   [
+    "2026-06-18",
+    "2606.20002v2",
+    "Connect the Dots: Training LLMs for Long-Lifecycle Agents with Cross-Domain Generalization Via Reinforcement Learning"
+   ],
+   [
+    "2026-06-18",
+    "2606.19930v2",
+    "MobileForge: Annotation-Free Adaptation for Mobile GUI Agents with Hierarchical Feedback-Guided Policy Optimization"
+   ],
+   [
+    "2026-06-17",
+    "2606.19236v1",
+    "STARE: Surprisal-Guided Token-Level Advantage Reweighting for Policy Entropy Stability"
+   ],
+   [
+    "2026-06-17",
+    "2606.18810v2",
+    "Learning from Own Solutions: Self-Conditioned Credit Assignment for Reinforcement Learning with Verifiable Rewards"
+   ],
+   [
+    "2026-06-14",
+    "2606.15532v1",
+    "EIBench: A Simulator-Based Benchmark and Turn-Credit RL for Emotion Management"
+   ],
+   [
+    "2026-06-10",
+    "2606.12634v3",
+    "Keep Policy Gradient in Charge: Sibling-Guided Credit Distillation for Long-Horizon Tool-Use Agents"
+   ],
+   [
+    "2026-06-10",
+    "2606.11559v1",
+    "HERO: Hindsight-Enhanced Reflection from Environment Observations for Agentic Self-Distillation"
+   ],
+   [
+    "2026-06-08",
+    "2606.09961v1",
+    "3SPO: State-Score-Supervised Policy Optimization for LLM Agents"
+   ],
+   [
+    "2026-06-07",
+    "2606.08875v1",
+    "Can the Environment Speak for Itself? $T^{2}$-GRPO: A Turn-Trajectory Group Relative Policy Optimization for Caregiver Agents"
+   ],
+   [
+    "2026-06-07",
+    "2606.08656v1",
+    "From Player to Master: Enhancing Test-Time Learning of LLM Agents via Reinforcement Learning over Memory"
+   ],
+   [
+    "2026-06-04",
+    "2606.05885v1",
+    "When Denser Credit Is Not Enough: Evidence-Calibrated Policy Optimization for Long-Horizon LLM Agent Training"
+   ],
+   [
+    "2026-06-02",
+    "2606.03918v3",
+    "Hedge-Bench: Can Agents Reason Their Way to Better Predictions?"
+   ],
+   [
+    "2026-06-01",
+    "2606.01985v1",
+    "MT-EditFlow: Reinforcement Learning for Multi-Turn Image Editing with Flow Matching"
+   ],
+   [
+    "2026-05-27",
+    "2605.29119v1",
+    "PRO-CUA: Process-Reward Optimization for Computer Use Agents"
+   ],
+   [
+    "2026-05-26",
+    "2605.27140v2",
+    "StepOPSD: Step-Aware Online Preference Self-Distillation for Agent Reinforcement Learning"
+   ],
+   [
+    "2026-05-25",
+    "2605.25389v1",
+    "Evo-Attacker: Memory-Augmented Reinforcement Learning for Long-Horizon Tool Attacks on LLM-MAS"
+   ],
+   [
+    "2026-05-22",
+    "2605.23590v2",
+    "Co-ReAct: Rubrics as Step-Level Collaborators for ReAct Agents"
+   ],
+   [
+    "2026-05-20",
+    "2605.21768v1",
+    "Memory-R2: Fair Credit Assignment for Long-Horizon Memory-Augmented LLM Agents"
+   ],
+   [
+    "2026-05-19",
+    "2605.20061v1",
+    "Rewarding Beliefs, Not Actions: Consistency-Guided Credit Assignment for Long-Horizon Agents"
+   ],
+   [
+    "2026-05-18",
+    "2605.18299v1",
+    "SD-Search: On-Policy Hindsight Self-Distillation for Search-Augmented Reasoning"
+   ],
+   [
+    "2026-05-18",
+    "2605.17969v1",
+    "Generation Navigator: A State-Aware Agentic Framework for Image Generation"
+   ],
+   [
+    "2026-05-17",
+    "2605.17531v2",
+    "Don't Guess, Just Ask: Resolving Ambiguity in Referring Segmentation via Multi-turn Clarification"
+   ],
+   [
+    "2026-05-14",
+    "2605.14558v1",
+    "Resolving Action Bottleneck: Agentic Reinforcement Learning Informed by Token-Level Energy"
+   ],
+   [
+    "2026-05-14",
+    "2605.14483v2",
+    "COLLATOR: Compositional Multi-Agent Orchestration with Counterfactual Reinforcement Learning"
+   ],
+   [
+    "2026-05-12",
+    "2605.11853v2",
+    "GEAR: Granularity-Adaptive Advantage Reweighting for LLM Agents via Self-Distillation"
+   ],
+   [
+    "2026-05-11",
+    "2605.10913v3",
+    "Shepherd: Enabling Programmable Meta-Agents via Reversible Agentic Execution Traces"
+   ],
+   [
+    "2026-05-11",
+    "2605.10899v2",
+    "RubricEM: Meta-RL with Rubric-guided Policy Decomposition beyond Verifiable Rewards"
+   ],
+   [
+    "2026-05-11",
+    "2605.10325v3",
+    "Verifiable Process Rewards for Agentic Reasoning"
+   ],
+   [
+    "2026-05-10",
+    "2605.09359v1",
+    "Skill-R1: Agent Skill Evolution via Reinforcement Learning"
+   ],
+   [
+    "2026-05-08",
+    "2605.07725v3",
+    "SOD: Step-wise On-policy Distillation for Small Language Model Agents"
+   ],
+   [
+    "2026-05-08",
+    "2605.07276v1",
+    "Signal Reshaping for GRPO in Weak-Feedback Agentic Code Repair"
+   ],
+   [
+    "2026-05-07",
+    "2605.06642v2",
+    "StraTA: Incentivizing Agentic Reinforcement Learning with Strategic Trajectory Abstraction"
+   ],
+   [
+    "2026-05-07",
+    "2605.06078v1",
+    "Milestone-Guided Policy Learning for Long-Horizon Language Agents"
+   ],
+   [
+    "2026-05-06",
+    "2605.04984v1",
+    "Self-Induced Outcome Potential: Turn-Level Credit Assignment for Agents without Verifiers"
+   ],
+   [
+    "2026-05-06",
+    "2605.04906v2",
+    "Strat-Reasoner: Reinforcing Strategic Reasoning of LLMs in Multi-Agent Games"
+   ],
+   [
+    "2026-05-01",
+    "2605.02943v1",
+    "Healthcare AI GYM for Medical Agents"
+   ],
+   [
+    "2026-05-01",
+    "2605.00347v1",
+    "Odysseus: Scaling VLMs to 100+ Turn Decision-Making in Games via Reinforcement Learning"
+   ],
+   [
+    "2026-04-21",
+    "2604.19404v1",
+    "M$^{2}$GRPO: Mamba-based Multi-Agent Group Relative Policy Optimization for Biomimetic Underwater Robots Pursuit"
+   ],
+   [
+    "2026-04-20",
+    "2604.18401v5",
+    "CAPO: Critic-Guided Action-Aligned Policy Optimization for Advancing LLM Agent Capabilities"
+   ],
+   [
+    "2026-04-15",
+    "2604.14267v2",
+    "Enhancing LLM-based Search Agents via Contribution Weighted Group Relative Policy Optimization"
+   ],
+   [
+    "2026-04-13",
+    "2604.11037v1",
+    "RTMC: Step-Level Credit Assignment via Rollout Trees"
+   ],
+   [
+    "2026-04-10",
+    "2604.09508v3",
+    "VISOR: Agentic Visual Retrieval-Augmented Generation via Iterative Search and Over-horizon Reasoning"
+   ],
+   [
+    "2026-04-10",
+    "2604.08990v2",
+    "ActFER: Agentic Facial Expression Recognition via Active Tool-Augmented Visual Reasoning"
+   ],
+   [
+    "2026-04-08",
+    "2604.07165v2",
+    "Reason in Chains, Learn in Trees: Self-Rectification and Grafting for Multi-turn Agent Policy Optimization"
+   ],
+   [
+    "2026-04-03",
+    "2604.22785v2",
+    "Marginal-Contribution Policy Gradients under Filtered Feedback for Multi-Agent LLMs"
+   ],
+   [
+    "2026-04-03",
+    "2604.03098v1",
+    "Co-Evolution of Policy and Internal Reward for Language Agents"
+   ],
+   [
+    "2026-04-03",
+    "2604.02869v1",
+    "Multi-Turn Reinforcement Learning for Tool-Calling Agents with Iterative Reward Calibration"
+   ],
+   [
+    "2026-03-25",
+    "2603.24533v1",
+    "UI-Voyager: A Self-Evolving GUI Agent Learning via Failed Experience"
+   ],
+   [
+    "2026-03-23",
+    "2603.21563v5",
+    "Counterfactual Credit Policy Optimization for Multi-Agent Collaboration"
+   ],
+   [
+    "2026-03-21",
+    "2603.23550v1",
+    "Implicit Turn-Wise Policy Optimization for Proactive User-LLM Interaction"
+   ],
+   [
+    "2026-03-17",
+    "2603.16448v3",
+    "TRUST-SQL: Tool-Integrated Multi-Turn Reinforcement Learning for Text-to-SQL over Unknown Schemas"
+   ],
+   [
+    "2026-03-17",
+    "2603.16161v1",
+    "SQL-ASTRA: Alleviating Sparse Feedback in Agentic SQL via Column-Set Matching and Trajectory Aggregation"
+   ],
+   [
+    "2026-03-11",
+    "2603.22293v1",
+    "TIPS: Turn-Level Information-Potential Reward Shaping for Search-Augmented LLMs"
+   ],
+   [
+    "2026-03-07",
+    "2603.08754v1",
+    "Hindsight Credit Assignment for Long-Horizon LLM Agents"
+   ],
+   [
+    "2026-03-06",
+    "2603.06194v4",
+    "MICA: Multi-granularity Intertemporal Credit Assignment for Long-Horizon Emotional Support Dialogue"
+   ],
+   [
+    "2026-03-03",
+    "2603.02701v1",
+    "Graph-GRPO: Stabilizing Multi-Agent Topology Learning via Group Relative Policy Optimization"
+   ],
+   [
+    "2026-02-28",
+    "2603.00656v2",
+    "InfoPO: Information-Driven Policy Optimization for User-Centric Agents"
+   ],
+   [
+    "2026-02-22",
+    "2602.19225v1",
+    "Proximity-Based Multi-Turn Optimization: Practical Credit Assignment for LLM Agent Training"
+   ],
+   [
+    "2026-02-13",
+    "2602.12662v1",
+    "Think Fast and Slow: Step-Level Cognitive Depth Adaptation for LLM Agents"
+   ],
+   [
+    "2026-02-10",
+    "2603.02216v1",
+    "ATPO: Adaptive Tree Policy Optimization for Multi-Turn Medical Dialogue"
+   ],
+   [
+    "2026-02-09",
+    "2602.08533v2",
+    "Dialogue Model Optimization via Agent Game and Adaptive Tree-based GRPO"
+   ],
+   [
+    "2026-02-05",
+    "2602.05885v2",
+    "Dr. Kernel: Reinforcement Learning Done Right for Triton Kernel Generations"
+   ],
+   [
+    "2026-01-30",
+    "2601.23014v2",
+    "Mem-T: Densifying Rewards for Long-Horizon Memory Agents"
+   ],
+   [
+    "2026-01-30",
+    "2601.22776v2",
+    "TSPO: Breaking the Double Homogenization Dilemma in Multi-turn Search Policy Optimization"
+   ],
+   [
+    "2026-01-23",
+    "2601.16480v1",
+    "TL-GRPO: Turn-Level RL for Reasoning-Guided Iterative Optimization"
+   ],
+   [
+    "2026-01-09",
+    "2601.05465v1",
+    "PRISMA: Reinforcement Learning Guided Two-Stage Policy Optimization in Multi-Agent Architecture for Open-Domain Multi-Hop Question Answering"
+   ],
+   [
+    "2025-12-18",
+    "2512.17008v2",
+    "Turn-PPO: Turn-Level Advantage Estimation with PPO for Improved Multi-Turn RL in Agentic LLMs"
+   ],
+   [
+    "2025-12-18",
+    "2512.16295v1",
+    "OS-Oracle: A Comprehensive Framework for Cross-Platform GUI Critic Models"
+   ],
+   [
+    "2025-12-02",
+    "2512.02631v2",
+    "SeeNav-Agent: Enhancing Vision-Language Navigation with Visual Prompt and Step-Level Policy Optimization"
+   ],
+   [
+    "2025-11-26",
+    "2511.21638v4",
+    "Iterative Policy Optimization: Batch-Online Multi-Turn RL via Single-Turn RL"
+   ],
+   [
+    "2025-11-18",
+    "2511.14846v2",
+    "Empowering Multi-Turn Tool-Integrated Agentic Reasoning with Group Turn Policy Optimization"
+   ],
+   [
+    "2025-11-17",
+    "2511.13288v2",
+    "Multi-Agent Deep Research: Training Multi-Agent Systems with M-GRPO"
+   ],
+   [
+    "2025-11-17",
+    "2511.13091v1",
+    "STEP: Success-Rate-Aware Trajectory-Efficient Policy Optimization"
+   ]
+  ]
+ },
+ "ppo_critic_multiturn": {
+  "n_in_window": 13,
+  "n_returned": 15,
+  "rows": [
+   [
+    "2026-10-11",
+    "2610.15840v1",
+    "LLM Value Functions for Credit Assignment in Agentic RL"
+   ],
+   [
+    "2026-10-06",
+    "2610.08402v2",
+    "VETTA: Coordinating Turn- and Token-Level Credit Assignment for Multi-Turn LLM Agents"
+   ],
+   [
+    "2026-08-20",
+    "2608.19842v4",
+    "SAPO: Single-Rollout Autoregressive Policy Optimization for Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-07-19",
+    "2607.17038v1",
+    "Reward-Driven LLM Agent Workflows: Synthesizing POMDP Routing and Self-Correction for Autonomous Decision-Making"
+   ],
+   [
+    "2026-06-05",
+    "2606.07367v1",
+    "Self-evolving LLM agents with in-distribution Optimization"
+   ],
+   [
+    "2026-05-14",
+    "2605.14558v1",
+    "Resolving Action Bottleneck: Agentic Reinforcement Learning Informed by Token-Level Energy"
+   ],
+   [
+    "2026-05-01",
+    "2605.00347v1",
+    "Odysseus: Scaling VLMs to 100+ Turn Decision-Making in Games via Reinforcement Learning"
+   ],
+   [
+    "2026-04-20",
+    "2604.18401v5",
+    "CAPO: Critic-Guided Action-Aligned Policy Optimization for Advancing LLM Agent Capabilities"
+   ],
+   [
+    "2026-02-10",
+    "2603.02216v1",
+    "ATPO: Adaptive Tree Policy Optimization for Multi-Turn Medical Dialogue"
+   ],
+   [
+    "2026-02-06",
+    "2602.06554v1",
+    "SeeUPO: Sequence-Level Agentic-RL with Convergence Guarantees"
+   ],
+   [
+    "2026-02-05",
+    "2602.05327v1",
+    "ProAct: Agentic Lookahead in Interactive Environments"
+   ],
+   [
+    "2026-01-24",
+    "2602.15854v2",
+    "Decoupling Strategy and Execution in Task-Focused Dialogue via Goal-Oriented Preference Optimization"
+   ],
+   [
+    "2025-12-08",
+    "2512.07478v2",
+    "Enhancing Agentic RL with Progressive Reward Shaping and Value-based Sampling Policy Optimization"
+   ]
+  ]
+ },
+ "process_reward_agent": {
+  "n_in_window": 50,
+  "n_returned": 61,
+  "rows": [
+   [
+    "2026-10-30",
+    "2610.41264v1",
+    "Rome Wasn't Built in One Turn: Replay-Grounded Reward Signals for Long-Horizon Freeciv Agents"
+   ],
+   [
+    "2026-10-27",
+    "2610.37471v1",
+    "PerceptRL: Making Visual Perception Rewardable in MLLMs from Answers to Interactions"
+   ],
+   [
+    "2026-10-26",
+    "2610.35497v1",
+    "When Fine-Grained Credit Assignment Helps and Hurts: Multimodal Agentic Reinforcement Learning through Video Editing"
+   ],
+   [
+    "2026-10-18",
+    "2610.25269v1",
+    "EG-GRPO: Evidence-Guided Step-level Credit Assignment for Deep Search Agents"
+   ],
+   [
+    "2026-10-16",
+    "2610.23181v1",
+    "Tree-Aware Posterior Distillation for Long-Horizon Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-10-15",
+    "2610.21147v2",
+    "All-in-One Memory: Process-Rewarded Reinforcement Learning for Memory Agents"
+   ],
+   [
+    "2026-10-14",
+    "2610.19695v1",
+    "C3: Rethinking Process Supervision via Confidence-Guided Credit Correction in Multi-Turn Reinforcement Learning"
+   ],
+   [
+    "2026-10-09",
+    "2610.13485v1",
+    "Proactive Agentic Orchestration"
+   ],
+   [
+    "2026-10-06",
+    "2610.08402v2",
+    "VETTA: Coordinating Turn- and Token-Level Credit Assignment for Multi-Turn LLM Agents"
+   ],
+   [
+    "2026-09-20",
+    "2609.23808v1",
+    "FLARE: A Full-Lifecycle Dense Supervision Paradigm for Long-Horizon Coding Agents via Generative Reward Model"
+   ],
+   [
+    "2026-09-09",
+    "2609.09764v1",
+    "SocialRL: Refining LLMs' Social Intelligence through Multi-turn Reinforcement Learning and Reward Design"
+   ],
+   [
+    "2026-08-30",
+    "2608.29641v1",
+    "Harness-RL: Black-Box Reinforcement Learning with Action-Args Decoupling for Central-Agent Multi-Agent Harnesses"
+   ],
+   [
+    "2026-07-31",
+    "2607.28990v1",
+    "Scaling Scientific Discovery Environments for Turn-Level Agentic RL"
+   ],
+   [
+    "2026-07-26",
+    "2607.23515v1",
+    "LEACL: LLM-Enhanced Automatic Curriculum Learning for Reinforcement Learning in Long-Horizon Manipulation Tasks"
+   ],
+   [
+    "2026-07-15",
+    "2607.13501v2",
+    "LOTAPO: Leave-One-Turn Attribution for Self-Generated Process Rewards in Multi-Turn Search Reasoning"
+   ],
+   [
+    "2026-07-06",
+    "2607.04713v2",
+    "RSPO: Reward-Swap Policy Optimization for Multi-Turn LLM Agents"
+   ],
+   [
+    "2026-06-24",
+    "2606.26080v1",
+    "Neglected Free Lunch from Post-training: Progress Advantage for LLM Agents"
+   ],
+   [
+    "2026-06-24",
+    "2606.26175v1",
+    "RMTL: Reinforced Micro-task Learning for Long-Horizon Manipulation with VLM Rewards"
+   ],
+   [
+    "2026-06-23",
+    "2606.24525v1",
+    "VisCritic: Visual State Comparison as Process Reward for GUI Agents"
+   ],
+   [
+    "2026-06-18",
+    "2606.20839v1",
+    "Process-Reward Tactic Evolution for Long-Horizon Bioinformatics Workflows"
+   ],
+   [
+    "2026-06-12",
+    "2606.14302v2",
+    "Retrospective Progress-Aware Self-Refinement for LLM Agent Training"
+   ],
+   [
+    "2026-06-09",
+    "2606.10507v1",
+    "HIPIF: Hierarchical Planning and Information Folding for Long-Horizon LLM Agent Learning"
+   ],
+   [
+    "2026-06-05",
+    "2606.07367v1",
+    "Self-evolving LLM agents with in-distribution Optimization"
+   ],
+   [
+    "2026-05-14",
+    "2605.15040v3",
+    "Orchard: An Open-Source Agentic Modeling Framework"
+   ],
+   [
+    "2026-05-11",
+    "2605.10325v3",
+    "Verifiable Process Rewards for Agentic Reasoning"
+   ],
+   [
+    "2026-05-10",
+    "2605.09287v3",
+    "PiCA: Pivot-Based Credit Assignment for Search Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-05-09",
+    "2605.08769v1",
+    "EvoMAS: Learning Execution-Time Workflows for Multi-Agent Systems"
+   ],
+   [
+    "2026-05-07",
+    "2605.06200v1",
+    "A$^2$TGPO: Agentic Turn-Group Policy Optimization with Adaptive Turn-level Clipping"
+   ],
+   [
+    "2026-05-06",
+    "2605.05386v2",
+    "BALAR : A Bayesian Agentic Loop for Active Reasoning"
+   ],
+   [
+    "2026-05-01",
+    "2605.00702v1",
+    "Learning How and What to Memorize: Cognition-Inspired Two-Stage Optimization for Evolving Memory"
+   ],
+   [
+    "2026-05-01",
+    "2605.00425v4",
+    "AEM: Adaptive Entropy Modulation for Multi-Turn Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-04-16",
+    "2604.14820v1",
+    "SWE-TRACE: Optimizing Long-Horizon SWE Agents Through Rubric Process Reward Models and Heuristic Test-Time Scaling"
+   ],
+   [
+    "2026-04-13",
+    "2604.11041v1",
+    "From Topology to Trajectory: LLM-Driven World Models For Supply Chain Resilience"
+   ],
+   [
+    "2026-04-12",
+    "2604.10493v1",
+    "SWE-Shepherd: Advancing PRMs for Reinforcing Code Agents"
+   ],
+   [
+    "2026-03-23",
+    "2603.21972v1",
+    "Demystifying Reinforcement Learning for Long-Horizon Tool-Using Agents: A Comprehensive Recipe"
+   ],
+   [
+    "2026-03-19",
+    "2603.19500v2",
+    "Teaching an Agent to Sketch One Part at a Time"
+   ],
+   [
+    "2026-03-19",
+    "2603.18683v1",
+    "HISR: Hindsight Information Modulated Segmental Process Rewards For Multi-turn Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-03-16",
+    "2603.14864v3",
+    "Shopping Companion: Benchmarking and Training LLM Agents for Long-Horizon Preference-Grounded E-Commerce Tasks"
+   ],
+   [
+    "2026-03-02",
+    "2603.02119v1",
+    "Pencil Puzzle Bench: A Benchmark for Multi-Step Verifiable Reasoning"
+   ],
+   [
+    "2026-02-16",
+    "2602.14482v2",
+    "TikArt: Stabilizing Aperture-Guided Fine-Grained Visual Reasoning with Reinforcement Learning"
+   ],
+   [
+    "2026-02-06",
+    "2603.03293v1",
+    "SE-Search: Self-Evolving Search Agent via Memory and Dense Reward"
+   ],
+   [
+    "2026-02-03",
+    "2602.03719v2",
+    "BranPO: Scalable Contrastive Branch Sampling for Long-Horizon Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-02-03",
+    "2602.03412v2",
+    "Verified Critical Step Optimization for LLM Agents"
+   ],
+   [
+    "2026-02-03",
+    "2602.03320v1",
+    "MedSAM-Agent: Empowering Interactive Medical Image Segmentation with Multi-turn Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-01-29",
+    "2601.21972v5",
+    "Learning Decentralized LLM Collaboration with Multi-Agent Actor Critic"
+   ],
+   [
+    "2026-01-13",
+    "2601.08435v1",
+    "Fine-Mem: Fine-Grained Feedback Alignment for Long-Horizon Memory Management"
+   ],
+   [
+    "2025-12-20",
+    "2512.18202v1",
+    "Sophia: A Persistent Agent Framework of Artificial Life"
+   ],
+   [
+    "2025-12-19",
+    "2512.17853v2",
+    "AnyTask: an Automated Task and Data Generation Framework for Advancing Sim-to-Real Policy Learning"
+   ],
+   [
+    "2025-11-24",
+    "2511.19314v2",
+    "PRInTS: Reward Modeling for Long-Horizon Information Seeking"
+   ],
+   [
+    "2025-11-11",
+    "2511.08325v1",
+    "AgentPRM: Process Reward Models for LLM Agents via Step-Wise Promise and Progress"
+   ]
+  ]
+ },
+ "credit_comparison_study": {
+  "n_in_window": 112,
+  "n_returned": 132,
+  "rows": [
+   [
+    "2026-10-26",
+    "2610.35801v1",
+    "FOCUS: Active Critic Learning for Long-Horizon Language Model Agents"
+   ],
+   [
+    "2026-10-22",
+    "2610.30933v1",
+    "ReflectPO: Reflection-Guided Policy Optimization for Long-Horizon LLM Agents"
+   ],
+   [
+    "2026-10-20",
+    "2610.28361v1",
+    "FALCA: Falsification-Aware Reinforcement Learning with Hierarchical Credit Assignment for Long-Horizon Deep Search Agents"
+   ],
+   [
+    "2026-10-19",
+    "2610.25851v1",
+    "Learning Who Talks to Whom: Role-Aware Communication Topology Scheduling for Efficient LLM Multi-Agent Collaboration"
+   ],
+   [
+    "2026-10-18",
+    "2610.25269v1",
+    "EG-GRPO: Evidence-Guided Step-level Credit Assignment for Deep Search Agents"
+   ],
+   [
+    "2026-10-16",
+    "2610.23181v1",
+    "Tree-Aware Posterior Distillation for Long-Horizon Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-10-13",
+    "2610.18807v1",
+    "SkillScaffold: Scaffolding Agentic Reinforcement Learning with Policy-Adaptive Skill Credit Assignment and Selective Injection"
+   ],
+   [
+    "2026-10-13",
+    "2610.17560v2",
+    "EdgeWise: Bringing Long-Horizon Agents to the Edge via Selective Cloud Delegation"
+   ],
+   [
+    "2026-10-11",
+    "2610.15840v1",
+    "LLM Value Functions for Credit Assignment in Agentic RL"
+   ],
+   [
+    "2026-10-09",
+    "2610.12828v1",
+    "TreeHCA: Hindsight-Guided Exploration and Credit Assignment for Multi-Turn LLM Agents"
+   ],
+   [
+    "2026-10-07",
+    "2610.10179v1",
+    "Beyond Outcome Rewards: Constructing and Assigning Retrieval Credit for Search Agents"
+   ],
+   [
+    "2026-10-06",
+    "2610.08402v2",
+    "VETTA: Coordinating Turn- and Token-Level Credit Assignment for Multi-Turn LLM Agents"
+   ],
+   [
+    "2026-10-05",
+    "2610.06830v1",
+    "MemPilot: Orchestrating On-Demand Multimodal Memory Curation for LLM Agents"
+   ],
+   [
+    "2026-10-05",
+    "2610.06829v1",
+    "CLIFT: Conformal Self-Verification for Web Agent Training and Test-Time Scaling"
+   ],
+   [
+    "2026-10-01",
+    "2610.02330v1",
+    "Choosing Before Acting: Comparative Value Estimation for Long-Horizon Tool-Use Agents"
+   ],
+   [
+    "2026-09-30",
+    "2610.00838v2",
+    "SHARPO: Segment-Level Credit Assignment for Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-09-27",
+    "2609.33323v1",
+    "Agentic Multi-Turn Reasoning: A Fairness Approach"
+   ],
+   [
+    "2026-09-27",
+    "2609.33243v2",
+    "CodeSkill: Latent Skill Abstraction for Long-Horizon Code Agents"
+   ],
+   [
+    "2026-09-24",
+    "2609.29444v1",
+    "IterSynth: Rethinking Deep Search Agents via Role-Decoupled Iterative Synthesis"
+   ],
+   [
+    "2026-09-24",
+    "2609.28963v1",
+    "Back to the Definition: Estimating Step-Level Advantages via Trajectory Graphs for Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-09-21",
+    "2609.24259v3",
+    "MemCalib: Benchmarking and Optimizing Memory Use in LLM Agents"
+   ],
+   [
+    "2026-09-14",
+    "2609.15457v1",
+    "AnchorGUI: Asymmetric Memory for Dual-Scale Learning in GUI Navigation"
+   ],
+   [
+    "2026-09-14",
+    "2609.15182v1",
+    "VisInteract: Towards Dynamic Interactive Text-to-Visualization under Imperfect Queries"
+   ],
+   [
+    "2026-09-11",
+    "2609.12424v2",
+    "Granularity-Adaptive Credit Assignment for Long-Horizon LLM Agent Reinforcement Learning"
+   ],
+   [
+    "2026-09-03",
+    "2609.03383v1",
+    "TIGPO: Temporal Instance-Graph Policy Optimization for Long-Horizon LLM Agents"
+   ],
+   [
+    "2026-08-28",
+    "2608.28476v1",
+    "ContextPilot: Teaching Agents for Proactive Context Management via Fine-grained RL"
+   ],
+   [
+    "2026-08-28",
+    "2608.28128v2",
+    "VICT: Verifier-Instrumented Credit Tracing for Long-Horizon LLM Agent Reinforcement Learning"
+   ],
+   [
+    "2026-08-28",
+    "2609.01641v2",
+    "SocialBuddy: Tailoring Search Agent for Social Scenarios"
+   ],
+   [
+    "2026-08-28",
+    "2608.28011v1",
+    "Coverage, Not Credit: Failure-Credit Routing of Zeroth-Order Perturbation Budgets Does Not Improve On-Pool Sample Efficiency for LLM Agents"
+   ],
+   [
+    "2026-08-25",
+    "2608.24588v2",
+    "IAPO: Influence-Aware Policy Optimization for Credit Assignment in Multi-Turn Service Agents"
+   ],
+   [
+    "2026-08-25",
+    "2608.24300v1",
+    "Contrastive Branch Policy Optimization"
+   ],
+   [
+    "2026-08-24",
+    "2608.23493v1",
+    "SRPO: Self-Reflective Policy Optimization for Long-Horizon Reasoning"
+   ],
+   [
+    "2026-08-22",
+    "2608.21863v2",
+    "HiDiffTIR: Hierarchical Difficulty-Aware Policy Optimization for Multi-Turn Tool-Integrated Reasoning"
+   ],
+   [
+    "2026-08-19",
+    "2608.18682v3",
+    "RTPO: Reverse-Turn Policy Optimization for Stabilizing Agentic RL Training"
+   ],
+   [
+    "2026-08-17",
+    "2608.16156v2",
+    "TRCA: Transition-wise Rubric Credit Assignment for Long-horizon LLM Agents"
+   ],
+   [
+    "2026-08-10",
+    "2608.09251v1",
+    "MoRSE: Task-Oriented Multi-Agent System with Mixture of Role-Subtask Experts"
+   ],
+   [
+    "2026-08-04",
+    "2608.04007v1",
+    "TurnSight: Turn-Level Hindsight Self-Distillation for Tool-Integrated Reasoning"
+   ],
+   [
+    "2026-08-04",
+    "2608.03137v1",
+    "Verifiable Memory: Learning Unified Memory Management with Local and Global Verifiers for Large Language Model Agents"
+   ],
+   [
+    "2026-08-03",
+    "2608.01667v1",
+    "TCPO: Turn-Level Credit Policy Optimization"
+   ],
+   [
+    "2026-07-23",
+    "2607.21106v3",
+    "AttriMem: Attribution-Guided Process Feedback for Agent Memory Construction"
+   ],
+   [
+    "2026-07-23",
+    "2607.21013v2",
+    "EmoAgent-R1: Towards Multimodal Emotion Understanding with Reinforcement Learning-based Dynamic Agent Specialization"
+   ],
+   [
+    "2026-07-20",
+    "2607.18006v1",
+    "MADA-RL: Multi-Agent Debate-Aware Reinforcement Learning for Parameter-Efficient Reasoning in Compact Models"
+   ],
+   [
+    "2026-07-15",
+    "2607.13359v2",
+    "Learning Latency-Aware Orchestration for Multi-Agent Systems"
+   ],
+   [
+    "2026-07-04",
+    "2607.03702v1",
+    "Agent Reinforcement Learning via Pivotal-Aware Self-Feedback Retry"
+   ],
+   [
+    "2026-06-24",
+    "2606.25556v1",
+    "BiPACE: Bisimulation-Guided Policy Optimization with Action Counterfactual Estimation for LLM Agents"
+   ],
+   [
+    "2026-06-22",
+    "2606.22995v2",
+    "Group-Graph Policy Optimization for Long-Horizon Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-06-17",
+    "2606.18810v2",
+    "Learning from Own Solutions: Self-Conditioned Credit Assignment for Reinforcement Learning with Verifiable Rewards"
+   ],
+   [
+    "2026-06-13",
+    "2606.15385v1",
+    "Reward Hacking in Language Model Agents: Revisiting AI Safety Gridworlds"
+   ],
+   [
+    "2026-06-12",
+    "2606.14211v1",
+    "Closing the Reflection Gap: A Free Calibration Bonus for Agentic RL"
+   ],
+   [
+    "2026-06-12",
+    "2606.14155v1",
+    "Graph-based Target Back-Propagation for Context Adaptation in Multi-LLM Agentic Systems"
+   ],
+   [
+    "2026-06-10",
+    "2606.12384v2",
+    "APPO: Agentic Procedural Policy Optimization"
+   ],
+   [
+    "2026-06-09",
+    "2606.10507v1",
+    "HIPIF: Hierarchical Planning and Information Folding for Long-Horizon LLM Agent Learning"
+   ],
+   [
+    "2026-06-05",
+    "2606.06960v4",
+    "FinEvolveBench: A Benchmark for Self-Evolving Agents on Low-Repetition Tasks with Implicit Rewards"
+   ],
+   [
+    "2026-06-01",
+    "2606.02215v2",
+    "Better with Experience: Self-Evolving LLM Agents for Evidence-Grounded Health Community Notes"
+   ],
+   [
+    "2026-05-31",
+    "2606.01249v3",
+    "Trust Region On-Policy Distillation"
+   ],
+   [
+    "2026-05-29",
+    "2605.30727v1",
+    "MosaicLeaks:Privacy Risks in Querying-in-the-Open for Deep Research Agents"
+   ],
+   [
+    "2026-05-28",
+    "2605.30227v1",
+    "Unifying Temporal and Structural Credit Assignment in LLM-Based Multi-Agent Prompt Optimization"
+   ],
+   [
+    "2026-05-27",
+    "2605.27881v2",
+    "Retrieval, Reward, and Training Protocols: What Matters in Training Search Agents?"
+   ],
+   [
+    "2026-05-26",
+    "2605.26684v2",
+    "Beyond Trajectory-Level Attribution: Graph-Based Credit Assignment for Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-05-20",
+    "2605.21768v1",
+    "Memory-R2: Fair Credit Assignment for Long-Horizon Memory-Augmented LLM Agents"
+   ],
+   [
+    "2026-05-19",
+    "2605.20061v1",
+    "Rewarding Beliefs, Not Actions: Consistency-Guided Credit Assignment for Long-Horizon Agents"
+   ],
+   [
+    "2026-05-19",
+    "2605.19447v1",
+    "What and When to Distill: Selective Hindsight Distillation for Multi-Turn Agents"
+   ],
+   [
+    "2026-05-14",
+    "2605.14483v2",
+    "COLLATOR: Compositional Multi-Agent Orchestration with Counterfactual Reinforcement Learning"
+   ],
+   [
+    "2026-05-13",
+    "2605.13295v1",
+    "CANTANTE: Optimizing Agentic Systems via Contrastive Credit Attribution"
+   ],
+   [
+    "2026-05-12",
+    "2605.12289v1",
+    "PriorZero: Bridging Language Priors and World Models for Decision Making"
+   ],
+   [
+    "2026-05-12",
+    "2605.11853v2",
+    "GEAR: Granularity-Adaptive Advantage Reweighting for LLM Agents via Self-Distillation"
+   ],
+   [
+    "2026-05-10",
+    "2605.09359v1",
+    "Skill-R1: Agent Skill Evolution via Reinforcement Learning"
+   ],
+   [
+    "2026-05-10",
+    "2605.09287v3",
+    "PiCA: Pivot-Based Credit Assignment for Search Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-05-07",
+    "2605.06822v1",
+    "SHARP: A Self-Evolving Human-Auditable Rubric Policy for Financial Trading Agents"
+   ],
+   [
+    "2026-05-07",
+    "2605.06200v1",
+    "A$^2$TGPO: Agentic Turn-Group Policy Optimization with Adaptive Turn-level Clipping"
+   ],
+   [
+    "2026-05-07",
+    "2605.06066v1",
+    "Causal Reinforcement Learning for Complex Card Games: A Magic The Gathering Benchmark"
+   ],
+   [
+    "2026-05-06",
+    "2605.04984v1",
+    "Self-Induced Outcome Potential: Turn-Level Credit Assignment for Agents without Verifiers"
+   ],
+   [
+    "2026-05-06",
+    "2605.04906v2",
+    "Strat-Reasoner: Reinforcing Strategic Reasoning of LLMs in Multi-Agent Games"
+   ],
+   [
+    "2026-05-06",
+    "2605.04811v1",
+    "Tree-based Credit Assignment for Multi-Agent Memory System"
+   ],
+   [
+    "2026-05-04",
+    "2605.02572v1",
+    "On Training Large Language Models for Long-Horizon Tasks: An Empirical Study of Horizon Length"
+   ],
+   [
+    "2026-04-28",
+    "2604.25917v2",
+    "Recursive Multi-Agent Systems"
+   ],
+   [
+    "2026-04-23",
+    "2604.21160v1",
+    "Reinforcing 3D Understanding in Point-VLMs via Geometric Reward Credit Assignment"
+   ],
+   [
+    "2026-04-21",
+    "2604.19859v1",
+    "DR-Venus: Towards Frontier Edge-Scale Deep Research Agents with Only 10K Open Data"
+   ],
+   [
+    "2026-04-21",
+    "2604.18982v1",
+    "SAVOIR: Learning Social Savoir-Faire via Shapley-based Reward Attribution"
+   ],
+   [
+    "2026-04-15",
+    "2604.14267v2",
+    "Enhancing LLM-based Search Agents via Contribution Weighted Group Relative Policy Optimization"
+   ],
+   [
+    "2026-04-10",
+    "2604.09459v3",
+    "From Reasoning to Agentic: Credit Assignment in Reinforcement Learning for Large Language Models"
+   ],
+   [
+    "2026-04-04",
+    "2604.03675v3",
+    "OASES: Outcome-Aligned Search-Evaluation Co-Training for Agentic Search"
+   ],
+   [
+    "2026-04-03",
+    "2604.03098v1",
+    "Co-Evolution of Policy and Internal Reward for Language Agents"
+   ],
+   [
+    "2026-04-03",
+    "2604.02869v1",
+    "Multi-Turn Reinforcement Learning for Tool-Calling Agents with Iterative Reward Calibration"
+   ],
+   [
+    "2026-03-23",
+    "2603.21574v1",
+    "Adaptive Robust Estimator for Multi-Agent Reinforcement Learning"
+   ],
+   [
+    "2026-03-23",
+    "2603.21563v5",
+    "Counterfactual Credit Policy Optimization for Multi-Agent Collaboration"
+   ],
+   [
+    "2026-03-19",
+    "2603.18683v1",
+    "HISR: Hindsight Information Modulated Segmental Process Rewards For Multi-turn Agentic Reinforcement Learning"
+   ],
+   [
+    "2026-03-18",
+    "2603.18079v1",
+    "SLEA-RL: Step-Level Experience Augmented Reinforcement Learning for Multi-Turn Agentic Training"
+   ],
+   [
+    "2026-03-07",
+    "2603.08754v1",
+    "Hindsight Credit Assignment for Long-Horizon LLM Agents"
+   ],
+   [
+    "2026-03-06",
+    "2603.06859v4",
+    "The Trace Is the State: Exact Credit Assignment for LLM Agent Teams"
+   ],
+   [
+    "2026-03-05",
+    "2603.04900v1",
+    "EvoTool: Self-Evolving Tool-Use Policy Optimization in LLM Agents via Blame-Aware Mutation and Diversity-Aware Selection"
+   ],
+   [
+    "2026-03-03",
+    "2603.02701v1",
+    "Graph-GRPO: Stabilizing Multi-Agent Topology Learning via Group Relative Policy Optimization"
+   ],
+   [
+    "2026-02-24",
+    "2602.21198v3",
+    "Learning from Trials and Errors: Reflective Test-Time Planning for Embodied LLMs"
+   ],
+   [
+    "2026-02-24",
+    "2602.21158v2",
+    "SELAUR: Self Evolving LLM Agent via Uncertainty-aware Rewards"
+   ],
+   [
+    "2026-02-23",
+    "2602.20229v1",
+    "HieraMAS: Optimizing Intra-Node LLM Mixtures and Inter-Node Topology for Multi-Agent Systems"
+   ],
+   [
+    "2026-02-18",
+    "2602.16165v2",
+    "HiPER: Hierarchical Reinforcement Learning with Explicit Credit Assignment for Large Language Model Agents"
+   ],
+   [
+    "2026-02-11",
+    "2604.03242v1",
+    "DRAFT: Task Decoupled Latent Reasoning for Agent Safety"
+   ],
+   [
+    "2026-02-10",
+    "2602.09598v1",
+    "Learning from the Irrecoverable: Error-Localized Policy Optimization for Tool-Integrated LLM Reasoning"
+   ],
+   [
+    "2026-02-10",
+    "2603.02216v1",
+    "ATPO: Adaptive Tree Policy Optimization for Multi-Turn Medical Dialogue"
+   ],
+   [
+    "2026-02-09",
+    "2602.09159v3",
+    "CoMMa: Contribution-Aware Medical Multi-Agents for Decentralized Oncology Decision Support"
+   ],
+   [
+    "2026-02-09",
+    "2602.08335v2",
+    "Who Deserves the Reward? SHARP: Shapley Credit-based Optimization for Multi-Agent System"
+   ],
+   [
+    "2026-02-08",
+    "2602.07883v4",
+    "ToolSelf: Unifying Task Execution and Self-Reconfiguration via Tool-Driven Emergent Adaptation"
+   ],
+   [
+    "2026-01-29",
+    "2602.00169v2",
+    "Towards Agentic Intelligence for Materials Science"
+   ],
+   [
+    "2026-01-15",
+    "2601.10560v2",
+    "Learning Latency-Aware Orchestration for Multi-Agent Systems"
+   ],
+   [
+    "2026-01-14",
+    "2601.09667v2",
+    "Collaborative Multi-Agent Test-Time Reinforcement Learning for Reasoning"
+   ],
+   [
+    "2026-01-08",
+    "2601.04767v1",
+    "AT$^2$PO: Agentic Turn-based Policy Optimization via Tree Search"
+   ],
+   [
+    "2026-01-08",
+    "2601.04703v1",
+    "Beyond Monolithic Architectures: A Multi-Agent Search and Knowledge Optimization Framework for Agentic Search"
+   ],
+   [
+    "2026-01-07",
+    "2601.03555v3",
+    "SCRIBE: Structured Mid-Level Supervision for Tool-Using Language Models"
+   ],
+   [
+    "2026-01-05",
+    "2601.01743v1",
+    "AI Agent Systems: Architectures, Applications, and Evaluation"
+   ],
+   [
+    "2025-11-17",
+    "2511.13288v2",
+    "Multi-Agent Deep Research: Training Multi-Agent Systems with M-GRPO"
+   ],
+   [
+    "2025-11-15",
+    "2511.12159v1",
+    "CriticSearch: Fine-Grained Credit Assignment for Search Agents via a Retrospective Critic"
+   ],
+   [
+    "2025-11-08",
+    "2511.06134v1",
+    "Maestro: Learning to Collaborate via Conditional Listwise Policy Optimization for Multi-Agent LLMs"
+   ]
+  ]
+ }
+}
