@@ -68,6 +68,11 @@
    "date": "2026-11-01",
    "status": "carded",
    "note": "W44 weekly run; evidence_level full-text (arxiv.org/html/2610.40246, LaTeXML, 12 sections plus appendices A-Y, S1, S2; abstract and metadata via export.arxiv.org API; five neighbour abstracts via one API id_list call); lane context L1, neighbours CL-W43-14 and the parked per-turn attribution instrument (2026-W41-product-redteam-C)"
+  },
+  {
+   "date": "2026-11-01",
+   "status": "carded",
+   "note": "correction (mutate worker, from the fetched full text, App. T 'later-model replication'): Block B (10/0/0) was Opus 5 and Block BS (6/0/4) was Sonnet 5 on the same instances — the 10/0/0 -> 6/0/4 contrast is a model change, not run-to-run spread; read load_bearing_assumption and limitations_as_complaints[0] with that correction"
   }
  ]
 }

@@ -68,6 +68,11 @@
    "date": "2026-11-01",
    "status": "carded",
    "note": "W44 weekly run; evidence_level full-text (arxiv.org/html/2610.36523, LaTeXML, 7 sections plus appendices A-D; abstract via export.arxiv.org API; five neighbor abstracts via one API id_list call)"
+  },
+  {
+   "date": "2026-11-01",
+   "status": "carded",
+   "note": "correction (mutate worker, from sec. 4.1 and Table 2): the full-history arm was run for all six receivers on the continuation track (only the narrative-summary and target-state arms are GPT-5.4-only); the card's framing_stripped and information_asymmetry (3) overstate the single-receiver limitation — full history is the uncompressed control for every receiver"
   }
  ]
 }
