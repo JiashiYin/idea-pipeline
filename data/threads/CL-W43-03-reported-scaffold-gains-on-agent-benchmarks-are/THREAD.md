@@ -1,6 +1,6 @@
 # Reported scaffold gains on agent benchmarks are mostly reasoning-effort and restart effects, not scaffold design.
 
-`CL-W43-03` · lane **L1** · status **killed** · rank None · position both · refreshed 2026-11-02
+`CL-W43-03` · lane **L1** · status **killed** · rank None · position both · refreshed 2026-11-03
 
 ## Status
 
@@ -50,7 +50,19 @@ Also under this claim (no scorecard yet): import:2026-W44-S1xF12 (Brinson ledger
 
 ## Kill search
 
-Not run yet. Kill searches run automatically on the top probes, claim by claim (config/generation.yaml); `/kill <probe>` runs one by hand.
+### Concept level (CL-W43-03) — killed (2026-11-01)
+Gate 2B: the surprise equals the field's stated knowledge - matched-budget and effort-matched controls on scaffold gains are a published protocol with a published, benchmark-dependent answer (test-time scaling 14% of evolved-harness gains; effort gains exceeding scaffold differences on ARC-AGI-3; effort a few points against a 16-77% harness swing on RCA; continuation beating matched restarts on coding agents); the universal 'mostly' is a published negative in two of four fetched settings; Gate 6 density 1.2 direct papers/week
+Full record: [`data/reports/2026-W44-kill-CL-W43-03.md`](../../../data/reports/2026-W44-kill-CL-W43-03.md).
+**Occupied by:** 2610.22466 (restart/compute-matched control on published scaffold gains); effort clause by 2610.27889, 2609.40303, 2607.15439, 2610.35767
+**Why not done before:** done: an enabling piece landed - 2607.12227 (2026-07-14) made matched feedback-and-inference budgets the standard; HDA 2610.22466 (2026-10-15) shipped the attribution protocol; 2610.27889 (2026-10-20) added the effort reference and pass@k axis; 2609.40303 (2026-09-30) and 2610.35767 (2026-10-26) ran effort-matched comparisons of hand-written harnesses; the owner's own effort-notch comparison 2607.15439 (2026-07-16) predates the claim. The question looked open only because the claim's vocabulary (scaffold, reasoning effort, restart) is not the field's (harness, attribution, elicitation, matched budget, pass@k).
+Closest neighbors (one-sentence trick; one-line difference):
+- `2610.22466` Harness-Delta Attribution: Dissecting Gains From Harness Evolution — Split an evolved harness's gain into overfitting (drop when detected shortcuts are disabled), test-time scaling (the plain harness rerun at the evolved harness's call or token budget, aggregated by pass@k or vote) and a residual, over 11 executor models and t… *Difference:* none for the restart clause - occupied: the restart/compute-matched control on published scaffold gains as a reusable protocol; scope is evolved harnesses and the matched unit is calls or tokens, not the vendor effort knob
+- `2610.27889` Elicitation or Expansion? Demystifying Gains from Agent Harness Optimization — Compare an optimized harness with its pre-optimization harness and with the base harness on a larger model or at higher reasoning effort across pass@k attempt budgets and task difficulty; pass@1 advantages reverse at large k and never beat the stronger refere… *Difference:* none for the effort clause as a control - occupied: the effort-knob reference and the restart (pass@k) axis both run against a scaffold gain
+- `2609.40303` How Much of a Harness Does a Strong Agent Need for Autonomous ML Engineering? — Re-implement a ladder of MLE harness interventions at the same backbone, hardware, maximum reasoning effort and 24-hour budget; a single minimal-harness session matches or beats every published harness. *Difference:* effort- and time-matched comparison of published hand-written scaffolds finding design worth nothing at equal budget, with the mechanism 'the backbone' rather than effort or restarts; Table 17 shows an effort x harness interaction (max to medium triples searc…
+- `2610.35767` Free to Look, Free to Reason: Simple LLM Harnesses Outdiagnose Hand-Crafted Root Cause An… — Run three harnesses that prescribe none of the model's calls against five published RCA agents across six models and three reasoning efforts; the simple harnesses win on every model and effort moves accuracy by a few points while multiplying time by up to sev… *Difference:* effort crossed with harness; a published counterexample where the harness is the large term and effort the small one
+- `2607.15439` Do Coding Agents Need Executable World Models, Simplification, and Verification to Solve… — Four Codex scaffold variants at two efforts and two models on the same 25 ARC-AGI-3 games; every variant rises with effort and those rises often exceed the variant differences. *Difference:* the effort-notch control on the claim's own benchmark and stack by the owner of 2610.22289; lacks a restart arm and a matched-token share (C-W43-11's residue, a footnote)
+**Narrowest surviving headline:** none at claim level; the unrun instance ('at a fixed frontier model, the gap between two vendor-native coding harnesses is their default reasoning setting and reset count') is a footnote-grade orphan (C-W44-04 step 0), since 2610.04433 already shows the fixed-model coding-harness gap to be rerun noise plus an output-cap artifact and pressure #3 prices the premium as a weekend on public boards
+*Search degraded:* ['s2', 'scratchpad query log shared with a parallel kill search (CL-W43-05) wrote into kills/CL-W43-03/queries.jsonl; its entries (labels Q2-Q10 without w/all suffix) were excluded from this record']
 
 ## Red team
 

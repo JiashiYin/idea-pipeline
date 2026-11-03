@@ -396,3 +396,197 @@ Go1 (plain / penalty / filter / routed × DR, evaluated in the training engine, 
 engine, branch on and off). No application of gradient routing to robot policies or simulators exists in the fetched set.
 Pre-registered death: nothing exploit-specific localised (ablation drop equal in training and converged engines), or no
 transfer gain over DR and penalties.
+
+
+---
+
+# Part V — real-to-sim data synthesis with VLMs: seven questions, one claim (2026-11-03)
+
+Jacob and a colleague raised seven questions about VLM-driven real-to-sim data-synthesis pipelines (Astra-era 3D
+modelling). Evidence: 73 arXiv abstracts fetched by API, 8 pages (two maintained GitHub lists, the NVIDIA SimReady blog,
+the Moonlake asset-evaluation post, a buyer's QA checklist, two AgiBot posts), one PDF (RSS 2020). Every paper below
+carries its one-sentence trick in `data/reports/2026-W45-kill-CL-W45-J01.md` or here. One claim captured: `CL-W45-J01`.
+
+## 1. "Per-scene physical calibration by a VLM-driven real robot is heavily adopted lately" — not supported
+
+The maintained list `YanjieZe/agent-real2sim2real` holds 75 papers dated 2026-07-19 to 2026-10-16 (13 weeks). In the
+27 "agent × real2sim2real" papers, **one** (D-World 2610.17114: LLM agents revise states and physical parameters after each
+real action chunk on a dual-arm robot) clearly has an agent calibrate physics on a real robot; RoboSimStudio 2610.18835
+(humans or coding agents edit solver, contact model and parameters against observed behaviour, in Newton) is a partial
+fit. Of the 48 non-agent papers, about 16 identify physical parameters from real data without an agent — mostly
+deformables, tactile sensors and actuators (ForceTwin, RealSimLoop, PneuTac, BoxTwin, Contact-UAN) — and about 24 are
+geometry- or asset-only. The 30 public Astra demos (`zjwzcx/Awesome-Astra-Embodied-AI`) are zero-shot control (19),
+real-to-sim *replay* (5) and RL-environment building (5); one caption mentions physical parameters.
+
+What *is* adopted is assignment, not measurement: NVIDIA's SimReady pipeline (Oct 2026 blog, Astra as the frontier
+model) sets friction to "assumed static 0.8, dynamic 0.6", mass "estimated from STEP geometry volumes", and says outright
+"these parameters were not calibrated against physical YuMi measurements" and the tests "did not establish agreement with
+real-world robot dynamics". The papers that do calibrate with a robot — 2601.08454 (a VLM names "the minimal subset of
+missing physical parameters required for the simulation task" and a behaviour tree acquires them by contact), RigPI
+2606.25212 (VLM-seeded differentiable identification of inertia and friction), Phys2Real 2510.11689 (VLM prior
+distributions fused with online estimates), Vid2Sid 2602.19359 (a VLM diagnoses sim–real video mismatch and proposes
+parameter updates) — chose tasks where a parameter is known to matter. Why it *looks* prevalent: the demos are vivid, and
+the evaluation side of the field (next section) does calibrate, for a different reason.
+
+## 2. Is calibration worth it against a material-prior database plus randomization?
+
+The evidence splits by **task sensitivity**, which is the claim.
+
+For measuring: 2606.22062 (June 2026, sim-to-sim pendulum, two hidden parameters) — "a small number of identification
+rollouts closed most of the transfer gap ... broad randomization that contained the true system still did not substitute
+for measurement"; Phys2Real — 100% vs 79% and 57% vs 23% over a DR baseline on CoM-offset pushing; ForceTwin — probed
+door mechanisms give 87% goal completion against 60% from a VLM prior; 2503.01255 — leaving static joint friction out of
+randomization broke transfer, and identification found "unexpectedly high friction-torque ratios".
+
+For the prior plus breadth: Digital Cousins 2410.07408 — twins "are expensive to generate and cannot produce
+cross-domain generalization"; the co-training recipe 2503.24361 — +38% real success "even with notable differences
+between the simulation and real-world data"; MetaGenSim 2610.19479 — optimising the *generation distribution* "matches
+expert manual alignment" with no alignment; InternData-A1 2511.16651 — synthetic-only pre-training matches the π
+dataset; AutoRSR 2610.20336 — 73–87% real success from 1K randomized synthetic episodes per task; SIMPLER 2405.05941 —
+sim–real correlation for evaluation "without needing to craft full-fidelity digital twins".
+
+Reading, stated plainly: **twin for evaluation, cousin for training.** When the simulator must predict *this* scene's
+outcome — policy evaluation (R2S-Eval 2609.03276, X2Real 2609.27449 with a 0.84 sim–real correlation after calibrating
+visuals and physics, PolaRiS 2512.16881, RobotArena∞ 2510.23571, SureSim 2510.04354) and replay — per-scene calibration
+is the point. When the simulator is a data source for training, breadth over the prior beats fidelity to one scene,
+*except* where one parameter the prior cannot pin down flips the task outcome (centre of mass, spring mechanisms,
+static joint friction, deformable stiffness). Nobody has measured which parameters those are, task by task, or how
+concentrated the value is — that is `CL-W45-J01` (section 8).
+
+## 3. Can sim-to-sim replace the real world for training or evaluating a VLM data synthesizer?
+
+For the *physics* half, yes, and the field already does it: 2606.22062 used a hidden-parameter twin as the robot; TUCO
+2610.05407 and the co-training mechanism study 2604.13645 evaluate sim-to-sim; Vid2Sid validates parameter recovery
+sim2sim ("mean relative error under 13% vs 28–98%"). Two conditions. (i) The target must differ from the source in the
+*structural* ways reality differs — contact model, actuator response, deformables — so cross-engine (MuJoCo → Newton or
+IPC, rigid → soft) rather than same-engine with perturbed constants; otherwise the synthesizer learns one engine's
+idiosyncrasies. This is exactly the engine-disagreement instrument of Part II. (ii) One real anchor per task family is
+still owed to show the sim-to-sim ordering of synthesizers matches the real ordering (GAUGE's reality anchoring). For the
+*appearance* half, no: the visual gap is what real-to-sim exists to close, and a synthesizer trained sim-to-sim learns no
+camera.
+
+## 4. Evaluating a data synthesizer: the transfer score is a two-sample test on coin flips
+
+The common metric — fine-tune a VLA on the batch, measure real success, compare — is a difference of two binomial
+proportions. With $n$ trials per arm and success $p$, the standard error of each arm is $\sqrt{p(1-p)/n}$: at $p = 0.5$
+and $n = 50$ it is 7 points, the standard error of the *difference* is 10 points, and a 15-point gain is not
+distinguishable from zero. The one study that got clean conclusions on what drives sim-to-real for VLAs (2603.22876)
+ran over 10,000 real trials. Jacob's concern is correct and quantified; it is also stated knowledge in the evaluation
+literature, so it is a finding here, not a claim (the W44 run killed the L1 "noise floor" set for the same reason).
+
+The fixes exist in print and should be used, not reinvented: paired initial conditions across arms (common random
+numbers — our luck/skill thread); SureSim 2510.04354 (Princeton IRoM: prediction-powered inference that uses many
+simulated trials and a few paired real trials to bound real success, "saves 20–25% of hardware evaluation effort");
+sequential comparison with near-optimal stopping 2503.10966 (same lab); CDF lower bounds from few rollouts 2405.05439;
+VLM pairwise preference instead of binary success (R2S-Eval), which recovers the information binary success throws
+away; a calibrated twin for *ranking* synthesizers (X2Real's 0.84).
+
+## 5. Evaluating a batch of synthetic data: the principled metric exists, and the territory is dense
+
+The right quantity is the batch's value to the consumer on the real target distribution — and that is what influence
+functions estimate without a deployment per batch: CUPID 2506.19121 (Stanford/TRI: influence of each demonstration on
+closed-loop return from a set of evaluation rollouts), QoQ 2603.09056 (influence on validation-demo loss), ATHENA
+2606.16208 (billion-parameter VLAs, 313× faster influence), and **TUCO 2610.05407 (Oct 2026), which does exactly the
+sim-demo-for-co-training case**: influence of each simulated demonstration on target-domain scoring rollouts,
+decomposed into trajectory utility and set coverage. Learner-free proxies also exist: mutual information between states
+and actions 2502.08623, signature-kernel entropy for diversity (FAKTUAL 2603.11634), power-spectral smoothness
+2605.01544, state criticality under adversarial perturbation (SCRIM 2610.17709), self-supervised progress and
+deduplication (SCIZOR 2505.22626), reusable-primitive structure (SIEVE 2607.06442). Eight metric papers in eighteen
+months from Stanford, UT Austin, TRI and others: a new metric here is a race, not a gap.
+
+A learner-free *absolute* quality number does not exist in principle — data value is relative to what is being learned
+(Re-Mix 2408.14037: the best mixture depends on the training setup). What is unmeasured is **validity**: whether the
+influence or proxy ranking of synthetic *batches* matches their transfer ranking. That is a meta-evaluation worth a probe
+inside this program (it needs real transfer numbers or a calibrated-twin target), not a headline on its own.
+
+## 6. How industry evaluates: assets by authoring checks, demonstrations by labels; transfer rarely
+
+Asset vendors grade *assets*, not transfer. Moonlake's post (vendor blog, ten articulated assets) scores 22 metrics —
+collision-proxy error, joints with explicit limits, friction authored rather than left at simulator default (Moonlake
+36.8% of joints, Astra 58.1%), exported mass against the product reference, a button-press test — and states that the
+metrics are "only a proxy for whether an asset improves robot learning", with correlation to training outcomes as future
+work. NVIDIA's SimReady Foundation validation checks units, geometry, materials, rigid bodies, joints and drives, and the
+blog says real-dynamics agreement was not established. Lightwheel assets serve as references in the Artisan benchmark
+2610.13947 (spatial fidelity, physical plausibility, downstream task performance, overall quality).
+
+Demonstration-data buyers and sellers grade *batches* by manifests (task, site, object, operator, outcome), calibration
+versions, timestamp alignment, action semantics, success and failure labels, acceptance yield; AgiBot World keeps failed
+episodes and labels `error_cause` and `restorable` rather than discarding them, and reports downstream policy gains
+(GO-1) rather than QA metrics. The one buyer's checklist that recommends downstream validation says a batch without it
+is "technically qualified, not performance-proven". So the industrial metric is structural QA plus labels; transfer is
+measured rarely, late, and with the noise of section 4.
+
+## 7. Training a scaled open VLM for sim-ready synthesis — the harness outlives the weights
+
+Against: Agentic Real2Sim 2607.19190 reports that an *open-weight VLM backend at a small fraction of the cost of frontier
+models* attains a comparable conversion success rate — the capability sits in the agentic harness, which survives a
+model swap, not in the weights, which do not. The lane is already occupied by groups with data and compute:
+3D-Generalist 2507.06484 (VLMs as policies that craft layout, materials, lighting and assets, trained by self-improvement;
+Stanford, 2025), PhysX-Anything 2511.13648 (a VLM-based physical 3D generative model with a 193× token reduction and the
+PhysX-Mobility dataset), SpatialLM 2506.07491, STABLE 2605.16137 (fine-tuned LLM plus a physics corrector). RECONSPATIAL
+2611.02026 (1 Nov 2026) locates where frontier VLMs fail: metric accuracy — GPT-6 Astra scores 81.4% on relative structure
+and 58.7% on metric scale; "relational consistency alone does not ensure metric accuracy". Metric errors are physical
+errors: mass estimated from volume scales as $L^3$, so a 10% scale error is a 33% mass error, and penetration and support
+failures follow (SimuScene 2606.03994 and φ-Scene 2606.21596 exist because of them). Jacob's durability concern is
+supported; what survives a model generation is the verifier (SimReady validation, Moonlake's metrics, Artisan's
+benchmark, RECONSPATIAL), the physics-in-the-loop check (SimuScene uses the engine "as a diagnostic measurement tool"),
+and the data or prior (PhysX-Mobility, ABO masses). Recommendation: do not train the synthesizer; build what it is graded
+by — the Part II position, again.
+
+## 8. The claim this adds — `CL-W45-J01`
+
+**Headline.** Only one or two numbers per scene are worth measuring, and which ones can be computed in simulation before
+any robot time: the value of calibrating each physical parameter under a material prior is concentrated in task-specific
+parameters, and for most tabletop tasks it is below the cost of measuring, so a material-prior database plus
+randomization is the right default and targeted calibration the exception.
+
+**Quantity.** Scene parameters $\theta = (\theta_1, \dots, \theta_d)$ with material prior $p(\theta)$; a policy $\pi$; success
+$J(\pi, \theta)$ when deployed in a world with parameters $\theta$. The value of measuring parameter $k$ is the expected
+value of perfect information (decision theory's term; Raiffa and Schlaifer 1961),
+
+$$\mathrm{EVPI}_k = \mathbb{E}_{\theta_k}\Big[\max_\pi \mathbb{E}_{\theta_{-k} \mid \theta_k} J(\pi, \theta)\Big] - \max_\pi \mathbb{E}_{\theta} J(\pi, \theta),$$
+
+with $\theta_{-k}$ all other parameters: the success gained by specialising the policy to the measured value, averaged
+over what the measurement could return. Measure $k$ only if $\mathrm{EVPI}_k$ exceeds its measurement cost $c_k$ in robot
+time. The cheap necessary condition is the Sobol index of the randomized policy's success,
+
+$$S_k = \frac{\mathrm{Var}_{\theta_k}\big(\mathbb{E}[J(\pi_{\mathrm{DR}}, \theta) \mid \theta_k]\big)}{\mathrm{Var}_{\theta}\, J(\pi_{\mathrm{DR}}, \theta)},$$
+
+the share of the randomized policy's scene-to-scene success variation that parameter $k$ explains; a parameter with
+$S_k \approx 0$ cannot be worth measuring. This is the dependence toolkit of `CL-W44-J01` pointed at physical parameters.
+
+**Estimator without retraining per parameter.** One policy per task conditioned on a masked parameter vector,
+$\pi_u(a \mid s, \hat\theta)$, trained under the prior with random masks (a masked entry is replaced by its prior mean), so
+every conditioning pattern is in-distribution. Then $\widehat{\mathrm{EVPI}}_k = J_k - J_0$, where $J_k$ is the success with
+only $\theta_k$ revealed and $J_0$ with nothing revealed; $J_{\mathrm{all}} - J_0$ is the total; concentration is the top
+parameter's share of the total.
+
+**Pre-registered surprise, two-sided.** Total value under 5 success points on pick-and-place and peg insertion (the
+collaborators' prior holds); 15–40 points on CoM-offset pushing and a spring-loaded drawer (the Phys2Real / ForceTwin
+class); the top parameter above 60% of the total in at least five of six tasks. Dead if the value is spread (top under
+35% in most tasks), if targeted calibration beats neither a widened prior nor full calibration at any budget, or if a
+per-parameter value rule is found at full-text reading of 2606.22062, Liang–Saxena–Kroemer (RSS 2020) and AdaptSim.
+
+**Kill search (concept, first pass, same day).** Survived: the concept "identify task-relevant parameters" is in print
+(RSS 2020, implicit in a regret objective; AdaptSim 2302.04903, distribution adaptation; MetaGenSim, generation side); the
+budget question was answered on a two-parameter pendulum (2606.22062) and left "which parameters" and structural
+mismatch open in its own words; the per-parameter value, its concentration and a cost-side rule are unfound — the arXiv
+conjunction (Sobol OR variance-based sensitivity OR value of information OR EVPI) AND (sim-to-real OR domain
+randomization OR system identification) AND robot returns 0. Gate 2B flagged: the red team will say "friction and mass
+matter most" is folklore; the answer is the pre-registered number, not the sentence. Princeton IRoM (Majumdar: AdaptSim,
+SureSim, near-optimal stopping) owns the adjacent lineages — natural reviewer or collaborator, on campus.
+
+**Scorecard** in the claim record and thread. Cost of the first probe: 40–60 GPU-h, $80–180, three weeks, no robot; the
+lab position adds one real anchor (Phys2Real's public T-block task or a collaborator scene) — the one place the
+collaborators' robot time is worth spending on this question. Relevance: collaborators and asset vendors direct; Jacob's
+edge (variance decompositions, no robot) load-bearing; both advisor routes zero — robotics-flavoured, as Jacob said of
+L5 on 2026-10-29.
+
+## Judgment
+
+The real-to-sim data-synthesis territory has three dense regions (scene and asset generation; data-value metrics;
+evaluation statistics), each owned by groups with robots or compute, and one measurable gap at the join of the
+calibrate-versus-randomize debate, which the agentic wave is spending robot time on without a rule. `CL-W45-J01` is that
+gap. It is a measurement with a decision rule in the Part II register, solo-feasible in simulation, and its expected
+result vindicates the collaborators' prior on most tasks while bounding it — a result either camp can use. It is not core
+ML.

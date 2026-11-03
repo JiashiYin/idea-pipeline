@@ -1,6 +1,6 @@
 # On Terminal-Bench 3.0 to 4.0, for a model in the band where the repaired tasks are passable (20-45% under one pinned harness), the 14 content-repaired tasks carry more than half of the kept-task delta at fixed 4.0 settings, while their ordering of the board is indistinguishable from a difficulty-matched subset.
 
-`CL-W44-11` · lane **L1** · status **thought** · rank None · position both · refreshed 2026-11-02
+`CL-W44-11` · lane **L1** · status **thought** · rank None · position both · refreshed 2026-11-03
 
 ## Status
 

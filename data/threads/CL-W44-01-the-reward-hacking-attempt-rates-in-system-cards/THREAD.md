@@ -1,6 +1,6 @@
 # The reward-hacking attempt rates in system cards are environment hack-surface rates: on released RL environments the attempt rate tracks the audited leak fraction of the environment family and not the checkpoint.
 
-`CL-W44-01` · lane **L2** · status **killed** · rank None · position both · refreshed 2026-11-02
+`CL-W44-01` · lane **L2** · status **killed** · rank None · position both · refreshed 2026-11-03
 
 ## Status
 

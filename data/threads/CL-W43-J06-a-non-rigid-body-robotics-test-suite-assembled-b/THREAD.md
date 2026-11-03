@@ -1,6 +1,6 @@
 # A non-rigid-body robotics test suite assembled by porting and collecting the incumbents' tasks, plus frontier-model-synthesised scenes, will become the suite people report when they train policies.
 
-`CL-W43-J06` · lane **L5** · status **open** · rank 8 · position solo · refreshed 2026-11-02
+`CL-W43-J06` · lane **L5** · status **open** · rank 8 · position solo · refreshed 2026-11-03
 
 ## Status
 

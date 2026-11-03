@@ -1,6 +1,6 @@
 # Where reward hacking starts under GRPO is readable from the untrained model: the few prompts it occasionally hacks but cannot solve seed the hacking, and removing them delays onset more than removing matched-difficulty prompts.
 
-`CL-W43-13` · lane **L2** · status **killed** · rank None · position solo · refreshed 2026-11-02
+`CL-W43-13` · lane **L2** · status **killed** · rank None · position solo · refreshed 2026-11-03
 
 ## Status
 
@@ -43,7 +43,19 @@ Killed — see the kill section. Failing gate: Gate 6 (density unmeasured in a d
 
 ## Kill search
 
-Not run yet. Kill searches run automatically on the top probes, claim by claim (config/generation.yaml); `/kill <probe>` runs one by hand.
+### Concept level (CL-W43-13) — killed (2026-11-01)
+The untrained model's per-prompt hack-only-success already predicts where GRPO pays for hacks in print (2607.11022, Spearman 0.80, difficulty-controlled, three families, GRPO advantage argument in its text); the onset levers are in print at the pool level (CATCH: lower initial tendency delays, harder reward accelerates); SimHack states the negative on the raw initial rate; the only unposed piece is a removal control in an active-exploit environment, a footnote. Gates: 2B and 6.
+Full record: [`data/reports/2026-W44-kill-CL-W43-13.md`](../../../data/reports/2026-W44-kill-CL-W43-13.md).
+**Occupied by:** 2607.11022 (clause 1: readable from the untrained model, with difficulty control and the GRPO advantage argument); clause 2's surprise equals the field's stated knowledge (2609.39533) and is a published null in 2607.11022's regime
+**Why not done before:** No enabling piece beyond what is in print: the base-model static audit landed 2026-07-13 (2607.11022), the pool-level onset levers 2026-09-30 (CATCH), the per-prompt S0 2026-10-20 (SimHack). The removal contrast is a two-week control; the SimHack authors hold 325 runs with per-prompt per-step labels on which it is a zero-GPU afternoon and their introduction says subsequent runs confirm the ranking — 'they have the data' is a guess about priorities; the re-open test is asking them.
+Closest neighbors (one-sentence trick; one-line difference):
+- `2607.11022` When the Reward Suite Is Leaky: A Preregistered Causal Contrast of Natural Verifier False… — Sample 16 base-model solutions per task before training, flag those that pass the deployed tests but fail the hardened ones, train GRPO under each suite on identical tasks and seeds, and show rewarded false-positive mass lands where the static audit said (Spe… *Difference:* Occupies clause 1 (readable from the untrained model) and the GRPO advantage mechanism; runs no removal arm; passive false positives rather than harness edits; finds no onset, so clause 2 has nothing to act on in this regime.
+- `2609.39533` CATCH: A Controllable Analysis Testbed for Reward Hacking in Coding RL — A coding-RL testbed with deliberate loopholes and execution-based gold labels where the initial hacking tendency is set by the SFT mix and reward difficulty by a hard-slice weight; both move when sustained hacking starts. *Difference:* Pool-level levers, not per-prompt; states the two facts the claim's expected result reduces to (lower initial tendency delays onset; harder reward accelerates it); no base-model audit, no removal.
+- `2606.09711` Proxy Reward Internalization and Mechanistic Exploitation (PRIME) — Probe each RL checkpoint for correctness self-assessment, proxy recognition and exploit reasoning; the probe score rises before visible hacking and forecasts onset about 40 steps ahead. *Difference:* Predicts onset from the checkpoint's state, not from per-prompt base-model rollouts; no prompt-level quantity, no removal.
+- `2610.28707` SimHack: Predicting the onset of detectable reward hacking before RL training — Per-prompt correct/hack/other probabilities from 1,024 pre-RL rollouts, a fitted linear-Markov propagation from ten cheap runs, rolled forward to predict t50. *Difference:* The card's paper; bypasses S0 for a fitted ranking, runs no removal, and states the published negative on the raw initial hack rate across recipes.
+- `2606.16062` Auditing Reward Hackability in Code RL Training Environments — Generate exploit patches per task to flag which SWE-bench Verified / R2E-Gym tasks accept wrong code (28.5% / 25.0%), then show frontier Pass@1 is +14.14 pt higher on flagged tasks within the same difficulty stratum. *Difference:* Per-task hackable label with a difficulty-stratified contrast on the evaluation side; no RL run, no onset; names the causal test that 2607.11022 ran.
+**Narrowest surviving headline:** (a probe, not a claim) In an active-exploit GRPO environment (Countdown-Code or the Overwrite suite), removing the 5% of prompts with the largest step-zero hack-only advantage mass w_i delays t50 by more than removing difficulty-matched prompts.
+*Search degraded:* ['s2', 'wong-engels-nanda openreview paper unfetched (not on arXiv under those authors)', 'Q4/Q6/Q7/Q9 window counts lower-bounded at the 60–100 row return cap']
 
 ## Red team
 

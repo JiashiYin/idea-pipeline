@@ -1,6 +1,6 @@
 # An agent served under KV-cache eviction is not the agent its transcript describes: it keeps using tool outputs it can no longer see, and a trainer recomputing log-probabilities from the text does not reproduce the policy it sampled from.
 
-`CL-W43-11` · lane **L3** · status **killed** · rank None · position both · refreshed 2026-11-02
+`CL-W43-11` · lane **L3** · status **killed** · rank None · position both · refreshed 2026-11-03
 
 ## Status
 
@@ -46,7 +46,19 @@ Killed — see the kill section. Failing gate: Gate 6 not yet established (kill 
 
 ## Kill search
 
-Not run yet. Kill searches run automatically on the top probes, claim by claim (config/generation.yaml); `/kill <probe>` runs one by hand.
+### Concept level (CL-W43-11) — killed (2026-11-01)
+Both halves of the headline are published positives in the neighbours' own words — Memento 2604.09852 §6.2.1 (retained KV computed while the evicted block was visible is worth 15.3 AIME24 points; RL trained under physical KV compaction with a matched block-mask trainer) and MemoryWalker 2609.00865 (training on text the agent never saw inflates the train–rollout log-prob gap 26x; a 4D mask from eviction records is gradient-exact) — so the pre-registered surprise equals the field's stated knowledge (Gate 2B); density on the trainer half is 12 papers in 12 months with shipped incumbents (Gate 6).
+Full record: [`data/reports/2026-W44-kill-CL-W43-11.md`](../../../data/reports/2026-W44-kill-CL-W43-11.md).
+**Occupied by:** 2604.09852 (serving half: restart ablation; trainer practice: block-masked RL) and 2609.00865 (trainer half: measured gap and gradient-exact 4D mask)
+**Why not done before:** The exact fix is cheaper than the measurement: with eviction records, one forward under a 4D or block mask reproduces the served conditioning for every token (MemoryWalker Theorem 1; Memento's vLLM fork and trainer, App. A.2.3), so no stack with records needs the size of the bias it removes; black-box stacks are MemoryWalker's SDCC case. Enabling pieces landed in order: ReSum 2025-09, Sparse-RL 2026-01, Memento 2026-04, MemoryWalker 2026-09, AKV 2026-10. The pressure #11 numerics evidence (vLLM post 2026-10-14: KL 2e-3 to 29.9; MoE routing flips) belongs to the arithmetic/routing line (CIS, DLC, R3/PR2/RDC) and the proposed CL-W44-04, not to this claim.
+Closest neighbors (one-sentence trick; one-line difference):
+- `2604.09852` MEMENTO: Teaching LLMs to Manage Their Own Context — Train a reasoning model to segment its chain of thought into blocks, summarize each, and physically evict the block's KV while keeping the summary's entries computed with the block visible; serve from a vLLM fork with block masking and train with RL under the… *Difference:* none — occupied: §6.2.1 is C-W43-24's same-text cache-kept-vs-rebuilt test (66.1% to 50.8% on AIME24, −15.3 pp); App. A.2.3 trains under physical KV compaction with a matched block-mask trainer (C-W44-10's g_op as default); untrained models, tool outputs and…
+- `2609.00865` MemoryWalker: Stop Training Agents on Contexts They Never Saw — Treat a rollout under mid-trajectory context compression as a tree of conditioning branches, show that replaying the final context or the full history both train the wrong distributions, and recover exactness with a K-forward traversal or a packed 4D mask fro… *Difference:* none — occupied on the trainer half: train–rollout log-prob gap 0.366 vs 0.014 floor (26x) on eviction-heavy batches; 4D mask proven gradient-equivalent (Theorem 1); text-level editors on SGLang re-prefill rather than cache-level drops, same dense-attention c…
+- `2609.37725` Context Language Models — Let the model edit its context as a file, train the editing with stepwise GRPO, and serve edits with Suffix Cache Reuse that keeps the unchanged suffix's KV computed under the pre-edit context and re-rotates positions. *Difference:* serving-side ghost channel used on purpose at matched accuracy, approximation named (App. B) and capped at K = 6 spans; RL rollouts served without it; cites Memento for the retained-information finding
+- `2601.10079` Sparse-RL: Breaking the Memory Wall in LLM Reinforcement Learning via Stable Sparse Rollo… — Run RL rollouts under KV compression and correct the resulting off-policy bias with sparsity-aware rejection sampling and importance reweighting. *Difference:* states the trainer half as its premise (dense old policy vs sparse sampler policy vs learner); single-turn reasoning, no agent loop, no eviction record
+- `2605.06850` How to Compress KV Cache in RL Post-Training? Shadow Mask Distillation for Memory-Efficie… — Sampler acts under a sparse context while the learner updates under the dense one; importance reweighting fails, so distill the sparse-context behaviour. *Difference:* same premise and register; names the failure of the correction family C-W44-09/10 would test; single-turn
+**Narrowest surviving headline:** None at claim level. Footnote only: on a model never trained for cache compaction, harness-level eviction of old tool outputs (AKV, K = 12) leaves a ghost channel worth Delta pass-rate points over the identical trim done as text on SWE-bench Verified — Memento's restart ablation transplanted to the tool-agent cell both closest papers name as future work; expected sign is Memento's, so it is a service unless Delta is zero.
+*Search degraded:* ['s2']
 
 ## Red team
 

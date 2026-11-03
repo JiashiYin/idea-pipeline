@@ -1,6 +1,6 @@
 # Against the full-history pair, compaction-attributable failures are sourced values that lost their binding (stale or look-alike entries) and dropped constraints, not entries nothing supports (under one in ten), and the provenance judge's +8.9 Pass3 is matched by section drop or matched-count random deletion.
 
-`CL-W44-06` · lane **L4** · status **open** · rank 2 · position both · refreshed 2026-11-02
+`CL-W44-06` · lane **L4** · status **open** · rank 2 · position both · refreshed 2026-11-03
 
 ## Status
 

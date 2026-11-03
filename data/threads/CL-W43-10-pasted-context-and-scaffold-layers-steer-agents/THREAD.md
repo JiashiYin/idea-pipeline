@@ -1,6 +1,6 @@
 # Pasted context and scaffold layers steer agents by presence, not content: a same-length block from the wrong source moves a model's yield as much as the right one does.
 
-`CL-W43-10` · lane **L1** · status **killed** · rank None · position solo · refreshed 2026-11-02
+`CL-W43-10` · lane **L1** · status **killed** · rank None · position solo · refreshed 2026-11-03
 
 ## Status
 
@@ -47,7 +47,19 @@ Killed — see the kill section. Failing gate: Gate 6 not yet established (kill 
 
 ## Kill search
 
-Not run yet. Kill searches run automatically on the top probes, claim by claim (config/generation.yaml); `/kill <probe>` runs one by hand.
+### Concept level (CL-W43-10) — killed (2026-11-01)
+occupied (Gate 6): the same-length wrong-content control on scaffold, plan, memory, skill and evidence blocks is in print from eight groups with the claim's own ruler computed per model (2608.23067 Table 3: rho = 0.79, 1.5, 0.15, 0.30); and the universal sentence is a published mixed result (Gate 2B): presence leads for two of four models on skills, for driving memory and for data-science skills; content leads for plans (+7.17), RAG rewrites (28-64 F1), constraint dilution (62-100%) and static-analysis notes (false assurances -19); the consequence the claim would deliver ('length-matched controls ... a minimum standard') is already stated in 2608.23067's abstract
+Full record: [`data/reports/2026-W44-kill-CL-W43-10.md`](../../../data/reports/2026-W44-kill-CL-W43-10.md).
+**Occupied by:** 2608.23067 (scaffold layer, per-model Delta_len/Delta_con, both signs; length-matched control named a minimum standard); 2609.20474 (harness-plan layer, content +7.17); 2610.27714 (memory layer, filler unbeaten); 2607.07504 (data agents); 2610.32876 (static-analysis notes, direction-aware)
+**Why not done before:** done - enabling piece: skills (SKILL.md) and repository context files made the pasted block a unit of defined length, so a byte-matched irrelevant block is a one-line substitution (2608.23067 sec. 3, 2026-08-24), on the 2022 random-label template (2202.12837); eight groups ran a length-, token- or word-matched placebo on a scaffold, plan, memory, skill or evidence block between 2026-04-22 and 2026-10-23; the claim's vocabulary (placebo, presence, form) is not the field's (length-matched irrelevant control, sham, token-matched filler, length-distracted, content-misled)
+Closest neighbors (one-sentence trick; one-line difference):
+- `2608.23067` Signal or Noise? A Benchmark Study of Agent Skills in Web Development — Four matched arms (no skill, target SKILL.md, a byte-matched irrelevant SKILL.md within 5%, leave-one-slice-out) on 31 public skills x 50 Web-Bench projects x 4 models, with only SKILL.md in the prompt so the length control is well defined; Delta_len = C2 - C… *Difference:* none - occupied: the claim's ruler per model (Sonnet 4 total -4.2 / length -3.3 / content -0.9; Qwen -2.3 / -3.5 / +1.2; GPT-5.1 -1.3 / -0.2 / -1.1; DeepSeek -2.0 / -0.6 / -1.4); names 'length-distracted' and 'content-misled' and makes the length-matched cont…
+- `2609.20474` How Do Agent Harnesses Create Value? Planning Information and Release Control in Stateful… — Pair a prewritten task plan with domain-policy vocabulary shuffled and cut to the same whitespace-word count (Sham) in the same wrapper on tau^2-bench, five models, 265 matched cells, task-clustered bootstrap. *Difference:* none for the harness-plan layer - occupied, content reading: Fixed - Sham = +7.17 [1.15, 13.36]; Sham - Minimal = +1.89 [-3.45, +7.09], per model -4.5 to +7.3; Kimi's content effect near zero
+- `2610.27714` When Does Experience Memory Help Closed-Loop LLM Driving Agents? A Controlled Evaluation… — Treat the warm-up pool as a resampled random factor and add token-matched irrelevant-filler controls to five memory designs on HighwayEnv. *Difference:* none for the memory layer - occupied, presence reading: no retrieval design exceeds token-matched filler; a 15-token caution line reaches the ceiling
+- `2607.07504` Do LLM-Generated Skills Make Better AI Data Scientists? A Component Ablation Across Data-… — One generated skill per data-science stage, 7,560 runs of component ablation plus a 1,512-run token-matched control. *Difference:* none for data agents - occupied: full skills perform similarly to task-irrelevant skill-formatted content; nothing beats the task prompt alone (p >= 0.396)
+- `2606.06454` Scaffold, Not Vocabulary? A Controlled, Two-Tier, Pre-Registered Study of a Popperian Cod… — Pre-registered ablation of a prompt skill with a length-matched placebo, a labels-only scaffold and an execution oracle. *Difference:* form vs content on a prompt skill, pre-registered: gains track scaffold structure; placebo trails by 2.4 points on the small model; single-shot generation, not a tool loop
+**Narrowest surviving headline:** none at claim level; the untested instance - 'in an exactly solved harness, a same-length wrong-content instruction block raises the certified ceiling by at least half of what the right block raises it' - is a footnote-grade orphan on 2610.37255 whose authors hold the solver
+*Search degraded:* ['s2']
 
 ## Red team
 

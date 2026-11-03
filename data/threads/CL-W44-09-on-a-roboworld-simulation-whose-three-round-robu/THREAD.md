@@ -1,6 +1,6 @@
 # On a RoboWorld simulation whose three-round robustness audit recorded no remaining defect, a 600-episode CMA-ES over the released code policy's parameters against the state-based verifier reaches verified successes that violate a physical invariant the honest policy never violates at a share epsilon_opt - epsilon_honest >= 0.05, in a defect class the audit report does not name — and a model-written attacker with execution at the same budget reaches the same class or does not. (Exploitation defined per 2605.15960; quantity per SPOTA; invariant flag per SimuGuard; recall protocol per 2610.15924 transposed to physics; all cited, not claimed.)
 
-`CL-W44-09` · lane **L5** · status **open** · rank 4 · position both · refreshed 2026-11-02
+`CL-W44-09` · lane **L5** · status **open** · rank 4 · position both · refreshed 2026-11-03
 
 ## Status
 

@@ -1,6 +1,6 @@
 # At the solver budgets MuJoCo Playground ships (Go1 iterations=1, Leap iterations=5), the cap-isolated share of return — the train-in / evaluate-in interaction at matched wall-clock — is inside the seed interval of zero for Go1 locomotion and is X percent of return for Leap cube manipulation, and that Leap share is attributable to the solver budget and not to the collision pipeline. (Exploit defined as 2605.15960's preference reversal; quantity is SPOTA's bias with the converged engine as the held-out domain.)
 
-`CL-W44-08` · lane **L5** · status **open** · rank 1 · position both · refreshed 2026-11-02
+`CL-W44-08` · lane **L5** · status **open** · rank 1 · position both · refreshed 2026-11-03
 
 ## Status
 

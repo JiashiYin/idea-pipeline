@@ -175,8 +175,34 @@ def probe_table(ids: list[str], cands: dict[str, dict], listed: list, specs: dic
             + "\n".join(rows) + tail)
 
 
-def kill_section(ids: list[str], cands: dict[str, dict]) -> str:
+def kill_section(ids: list[str], cands: dict[str, dict], claim: dict | None = None) -> str:
     parts = []
+    # A concept-level kill search lives on the claim itself (level: claim) — render it first, then the probes' searches.
+    cks = ks_of(claim or {})
+    if cks and str(cks.get("level", "")).lower() == "claim":
+        parts.append(f"### Concept level ({(claim or {}).get('id', '')}) — {cks.get('verdict', '—')} ({cks.get('date', '')})")
+        if cks.get("verdict_reason"):
+            parts.append(clip(cks["verdict_reason"], 900))
+        if cks.get("report"):
+            parts.append(f"Full record: [`{cks['report']}`](../../../{cks['report']}).")
+        if cks.get("occupied_by") and str(cks["occupied_by"]).lower() != "none":
+            parts.append(f"**Occupied by:** {clip(cks['occupied_by'], 400)}")
+        if cks.get("why_not_done"):
+            parts.append(f"**Why not done before:** {clip(cks['why_not_done'], 700)}")
+        nb = cks.get("neighbors") or []
+        if nb:
+            parts.append("Closest neighbors (one-sentence trick; one-line difference):")
+            for n in nb[:5]:
+                if isinstance(n, dict):
+                    parts.append(f"- `{n.get('id', '')}` {clip(n.get('title', ''), 90)} — {clip(n.get('trick', ''), 260)} "
+                                 f"*Difference:* {clip(n.get('difference', ''), 260)}")
+                else:
+                    parts.append(f"- {clip(n, 300)}")
+        if cks.get("narrowest_surviving_headline"):
+            parts.append(f"**Narrowest surviving headline:** {clip(cks['narrowest_surviving_headline'], 600)}")
+        if cks.get("degraded"):
+            parts.append(f"*Search degraded:* {clip(cks['degraded'], 300)}")
+        parts.append("")
     for pid in ids:
         c = cands.get(pid) or {}
         ks = ks_of(c)
@@ -288,7 +314,12 @@ def status_sentence(claim: dict, ids: list[str], cands: dict[str, dict]) -> str:
         elif killed and len(killed) == len([p for p in ids if p in cands]):
             base += " Every probe under it has been killed; the claim needs a new probe or dies."
         else:
-            base += " Nothing under it has survived a kill search yet."
+            cks = ks_of(claim)
+            if cks and str(cks.get("level", "")).lower() == "claim" and "surviv" in str(cks.get("verdict", "")).lower():
+                base += (f" The claim survived its concept-level kill search ({cks.get('date', '')}); no probe has run its own "
+                         f"kill search yet — probe design comes after the kill search (rule 17).")
+            else:
+                base += " Nothing under it has survived a kill search yet."
     return base
 
 
@@ -438,7 +469,7 @@ def render(claim: dict, cands: dict[str, dict], today: str, jacob: str) -> str:
 
 ## Kill search
 
-{kill_section(ids, cands)}
+{kill_section(ids, cands, claim)}
 
 ## Red team
 

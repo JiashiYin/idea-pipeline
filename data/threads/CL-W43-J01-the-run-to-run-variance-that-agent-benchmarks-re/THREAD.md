@@ -1,6 +1,6 @@
 # The run-to-run variance that agent benchmarks report at temperature 0 is the serving stack's batch-dependent arithmetic, not the agent, and over multi-turn trajectories it is large enough to reorder leaderboards.
 
-`CL-W43-J01` · lane **L1** · status **killed** · rank None · position solo · refreshed 2026-11-02
+`CL-W43-J01` · lane **L1** · status **killed** · rank None · position solo · refreshed 2026-11-03
 
 ## Status
 
@@ -45,7 +45,19 @@ Killed — see the kill section. Failing gate: Gate 6 not yet established (kill 
 
 ## Kill search
 
-Not run yet. Kill searches run automatically on the top probes, claim by claim (config/generation.yaml); `/kill <probe>` runs one by hand.
+### Concept level (CL-W43-J01) — killed (2026-11-01)
+Gate 2B on clause 1 (HAL 2602.16666 §4 states the serving-stack attribution as its protocol assumption, citing the same TML post) and occupation of clause 2 by 2602.07150 (temperature-0 agent variance, first-divergence distributions, compounding over the trajectory, 2–3 point improvements inside noise); the premise that temperature 0 is a low-variance arm is contradicted by 2602.07150 Table 1 (variance 'never decreases and sometimes increases with temperature zero').
+Full record: [`data/reports/2026-W44-kill-CL-W43-J01.md`](../../../data/reports/2026-W44-kill-CL-W43-J01.md).
+**Occupied by:** 2602.07150 (clause 2, measurement level); 2602.16666 (clause 1, stated protocol assumption — Gate 2B)
+**Why not done before:** no reason found (flag): the batch-invariant arm has existed since 2025-09-10 and was used in print at single-call level by 2026-05-26 (2605.27763) and 2026-06-14 (2606.15621); the replicate agent studies (2602.07150, 2602.16666) ran without it and 2602.07150's future work names compaction and horizon, not the stack arm; the two-arm share is a 15–25 GPU-hour appendix to any of them, and the inverted reading (the stack is not all of it) is already written as prose by 2603.09127 and 2609.04198.
+Closest neighbors (one-sentence trick; one-line difference):
+- `2602.07150` On Randomness in Agentic Evals — Run six agent configurations ten times each on SWE-bench Verified, half at temperature 0, and read single-run pass@1 spread, pass@k vs pass^k, and the token position of first divergence between run pairs. *Difference:* none — occupied for clause 2: SD > 1.5 points at temperature 0, first divergence delayed (median token 5 to 56) but not removed, 'longer trajectories exhibit amplified variance', 2–3 point improvements inside noise; for clause 1 it names 'inference engines an…
+- `2602.16666` Towards a Science of AI Agent Reliability (HAL) — Run fifteen agents K=5 times at temperature 0 on GAIA and tau-bench airline and report twelve reliability metrics. *Difference:* none — the attribution is their stated protocol assumption (Gate 2B): temperature 0 'so that any observed variance is attributable to non-sampling sources of stochasticity' with floating-point non-associativity, batch-size variation and kernel scheduling list…
+- `2605.27763` A Paired Testing Protocol for Batch-Conditioned Refusal Robustness in LLM Serving — Re-run the same prompts alone, in synchronized batches and under continuous batching, adjudicate label flips, and ablate with vLLM's batch-invariant kernels. *Difference:* The probe's two-arm design exists (22/55 flips under standard vLLM, 0/55 with VLLM_BATCH_INVARIANT=1) at single-call level on 1B–3B models and one stack; no agent loop.
+- `2609.31796` Same Probe, Different Numbers — Train activation probes under one batch size and precision, evaluate under every other, and compare verdicts example by example. *Difference:* Within-generation compounding of a batch-size change measured: first-token flips 2.1% of rows, 25% on different tokens by token 20; no agent loop or outcome.
+- `2606.15621` Re-feeding Is Not Replaying — Compare continuations from the live KV state, an exact replica pass and a re-fed prefix, and confirm with batch-invariant kernels. *Difference:* The replica floor and the batch-invariant causal check ('both disagreement rates exactly zero') for token credit; same control arm, different quantity; no multi-turn agent.
+**Narrowest surviving headline:** On tool-using, multi-turn agent benchmarks, a certified-deterministic serving arm removes under half of the temperature-0 run-to-run outcome variance; the remainder is the environment's tool and timing nondeterminism and the second sampling party, so benchmark owners' attribution of temperature-0 spread to the serving stack is wrong in the majority of cells. (An inverted claim; file as new. Survival weak: 2603.09127 and 2609.04198 state the reading in prose; a benchmark owner with replicate traces measures it in a day.)
+*Search degraded:* ['s2', 'exports (no local conference-export index exists in the repository)']
 
 ## Red team
 

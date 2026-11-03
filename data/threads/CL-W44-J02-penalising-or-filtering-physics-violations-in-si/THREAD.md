@@ -1,6 +1,6 @@
 # Penalising or filtering physics violations in simulation teaches robot policies to exploit the simulator where the checks cannot see; routing those gradients into sacrificial parameters and ablating them before deployment transfers better than penalties or filtering - and the ablation drop is the policy's exploit share.
 
-`CL-W44-J02` · lane **L5** · status **thought** · rank — · position solo · refreshed 2026-11-02
+`CL-W44-J02` · lane **L5** · status **thought** · rank — · position solo · refreshed 2026-11-03
 
 ## Status
 

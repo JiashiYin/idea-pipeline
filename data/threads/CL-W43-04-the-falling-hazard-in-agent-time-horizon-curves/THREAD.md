@@ -1,6 +1,6 @@
 # The falling hazard in agent time-horizon curves is between-task frailty, not within-task degradation: hold the task fixed and the per-minute hazard is flat.
 
-`CL-W43-04` · lane **L1** · status **killed** · rank None · position solo · refreshed 2026-11-02
+`CL-W43-04` · lane **L1** · status **killed** · rank None · position solo · refreshed 2026-11-03
 
 ## Status
 
@@ -45,7 +45,19 @@ Also under this claim (no scorecard yet): import:2026-W43-S7xF9 (step-clock haza
 
 ## Kill search
 
-Not run yet. Kill searches run automatically on the top probes, claim by claim (config/generation.yaml); `/kill <probe>` runs one by hand.
+### Concept level (CL-W43-04) — killed (2026-11-01)
+Gate 6 occupied: the between-task frailty decomposition on METR's repeated runs is in print (Moss 2026-02-13; Nguyen & Fithian 2610.12466, 2026-10-08) including the claim's if_true consequence (typical vs marginal 80% horizon); the within-task half has no clock on horizon data (Gate 0) and on a step clock equals the field's stated knowledge (2609.01660, 2609.19113) against a published rising-hazard mechanism (2509.09677) (Gate 2B).
+Full record: [`data/reports/2026-W44-kill-CL-W43-04.md`](../../../data/reports/2026-W44-kill-CL-W43-04.md).
+**Occupied by:** 2610.12466 (Nguyen & Fithian, 2026-10-08) with Moss (LessWrong, 2026-02-13) on the consequence
+**Why not done before:** no reason found for the hazard-vocabulary version — the statisticians (2610.12466, Moss) did the frailty decomposition in IRT words and the forecasters (Ord, Hamilton) read the pooled curve in survival words; the two literatures do not cite each other. The decomposition itself is done.
+Closest neighbors (one-sentence trick; one-line difference):
+- `2610.12466` On the estimation and validity of AI time horizons — a statistical look at the METR plot… — Refit METR's 228 tasks x 26 AIs with an explanatory IRT model: per-task difficulty = monotone spline of log human time + task random effect + family random effect (variances are splines in log human time) + beta-binomial correlation between repeated runs, fit… *Difference:* none — occupied: the between-task frailty model on the same repeated runs; s(x)^2 = sigma(x)^2 + tau(x)^2 is the probe's sigma^2 by task length; '60% predicted vs 83% observed unanimous run vectors' is the probe's premise. Not done: hazard/Weibull translation…
+- `web:lesswrong.com/posts/sBEzomgnYJmYHki9T (Moss, 2026-02-13)` (Updated) METR's data can't distinguish between trajectories (and 80% horizons are an ord… — 2PL IRT in Stan with per-task random difficulty around a log-human-time mean (1 SD ~ 4.7x in time); 'typical' vs 'marginal' 80% horizons differ by an order of magnitude (21.1 min vs 0.8 min, Claude 3.7 Sonnet). *Difference:* none on the consequence — the claim's if_true ('80% horizon is a share of tasks within reach') is Moss's marginal horizon. Not done: run-level overdispersion, hazard reading; human times treated as known.
+- `web:metr.org/notes/2026-03-20-impact-of-modelling-assumptions-on-time-horizon-results (Barry)` Impact of modelling assumptions on time horizon results — Thirteen refits of the horizon (shared-slope logistic, Weibull survival citing Hamilton, beta-binomial run correlation, Cauchy, LOESS, splines, isotonic) plus SIMEX for task-length noise; leave-one-family-out CV. *Difference:* Owner's sensitivity study; Weibull, logistic, LOESS 'all did similarly well'; the frailty term is named as unexplored ('Allowing task difficulty for LLMs to differ from baseliner time').
+- `web:metr.org/notes/2026-01-22-time-horizon-limitations (Kwa)` Clarifying limitations of time horizon — States that 20%/80% horizons are not independent of the 50% estimate under the two-parameter logistic and that 99% horizons need ~300 tasks per time bucket. *Difference:* Owner limitation text; no heterogeneity, no hazard.
+- `2608.00355` CurveShift: Is Agent Progress Scalar? — Rasch model with fixed per-task difficulty on METR data; rising ability reproduces the apparent shift toward hard tasks. *Difference:* Fixed task difficulty, no run-level term, no hazard reading.
+**Narrowest surviving headline:** none as a claim; residue is a one-paragraph translation note — Hamilton's Weibull k≈0.6 is the pooled shape that 2610.12466's fitted spread s(x) produces from units with k=1, and the 99%-horizon disagreement Ord calls undecidable (Weibull vs log-logistic) is decided by rho and s(x), not by the link — a comment under Ord's 2026-02-04 post, recorded as a footnote
+*Search degraded:* ['s2', "web: gushamilton.github.io blocked (provenance) — seed record's 2026-10-18 read used", 'arxiv: no HTML for 2505.05115 (abstract only)']
 
 ## Red team
 

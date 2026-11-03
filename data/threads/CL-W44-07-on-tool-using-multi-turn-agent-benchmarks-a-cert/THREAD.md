@@ -1,6 +1,6 @@
 # On tool-using, multi-turn agent benchmarks, a certified-deterministic serving arm removes under half of the temperature-0 run-to-run outcome variance; the remainder is the environment's tool and timing nondeterminism and the second sampling party, so benchmark owners' attribution of temperature-0 spread to the serving stack is wrong in the majority of cells. (An inverted claim; file as new. Survival weak: 2603.09127 and 2609.04198 state the reading in prose; a benchmark owner with replicate traces measures it in a day.)
 
-`CL-W44-07` · lane **L1** · status **open** · rank 3 · position both · refreshed 2026-11-02
+`CL-W44-07` · lane **L1** · status **open** · rank 3 · position both · refreshed 2026-11-03
 
 ## Status
 

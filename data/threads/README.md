@@ -1,6 +1,6 @@
 # Threads — one folder per claim, one note per folder
 
-Refreshed 2026-11-02. Each `THREAD.md` is regenerated from the records by `python scripts/threads.py`; your
+Refreshed 2026-11-03. Each `THREAD.md` is regenerated from the records by `python scripts/threads.py`; your
 `## Jacob` section is preserved verbatim. Read a note top to bottom: Status, the claim, scorecard, gates, probes,
 kill search, red team, first steps, decisions — then write in your section. Ranked by the claims stage.
 Lost? The user guide is [`README.md`](../../README.md) at the repository root.
@@ -40,6 +40,7 @@ Lost? The user guide is [`README.md`](../../README.md) at the repository root.
 | — | L5 | CL-W43-J05 | thought | Frontier coding agents can speed up shipped physics engines 10-100x at fixed accuracy by generic optimisation (kernel fusion and the like), because the engines… | 1 (0) | P-W43-J05-a | none recorded | [`CL-W43-J05-frontier-coding-agents-can-speed-up-shipped-phys`](./CL-W43-J05-frontier-coding-agents-can-speed-up-shipped-phys/THREAD.md) |
 | — | L5 | CL-W44-05 | killed | Model-written adversarial audits do not bound what an optimiser extracts from a simulator: in agent-built simulators that passed three audit rounds, a 600-epis… | 1 (0) | C-W44-15 | Gate 6 not yet established (kill search owed) | [`CL-W44-05-model-written-adversarial-audits-do-not-bound-wh`](./CL-W44-05-model-written-adversarial-audits-do-not-bound-wh/THREAD.md) |
 | — | L5 | CL-W44-J02 | thought | Penalising or filtering physics violations in simulation teaches robot policies to exploit the simulator where the checks cannot see; routing those gradients i… | 2 (0) | P-W44-J02-b | none recorded | [`CL-W44-J02-penalising-or-filtering-physics-violations-in-si`](./CL-W44-J02-penalising-or-filtering-physics-violations-in-si/THREAD.md) |
+| — | L5 | CL-W45-J01 | open | Only one or two numbers per scene are worth measuring, and which ones can be computed in simulation before any robot time: the value of calibrating each physic… | 2 (0) | P-W45-J01-a | none at concept level; probe design owed after the full-tex… | [`CL-W45-J01-only-one-or-two-numbers-per-scene-are-worth-meas`](./CL-W45-J01-only-one-or-two-numbers-per-scene-are-worth-meas/THREAD.md) |
 
 ## Program notes — what several claims add up to
 
