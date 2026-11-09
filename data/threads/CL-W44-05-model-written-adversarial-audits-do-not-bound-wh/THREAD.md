@@ -39,7 +39,7 @@ Killed — see the kill section. Failing gate: Gate 6 not yet established (kill 
 
 | Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |
 | --- | --- | --- | --- | --- |
-| C-W44-15 | Optimise against the verifier: what a budgeted search finds that three adversarial audit rounds did not | Four simulations, honest arm 200 states plus 100 held out, CMA-ES 600 episodes each, invariant audit on successes, rubric labelling; about 100 GPU-hours, about $250, 10 days; dead if $\epsilon_{\mathrm{opt}} - \epsilon_{\mathrm{honest}} <… | proposed | — |
+| C-W44-15 | Optimise against the verifier: what a budgeted search finds that three adversarial audit rounds did not | Four simulations, honest arm 200 states plus 100 held out, CMA-ES 600 episodes each, invariant audit on successes, rubric labelling; about 100 GPU-hours, about $250, 10 days; dead if $\epsilon_{\mathrm{opt}} - \epsilon_{\mathrm{honest}} <… | killed | — |
 
 ## Kill search
 
@@ -81,6 +81,7 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 - 2026-11-01 — claim killed: concept-level kill search (data/reports/2026-W44-kill-CL-W44-05.md): killed (weak) — Gate 2B: the headline's first clause equals the field's stated knowledge (Baker 2019 is the card paper's own citation for it; SPOTA 2019 defined the quantity; 2605.29032 calls exploitation inevitable; 2608.23875 collects 26 anecdotes); the claim's 'field assumes three audit rounds suffice' is not a stated belief…
 - 2026-11-02 — claim open: written bottom-up by the W44 claims run from the orphan C-W44-15 (scout card 2610.40565; three W44 probes — C-W44-14, 15, 16 — on the scout theme 'agent-built simulators', one of them orphan); one new L5 claim this week (cap respected); concept-level kill search owed (seed: the 2026-10-24 J03/J04 kill search's queries and neighbours)
+- 2026-11-08 — C-W44-15 killed: W45 concept-level kill search of CL-W44-09 (data/reports/2026-W45-kill-CL-W44-09.md): killed-with-claim — search space (released code policy parameters), step 0 (25 audit reports + shared memory) and recall denominator are not in the release; inverted pre-registration rests on an uninterpretable null; third arm is the released hack auditor
 
 ## Records
 

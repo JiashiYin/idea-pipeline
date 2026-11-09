@@ -1,10 +1,10 @@
 # On HAL's tau-bench airline cells under the Generalist scaffold, more than one in five of the task-level disagreements between two archived runs of the same model is a trigger flip (the grader ran in one run and not in the other), not the agent solving the task in one run and failing in the other, so the replicate disagreement and pass^k (the chance that all $k$ runs of a task pass) those cells report measure the instrument's trigger before they measure the agent.
 
-`CL-W45-01` · lane **L1** · status **open** · rank 6 · position both · refreshed 2026-11-09
+`CL-W45-01` · lane **L1** · status **killed** · rank None · position both · refreshed 2026-11-09
 
 ## Status
 
-Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 6 not yet established (kill search owed); Gate 3 one community. Next action: see First steps.
+Killed — see the kill section. Failing gate: Gate 0 (premise hygiene); secondary Gate 2B (surprise equals the field's stated reading) and Gate 4 (consequence does not fork on the result). Next action: see First steps.
 
 ## The claim
 
@@ -39,11 +39,20 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 
 
 | Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |
 | --- | --- | --- | --- | --- |
-| C-W45-01 | Did the grader run twice? The trigger-flip share of run-to-run disagreement on HAL's tau-bench airline cells | Steps 0-1: $0, 0 GPU-h, 5 days on the decrypted archives; dead if $J \geq 0.75$ and $\tau \leq 0.2$ pooled over Generalist two-run cells (bootstrap upper bound under 0.35). Step 2 adds about $150 of API spend if fewer than three such cells… | proposed | — |
+| C-W45-01 | Did the grader run twice? The trigger-flip share of run-to-run disagreement on HAL's tau-bench airline cells | Steps 0-1: $0, 0 GPU-h, 5 days on the decrypted archives; dead if $J \geq 0.75$ and $\tau \leq 0.2$ pooled over Generalist two-run cells (bootstrap upper bound under 0.35). Step 2 adds about $150 of API spend if fewer than three such cells… | killed | — |
 
 ## Kill search
 
-Not run yet. Kill searches run automatically on the top probes, claim by claim (config/generation.yaml); `/kill <probe>` runs one by hand.
+### Concept level (CL-W45-01) — killed (2026-11-08)
+Gate 0: no same-configuration replicate pair exists under the Generalist on HAL's airline archives (the paper's 'one or two runs' are reasoning-effort levels) and no Generalist cell reports replicate disagreement or pass^k; the trigger is a provider-default-temperature user-simulator draw, not temperature-0 arithmetic; Gate 2B and Gate 4 fail behind it (the field already reads the trigger as probabilistic; the remedy is the disclosure's fix 2 verbatim).
+**Occupied by:** 2611.04399 (mechanism, graded-fraction check) + YangzeLiu/eval-instrument-disclosure fix 2 and HAL's 2026-10-07 'lower bound' notice (the if_true remedy) + tau2-bench issues #493/#672/#517 (pass^k denominator by termination reason). The replicate trigger share itself has no occupant and no object on HAL's archives (zero same-configuration Generalist pairs).
+**Why not done before:** no reason found for the replicate share beyond the absence of replicates in the archive (HAL's K = 5 cells are Tool-Calling, g = 0.98; the Generalist's two-run cells are effort pairs); the mechanism and the remedy landed in print on 2026-09-03 (disclosure) and 2026-11-03 (paper), and the consumer action does not fork on the share
+Closest neighbors (one-sentence trick; one-line difference):
+- `2611.04399` Silent Instrument Errors Reorder Agent Leaderboards — Mark each archived tau-bench episode as graded or not by aligning the agent's parsed tool calls against the stored action list, re-grade the ungraded half offline with the simulator stubbed, and watch the Generalist's 13-point deficit close without rerunning… *Difference:* occupies the mechanism and the measurement the claim was lifted from (g = 0.51 vs 0.98; 'usually does not answer it with the stop token'; 'Report the graded fraction'); has no replicate because its two-run cells are reasoning-effort pairs, and never asks whet…
+- `github:YangzeLiu/eval-instrument-disclosure + hf:agent-evals/hal_traces discussion #9` Measurement artifacts in two public agent leaderboards (disclosure 2026-09-03; HAL reply… — The same audit as a maintainers' report with a per-record CSV (archive, model, task, recorded reward, graded flag, offline re-grade) and two suggested fixes. *Difference:* none — occupied for the claim's if_true consequence: fix 2 is grade-on-exit or route the closing message through the simulator; HAL marks Generalist rows 'a lower bound ... since episodes that never terminate are recorded as 0'; the CSV shows the five two-arc…
+- `2602.16666` Towards a Science of AI Agent Reliability (HAL) — Run fifteen models K = 5 times at temperature 0 on GAIA and tau-bench airline and report twelve reliability metrics. *Difference:* its replicate cells are Tool-Calling only ('we use a tool-calling scaffold'; 'a single well-performing scaffold'), g = 0.98; temperature-zero sentence covers the agent; no grading-event accounting, no user-simulator temperature; the claim's premise that HAL r…
+- `2510.11977` Holistic Agent Leaderboard — Shared harness, 21,730 rollouts, per-benchmark leaderboards with cost. *Difference:* Table A20 lists the airline Generalist runs as 14 model-by-effort rows (Sonnet and Sonnet High, Opus 4 and Opus 4 High, Opus 4.1 and Opus 4.1 High, o4-mini Low and High, ...); single runs; the archive's later gpt-5 pair is high vs minimal reasoning
+- `source: tau-bench envs/user.py, envs/base.py; hal-harness benchmarks/taubench.py, agents/hal_generalist_agent/main.py` tau-bench user simulator, Env.step, HAL tau-bench adapter and Generalist loop — The LLM user simulator is a completion() call with no temperature; done is '###STOP###' in the user's reply or a terminating tool; the Generalist runs to completion, steps one closing respond and returns isolated_env.reward. *Difference:* fixes the conditioning set the claim left open: the trigger is a provider-default-temperature draw from gpt-4o, independent of the agent's temperature; a trigger flip can also be the agent's own transfer_to_human_agents decision, so G differing does not ident…
 
 ## Red team
 
@@ -51,13 +60,11 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 ## First steps if pursued
 
-1. Wait for the automatic kill search on **C-W45-01** (Sunday run), or run `/kill C-W45-01` in a session.
-2. If it survives: `/redteam C-W45-01`, then the probe as pre-registered — Steps 0-1: $0, 0 GPU-h, 5 days on the decrypted archives; dead if $J \geq 0.75$ and $\tau \leq 0.2$ pooled over Generalist two-run cells (bootstrap upper bound under 0.35). Step 2 adds about $150 of API spend if fewer than three such cells exist.
-3. Write results into the records and this Log; status moves only on evidence.
+1. Read the kill section; the claim is closed unless a new probe or a new enabling piece re-opens it (write that in your section).
 
 ## Decisions for Jacob
 
-- None pending; the machine runs the next kill search on its own. Mark `jacob-dropped` here if the headline is not worth a week of yours.
+- (none pending)
 
 ## Jacob
 
@@ -67,12 +74,13 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - status mark: (none)
 - notes:
 
-
 ## Log
 
 - 2026-11-08 — claim open: filed (claims, W45) by lifting C-W45-01; the L1 top-down pass converged on the same sentence; headline quantifier set at the probe's pre-registered kill (one in five) with the expected reading (two in five) in the scorecard (checklist 2026-10-25); concept-level kill search owed before any probe is elaborated (rule 17); C-W45-02 left orphan at L1's two-claim cap and runs in the same step-0 session…
+- 2026-11-08 — claim killed: concept-level kill search (/home/claude/idea-pipeline/data/reports/2026-W45-kill-CL-W45-01.md): killed — Gate 0: no same-configuration replicate pair exists under the Generalist on HAL's airline archives (the paper's 'one or two runs' are reasoning-effort levels) and no Generalist cell reports replicate disagreement or pass^k; the trigger is a provider-default-temperature user-simulator draw, not…
+- 2026-11-08 — C-W45-01 killed: W45 concept-level kill search of CL-W45-01 (data/reports/2026-W45-kill-CL-W45-01.md): killed-with-claim — steps 0–1 have no replicate pairs to pair; the statistics on the five effort pairs (tau 0.59, J 0.46, D_pub/D_all 0.97) refute both halves of its dichotomy; step 2 would be a $150 footnote with no consumer fork
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W45-01`, version 1)
+- claim record: `data/claims/claims.jsonl` (id `CL-W45-01`, version 2)
 - probe `C-W45-01`: `data/candidates/2026-W45.jsonl`

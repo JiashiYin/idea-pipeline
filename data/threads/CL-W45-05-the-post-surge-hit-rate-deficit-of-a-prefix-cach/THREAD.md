@@ -1,10 +1,10 @@
 # The post-surge hit-rate deficit of a prefix cache (the reuse of a prompt's already-computed attention states) serving agent sessions at equal working set (the aggregate context of the active sessions) is a convoy, not a cache-contents effect: the prefill queue has locked the sessions' call phases together so every returning prefix finds the whole population ahead of it, and a dispatch-order change at unchanged arrivals (random order, or resident-first) lifts the hit rate back above 0.45 within ten minutes where the paper's only recovery lever was cutting arrivals.
 
-`CL-W45-05` · lane **L3** · status **open** · rank 3 · position both · refreshed 2026-11-09
+`CL-W45-05` · lane **L3** · status **killed** · rank None · position both · refreshed 2026-11-09
 
 ## Status
 
-Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 6 not yet established. Next action: see First steps.
+Killed — see the kill section. Failing gate: Gate 6 (occupied within 90 days by a group with a registered harness; race unwinnable from either position) and Gate 2B (the pre-registered surprise equals the field's stated knowledge); Gate 0 also fails on the premise's verb (simulated called measured) and on a two-branch formula contradicted by the record's own healthy-branch numbers. Next action: see First steps.
 
 ## The claim
 
@@ -39,11 +39,20 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 
 
 | Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |
 | --- | --- | --- | --- | --- |
-| C-W45-10 | The queue is the synchronizer: post-surge prefix-cache hysteresis in agent serving is a convoy, and a dispatch-order ch… | Step 0 at $0 (two days): the LRU stack-distance replay under three call orders, dead if the dispersed-phase prediction at the trapped $W/C$ is also below 0.4. Step 1 at about 65 GPU-hours, about $200, eight days: trap plus five arms x two… | proposed | — |
+| C-W45-10 | The queue is the synchronizer: post-surge prefix-cache hysteresis in agent serving is a convoy, and a dispatch-order ch… | Step 0 at $0 (two days): the LRU stack-distance replay under three call orders, dead if the dispersed-phase prediction at the trapped $W/C$ is also below 0.4. Step 1 at about 65 GPU-hours, about $200, eight days: trap plus five arms x two… | killed | — |
 
 ## Kill search
 
-Not run yet. Kill searches run automatically on the top probes, claim by claim (config/generation.yaml); `/kill <probe>` runs one by hand.
+### Concept level (CL-W45-05) — killed (2026-11-08)
+The convoy mechanism, the lockstep theorem, the stack-distance reading and the resident-first order arm at unchanged arrivals are all in 2611.08902 (posted 2026-11-06, three days before this search), the dispersed branch is in 2609.02027, and the ordering lever's isolation is in the card's own sec. 7.9; the claim's surprise equals the occupant's stated thesis and its premise number is a simulated value called measured.
+**Occupied by:** 2611.08902 (Valse & Jannesari, 2026-11-06): model F / Proposition 6 (FIFO orbits make reuse vanish in congestion) and App. E.8 (resident-first order arm at unchanged arrivals in an established trap); dispersed branch by 2609.02027; ordering-lever ablation by the card 2611.02543 sec. 7.9
+**Why not done before:** Done: the convoy mechanism (model F, Proposition 6), the stack-distance reading (gap vs pool turnover R_M), the resident-first arm (E.8, exploratory), the arrival cut (both papers). Not done: the order arm carrying no prefix information (SGLang 'random' or a one-shot jitter), which 2611.08902 names as its unresolved separation (ordering vs LRU touch); a one-day job on either group's registered harness, so 'why now' belongs to them, not to us.
+Closest neighbors (one-sentence trick; one-line difference):
+- `2611.08902` Inside the Trap: A Renewal Law for Prefix-Cache Collapse in LLM Agent Serving (Valse, Jan… — Idealize the trapped engine as a fluid FIFO server where every turn misses and rejoins the tail, prove a linear renewal recursion along FIFO orbits with a Perron root fixing gap growth, backlog and turn mix, and rescue established traps on SGLang and vLLM wit… *Difference:* none — occupied: the FIFO orbit is the convoy; Proposition 6 proves request-level FCFS makes reuse vanish in congestion whatever the eviction rule (scope excludes a pure resident-first order); App. E.8 ran the resident-first arm (LPM with the 128-request fall…
+- `2611.02543` When Cache Pressure Becomes a Trap: Metastability in Agent Serving (the card) — Count tool-idle sessions' context as prefix-cache demand; past about 1.9 C misses lengthen sessions and sessions enlarge the working set so a finite surge traps the engine; Basin admits by predicted peak context, orders by arrival plus size, lends decode memo… *Difference:* occupies the trap, the fluid model, simulated cache hysteresis, and the ordering lever (sec. 5.3 resident-first as entry control; sec. 7.9 ablation: goodput 0.31-0.34 without engine priority under GPU-only caching); does not run order alone on a trapped engin…
+- `2609.02027` Multi-Turn LLM Conversations under the Least-Recently-Used Policy: Mean-Field Asymptotics… — Tagged-conversation displacement process under LRU; closed-form hit ratio limit as arrival rate and capacity scale together; estimator validated on Qwen3-8B. *Difference:* the dispersed branch in print under Assumption B.4 (i.i.d. inter-turn gaps); names the queue-coupled regime as excluded ('E2E latency may then substantially affect the observed prompt interarrival times')
+- `2609.32278` RR-Evict: Fine-Grained Prefix Cache Eviction beyond LRU for Agentic LLM Serving — Evict a tail chunk from each idle agent in round-robin order so every returning agent keeps a partial prefix. *Difference:* assumes desynchronized agent phases and gives the C/W-type retained fraction deterministically from the eviction side, order-independent; its own caveat: bursts in the instantaneous active set not captured
+- `2609.33762` EfficientAgent: What Makes KV Cache Offloading Work for Concurrent Agents? — Size the host KV tier to the reuse working set estimated with a stack-distance model from agent histories. *Difference:* states the whole-pool reuse distance for a fixed agent pool as a fact; no order term, no open arrivals
 
 ## Red team
 
@@ -51,13 +60,11 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 ## First steps if pursued
 
-1. Wait for the automatic kill search on **C-W45-10** (Sunday run), or run `/kill C-W45-10` in a session.
-2. If it survives: `/redteam C-W45-10`, then the probe as pre-registered — Step 0 at $0 (two days): the LRU stack-distance replay under three call orders, dead if the dispersed-phase prediction at the trapped $W/C$ is also below 0.4. Step 1 at about 65 GPU-hours, about $200, eight days: trap plus five arms x two repeats on one H100 pair; dead if the three order arms leave the hit rate below 0.45 and goodput within 20% of the untreated arm while the paper's arrival cut r…
-3. Write results into the records and this Log; status moves only on evidence.
+1. Read the kill section; the claim is closed unless a new probe or a new enabling piece re-opens it (write that in your section).
 
 ## Decisions for Jacob
 
-- None pending; the machine runs the next kill search on its own. Mark `jacob-dropped` here if the headline is not worth a week of yours.
+- (none pending)
 
 ## Jacob
 
@@ -67,12 +74,13 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - status mark: (none)
 - notes:
 
-
 ## Log
 
 - 2026-11-08 — claim open: filed (claims, W45) by lifting C-W45-10; the L3 top-down pass converged on the same mechanism; headline quantifier (hit rate back above 0.45 at unchanged arrivals) is the step-1 kill; C-W45-11 (admission loop) left orphan as CL-W43-08's second control loop; concept-level kill search owed in the neighbours' role words (rule 17); ranked 3
+- 2026-11-08 — claim killed: concept-level kill search (/home/claude/idea-pipeline/data/reports/2026-W45-kill-CL-W45-05.md): killed — The convoy mechanism, the lockstep theorem, the stack-distance reading and the resident-first order arm at unchanged arrivals are all in 2611.08902 (posted 2026-11-06, three days before this search), the dispersed branch is in 2609.02027, and the ordering lever's isolation is in the card's own…
+- 2026-11-08 — C-W45-10 killed: W45 concept-level kill search of CL-W45-05 (data/reports/2026-W45-kill-CL-W45-05.md): killed-with-claim (step 0 re-derives Proposition 6 plus Yao et al.'s estimator; arm (d) is 2611.08902 App. E.8; arm (e) is the card's sec. 5.2 and 2611.08902's CUT/SHED; arms (b) and (c) are the footnote residue, to be run on the occupants' protocol if at all)
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W45-05`, version 1)
+- claim record: `data/claims/claims.jsonl` (id `CL-W45-05`, version 2)
 - probe `C-W45-10`: `data/candidates/2026-W45.jsonl`

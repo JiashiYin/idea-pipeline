@@ -1,10 +1,10 @@
 # The verdict that multi-turn RL improves single-step decision quality on fewer than half of states is a ruler choice: on FrozenLake, judged by the base policy's own continuation on the ordinary states the RL policy actually visits, the RL action is the better one on more than half of them.
 
-`CL-W45-04` · lane **L2** · status **open** · rank 10 · position both · refreshed 2026-11-09
+`CL-W45-04` · lane **L2** · status **killed** · rank None · position both · refreshed 2026-11-09
 
 ## Status
 
-Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 6 not yet established. Next action: see First steps.
+Killed — see the kill section. Failing gate: Gate 2B (pre-registered surprise equals the field's stated knowledge); Gate 6 why-now 'no reason found'. Next action: see First steps.
 
 ## The claim
 
@@ -39,11 +39,20 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 
 
 | Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |
 | --- | --- | --- | --- | --- |
-| C-W45-07 | Graded by the wrong continuation: multi-turn RL's step quality under the base policy's own value on the states the trai… | Step 2: about 30 GPU-h marginal (130 standalone), $0, 5 days; dead if the RL win share on RL-visited ordinary histories under $Q^{\pi_{\mathrm{B}}}$ stays below 52% with the identity check passing. | proposed | — |
+| C-W45-07 | Graded by the wrong continuation: multi-turn RL's step quality under the base policy's own value on the states the trai… | Step 2: about 30 GPU-h marginal (130 standalone), $0, 5 days; dead if the RL win share on RL-visited ordinary histories under $Q^{\pi_{\mathrm{B}}}$ stays below 52% with the identity check passing. | killed | — |
 
 ## Kill search
 
-Not run yet. Kill searches run automatically on the top probes, claim by claim (config/generation.yaml); `/kill <probe>` runs one by hand.
+### Concept level (CL-W45-04) — killed (2026-11-08)
+Gate 2B: the ruler-dependence of step quality is PAV 2410.08146's theorem and mechanism sentence (Lemma F.1 is the performance difference lemma), the state-weight half is stated for LLM RL by 2609.39634, and the expected result ('RL wins on the states it steers into under the base's continuation') is 2611.06483's own reading ('long-horizon execution and error recovery') in other words — the authors would call it a confirmation, not a reversal; why-not-done is 'no reason found'.
+**Occupied by:** none for the exact two-ruler table; the headline's premise and mechanism are stated by 2410.08146 (sec. 3.2, Lemma F.1) and its expected result by 2611.06483's own reading (Gate 2B)
+**Why not done before:** no reason found — the checkpoint, the base policy and a deterministic grid were in 2611.06483's hands and Monte Carlo Q^{pi_B} is a few thousand short rollouts; the authors wanted the visitation-free question and the process-reward community had already settled the ruler dependence in theory (PAV 2024); the claim's why-now ('the identity is unused by any of them') is false for PAV
+Closest neighbors (one-sentence trick; one-line difference):
+- `2611.06483` What Does Multi-Turn Reinforcement Learning Really Improve in LLM Agents? — Sweep the turn cap at evaluation and grade both policies' sampled actions at matched states by an exact Q* (FrozenLake) or unit tests (DeepCoder-MT); RL wins 42.8-46.8% of ordinary states and 65.7-67.3% of injected-error states. *Difference:* The ruler the claim re-reads: optimal continuation on a pool built equally from base and RL trajectories to remove visitation on purpose; never Q^{pi_B}, never weighted by RL visitation, no identity check. Its own reading ('long-horizon execution and error re…
+- `2410.08146` Rewarding Progress: Scaling Automated Process Verifiers for LLM Reasoning — Define a step's process reward as its advantage under a prover policy distinct from the base policy and characterise which provers help. *Difference:* Occupies part (i) of the headline (the step ruler is a continuation-policy choice) and the mechanism sentence (a capable prover 'fails to distinguish steps, resulting in A^mu ~ 0'); states the performance difference lemma as Lemma F.1. Training-signal design…
+- `2605.06241` Rethinking RL for LLM Reasoning: It's Sparse Policy Selection, Not Capability Learning — Generate with the base model, substitute the RL model's token wherever it disagrees and let the base continue; the oracle intervention recovers RL's pass@1 touching 1-3% of tokens while a random substitution does not. *Difference:* The claim's instrument in single-turn reasoning (RL's choices graded by the base's continuation at matched prefixes, summed to the gain), with the opposite finding (concentration at a few branch points), on base-visited prefixes under greedy decoding; no agen…
+- `2604.14877` Does RL Expand the Capability Boundary of LLM Agents? A PASS@(k,T) Analysis — Vary samples k and turns T jointly for a search agent, then swap the retrieval plan and the final reasoning between base and RL to attribute the gain. *Difference:* A coarse two-stage version of grading RL's choices by the base's continuation ('swapping reasoning to pi_RL at fixed pi_base strategy raises EM by 1.3 pp'); reads RL as reweighting toward strategies 'whose downstream reasoning lands on the correct answer'. No…
+- `2609.39634` Free Everywhere, Exact on Trees: PPO's Dropped Correction Buys Sample Efficiency Under Ag… — Restore the state-visitation ratio PPO drops, exactly, from per-step policy ratios on history-injective dynamics. *Difference:* States the state-weight half of the lemma for LLM RL in its abstract ('estimate policy improvement under the behavioral policy's state-visitation distribution rather than the improved policy's own'); a training correction, not a diagnosis.
 
 ## Red team
 
@@ -51,13 +60,11 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 ## First steps if pursued
 
-1. Wait for the automatic kill search on **C-W45-07** (Sunday run), or run `/kill C-W45-07` in a session.
-2. If it survives: `/redteam C-W45-07`, then the probe as pre-registered — Step 2: about 30 GPU-h marginal (130 standalone), $0, 5 days; dead if the RL win share on RL-visited ordinary histories under $Q^{\pi_{\mathrm{B}}}$ stays below 52% with the identity check passing.
-3. Write results into the records and this Log; status moves only on evidence.
+1. Read the kill section; the claim is closed unless a new probe or a new enabling piece re-opens it (write that in your section).
 
 ## Decisions for Jacob
 
-- None pending; the machine runs the next kill search on its own. Mark `jacob-dropped` here if the headline is not worth a week of yours.
+- (none pending)
 
 ## Jacob
 
@@ -67,12 +74,13 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - status mark: (none)
 - notes:
 
-
 ## Log
 
 - 2026-11-08 — claim open: filed (claims, W45) by lifting C-W45-07; headline quantifier ('more than half') set at the probe's kill (52%); shares the GRPO checkpoint with CL-W45-03's probes, so the two claims' probes run in one sprint; concept-level kill search owed (rule 17); ranked 10
+- 2026-11-08 — claim killed: concept-level kill search (/home/claude/idea-pipeline/data/reports/2026-W45-kill-CL-W45-04.md): killed — Gate 2B: the ruler-dependence of step quality is PAV 2410.08146's theorem and mechanism sentence (Lemma F.1 is the performance difference lemma), the state-weight half is stated for LLM RL by 2609.39634, and the expected result ('RL wins on the states it steers into under the base's continuati…
+- 2026-11-08 — C-W45-07 killed: W45 concept-level kill search of CL-W45-04 (data/reports/2026-W45-kill-CL-W45-04.md): killed-with-claim; redesign owed if the residue is captured — primary readout becomes the post-error share of the summed base-continuation advantage over natural RL trajectories with a tie rule and a task bootstrap; the win-share table becomes a secondary row; the identity check stays as estimator calibration
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W45-04`, version 1)
+- claim record: `data/claims/claims.jsonl` (id `CL-W45-04`, version 2)
 - probe `C-W45-07`: `data/candidates/2026-W45.jsonl`

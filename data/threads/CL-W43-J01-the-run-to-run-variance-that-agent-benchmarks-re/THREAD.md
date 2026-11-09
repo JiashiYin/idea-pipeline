@@ -39,7 +39,7 @@ Killed — see the kill section. Failing gate: Gate 6 not yet established (kill 
 
 | Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |
 | --- | --- | --- | --- | --- |
-| C-W44-07 | Temperature zero in a certified-static world: the serving stack's share of agent outcome flips | 100 rollouts of Gemini 3.1 Pro Preview at temperature 0 on the released claims block plus 20 single-step re-sends, about $300, 0 GPU-hours, 5 days including the rebuild shared with the sibling; dead if 90 of 100 pairs are action-identical… | proposed | — |
+| C-W44-07 | Temperature zero in a certified-static world: the serving stack's share of agent outcome flips | 100 rollouts of Gemini 3.1 Pro Preview at temperature 0 on the released claims block plus 20 single-step re-sends, about $300, 0 GPU-hours, 5 days including the rebuild shared with the sibling; dead if 90 of 100 pairs are action-identical… | killed | — |
 | C-W44-OWN-2 | Where HAL's five temperature-zero runs first diverge on tau-bench airline: the agent, the simulated user, or the stack | The diff over the owner's traces (zero dollars, two days) plus the three-model pinned re-run ($200, one day); dead if $U \le 0.2$ and pinning moves no consistency column by more than 0.05. | parked | — |
 | P-W43-J01-a | Outcome-flip rate at temperature 0: default serving stack (batch composition varied by concurrency) versus batch-invari… | Dead if the default arm's outcome-flip rate is under 2 percent of tasks AND the rank order of the three agent variants is identical across all ten repeats. Expected (judgment): 5-15 percent flips on 30-turn tasks and at least one adjacent-… | thought | not run (no candidate record yet) |
 
@@ -88,6 +88,8 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - 2026-11-01 — C-W44-OWN-2 parked: claim_id CL-W43-J01 -> CL-W44-07 (re-homed after the kill searches)
 - 2026-11-02 — claim open: pressure #7 (2026-11-02): L08 'most of the uncertainty comes from tasks rather than run-to-run variance' bounds the serving term from above on bimodal suites; B01 Terminal-Bench 4.0 pass_at_5 ties across ranks 1-5; banter 2607.17136 names run-to-run nondeterminism as a variance component beside the data draw; records R01, L08, L16 routed here
 - 2026-11-02 — claim open: claims (W44 weekly run, 2026-11-02): C-W44-07 (card 2610.40246, certified-static testbed, scorecarded) and C-W44-OWN-2 (lab, HAL traces) attached; graded against gates 0-6; status thought -> open on the strength of a scorecarded probe under one GPU-week (the kill search, owed, decides proper); rank 8
+- 2026-11-08 — C-W44-07 killed: W45 concept-level kill search of CL-W44-07 (data/reports/2026-W45-kill-CL-W44-07.md): killed-with-claim — its headline outcome is predictable on a hosted REST stack (2607.09691: 9% flips on a hosted Claude path, single-shot) and its surviving readout S reads near 1 on a certified-static world; keep the digest-matched first-divergence readout as a method note, no claim attached
+- 2026-11-08 — C-W44-OWN-2 parked: W45 concept-level kill search of CL-W44-07 (data/reports/2026-W45-kill-CL-W44-07.md): survives unchanged as lab-parked protocol service (its U is the only unmeasured cell with a named holder; a column, not a claim)
 
 ## Records
 

@@ -4,7 +4,7 @@
 
 ## Status
 
-Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 6 not yet established; race flag (authors' v2). Next action: see First steps.
+Open claim. The claim survived its concept-level kill search (2026-11-08); no probe has run its own kill search yet — probe design comes after the kill search (rule 17). Failing gate: none hard; Gate 4 mechanism rewrite owed (why GRPO-Full and not GiGPO/PPO-Full); Gate 6 race flag (authors' v2); 2026-11-01 conjunction lesson (two one-quantifier claims). Next action: see First steps.
 
 ## The claim
 
@@ -45,7 +45,15 @@ Also under this claim (no scorecard yet): import:2026-W45-S8xF9 (one Full-budget
 
 ## Kill search
 
-Not run yet. Kill searches run automatically on the top probes, claim by claim (config/generation.yaml); `/kill <probe>` runs one by hand.
+### Concept level (CL-W45-03) — survived (2026-11-08)
+No occupant of the announced-vs-held control on a fixed-cap RL checkpoint and the paper never runs it (Gate 0/2B question answered no); survival is weak because the paper's own GiGPO/PPO cells show the announced prompt is not sufficient for collapse and AdaTurn Table 1 shows a silent-cap collapse of a budget-blind RL agent (judgment probability of the expected result 0.55 -> 0.25), the headline bundles a prompt term and a coverage term (split into CL-W45-03a/b), and the race is with three groups holding the stack.
+**Why not done before:** an enabling piece landed: the card paper (2026-11-04) with its prompt verbatim and evaluator code (2026-10-30, no checkpoints); the budget-aware line (AdaTurn, AnySearch, On the Clock, 2610.28409, BudgetMix) varies the cap and never the counter's visibility on a fixed-cap RL checkpoint; three limitation sentences (2604.14877 App. J, 2610.28409 sec. 7, 2611.06483 App. D.1) each ask for one piece of the run; the owners could run it in a day and the step-0 letter is the re-open test
+Closest neighbors (one-sentence trick; one-line difference):
+- `2611.06483` What Does Multi-Turn Reinforcement Learning Really Improve in LLM Agents? — Sweep the turn cap at eight samples per task with the cap and remaining turns announced in the prompt and read RL-over-base against the cap. *Difference:* the claim's object: runs no held-prompt arm and no K=1 sweep; its own Figs. 15-16 (GiGPO-Full, PPO-Full keep their FrozenLake lead at 25% under the same announced protocol) bound the prompt term from above
+- `2604.14877` Does RL Expand the Capability Boundary of LLM Agents? A PASS@(k,T) Analysis — Run 64 separate rollouts per (problem, depth T) with a prompt that never mentions T and read the RL-vs-base pass curve on a (k,T) grid. *Difference:* the silent-cap sweep in print, other domain: Table 2 RL-minus-base is about -3 at k=1 and +4 at k=64 at both T=1 and T=5 (no collapse, task saturates at T*=2); no announced arm, no counter-trained policy
+- `2607.14547` AdaTurn: Budget-Aware Test-Time Scaling for Active Visual Perception Agents — Condition a visual-search agent on the allowed turns, sample the cap in training, and train the final-turn boundary as a forced answer. *Difference:* the silent-cap collapse of a budget-blind RL agent with the mechanism named (catastrophic truncation): Mini-o3 at 4 vs 32 turns loses 56-95% of its lead over the base and reverses on MME-RealWorld (Table 1, Avg@32); base row is one-pass, no fixed announced-ca…
+- `2610.28409` Rewards for Budget-Aware Multi-Turn Agents That Adapt to Arbitrary Test-Time Constraints — Train one Dr. GRPO policy across sampled budgets with total and remaining budget in the prompt and compare eleven overspend penalties. *Difference:* its task-reward-only baseline is also budget-prompted and budget-sampled; Limitations concede no prompt-component ablation; no fixed-cap arm, no base-vs-RL sweep
+- `2610.10833` On the Clock: Towards Punctual and Productive Time-Budgeted AI Agents — Give small agents a wall-clock budget by prompt, clock hooks, enforcement or GRPO and measure adherence and productive use. *Difference:* has a No Budget control vs budget-in-prompt for untrained agents in seconds (prompt term near zero for the base); no RL policy at an unseen cap, no per-turn counter
 
 ## Red team
 
@@ -69,12 +77,12 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - status mark: (none)
 - notes:
 
-
 ## Log
 
 - 2026-11-08 — claim open: filed (claims, W45) by lifting C-W45-06 and import S8xF9 (cheapest); the shared three-clause headline_test of C-W45-06/07/08 split into three one-quantifier claims (checklist 2026-11-01); headline quantifier (RL above base at 25% under the held prompt at K = 1) is the probes' kill; import S8xF4 left orphan as the competing training-side mechanism; L2's first open claim since CL-W43-06 was parked;…
+- 2026-11-08 — claim open: concept-level kill search (/home/claude/idea-pipeline/data/reports/2026-W45-kill-CL-W45-03.md): survived (weak) — No occupant of the announced-vs-held control on a fixed-cap RL checkpoint and the paper never runs it (Gate 0/2B question answered no); survival is weak because the paper's own GiGPO/PPO cells show the announced prompt is not sufficient for collapse and AdaTurn Table 1 shows a silent-…
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W45-03`, version 1)
+- claim record: `data/claims/claims.jsonl` (id `CL-W45-03`, version 2)
 - probe `C-W45-06`: `data/candidates/2026-W45.jsonl`

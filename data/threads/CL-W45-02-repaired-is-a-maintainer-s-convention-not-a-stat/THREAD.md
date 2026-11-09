@@ -1,10 +1,10 @@
 # 'Repaired' is a maintainer's convention, not a state of the task: on the Terminal-Bench 2.0 tasks whose instruction-test mismatch was fixed twice — Z.ai's Verified tightened the instruction, Terminal-Bench 2.1 loosened the test — the two repairs lift different agents, with the top-band minus mid-band gain (the two strongest probed models' gain minus the two middle ones') positive under the loosened test and negative under the tightened instruction, each outside the five-trial replicate interval.
 
-`CL-W45-02` · lane **L1** · status **open** · rank 13 · position both · refreshed 2026-11-09
+`CL-W45-02` · lane **L1** · status **killed** · rank None · position both · refreshed 2026-11-09
 
 ## Status
 
-Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 6 not yet established; Gate 2B flagged (direction stated in print). Next action: see First steps.
+Killed — see the kill section. Failing gate: Gate 0 (independence premise); Gate 1 (probe parks at step 0: 3 < 4 clean tasks, one movable); Gate 2B (direction is stated knowledge: 2611.08417 App. A.3; 2610.24206 Lessons (2); 2610.22760 sec. 4). Next action: see First steps.
 
 ## The claim
 
@@ -39,11 +39,20 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 
 
 | Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |
 | --- | --- | --- | --- | --- |
-| C-W45-03 | Same defect, two repairs: tightening the instruction and loosening the test lift different agents on the Terminal-Bench… | Step 1: about $600, 0 GPU-h (or about 80 GPU-h local), 8 days including step 0; dead if the two repairs' gain vectors agree within the replicate interval on at least five tasks and the band contrast has one sign under both arms. | proposed | — |
+| C-W45-03 | Same defect, two repairs: tightening the instruction and loosening the test lift different agents on the Terminal-Bench… | Step 1: about $600, 0 GPU-h (or about 80 GPU-h local), 8 days including step 0; dead if the two repairs' gain vectors agree within the replicate interval on at least five tasks and the band contrast has one sign under both arms. | killed | — |
 
 ## Kill search
 
-Not run yet. Kill searches run automatically on the top probes, claim by claim (config/generation.yaml); `/kill <probe>` runs one by hand.
+### Concept level (CL-W45-02) — killed (2026-11-08)
+the independence premise is false on both owners' text (Gate 0), the probe parks at its own step 0 on the file diff (Gate 1), and the surprise — two conventions are not interchangeable and lift models differently — is the stated position of three maintainer teams and is measured arm by arm in 2610.22760 and 2603.00520 (Gate 2B)
+**Occupied by:** none at the matched-arms level; the convention split's direction is occupied by 2611.08417 App. A.3 and 2610.24206 Lessons (2) (opposite recommendations); the tighten arm's model-dependence by 2610.22760; the test-strength arm's agent-differential effect by 2603.00520 and 2604.01518
+**Why not done before:** it is hard because the material does not exist on Terminal-Bench 2.0: the two repairs share authorship (Z.ai card: a collaboration; 2.1 README: 'many were taken directly from Z.ai's'), 2.1 adopted Verified's tightening on 4 of 11 tasks, only 3 diverge cleanly and two of those sit at 88.3% and 5.0% pooled (Table 7), leaving one movable task; an enabling piece landed elsewhere: SWE-Bench Pro V2 (2026-10-16, tests held fixed, grades released) beside SWE-Bench Pro Verified (2026-09-08) is the first shipped two-convention pair
+Closest neighbors (one-sentence trick; one-line difference):
+- `2611.08417` Benchmarks as Software: Terminal-Bench and the Case for Continuous Benchmarks — Repair 28 of 89 Terminal-Bench 2.0 tasks under a four-label rubric, re-score 19 agents on both versions, and name in prose the two conventions for an instruction-test mismatch. *Difference:* Occupies the convention split as a stated direction (App. A.3: 'It adopts Verified's repair on four tasks'; tightening 'tells the agent part of the solution') and the per-task pooled rates on both versions (Table 7); never runs the Verified arm on an agent or…
+- `hf:zai-org/terminal-bench-2-verified` Terminal-Bench 2.0 Verified: Instruction & Environment Fix Version (dataset card, updated… — Patch all 89 images for Claude Code and rewrite 11 instructions 'without adding explicit hints or solutions'; a second round edits tests on 4 tasks and syncs 5 fixes from 2.1. *Difference:* Declares 2.1 a collaboration ('jointly reviewing tasks, validating fixes'); its instruction fixes lift three models in the 47-58% band by +2.9/+4.9/+3.9 pp with no trial counts; now carries test fixes too, so 'Verified tightens' is first-round only.
+- `github:harbor-framework/terminal-bench-2#53` Terminal-Bench 2.1 change set (PR #53; README: 26 tasks modified; diff: 27 task directori… — Per task, which of instruction / tests / solution / environment / task.toml changed between 2.0 and 2.1. *Difference:* Ground truth for 'repaired twice': of the 11 shared tasks 4 adopted Verified's tightening, 3 clean divergences, 3 mixed, 1 untouched, 2 different; README: 'many were taken directly from Z.ai's Terminal-Bench 2.0 Verified changes' — refutes independence.
+- `2610.24206` SWE-Bench Pro V2: A Cleaner, Harder-to-Game Coding Benchmark — Audit all 731 tasks with agents and 23 engineers, repair instructions with tests held fixed, validate each by a blind re-implementation, retire tasks whose defect lies in the tests, grade in a clean container. *Difference:* States the opposite convention as a lesson ('weakening a test to fit an instruction changes what the benchmark measures') and contrasts itself with Pro Verified ('We never modify a hidden test to match an instruction'); no outcome comparison of the two repair…
+- `2609.08149` SWE-Bench Pro Verified: A Reliable Benchmark for Software Engineering Agents — Block leakage channels and minimally correct inconsistencies in 102 flagged SWE-Bench Pro tasks, checking refinements with model trial runs. *Difference:* The contemporaneous second repair of the same benchmark under a different convention (per V2); no comparison with V2.
 
 ## Red team
 
@@ -51,13 +60,11 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 ## First steps if pursued
 
-1. Wait for the automatic kill search on **C-W45-03** (Sunday run), or run `/kill C-W45-03` in a session.
-2. If it survives: `/redteam C-W45-03`, then the probe as pre-registered — Step 1: about $600, 0 GPU-h (or about 80 GPU-h local), 8 days including step 0; dead if the two repairs' gain vectors agree within the replicate interval on at least five tasks and the band contrast has one sign under both arms.
-3. Write results into the records and this Log; status moves only on evidence.
+1. Read the kill section; the claim is closed unless a new probe or a new enabling piece re-opens it (write that in your section).
 
 ## Decisions for Jacob
 
-- None pending; the machine runs the next kill search on its own. Mark `jacob-dropped` here if the headline is not worth a week of yours.
+- (none pending)
 
 ## Jacob
 
@@ -67,12 +74,13 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - status mark: (none)
 - notes:
 
-
 ## Log
 
 - 2026-11-08 — claim open: filed (claims, W45) by lifting C-W45-03; chosen over C-W45-02 for L1's second slot on consumer breadth (every continuous benchmark) and durability; headline quantifier set at the band-contrast sign the probe's kill names, with the per-task count secondary; concept-level kill search owed (rule 17), reading the CL-W44-02 and CL-W44-11 reports first; ranked 13
+- 2026-11-08 — claim killed: concept-level kill search (data/reports/2026-W45-kill-CL-W45-02.md): killed — the independence premise is false on both owners' text (Gate 0), the probe parks at its own step 0 on the file diff (Gate 1), and the surprise — two conventions are not interchangeable and lift models differently — is the stated position of three maintainer teams and is measured arm by arm in 2610.22760 and 2603.00520 (…
+- 2026-11-08 — C-W45-03 killed: W45 concept-level kill search of CL-W45-02 (data/reports/2026-W45-kill-CL-W45-02.md): killed-with-claim (step-0 park rule fires on the file diff: 3 clean tasks, two without headroom; kill clause unsatisfiable; independence premise refuted; park trigger — a third repair of TB 2.0/3.0 — has not fired per Hugging Face search 2026-11-09)
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W45-02`, version 1)
+- claim record: `data/claims/claims.jsonl` (id `CL-W45-02`, version 2)
 - probe `C-W45-03`: `data/candidates/2026-W45.jsonl`

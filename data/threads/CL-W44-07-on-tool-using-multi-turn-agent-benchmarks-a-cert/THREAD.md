@@ -1,10 +1,10 @@
 # On tool-using, multi-turn agent benchmarks, a certified-deterministic serving arm removes under half of the temperature-0 run-to-run outcome variance; the remainder is the environment's tool and timing nondeterminism and the second sampling party, so benchmark owners' attribution of temperature-0 spread to the serving stack is wrong in the majority of cells. (An inverted claim; file as new. Survival weak: 2603.09127 and 2609.04198 state the reading in prose; a benchmark owner with replicate traces measures it in a day.)
 
-`CL-W44-07` · lane **L1** · status **open** · rank 5 · position both · refreshed 2026-11-09
+`CL-W44-07` · lane **L1** · status **killed** · rank None · position both · refreshed 2026-11-09
 
 ## Status
 
-Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 6 not yet established (kill search owed next week). Next action: see First steps.
+Killed — see the kill section. Failing gate: Gate 2B (pre-registered surprise equals or is contradicted by the field's stated and measured knowledge); Gate 0 also fails on the protocol clause (the environment channel's size is a dial the experimenter sets; a sampled user simulator is a policy, not an environment channel). Next action: see First steps.
 
 ## The claim
 
@@ -39,14 +39,23 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 
 
 | Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |
 | --- | --- | --- | --- | --- |
-| C-W44-07 | Temperature zero in a certified-static world: the serving stack's share of agent outcome flips | 100 rollouts of Gemini 3.1 Pro Preview at temperature 0 on the released claims block plus 20 single-step re-sends, about $300, 0 GPU-hours, 5 days including the rebuild shared with the sibling; dead if 90 of 100 pairs are action-identical… | proposed | — |
-| C-W45-04 | Common random numbers at temperature 0: the environment's draws versus the serving stack as the source of outcome flips… | Steps 0 to 2: about 12 GPU-hours, about $250, 7 days; dead if the serving share is at least two thirds at both tool-failure rates with lower bound above 0.5 and the hosted lane's independent-minus-coupled difference sits inside the serving… | proposed | — |
+| C-W44-07 | Temperature zero in a certified-static world: the serving stack's share of agent outcome flips | 100 rollouts of Gemini 3.1 Pro Preview at temperature 0 on the released claims block plus 20 single-step re-sends, about $300, 0 GPU-hours, 5 days including the rebuild shared with the sibling; dead if 90 of 100 pairs are action-identical… | killed | — |
+| C-W45-04 | Common random numbers at temperature 0: the environment's draws versus the serving stack as the source of outcome flips… | Steps 0 to 2: about 12 GPU-hours, about $250, 7 days; dead if the serving share is at least two thirds at both tool-failure rates with lower bound above 0.5 and the hosted lane's independent-minus-coupled difference sits inside the serving… | killed | — |
 | P-W43-J01-a | P-W43-J01-a (redesigned: deterministic arm must be replica-certified — Vosti 2609.38981, 2609.04198) | — | — | not a candidate record (seed or import) |
 | C-W44-OWN-2 | Where HAL's five temperature-zero runs first diverge on tau-bench airline: the agent, the simulated user, or the stack | The diff over the owner's traces (zero dollars, two days) plus the three-model pinned re-run ($200, one day); dead if $U \le 0.2$ and pinning moves no consistency column by more than 0.05. | parked | — |
 
 ## Kill search
 
-Not run yet. Kill searches run automatically on the top probes, claim by claim (config/generation.yaml); `/kill <probe>` runs one by hand.
+### Concept level (CL-W44-07) — killed (2026-11-08)
+Gate 2B: the pre-registered surprise (serving share S < 0.5) is contradicted by the only two-arm measurement in print on a multi-turn tool-using benchmark (2608.08239: serving configuration alone moves diverging control forks from ~50% to 90-96% with the environment verified) and by the two channels' separately measured magnitudes (hosted temperature-0 serving flips ~9% of single-shot SWE-bench outcomes, 2607.09691; environment infra errors 0.5-2% of Terminal-Bench trials at leaderboard headroom, Anthropic 2026-02-05); the second-sampling-party clause is an unpinned-simulator protocol defect, not an environment channel; why-not-done is 'no reason found'.
+**Occupied by:** 2608.08239 (near-occupant: the two-arm serving comparison inside a multi-turn tool-using loop with the environment rebuilt and verified; result in the field's direction) together with 2607.09691 and the Anthropic 2026-02-05 post (the two channels' magnitudes measured separately: ~9 of 100 instances vs 0.5-2 of 100 trials). No neighbour runs the certified decomposition; none is needed to settle th…
+**Why not done before:** no reason found — the design is 2018 RL reproducibility practice (1809.05676) plus common random numbers plus a replica-stable serving arm available since 2025-09; the replicate papers skipped it because its expected answer is their stated assumption, and the one paper that ran the two-arm comparison did so as an audit of its own control floor and got the assumed direction
+Closest neighbors (one-sentence trick; one-line difference):
+- `2608.08239` The Replay Gap: Static Evaluation of Model Switching in LLM Agents Scores the Wrong World… — Fork live SWE-bench trajectories at 30% and 70% of their length, rebuild the container by re-executing the recorded commands, continue with another model or the same model, and read the swap's divergence over the same-model control floor. *Difference:* The claim's two-arm design at the action level, already run as an audit: under identical temperature-0 decoding, AWQ-served controls 'half never diverge at any action' while FP8-served controls 'diverge on 90-96% of forks', with environment reconstruction ver…
+- `2607.09691` What Context Does a Coding Agent Actually Need to Act? (2026-06-19) — Hold localisation fixed with an oracle, vary only how the code is shown, build every patch with a deterministic SEARCH/REPLACE builder and grade with the official Docker harness, so the only sampled component is one temperature-0 API call. *Difference:* The serving channel measured alone with the environment and harness channel deterministic by construction: 6/70 (~9%) per-instance outcome flips between byte-identical temperature-0 runs on SWE-bench Verified, read as 'a noise floor under every small effect r…
+- `web:anthropic.com/engineering/infrastructure-noise` Quantifying infrastructure noise in agentic coding evals (Anthropic Engineering, 2026-02-… — Run Terminal-Bench 2.0 on one model under six resource enforcement levels from strict per-task specs to uncapped and read the infra-error rate and pass rate at each. *Difference:* The environment channel measured alone, model fixed: infra errors 'from 5.8% at strict enforcement to 0.5% when uncapped' (2.1% at 3x headroom), +6 points over the range; SWE-bench 5x RAM sweep moves 1.54 points; the timing channel named and 'not formally qua…
+- `2609.04748` Same Request, Different Answer: Quantization Amplifies Cache-Induced Divergence in LLM Se… — Run an eighty-episode multi-turn tool-use workload at batch size one with prefix-cache reuse on and off across two engines and four weight formats and count episodes whose cache-hit and recompute paths diverge. *Difference:* The serving channel decomposed within itself on an agentic workload (reuse off reproduces every token in all ten configurations; reuse on diverges in up to 82.5% of episodes at four-bit); a cheap replica-stable serving arm exists; no environment channel, no o…
+- `2610.10062` Loud Failures, Quiet Failures: Fault Detection and Recovery in Tool-Using Language Model… — Inject one typed tool fault at a chosen step and score recovery against the state the same model reaches fault-free, judged against the agreement of two fault-free runs. *Difference:* The read-against-the-run-to-run-floor design on a multi-turn tool benchmark (two fault-free runs agree in 63.3% of trials), but at temperature 1.0 with unseeded provider sampling; no channel split.
 
 ## Red team
 
@@ -54,9 +63,7 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 ## First steps if pursued
 
-1. Wait for the automatic kill search on **C-W44-07** (Sunday run), or run `/kill C-W44-07` in a session.
-2. If it survives: `/redteam C-W44-07`, then the probe as pre-registered — 100 rollouts of Gemini 3.1 Pro Preview at temperature 0 on the released claims block plus 20 single-step re-sends, about $300, 0 GPU-hours, 5 days including the rebuild shared with the sibling; dead if 90 of 100 pairs are action-identical through the commit and no cell flips.
-3. Write results into the records and this Log; status moves only on evidence.
+1. Read the kill section; the claim is closed unless a new probe or a new enabling piece re-opens it (write that in your section).
 
 ## Decisions for Jacob
 
@@ -78,10 +85,14 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - 2026-11-01 — C-W44-OWN-2 parked: claim CL-W43-J01 concept-level kill search (killed): probe effect 'unchanged' — lab-parked; its U (first divergence at a user turn) is the inverted claim's natural surprise on the one public temperature-0 replicate set with a second sampling party; re-home under the inverted claim.
 - 2026-11-01 — C-W44-OWN-2 parked: claim_id CL-W43-J01 -> CL-W44-07 (re-homed after the kill searches)
 - 2026-11-08 — claim open: claims (W45, 2026-11-08): rank 3 -> 5; ranked 5 (was 3): ~$300 cheapest probe and a stated protocol assumption of three benchmark owners as the target; gained the two-channel testbed C-W45-04 this week; moved below CL-W44-06 and CL-W45-05 on consumer breadth; its W44 survival note ('2603.09127 and 2609.04198 state the reading in prose') still weighs on Gate 2B
+- 2026-11-08 — claim killed: concept-level kill search (data/reports/2026-W45-kill-CL-W44-07.md): killed — Gate 2B: the pre-registered surprise (serving share S < 0.5) is contradicted by the only two-arm measurement in print on a multi-turn tool-using benchmark (2608.08239: serving configuration alone moves diverging control forks from ~50% to 90-96% with the environment verified) and by the two channels' separately measured…
+- 2026-11-08 — C-W44-07 killed: W45 concept-level kill search of CL-W44-07 (data/reports/2026-W45-kill-CL-W44-07.md): killed-with-claim — its headline outcome is predictable on a hosted REST stack (2607.09691: 9% flips on a hosted Claude path, single-shot) and its surviving readout S reads near 1 on a certified-static world; keep the digest-matched first-divergence readout as a method note, no claim attached
+- 2026-11-08 — C-W45-04 killed: W45 concept-level kill search of CL-W44-07 (data/reports/2026-W45-kill-CL-W44-07.md): killed-with-claim as a probe of CL-W44-07; its serving share sigma is a reading of the dial r it sets (Gate 0 protocol clause) and its coupling by stream position is the published-broken form of common random numbers (2603.11084, event-keyed fix); redesign owed only if re-homed: the certificate cell (model in th…
+- 2026-11-08 — C-W44-OWN-2 parked: W45 concept-level kill search of CL-W44-07 (data/reports/2026-W45-kill-CL-W44-07.md): survives unchanged as lab-parked protocol service (its U is the only unmeasured cell with a named holder; a column, not a claim)
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W44-07`, version 3)
+- claim record: `data/claims/claims.jsonl` (id `CL-W44-07`, version 4)
 - probe `C-W44-07`: `data/candidates/2026-W44.jsonl`
 - probe `C-W45-04`: `data/candidates/2026-W45.jsonl`
 - `P-W43-J01-a`: seed or import record (no candidate yet)

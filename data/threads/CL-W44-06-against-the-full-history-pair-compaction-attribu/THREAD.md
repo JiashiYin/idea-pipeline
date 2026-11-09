@@ -1,10 +1,10 @@
 # Against the full-history pair, compaction-attributable failures are sourced values that lost their binding (stale or look-alike entries) and dropped constraints, not entries nothing supports (under one in ten), and the provenance judge's +8.9 Pass3 is matched by section drop or matched-count random deletion.
 
-`CL-W44-06` · lane **L4** · status **open** · rank 4 · position both · refreshed 2026-11-09
+`CL-W44-06` · lane **L4** · status **killed** · rank None · position both · refreshed 2026-11-09
 
 ## Status
 
-Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 6 not yet established (kill search owed next week). Next action: see First steps.
+Killed — see the kill section. Failing gate: Gate 2B (surprise equals stated knowledge) and Gate 6 (occupied; race window under 1x). Next action: see First steps.
 
 ## The claim
 
@@ -39,20 +39,29 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 
 
 | Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |
 | --- | --- | --- | --- | --- |
-| C-W44-11 | Where message-attributable handoff failures sit: dropped, in view and unused, or followed from an invented entry — the… | Step 0 email and step 1 labeler ($0, 5 days plus the wait); fallback step 2 at most $300, 0 GPU-hours, 7 days; dead if the family-clustered lower bound of $\pi_{\mathrm{inv}}$ is above 0.10 for three of six receivers. | proposed | — |
+| C-W44-11 | Where message-attributable handoff failures sit: dropped, in view and unused, or followed from an invented entry — the… | Step 0 email and step 1 labeler ($0, 5 days plus the wait); fallback step 2 at most $300, 0 GPU-hours, 7 days; dead if the family-clustered lower bound of $\pi_{\mathrm{inv}}$ is above 0.10 for three of six receivers. | killed | — |
 | C-W45-05 | Whose words are the unsupported entries? Widening the provenance gate's source set to the agent's own earlier turns, an… | Steps 0 and 1 at $0 on the released handoff-audit records and Compact-Bench pairs, 6 days; step 2 at most $250 in the SJC harness, 4 days; 0 GPU-hours; dead if on two of three corpora the lower bound of $u_1$ is above 0.75 and $u_3$ above… | proposed | — |
 | C-W43-08 | Does Source-Judged Compaction win by what it deletes or how much? | Four arms x 168 tasks x 3 runs on GPT-5.6 Luna; ~$700 API, 0 GPU-hours; kills if SJC beats both controls by >= 5 Pass3 with std < 3; 10 days including a one-week harness build. | proposed | — |
 | C-W44-18 | One wrong bullet in the agent's own summary, the right value in a fresh tool output: which one does the agent act on? | 60 tasks x six cells x three runs in the public SJC harness on GPT, about $500 API, 0 GPU-hours, 12 days; dead if the fresh output displaces the planted value ($u_S, u_F < 0.25$) or if the fabricated value is taken up at under half the rat… | proposed | — |
-| C-W44-12 | The provenance gate, judge-free, on a one-shot handoff sheet: delete the unsourced entries at matched tokens | At most $300, 0 GPU-hours, 10 days after the census labeler; dead as a claim if $|\Delta_D| \geq 2$ with interval excluding zero for three of six receivers. | proposed | — |
+| C-W44-12 | The provenance gate, judge-free, on a one-shot handoff sheet: delete the unsourced entries at matched tokens | At most $300, 0 GPU-hours, 10 days after the census labeler; dead as a claim if $|\Delta_D| \geq 2$ with interval excluding zero for three of six receivers. | killed | — |
 | C-W44-13 | Unsourced entries by write regime: the same writer and budget, iterating on its own summary versus rewriting from the r… | At most $350, 0 GPU-hours, 12 days; dead if the upper bound of $\rho_u$ is below 2 on both corpora. | proposed | — |
-| C-W43-21 | Omission of irrecoverable state versus commission of unsourced bullets: which predicts the compaction penalty on the sa… | Steps 1-3 on the TRACE corpus: ~$60 API, 0 GPU-hours, 5 days (10 with the optional cross-benchmark step at ~$300 more); kills if the unsourced count explains at least twice the penalty variance of the omission count or the omission coeffic… | proposed | — |
+| C-W43-21 | Omission of irrecoverable state versus commission of unsourced bullets: which predicts the compaction penalty on the sa… | Steps 1-3 on the TRACE corpus: ~$60 API, 0 GPU-hours, 5 days (10 with the optional cross-benchmark step at ~$300 more); kills if the unsourced count explains at least twice the penalty variance of the omission count or the omission coeffic… | killed | — |
 | C-W44-DEF-L4 | Damage versus dose: the compute-matched, dose-matched comparison of compaction recipes under a forced window, with rand… | The 60 GPU-hour pilot above; dead if random deletion is more than 10 points below both recipes on the paired readout. | parked | — |
 
 Also under this claim (no scorecard yet): import:2026-W44-S3xF11 (fast-variable persistence; $0 step)
 
 ## Kill search
 
-Not run yet. Kill searches run automatically on the top probes, claim by claim (config/generation.yaml); `/kill <probe>` runs one by hand.
+### Concept level (CL-W44-06) — killed (2026-11-08)
+Clause 1 was published with full-history controls by two independent groups within three days of filing (ARCBench 2611.03223; handoff-audit 2611.06545), so the pre-registered surprise equals the field's stated knowledge (Gate 2B) and two occupants sit inside ten days in a lane at 2.6 papers/week (Gate 6); clause 2's only length control in print (2611.06545's count-matched edit) runs against it.
+**Occupied by:** 2611.03223 (ARCBench, 2026-11-02) for clause 1 with the full-history control; 2611.06545 (2026-11-04) for the lost-binding/invented split and, against clause 2, the count-matched control edit
+**Why not done before:** an enabling piece landed: ARCBench's public harness with full-context baseline and rule-state/behaviour judges (2026-11-02), 2611.06545's released replay records (2026-11-04), 2611.05650's live-vs-restored control specification (2026-11-04); the natural-failure census remains unrun because the needed-value oracle requires a reference solution and a naturalistic corpus pulls the labeler back to a judge (2606.25449; 2611.05650) — and its expected result is now in print twice
+Closest neighbors (one-sentence trick; one-line difference):
+- `2611.03223` Do Agents Still Follow the Rules? Benchmarking Rule Compliance under Agent Context Compac… — Inside the pi harness, give the agent a rule and a work history, compact it or keep it whole, issue a request the rule forbids, grade the tool call deterministically, then have judges label whether the summary kept the rule and why the agent broke a rule it s… *Difference:* none for clause 1 — occupied: the census with its full-history pair for rules (agent's own 8.9 vs compaction-added 28.9 of 37.8 violation@3; rule retained 70.1% / partially 26.9% / absent 3.0%; retained-rule runs violate 21.1% vs 8.1% full history; reasons ap…
+- `2611.06545` When Do Summaries Become Instructions? Unsupported Policy in LLM Agents' Self-Written Han… — Give each synthetic task a permission ledger, flag summary sentences the ledger contradicts, rerun the successor from the same snapshot with the sentence swapped for filler, deleted, replaced by the truth, or with the full history, and count confirmation requ… *Difference:* none for clause 1's split — occupied for policy sentences (59 of 76 held-out restrictions overgeneralized vs 17 invented; 18 of 42 authorizations stale, 21 look-alike); its count-matched control edit is the first length control on deleting unsourced entries a…
+- `2611.05650` Attributing Agent Failures to Their History Needs an Executed Counterfactual: Toward a Re… — Before saying an agent failed because of something in its history, freeze the executable state, edit only the history, continue the same agent, and first prove the restored state replays the live run. *Difference:* methodological, neither side of the noun: the claim's census is a transcript label that 'cannot distinguish a cause of failure from something that co-occurs with it'; every same-snapshot probe owes a live-vs-restored control row (byte-identical snapshots dive…
+- `2609.38866` When Context Changes: Understanding Update Failures in LLMs — Put several versions of one variable in context, ask for the current one, and show models answer with an old value while probes still recover the new one — attention drifts to the old values. *Difference:* names the mechanism in NLP's word ('stale binding') as a selection failure with the value in view; conversations and logs, no compaction summary, no actions
+- `2608.06057` When History Lies: Evaluating and Improving Tool Use under Misleading Multi-Turn Histories — Build paired Original / Polluted / Oracle-state views of a tool-use history and use eleven gold-preserving edits to split failures into decision state, entity binding and interface execution. *Difference:* the three-cell classification with a control, including an explicit entity-binding cell, for polluted histories rather than compaction summaries
 
 ## Red team
 
@@ -60,9 +69,7 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 ## First steps if pursued
 
-1. Wait for the automatic kill search on **C-W44-11** (Sunday run), or run `/kill C-W44-11` in a session.
-2. If it survives: `/redteam C-W44-11`, then the probe as pre-registered — Step 0 email and step 1 labeler ($0, 5 days plus the wait); fallback step 2 at most $300, 0 GPU-hours, 7 days; dead if the family-clustered lower bound of $\pi_{\mathrm{inv}}$ is above 0.10 for three of six receivers.
-3. Write results into the records and this Log; status moves only on evidence.
+1. Read the kill section; the claim is closed unless a new probe or a new enabling piece re-opens it (write that in your section).
 
 ## Decisions for Jacob
 
@@ -84,10 +91,15 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - 2026-11-01 — C-W44-DEF-L4 parked: claim CL-W43-05 concept-level kill search (killed): probe effect 'unchanged' — Lab, parked; random-deletion floor is the residue's length control at scale.
 - 2026-11-01 — C-W44-DEF-L4 parked: claim_id CL-W43-05 -> CL-W44-06 (re-homed after the kill searches)
 - 2026-11-08 — claim open: claims (W45, 2026-11-08): rank 2 -> 4; ranked 4 (was 2): $0 step on public pairs and a field that disagrees in print on the noun; a second probe (C-W45-05) attached this week; moved below CL-W45-05 (community-wide consumers, exact law) and kept above the new L4 claims because it is further along; race window about 1x (eight compaction papers in two weeks)
+- 2026-11-08 — claim killed: concept-level kill search (/home/claude/idea-pipeline/data/reports/2026-W45-kill-CL-W44-06.md): killed — Clause 1 was published with full-history controls by two independent groups within three days of filing (ARCBench 2611.03223; handoff-audit 2611.06545), so the pre-registered surprise equals the field's stated knowledge (Gate 2B) and two occupants sit inside ten days in a lane at 2.6 papers/we…
+- 2026-11-08 — C-W44-11 killed: W45 concept-level kill search of CL-W44-06 (data/reports/2026-W45-kill-CL-W44-06.md): killed-with-claim — its expected table is ARCBench Table 3 and 2611.06545 Table 5; 2611.05650 makes the census descriptive
+- 2026-11-08 — C-W44-12 killed: W45 concept-level kill search of CL-W44-06 (data/reports/2026-W45-kill-CL-W44-06.md): killed-with-claim — 2611.06545's neutral-vs-count-matched edit is this arm on a ledger-adjudicated corpus
+- 2026-11-08 — C-W43-21 killed: W45 concept-level kill search of CL-W44-06 (data/reports/2026-W45-kill-CL-W44-06.md): killed-with-claim — merged into C-W44-11; TRACE release carries no summaries
+- 2026-11-08 — C-W44-DEF-L4 parked: W45 concept-level kill search of CL-W44-06 (data/reports/2026-W45-kill-CL-W44-06.md): survives — parked unchanged (lab)
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W44-06`, version 3)
+- claim record: `data/claims/claims.jsonl` (id `CL-W44-06`, version 4)
 - probe `C-W44-11`: `data/candidates/2026-W44.jsonl`
 - probe `C-W45-05`: `data/candidates/2026-W45.jsonl`
 - probe `C-W43-08`: `data/candidates/2026-W43.jsonl`

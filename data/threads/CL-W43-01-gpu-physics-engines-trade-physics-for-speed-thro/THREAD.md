@@ -140,6 +140,8 @@ Closest neighbors (one-sentence trick; one-line difference):
 - 2026-11-01 — C-W44-DEF-L5 parked: claim_id CL-W43-01 -> CL-W44-08 (re-homed after the kill searches)
 - 2026-11-02 — claim open: pressure #5 (2026-11-02): engine documentation states the trade in its own words — Q19 'Reducing these limits too much may prevent the constraint solver from converging and can lead to inaccurate or unstable simulation'; Q21 Newton 1.0 reports '252x for locomotion, and 475x for manipulation tasks' at 'MJWarp solver iterations = 20' with no accuracy number; density P5a = 0, P5b = 0; records Q19-Q2…
 - 2026-11-02 — claim open: claims (W44 weekly run, 2026-11-02): C-W44-14 (scout card 2610.40565), C-W44-OWN-4 (lab, MJWarp nightly) and C-W44-DEF-L5 (lab, five-engine envelope) attached; rank 1 kept — the lane is the program and the exploit clause now has its definitive lab-position spec, but its solo probe still lacks a scorecard (failing gate unchanged)
+- 2026-11-08 — C-W44-OWN-4 parked: W45 concept-level kill search of CL-W44-08 (data/reports/2026-W45-kill-CL-W44-08.md): survives (parked, lab; unchanged)
+- 2026-11-08 — C-W44-DEF-L5 parked: W45 concept-level kill search of CL-W44-08 (data/reports/2026-W45-kill-CL-W44-08.md): survives (parked, lab; must cite 2610.32277 Table 2 and MFPG-PPO's settings table)
 
 ## Records
 

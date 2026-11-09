@@ -1,10 +1,10 @@
 # Top-$k$ retrieval logs cannot price a memory but can rank one against another, and ranking is all a fixed-size memory store ever does with the price: the expected effect of every same-size swap (replacing one retrieved memory by another at the same $k$) is orthogonal to the kernel that fixed size creates (the directions in value space the log cannot see — a two-line identity), and on the card's own pooled HotpotQA log at least one pairwise contrast (a difference of two memory values) in five among memories retrieved five or more times is determined where one memory value in a thousand is.
 
-`CL-W45-07` · lane **L4** · status **open** · rank 8 · position both · refreshed 2026-11-09
+`CL-W45-07` · lane **L4** · status **killed** · rank None · position both · refreshed 2026-11-09
 
 ## Status
 
-Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 6 not yet established; race flag (three papers in five weeks). Next action: see First steps.
+Killed — see the kill section. Failing gate: Gate 0 (uncounted premise: the rank bound), then Gate 2B (surprise equals the field's stated knowledge) and Gate 6 (occupied by 2610.02070 and the card's own text). Next action: see First steps.
 
 ## The claim
 
@@ -39,11 +39,20 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 
 
 | Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |
 | --- | --- | --- | --- | --- |
-| C-W45-12 | What top-k cannot price it can still rank: the kernel fixed-size retrieval leaves is orthogonal to every swap a memory… | Step 0 at $0-10 (two days, the kernel computation on regenerated or released logs) and step 1 at about $20 (three days, 300 held-out questions x five rankings); 0 GPU-hours; dead if $F_{\mathrm{pair}} < 0.20$ under top-$k$ while LEDGER's l… | proposed | — |
+| C-W45-12 | What top-k cannot price it can still rank: the kernel fixed-size retrieval leaves is orthogonal to every swap a memory… | Step 0 at $0-10 (two days, the kernel computation on regenerated or released logs) and step 1 at about $20 (three days, 300 held-out questions x five rankings); 0 GPU-hours; dead if $F_{\mathrm{pair}} < 0.20$ under top-$k$ while LEDGER's l… | killed | — |
 
 ## Kill search
 
-Not run yet. Kill searches run automatically on the top probes, claim by claim (config/generation.yaml); `/kill <probe>` runs one by hand.
+### Concept level (CL-W45-07) — killed (2026-11-08)
+headline quantifier impossible on the named log (rank bound: <= 300 distinct rows); the qualitative clause is textbook estimable-function theory already stated by the card and by Swaminathan 2017 / 2309.15560 (Gate 2B); the decision estimand and the retention negative are CMP 2610.02070's (Gate 6)
+**Occupied by:** 2610.02070 (decision clause: same-size swap estimand, Proposition 1; retention negative) and 2611.03289 itself with 1605.04812 (identity clause: 'the history fixes only the differences between values'; slate null-space projection); the quantifier clause is refuted by the design's rank bound
+**Why not done before:** no reason found: the identity is the one-way layout's estimability (Scheffé 1959, Searle 1971, Rao 1973 §4a — books, not fetched), Swaminathan 2017 Lemma 2 (fetched), 2309.15560 (fetched) and the card's own page-one sentence; the contrast fraction is bounded by the number of distinct retrieved sets and is ~0 on top-k logs, a non-result; the decision estimand is CMP's Proposition 1 (2026-10-01); the retention comparison was left incomplete by the card and found structurally empty by CMP and 2609.08279
+Closest neighbors (one-sentence trick; one-line difference):
+- `2611.03289` Top-k Retrieval Leaves Memory Value Undetermined (the card) — Read the retrieval log as a linear design and test each memory's value for estimability from the retrieval counts alone; fixed size, private stores and co-retrieval each put a named vector in the kernel. *Difference:* none for the identity clause — occupied by the card itself: 'the history fixes only the differences between values' (sec. 1) and slate OPE 'sets the undetermined part aside, because it does not change the value of a policy' (H.1); it does not compute a contra…
+- `2610.02070` Causal Memory Policy: Making Memory Utility Identifiable by Intervening on Retrieval — Reserve a fixed number of context slots for memories sampled with known propensities and estimate each memory's utility as the outcome difference between inserting it (displacing the lowest-ranked) and removing it (filling with the next-ranked) at fixed |R|. *Difference:* none for the decision clause — occupied: Proposition 1 defines utility as the same-size swap ('so that |R| remains fixed across both arms'); its negative is the retention clause reversed ('none improves on retaining everything'; 'Identification does not deliv…
+- `1605.04812` Off-policy evaluation for slate recommendation (Swaminathan et al. 2017, pre-window) — Estimate a slate policy's value from logged slates under additive per-slot rewards by a pseudoinverse that projects the unidentified part out. *Difference:* pre-window precedent for the decision-irrelevance of the fixed-size kernel: 'the all-ones-vector 1 is in the null space of V because, for any valid slate s, we have 1_s^T 1 = l'; Lemma 2 projects the null space out and the value of every supported slate is un…
+- `2309.15560` Identifiability Matters: Revealing the Hidden Recoverable Condition in Unbiased Learning… — Call a click-log relevance model identifiable when relevance is recovered up to a scale, show this holds iff an identifiability graph built from the data is connected, and repair disconnected data by node intervention or merging. *Difference:* the claim's structure in another field: 'identifiable up to a scaling transformation, which is sufficient for pairwise ranking objectives'; graph connectivity is the card's blocks; multiplicative nuisance on clicks, no memory.
+- `2611.03930` What Is This Memory Useful For? Measuring Task-Conditioned Utility in Long-Term Agent Mem… — A task-blind writer stores a memory; a frozen reader answers a later task with and without it over identical filler; the paired gain is the memory's task-conditioned utility. *Difference:* a designed same-size contrast ('Both arms place the same controlled filler ... and the with arm adds m'; 'Raw retains its advantage at a fixed total context'); 'We make no claim about ... a trained retention policy.' Designed, not logged; no estimability stat…
 
 ## Red team
 
@@ -51,13 +60,11 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 ## First steps if pursued
 
-1. Wait for the automatic kill search on **C-W45-12** (Sunday run), or run `/kill C-W45-12` in a session.
-2. If it survives: `/redteam C-W45-12`, then the probe as pre-registered — Step 0 at $0-10 (two days, the kernel computation on regenerated or released logs) and step 1 at about $20 (three days, 300 held-out questions x five rankings); 0 GPU-hours; dead if $F_{\mathrm{pair}} < 0.20$ under top-$k$ while LEDGER's log exceeds 0.60, or if LEDGER's values beat top-$k$ contrasts in retention by at least 3 points with the interval excluding zero.
-3. Write results into the records and this Log; status moves only on evidence.
+1. Read the kill section; the claim is closed unless a new probe or a new enabling piece re-opens it (write that in your section).
 
 ## Decisions for Jacob
 
-- None pending; the machine runs the next kill search on its own. Mark `jacob-dropped` here if the headline is not worth a week of yours.
+- (none pending)
 
 ## Jacob
 
@@ -67,12 +74,13 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - status mark: (none)
 - notes:
 
-
 ## Log
 
 - 2026-11-08 — claim open: filed (claims, W45) by lifting C-W45-12; headline quantifier ('at least one pairwise contrast in five') set at the probe's kill, with the expected reading (three in five) in the scorecard; took one of L4's two new-claim slots (the W44 orphan C-W44-17's 'L4 slot free next week' note is superseded; it stays orphan); concept-level kill search owed (rule 17); ranked 8
+- 2026-11-08 — claim killed: concept-level kill search (data/reports/2026-W45-kill-CL-W45-07.md): killed — headline quantifier impossible on the named log (rank bound: <= 300 distinct rows); the qualitative clause is textbook estimable-function theory already stated by the card and by Swaminathan 2017 / 2309.15560 (Gate 2B); the decision estimand and the retention negative are CMP 2610.02070's (Gate 6) | failing gate: Gate 0…
+- 2026-11-08 — C-W45-12 killed: W45 concept-level kill search of CL-W45-07 (data/reports/2026-W45-kill-CL-W45-07.md): killed-with-claim (step 0 replaced by the rank bound, first kill clause fires by arithmetic; step 1 survives only as a service measurement, not a probe of any claim)
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W45-07`, version 1)
+- claim record: `data/claims/claims.jsonl` (id `CL-W45-07`, version 2)
 - probe `C-W45-12`: `data/candidates/2026-W45.jsonl`

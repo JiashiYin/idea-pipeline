@@ -1,10 +1,10 @@
 # Whether prefill-decode disaggregation pays for an agent workload is set by the measured temporal overlap of prefill with decode, not by turn count.
 
-`CL-W43-07` · lane **L3** · status **open** · rank 12 · position both · refreshed 2026-11-09
+`CL-W43-07` · lane **L3** · status **killed** · rank None · position both · refreshed 2026-11-09
 
 ## Status
 
-Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 6 not yet established. Grade on paper: open. Next action: see First steps.
+Killed — see the kill section. Failing gate: Gate 2B (surprise equals the field's stated knowledge); Gate 6 partial (ruler form shipped by PEARL; density 2.5-3 papers/week; race window ~1x). Grade on paper: open. Next action: see First steps.
 
 ## The claim
 
@@ -39,11 +39,20 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 
 
 | Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |
 | --- | --- | --- | --- | --- |
-| C-W43-05 | A prefill-decode overlap statistic predicts when disaggregation pays | Four workloads x two topologies x 3 repeats on one 8-GPU node, ~80 GPU-hours, ~$250, 7 days; dead if either off-diagonal cell breaks the predicted sign or Omega is not monotone with the speedup. | proposed | — |
+| C-W43-05 | A prefill-decode overlap statistic predicts when disaggregation pays | Four workloads x two topologies x 3 repeats on one 8-GPU node, ~80 GPU-hours, ~$250, 7 days; dead if either off-diagonal cell breaks the predicted sign or Omega is not monotone with the speedup. | killed | — |
 
 ## Kill search
 
-Not run yet. Kill searches run automatically on the top probes, claim by claim (config/generation.yaml); `/kill <probe>` runs one by hand.
+### Concept level (CL-W43-07) — killed (2026-11-08)
+The pre-registered surprise equals the field's stated knowledge: Prorsa §5.2 attributes the disaggregation sign reversal to 'much less overlap between prefill and decode', AInfer-PD to persistent P/D coexistence, and no paper asserts turn count; the ruler slot is held by PEARL's closed-form f-statistic decision and Basin eq. 2.
+**Occupied by:** 2610.16592 (Prorsa §5.2: 'much less overlap between prefill and decode' as the stated reason for the sign reversal; abstract routes multi-turn through coexistence) for the mechanism half; 2609.35158 (PEARL eqs. 1-3: closed-form colocate-vs-disaggregate decision on the log-fitted statistic f) and 2611.02543 eq. 2 for the ruler form; no paper asserts turn count, so the contrast has no believer
+**Why not done before:** no reason found for the Omega statistic beyond the two capable groups answering differently (Prorsa named the mechanism and built a switcher; PEARL fitted a closed-form model with f); the crossing control (matched prefill share, different phase alignment) is unrun because every published RL workload confounds the two; enabling pieces (SGLang single-node PD, TraceLab tool times, 2609.34663 replay pattern, 2611.05991 matching rule) are public but none made the question newly answerable
+Closest neighbors (one-sentence trick; one-line difference):
+- `2610.16592` Prorsa: Unleashing the Potential of Prefill-Decode Disaggregation in Agentic Reinforcemen… — Watch every trajectory's stage to forecast ten seconds of prefill tokens and decode KV, then flip rollout engines between prefill and decode roles. *Difference:* none for the mechanism half — occupied: §5.2 attributes the math/agentic sign reversal to 'much less overlap between prefill and decode'; Fig. 1 gives the temporal profile across staleness 0/2/8. Lacks a log statistic and the crossing of overlap with prefill-…
+- `2609.00993` AInfer-PD: Communication-Safe In-Place Prefill-Decode Multiplexing for Distributed MoE Ro… — Keep prefill and decode on the same MoE devices and KV store but order their collectives across ranks and separate DeepEP's path state so they run concurrently. *Difference:* States the overlap rule for the in-place alternative ('P/D coexistence a persistent property of the rollout'; 'Longer client waits leave less overlap opportunity'; activation 'only when concurrent P work exists'); no log statistic, no disaggregated arm.
+- `2609.35158` PEARL: Adaptive Prefill-Decode Execution with Elasticity for Agentic Reinforcement Learni… — Fit closed-form colocated and disaggregated makespan models from telemetry, enumerate PD ratios under the GPU budget, pick the lowest predicted makespan with hysteresis. *Difference:* Occupies the ruler form with a different statistic: f = average fraction of trajectories actively decoding, theta=(1-f)/f; colocation modelled additively with work conservation (no interference term), so Omega is absent. Measured reversal: +9.7% at BS32 to a…
+- `2611.02543` When Cache Pressure Becomes a Trap: Metastability in Agent Serving — Count every active session's context, tool-idle included, as the prefix-cache working set; past ~1.9x capacity the engine stays trapped after a surge. *Difference:* Second regime rule for PD topology, eq. 2: cache-first when C <~ D_KV/(2f), f the fraction of sessions in service; tool time enters through f, not turn count; in 1P3D agent serving the prefix cache binds before interference. Colocated engines left open (§9).
+- `2606.01839` Observation, Not Prediction: Conversation-Level Disaggregated Scheduling for Agentic Serv… — Raise the scheduling unit from the turn to the conversation: prefill turn 1 on a prefiller, transfer KV once, pin the memory-bound tail to one decoder. *Difference:* Already dethrones the turn as the unit of the disaggregation decision ('imposed by the scheduling unit, not the workload'); serving, no statistic.
 
 ## Red team
 
@@ -51,13 +60,11 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 ## First steps if pursued
 
-1. Wait for the automatic kill search on **C-W43-05** (Sunday run), or run `/kill C-W43-05` in a session.
-2. If it survives: `/redteam C-W43-05`, then the probe as pre-registered — Four workloads x two topologies x 3 repeats on one 8-GPU node, ~80 GPU-hours, ~$250, 7 days; dead if either off-diagonal cell breaks the predicted sign or Omega is not monotone with the speedup.
-3. Write results into the records and this Log; status moves only on evidence.
+1. Read the kill section; the claim is closed unless a new probe or a new enabling piece re-opens it (write that in your section).
 
 ## Decisions for Jacob
 
-- None pending; the machine runs the next kill search on its own. Mark `jacob-dropped` here if the headline is not worth a week of yours.
+- (none pending)
 
 ## Jacob
 
@@ -76,8 +83,10 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - 2026-11-02 — claim open: pressure #9 (2026-11-02): Q05 'turn count explains 84% of the variance in log trajectory cost' and '98.6% of input tokens are served from a prefix cache' — the turn-count side of the headline's contrast is now measured on 600 trajectories; C-W44-08's prefill-share readout (under CL-W43-12) informs this claim and is not split; records Q05, Q07 routed here
 - 2026-11-02 — claim open: claims (W44 weekly run, 2026-11-02): no new probe; rank 10 -> 13 (four claims with new scorecarded probes enter above it)
 - 2026-11-08 — claim open: claims (W45, 2026-11-08): rank 5 -> 12; ranked 12 (was 5): unchanged record; 80 GPU-h probe; kill search owed since W43 and not reached in two budgets; the W45 card 2611.02543 supplies a second regime-sorting rule for PD topologies (its eq. 2) that the kill search must read
+- 2026-11-08 — claim killed: concept-level kill search (data/reports/2026-W45-kill-CL-W43-07.md): killed — The pre-registered surprise equals the field's stated knowledge: Prorsa §5.2 attributes the disaggregation sign reversal to 'much less overlap between prefill and decode', AInfer-PD to persistent P/D coexistence, and no paper asserts turn count; the ruler slot is held by PEARL's closed-form f-statistic decision and Basi…
+- 2026-11-08 — C-W43-05 killed: W45 concept-level kill search of CL-W43-07 (data/reports/2026-W45-kill-CL-W43-07.md): killed-with-claim as a four-cell ruler test; its phase-locked vs natural multi-turn pair is the residue control (redesign owed only if the residue is captured); the async single-turn cell is dropped (Prorsa's staleness-8 math already loses; prefill share near zero makes Omega and share agree, so the cell cannot…
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-07`, version 6)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-07`, version 7)
 - probe `C-W43-05`: `data/candidates/2026-W43.jsonl`

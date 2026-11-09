@@ -1,10 +1,10 @@
 # At the solver budgets MuJoCo Playground ships (Go1 iterations=1, Leap iterations=5), the cap-isolated share of return — the train-in / evaluate-in interaction at matched wall-clock — is inside the seed interval of zero for Go1 locomotion and is X percent of return for Leap cube manipulation, and that Leap share is attributable to the solver budget and not to the collision pipeline. (Exploit defined as 2605.15960's preference reversal; quantity is SPOTA's bias with the converged engine as the held-out domain.)
 
-`CL-W44-08` · lane **L5** · status **open** · rank 2 · position both · refreshed 2026-11-09
+`CL-W44-08` · lane **L5** · status **killed** · rank None · position both · refreshed 2026-11-09
 
 ## Status
 
-Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 6 not yet established (kill search owed next week); P-W43-01-2x2 still needs a scorecarded candidate record. Next action: see First steps.
+Killed — see the kill section. Failing gate: Gate 2B (route B ruler: expected result equals the field's assumption); Gate 5 also fails for golden (numbers expire with the next Playground release; MJWarp early exit removes the caps' performance motive). Next action: see First steps.
 
 ## The claim
 
@@ -49,7 +49,16 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 
 
 ## Kill search
 
-Not run yet. Kill searches run automatically on the top probes, claim by claim (config/generation.yaml); `/kill <probe>` runs one by hand.
+### Concept level (CL-W44-08) — killed (2026-11-08)
+Gate 2B: after 2610.32277 (solver-iteration row flat, time step and floor decisive, cap-trained MuJoCo policy), SimuGuard (more iterations raised success; collision constant decisive) and Playground's own Leap attribution to collision geometry, the honest expected result equals the owners' stated assumption on both tasks; the 2x2 at shipped caps is a documentation service, unoccupied but not a paper.
+**Occupied by:** none on the exact shape (one solver knob, retrain both ways, cross-evaluate at matched wall-clock, attribute). Coarser shapes occupied: frozen-policy rerun under a solver-iteration change — 2610.32277 (MuJoCo, solver row flat, time step decisive) and 2610.41857 SimuGuard (PhysX, sign against exploitation, collision constant decisive); bundled train-in-LF / evaluate-in-HF with task contrast — 2610…
+**Why not done before:** enabling pieces landed: Playground caps with checkpoints (2025-02), MuJoCo 3.11.0 certificate (2026-07-27), SimuGuard reruns (2026-10-30), 2610.32277's verified-harness one-at-a-time attribution protocol (2026-10-23); unrun because each of the three communities holds the answer and now a published datum agreeing with it (MJX page; 2610.32277 Table 2; SimuGuard D.2-D.3), so the measurement's expected reading is the belief.
+Closest neighbors (one-sentence trick; one-line difference):
+- `2610.32277` Delay Randomization Widens the Delay Margin of Learned Humanoid Motion Trackers — Train humanoid motion trackers in mjlab (MuJoCo Warp), export them to an independent CPU MuJoCo harness rebuilt from the robot description, restore the training model's settings one at a time until the harness reproduces training, then stress-test command del… *Difference:* The frozen-policy exploit cell for a cap-trained MuJoCo policy, attributed one knob at a time: solver iterations 0.577 -> 0.577 rad, time step 0.577 -> 1.719, floor -> 6.969 (Table 2); no retraining at the second setting, iteration counts not printed, one hum…
+- `2610.02505` Multi-Fidelity Policy Gradients Stabilize Data-Scarce Reinforcement Learning — Use abundant rollouts from a simplified Isaac Lab configuration (5x coarser time step, solver iterations 4->2 and 4->0, self-collisions off, simplified collision geometry) as a control variate for the high-fidelity PPO gradient, and report the LF-only policy… *Difference:* The train-in-LF / evaluate-in-HF cell with a task-class contrast (easy on ANYmal-D, hard on H1) with the solver knob bundled with time step and collision model; no reverse cell, no wall-clock matching, no attribution; the per-knob split is not in its future w…
+- `2610.41857` When the Simulator Fails, Not the Policy: Auditing Contact Artifacts in Simulated Robot B… — Record every physics step of benchmark rollouts, flag objects that gain speed at a contact faster than the robot or gravity can supply, replay bit for bit, rerun with one engine parameter changed. *Difference:* Frozen policies on PhysX and MuJoCo; the one manipulation rerun under a solver-iteration change has the sign against exploitation (74.4% -> 86.7% success with more iterations; artefact removed by a collision constant). Never retrains. Inherited from the paren…
+- `2502.08844` MuJoCo Playground — Ship MJX environments with per-task XML changes to solver iterations, line-search iterations and contact parameters, train in minutes, deploy zero-shot on Go1, G1, T1, Berkeley Humanoid, Leap and Franka. *Difference:* Owner of the shipped caps and the hardware prior; Leap failures attributed by the owners to wedging, hardware flex and collision geometry, not the solver; no solver sweep.
+- `2511.06667` Rapidly Learning Soft Robot Control via Implicit Time-Stepping — Train soft-manipulator policies in an implicit soft-body simulator and in Elastica, evaluate each policy in the other, and show the implicit stepper's speed-up costs no cross-simulator accuracy. *Difference:* The train-in / evaluate-in matrix as the test of a numerics choice (implicit vs explicit), soft bodies, two engines not one knob, no wall-clock-matched retraining, no contact-solver cap.
 
 ## Red team
 
@@ -57,9 +66,7 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 ## First steps if pursued
 
-1. Wait for the automatic kill search on **P-W43-01-2x2** (Sunday run), or run `/kill P-W43-01-2x2` in a session.
-2. If it survives: `/redteam P-W43-01-2x2`, then the probe as pre-registered — —
-3. Write results into the records and this Log; status moves only on evidence.
+1. Read the kill section; the claim is closed unless a new probe or a new enabling piece re-opens it (write that in your section).
 
 ## Decisions for Jacob
 
@@ -85,10 +92,13 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - 2026-11-01 — C-W44-DEF-L5 parked: claim CL-W43-01 concept-level kill search (killed): probe effect 'unchanged' — parked, lab; must cite SPOTA (quantity), 2605.15960 (definition) and SimuGuard (rerun protocol, collision confound) before any report
 - 2026-11-01 — C-W44-DEF-L5 parked: claim_id CL-W43-01 -> CL-W44-08 (re-homed after the kill searches)
 - 2026-11-08 — claim open: claims (W45, 2026-11-08): rank 1 -> 2; ranked 2 (was 1): lane program narrowed to the measurable cell, 6-14 GPU-h, engine builders and every Playground user as consumers; below CL-W45-J01 only because its own kill search is still owed and its numbers expire with the next Playground release
+- 2026-11-08 — claim killed: concept-level kill search (data/reports/2026-W45-kill-CL-W44-08.md): killed — Gate 2B: after 2610.32277 (solver-iteration row flat, time step and floor decisive, cap-trained MuJoCo policy), SimuGuard (more iterations raised success; collision constant decisive) and Playground's own Leap attribution to collision geometry, the honest expected result equals the owners' stated assumption on both task…
+- 2026-11-08 — C-W44-OWN-4 parked: W45 concept-level kill search of CL-W44-08 (data/reports/2026-W45-kill-CL-W44-08.md): survives (parked, lab; unchanged)
+- 2026-11-08 — C-W44-DEF-L5 parked: W45 concept-level kill search of CL-W44-08 (data/reports/2026-W45-kill-CL-W44-08.md): survives (parked, lab; must cite 2610.32277 Table 2 and MFPG-PPO's settings table)
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W44-08`, version 3)
+- claim record: `data/claims/claims.jsonl` (id `CL-W44-08`, version 4)
 - `P-W43-01-2x2`: seed or import record (no candidate yet)
 - probe `C-W43-16`: `data/candidates/2026-W43.jsonl`
 - probe `C-W43-27`: `data/candidates/2026-W43.jsonl`

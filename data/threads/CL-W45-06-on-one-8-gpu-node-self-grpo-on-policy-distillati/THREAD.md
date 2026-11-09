@@ -67,7 +67,6 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - status mark: (none)
 - notes:
 
-
 ## Log
 
 - 2026-11-08 — claim open: filed (claims, W45) by lifting C-W45-08 into L3 (the lane sentence names cost structure); headline quantifier ('less than half as large, under 25x') is the probe's kill; C-W45-09 (judge dollars, ORSD) left orphan at L2's cap; concept-level kill search owed (rule 17); ranked 15

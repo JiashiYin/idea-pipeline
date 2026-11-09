@@ -1,10 +1,10 @@
 # A compaction compressor (the model call that summarises an agent's own history to fit its context) at its deployed sampling setting is a gauge, not a function of the history: re-compacting the same pre-compaction history accounts for at least one tenth of the variance of post-compaction harm (TRACE's burden: errored or repeated calls among the next actions), so the one-summary-per-boundary labels the lane builds on — TRACE's paired replay, SJC's 83% entry attribution, the corpus study's history-based triggers — are single readings of an instrument whose repeatability has never been measured.
 
-`CL-W45-08` · lane **L4** · status **open** · rank 7 · position both · refreshed 2026-11-09
+`CL-W45-08` · lane **L4** · status **killed** · rank None · position both · refreshed 2026-11-09
 
 ## Status
 
-Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 6 not yet established. Next action: see First steps.
+Killed — see the kill section. Failing gate: Gate 0 (premise false; quantity not the one interpreted; protocol level unnamed in the sources); Gate 6 (design occupied by TRACE Eq. 5 and Compact-Bench Table 7; owners hold the data; no reason found); Gate 2B (the claim's expected result contradicts the only re-draw measurement in print, unanswered). Next action: see First steps.
 
 ## The claim
 
@@ -45,7 +45,16 @@ Also under this claim (no scorecard yet): import:2026-W45-S3xF9 (steps 1-3 about
 
 ## Kill search
 
-Not run yet. Kill searches run automatically on the top probes, claim by claim (config/generation.yaml); `/kill <probe>` runs one by hand.
+### Concept level (CL-W45-08) — killed (2026-11-08)
+The 'never measured' premise is false (TRACE Eq. 5 re-compacts the same history three times and scores each; Compact-Bench re-draws summary and continuation three times and finds 120 of 126 damages recur; 2605.23296 ran ten same-input re-compactions), the headline quantity is mis-specified for its own interpretation, the deployed setting it names is unstated in three of four cited papers, and the unreported component is a one-line addition to data three active groups hold — 'why not done' is 'no reason found'.
+**Occupied by:** 2608.06503 (TRACE Eq. 5: three same-prompt re-compactions per boundary scored by paired burden — the design, unreported as a component) and 2610.31710 (Compact-Bench Table 7: stable-damage label from three joint re-draws of summary and continuation, 120 of 126 recur — the field's stated knowledge on the quantity); 2605.23296 Section 5.2 (ten-draw summary-level repeatability) occupies the 'never m…
+**Why not done before:** no reason found — the writer-stage re-draw is done as a method (TRACE Eq. 5, 12 boundaries x 3 summaries with burdens), as a label rule (Compact-Bench, 126 cells x 3 seeds) and as a summary-text measurement (2605.23296, 10 draws); the variance component is a textbook nested estimator on data three groups already hold; TRACE's group published three lane papers in ten weeks; no enabling piece is missing
+Closest neighbors (one-sentence trick; one-line difference):
+- `2608.06503` Towards Reliable Context Compression for Long-Horizon Agents: An Empirical Study of Execu… — At each compaction boundary restore the environment, continue once from the full history and once from the summary, count blocked or repeated calls in the next five actions, and use the paired difference to rank summaries and rewrite the compression prompt. *Difference:* Its Eq. 5 is the writer-stage re-draw: the same compressor and prompt produce three summaries of one history, each with its own POST continuations and shared PRE; the best-worst spread is the training signal. It reports no variance component; its 590-boundary…
+- `2610.31710` Compact-Bench: Measuring What Context Compaction Costs Long-Horizon Coding Agents (v2 202… — Continue 35 SWE-bench repairs from one cached history and snapshot with the full history and with each of 14 summarizers' summaries; a repair is damaged when PRE passes and POST fails. *Difference:* A joint writer-plus-successor re-draw on every damaged cell: summary and POST resampled over three seeds, PRE reused; 120 of 126 first-round damages recur (stable damage), 6 are seed variance. Not split by stage, conditioned on first-round damage, service-def…
+- `2605.23296` Parallel Context Compaction for Long-Horizon LLM Agent Serving (2026-05-22) — Compact a long history in parallel blocks instead of one blocking call so the operator controls summary volume and latency. *Difference:* The summary-level gauge study: ten re-compactions of an identical snapshot and prompt; length CV 16-85% and pairwise cosine 0.47-0.86 across backbones and 4k-96k inputs; the claim's mechanism sentence is in its Section 5.2. No continuation, no harm, no stage…
+- `2610.08722` Does an Agent's History Tell You When Compaction Will Hurt? A Modest, Bounded Effect on t… — On 590 replayed boundaries, train triggers to predict harm from the pre-boundary history and compare them with a split-half replicate of the same boundary's rollouts (AUROC 0.66 vs 0.72). *Difference:* Successor-stage replicate with the summary fixed; names the attenuation reading and asks for summary text and more replays; writer never re-drawn.
+- `2609.36526` Adapting Context Compression for Long-Horizon Agents with Counterfactual Continuations (P… — Restore the state at each realized compaction, continue to termination from the full and the compressed context m times, and define the boundary's hazard and burden as the difference of expected outcomes. *Difference:* Writes the compressor as a distribution (c ~ C(. | x, B), 'Stochastic context compressor') and the effect as a function of the realized draw; evaluates one realized summary per boundary with m continuations.
 
 ## Red team
 
@@ -53,13 +62,11 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 ## First steps if pursued
 
-1. Wait for the automatic kill search on **import:2026-W45-S3xF9** (Sunday run), or run `/kill import:2026-W45-S3xF9` in a session.
-2. If it survives: `/redteam import:2026-W45-S3xF9`, then the probe as pre-registered — —
-3. Write results into the records and this Log; status moves only on evidence.
+1. Read the kill section; the claim is closed unless a new probe or a new enabling piece re-opens it (write that in your section).
 
 ## Decisions for Jacob
 
-- None pending; the machine runs the next kill search on its own. Mark `jacob-dropped` here if the headline is not worth a week of yours.
+- (none pending)
 
 ## Jacob
 
@@ -69,11 +76,11 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - status mark: (none)
 - notes:
 
-
 ## Log
 
 - 2026-11-08 — claim open: filed (claims, W45) by lifting import S3xF9; headline quantifier ('at least one tenth') set at the import's pre-registered kill, with the expected reading (a quarter) in the scorecard; took L4's second new-claim slot; concept-level kill search owed (rule 17); ranked 7
+- 2026-11-08 — claim killed: concept-level kill search (/home/claude/idea-pipeline/data/reports/2026-W45-kill-CL-W45-08.md): killed — The 'never measured' premise is false (TRACE Eq. 5 re-compacts the same history three times and scores each; Compact-Bench re-draws summary and continuation three times and finds 120 of 126 damages recur; 2605.23296 ran ten same-input re-compactions), the headline quantity is mis-specified for…
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W45-08`, version 1)
+- claim record: `data/claims/claims.jsonl` (id `CL-W45-08`, version 2)
