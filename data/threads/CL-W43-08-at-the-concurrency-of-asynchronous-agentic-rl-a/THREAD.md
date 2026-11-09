@@ -1,6 +1,6 @@
 # At the concurrency of asynchronous agentic RL, a backlog-threshold rule captures as much of the hindsight-optimal prefill-decode role-switching headroom as a demand forecaster does.
 
-`CL-W43-08` · lane **L3** · status **open** · rank 6 · position both · refreshed 2026-11-03
+`CL-W43-08` · lane **L3** · status **open** · rank 14 · position both · refreshed 2026-11-09
 
 ## Status
 
@@ -33,7 +33,7 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 
 | G3 | consumers (three classes, the action each changes; community-wide for golden) | pass at one community: RL-infra teams choosing topology, rollout-engine maintainers (default switching policy), serving teams |
 | G4 | mechanism and consequence | pass: mechanism — many independent trajectory renewal processes superpose into a smooth prefill-to-decode demand ratio, so headroom over a static split shrinks with concurrency and asynchrony; consequence — delete the forecaster, or report its oracle-normalized capture |
 | G5 | durability; lab-adjacent | pass with a flag: system constants enter through the switch cost and the prefill/decode speeds, which are reported as the two calibration numbers |
-| G6 | ownership, density, race window; position clause | open: kill search owed; 1 hit on prefill+decode+oracle/hindsight; pre-window precedents Hofri and Ross 1987 (two queues with setup times, threshold optimality), DistServe and Splitwise 2024 |
+| G6 | ownership, density, race window; position clause | open: kill search owed; 1 hit on prefill+decode+oracle/hindsight; pre-window precedents Hofri and Ross 1987 (two queues with setup times, threshold optimality), DistServe and Splitwise 2024; added W45: 2611.02543's Basin activates at B_0 and releases at alpha_R B_0 with a cool-down — the backlog-threshold rule with hysteresis, shipped; its forecaster is of per-session size, not of demand; FluidPD 2610.06917 and ConServe 2606.01839 argue observation for role switching (candidate C-W45-11's record) |
 
 ## Probes under this claim
 
@@ -74,8 +74,9 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - 2026-11-01 — claim open: ranked 6 after the W44 kill searches: unchanged; kill search owed
 - 2026-11-02 — claim open: pressure #10 (2026-11-02): L21 'discarding early-returned short samples', L24 'kept out of training batches [...] the orchestrator backfills samples that were filtered out', L23 '33 billion tokens per day [...] around 16 billion are trainable'; density P10a = 0, P10b = 1; the length-fate question is unposed and bears on this claim's demand model; records L21, L23, L24, Q09 routed here
 - 2026-11-02 — claim open: claims (W44 weekly run, 2026-11-02): no new probe; rank 11 -> 14
+- 2026-11-08 — claim open: claims (W45, 2026-11-08): rank 6 -> 14; ranked 14 (was 6): unchanged probe; a second control loop (C-W45-11) filed as an orphan beside it rather than widening the headline before its kill search; kill search owed since W43
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-08`, version 4)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-08`, version 5)
 - probe `C-W43-04`: `data/candidates/2026-W43.jsonl`

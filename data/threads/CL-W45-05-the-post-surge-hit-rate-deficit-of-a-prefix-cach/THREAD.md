@@ -1,0 +1,78 @@
+# The post-surge hit-rate deficit of a prefix cache (the reuse of a prompt's already-computed attention states) serving agent sessions at equal working set (the aggregate context of the active sessions) is a convoy, not a cache-contents effect: the prefill queue has locked the sessions' call phases together so every returning prefix finds the whole population ahead of it, and a dispatch-order change at unchanged arrivals (random order, or resident-first) lifts the hit rate back above 0.45 within ten minutes where the paper's only recovery lever was cutting arrivals.
+
+`CL-W45-05` · lane **L3** · status **open** · rank 3 · position both · refreshed 2026-11-09
+
+## Status
+
+Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 6 not yet established. Next action: see First steps.
+
+## The claim
+
+- **Headline:** The post-surge hit-rate deficit of a prefix cache (the reuse of a prompt's already-computed attention states) serving agent sessions at equal working set (the aggregate context of the active sessions) is a convoy, not a cache-contents effect: the prefill queue has locked the sessions' call phases together so every returning prefix finds the whole population ahead of it, and a dispatch-order change at unchanged arrivals (random order, or resident-first) lifts the hit rate back above 0.45 within ten minutes where the paper's only recovery lever was cutting arrivals.
+- **Current belief (the field's):** 2611.02543 sec. 5.2 (card quote): 'This is cache hysteresis: similar demand for cached context produces different hit rates because the cached contents differ.' — measured as 0.26-0.37 after collapse against 0.81-0.93 in no-surge runs at the same working set $W = 1.6$-$1.7\,C$ ($C$ the cache capacity). Abstract (fetched 2026-11-09): 'Once the cache collapses, low-reuse departure capacity sets the scale of the load reduction needed for recovery.' The model 'uses the real-system hit-rate curve in Fig. 6b' (sec. 5.1), one curve in $W/C$. KVSET 2609.27746 (fetched abstract) plans capacity from LRU stack distances with no order term.
+- **If true:** The hit rate is a property of the dispatch protocol at fixed demand; working-set planners (KVSET, EfficientAgent 2609.33762) add a phase-dispersion term beside capacity; the recovery lever in a trap is a scheduling flag under backlog, not shedding; the sustainable session count at a given cache is up to about $1.9\times$ higher under dispersed phases than under first-come-first-served; the RL rollout collapses (MISA-T 92.4% to 4.5%; TideRL about 12%, from the killed CL-W43-12's report) are re-read as queue effects that pacing could fix without lowering concurrency.
+- **If false:** One curve in $W/C$: the paper's account holds, order control is not a recovery lever, the stack-distance planners are complete as they stand, and the negative result is a footnote for prefix-cached agent serving.
+
+## Scorecard (from the cheapest probe's record, or the claim's skeleton for a thought)
+
+- **Target value:** In print: the card paper states the hysteresis as a measured fact and attributes it to contents ('similar demand for cached context produces different hit rates because the cached contents differ', sec. 5.2) while its model has no state for order or contents and falls back to measured collapsed-state departures to size recovery (card, load_bearing_assumption); EfficientAgent 2609.33762 writes the dispersed-phase working set in words ('an agent's prefix is reused only if the host tier holds the reusable context of the whole agent pool') and KVSET 2609.27746 ships the stack-distance instrument, neither with a synchronization term. Who pays: SGLang and vLLM maintainers choosing the prefill scheduling default under backlog (SGLang: `fcfs`, with longest-prefix-match disabled above 128 waiting requests, fetched 2026-11-09); gateway builders (Basin, Continuum, ThunderAgent) choosing between ad…
+- **Impact ceiling:** **floor**: A two-GPU reproduction of the card's trap with the mechanism isolated by the order arms and the two-branch law written down; cited by Basin's and EfficientAgent's follow-ups as the order term. Requires step 1. Judgment p 0.5.; **middle**: The hit-rate curve of prefix-cached agent serving re-stated as two branches with phase dispersion as the state variable; KV working-set planners add the order axis and one engine documents a non-FCFS default under backlog; CL-W43-12's rollout collapses re-read as queue effects. Requires step 1 positive on both (c) and (d) and one maintainer to pick it up. Judgment p 0.25.; **ceiling**: 'The queue is the synchronizer' becomes the standard account of cache metastability in agent serving and RL rollout: where $1 < W/C < 2$, order control replaces admission caps and raises sustainable concurrency at equal cache by up to about $1.9	imes$, confirmed at cluster scale by a lab. Judgment p 0.08.
+- **Relevance:** L3 routes (Lloyd / Netravali / Tri Dao): direct, a systems measurement with a mechanism and a configuration consequence on a rollout and serving engine. Industry: serving and RL-infra teams. Jacob's edge: the identity is an exactly solvable model (LRU stack distance under Poisson versus lockstep reference, a renewal-process calculation) and the measurement is GPU systems work. Zero relevance to L1, L2, L4, L5.
+- **Kill probe:** Step 0 at $0 (two days): the LRU stack-distance replay under three call orders, dead if the dispersed-phase prediction at the trapped $W/C$ is also below 0.4. Step 1 at about 65 GPU-hours, about $200, eight days: trap plus five arms x two repeats on one H100 pair; dead if the three order arms leave the hit rate below 0.45 and goodput within 20% of the untreated arm while the paper's arrival cut recovers.
+- **Density and ownership:** arXiv API 2026-11-09, last twelve months unless marked: 'prefix cache' AND (convoy OR synchroniz* OR lockstep OR 'phase lock*' OR desynchroniz* OR jitter) = 0; 'KV cache' AND (convoy OR lockstep) = 1, Medha 2409.17264 (pre-window; 'convoy effects where long-running requests stall short, interactive ones' — head-of-line blocking, a different use of the word); 'hit rate' AND (hysteresis OR metastab* OR bistab*) AND (LLM OR serving OR agent) = 0; (metastable OR metastability OR 'retry storm') AND LLM AND serving = 7, one on target (the card); ('stack distance' OR 'reuse distance') AND ('prefix cache' OR 'KV cache' OR LLM) = 5, on target KVSET 2609.27746 (Mattson stack algorithm for the KV working set, online, open source) and EfficientAgent 2609.33762 (stack-distance model of the reuse working set, host-tier sizing), neither with an order or synchronization term. Occupied: the trap, the fl…
+- **Why now:** The card (2026-11-02) measured the two hit rates at matched working set and named them; KVSET (2026-09-23) released the online stack-distance instrument; SGLang's FCFS default and its 128-request cutoff for prefix-aware ordering (fetched 2026-11-09) make the lockstep the shipped behaviour under backlog. The identity is 1970 and 1979 material, recorded as the flag.
+- **Register, and what it is not:** —
+
+## Gates (config/standards.md)
+
+| Gate | Test | Verdict |
+| --- | --- | --- |
+| G0 | premise hygiene (conditioning set, whose temperature, fetched numbers) | quantities written before the measurement: for session $i$, $K_i$ is the number of other sessions that called between $i$'s two consecutive calls (the LRU stack distance in session units); $i$'s prefix is still cached iff $K_i\,c < C$, with $c$ the context per session; the two branches $$h_{\mathrm{lockstep}}(W/C) = \mathbb{1}\!\left[\tfrac{W}{C} \le 1\right], \qquad h_{\mathrm{dispersed}}(W/C) = \min\!\left(1, \tfrac{C}{W}\right),$$ with $W = N c$ the working set of $N$ sessions. The dispersed formula assumes exponential inter-call times and equal contexts; step 0 replaces both with the reco… |
+| G1 | cheap to kill (cheapest probe under one GPU-week, kill result pre-registered) | pass: step 0 at $0, step 1 about 65 GPU-h and $200; kill written: step 0 dead if the dispersed-phase replay also predicts a hit rate below 0.4 at the trapped $W/C$ the hardware run reaches; step 1 dead if the jitter, random-order and resident-first arms each leave the hit rate below 0.45 and goodput within 20% of the untreated arm while the arrival cut recovers to within 20% of pre-surge goodput |
+| G2 | pressure (stated strain, or ruler with pre-registered surprise) | route A: the paper states the hysteresis as a fact and attributes it to contents while its model has no state for order; EfficientAgent 2609.33762 writes the dispersed-phase working set in words ('an agent's prefix is reused only if the host tier holds the reusable context of the whole agent pool'); SGLang ships `schedule_policy = 'fcfs'` and switches longest-prefix-match off above 128 waiting requests (source fetched 2026-11-09) — three source types; route B: the ruler $K_i$ with a pre-registered surprise (two branches by phase dispersion against the field's one curve; expected, judgment 0.5… |
+| G3 | consumers (three classes, the action each changes; community-wide for golden) | consumers with actions: SGLang and vLLM maintainers (the prefill scheduling default under backlog), gateway builders (Basin, Continuum, ThunderAgent — ordering before admission), KV working-set planners (an order term), RL-infra teams (MISA-T, TideRL, VenusRL — pace rather than cap concurrency). Community-wide across serving and RL infrastructure — golden-shaped on Gate 3 |
+| G4 | mechanism and consequence | mechanism: under a saturated first-come-first-served prefill queue every returning session waits behind every other, so $K_i = N - 1$ for all calls and the cache carries nothing past $W = C$; dispersed phases give $K_i \approx N(1 - e^{-\tau})$ ($\tau$ the session's inter-call time in units of its mean) and a hit rate near $C/W$; consequence: a dispatch-order flag under backlog, or admission as the paper has it |
+| G5 | durability; lab-adjacent | durable: LRU stack distances (Mattson, Gecsei, Slutz and Traiger 1970) and the convoy phenomenon (Blasgen, Gray, Mitoma and Price 1979) apply to any prefix-cached engine; the SGLang numbers expire with its scheduler; lab-adjacent (systems labs publish measurements; the paper's own group is the natural reviewer) |
+| G6 | ownership, density, race window; position clause | unmeasured: kill search owed. The candidate's own zero-hit conjunctions ('prefix cache' AND convoy / lockstep / synchronization = 0; 'hit rate' AND hysteresis AND serving = 0; 'stack distance' AND prefix cache = 5 with KVSET and EfficientAgent on target, neither with an order term) are query data, not evidence (checklist 2026-10-25) — the kill search runs the role words convoy, lockstep, synchronization, phase, 'schedule policy', 'longest prefix match', 'cache-aware scheduling', 'request ordering', thrashing, 'LRU cliff', 'reuse distance'. Medha 2409.17264 uses 'convoy' for head-of-line block… |
+
+## Probes under this claim
+
+| Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |
+| --- | --- | --- | --- | --- |
+| C-W45-10 | The queue is the synchronizer: post-surge prefix-cache hysteresis in agent serving is a convoy, and a dispatch-order ch… | Step 0 at $0 (two days): the LRU stack-distance replay under three call orders, dead if the dispersed-phase prediction at the trapped $W/C$ is also below 0.4. Step 1 at about 65 GPU-hours, about $200, eight days: trap plus five arms x two… | proposed | — |
+
+## Kill search
+
+Not run yet. Kill searches run automatically on the top probes, claim by claim (config/generation.yaml); `/kill <probe>` runs one by hand.
+
+## Red team
+
+Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs only on a probe that survived its kill search; nothing is called proper before it.
+
+## First steps if pursued
+
+1. Wait for the automatic kill search on **C-W45-10** (Sunday run), or run `/kill C-W45-10` in a session.
+2. If it survives: `/redteam C-W45-10`, then the probe as pre-registered — Step 0 at $0 (two days): the LRU stack-distance replay under three call orders, dead if the dispersed-phase prediction at the trapped $W/C$ is also below 0.4. Step 1 at about 65 GPU-hours, about $200, eight days: trap plus five arms x two repeats on one H100 pair; dead if the three order arms leave the hit rate below 0.45 and goodput within 20% of the untreated arm while the paper's arrival cut r…
+3. Write results into the records and this Log; status moves only on evidence.
+
+## Decisions for Jacob
+
+- None pending; the machine runs the next kill search on its own. Mark `jacob-dropped` here if the headline is not worth a week of yours.
+
+## Jacob
+
+<!-- Yours. Preserved verbatim on every refresh. Write marks here: `promote`, `jacob-dropped`, `park: <reason>`,
+     a question, a correction. The operator applies marks to the records and answers questions in the Log. -->
+
+- status mark: (none)
+- notes:
+
+
+## Log
+
+- 2026-11-08 — claim open: filed (claims, W45) by lifting C-W45-10; the L3 top-down pass converged on the same mechanism; headline quantifier (hit rate back above 0.45 at unchanged arrivals) is the step-1 kill; C-W45-11 (admission loop) left orphan as CL-W43-08's second control loop; concept-level kill search owed in the neighbours' role words (rule 17); ranked 3
+
+## Records
+
+- claim record: `data/claims/claims.jsonl` (id `CL-W45-05`, version 1)
+- probe `C-W45-10`: `data/candidates/2026-W45.jsonl`

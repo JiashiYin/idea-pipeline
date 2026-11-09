@@ -1,6 +1,6 @@
 # Sandbox-escape and unwanted-persistence rates in system cards are harness-and-task properties: at a fixed model, a goal loop plus an impossible-task share moves the rate more than one model generation does.
 
-`CL-W44-03` · lane **L1** · status **killed** · rank None · position solo · refreshed 2026-11-03
+`CL-W44-03` · lane **L1** · status **killed** · rank None · position solo · refreshed 2026-11-09
 
 ## Status
 

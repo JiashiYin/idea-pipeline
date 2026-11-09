@@ -1,6 +1,6 @@
 # On tool-using, multi-turn agent benchmarks, a certified-deterministic serving arm removes under half of the temperature-0 run-to-run outcome variance; the remainder is the environment's tool and timing nondeterminism and the second sampling party, so benchmark owners' attribution of temperature-0 spread to the serving stack is wrong in the majority of cells. (An inverted claim; file as new. Survival weak: 2603.09127 and 2609.04198 state the reading in prose; a benchmark owner with replicate traces measures it in a day.)
 
-`CL-W44-07` · lane **L1** · status **open** · rank 3 · position both · refreshed 2026-11-03
+`CL-W44-07` · lane **L1** · status **open** · rank 5 · position both · refreshed 2026-11-09
 
 ## Status
 
@@ -27,7 +27,7 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 
 
 | Gate | Test | Verdict |
 | --- | --- | --- |
-| G0 | premise hygiene (conditioning set, whose temperature, fetched numbers) | the deterministic arm is not a zero arm under load (2609.38981); the record must certify replicas |
+| G0 | premise hygiene (conditioning set, whose temperature, fetched numbers) | the deterministic arm is not a zero arm under load (2609.38981); the record must certify replicas; added W45: coupling means the same draw sequence from the same stream position, not the same realised failure once action sequences differ (the common-random-numbers caveat); the hosted lane's coupled cell is the serving floor, not a zero cell (2611.05650 App. B.7: 0 of 4 re-sends reproduced) |
 | G1 | cheap to kill (cheapest probe under one GPU-week, kill result pre-registered) | pass: C-W44-07 ~$300 |
 | G2 | pressure (stated strain, or ruler with pre-registered surprise) | route B: the ruler (serving share S of temperature-0 outcome variance) with a pre-registered surprise against the owners' stated assumption |
 | G3 | consumers (three classes, the action each changes; community-wide for golden) | untested |
@@ -40,6 +40,7 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 
 | Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |
 | --- | --- | --- | --- | --- |
 | C-W44-07 | Temperature zero in a certified-static world: the serving stack's share of agent outcome flips | 100 rollouts of Gemini 3.1 Pro Preview at temperature 0 on the released claims block plus 20 single-step re-sends, about $300, 0 GPU-hours, 5 days including the rebuild shared with the sibling; dead if 90 of 100 pairs are action-identical… | proposed | — |
+| C-W45-04 | Common random numbers at temperature 0: the environment's draws versus the serving stack as the source of outcome flips… | Steps 0 to 2: about 12 GPU-hours, about $250, 7 days; dead if the serving share is at least two thirds at both tool-failure rates with lower bound above 0.5 and the hosted lane's independent-minus-coupled difference sits inside the serving… | proposed | — |
 | P-W43-J01-a | P-W43-J01-a (redesigned: deterministic arm must be replica-certified — Vosti 2609.38981, 2609.04198) | — | — | not a candidate record (seed or import) |
 | C-W44-OWN-2 | Where HAL's five temperature-zero runs first diverge on tau-bench airline: the agent, the simulated user, or the stack | The diff over the owner's traces (zero dollars, two days) plus the three-model pinned re-run ($200, one day); dead if $U \le 0.2$ and pinning moves no consistency column by more than 0.05. | parked | — |
 
@@ -76,10 +77,12 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - 2026-11-01 — C-W44-OWN-2 parked: stage 8 owned-artifact prospecting (W44 monthly run); lab position
 - 2026-11-01 — C-W44-OWN-2 parked: claim CL-W43-J01 concept-level kill search (killed): probe effect 'unchanged' — lab-parked; its U (first divergence at a user turn) is the inverted claim's natural surprise on the one public temperature-0 replicate set with a second sampling party; re-home under the inverted claim.
 - 2026-11-01 — C-W44-OWN-2 parked: claim_id CL-W43-J01 -> CL-W44-07 (re-homed after the kill searches)
+- 2026-11-08 — claim open: claims (W45, 2026-11-08): rank 3 -> 5; ranked 5 (was 3): ~$300 cheapest probe and a stated protocol assumption of three benchmark owners as the target; gained the two-channel testbed C-W45-04 this week; moved below CL-W44-06 and CL-W45-05 on consumer breadth; its W44 survival note ('2603.09127 and 2609.04198 state the reading in prose') still weighs on Gate 2B
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W44-07`, version 2)
+- claim record: `data/claims/claims.jsonl` (id `CL-W44-07`, version 3)
 - probe `C-W44-07`: `data/candidates/2026-W44.jsonl`
+- probe `C-W45-04`: `data/candidates/2026-W45.jsonl`
 - `P-W43-J01-a`: seed or import record (no candidate yet)
 - probe `C-W44-OWN-2`: `data/candidates/2026-W44.jsonl`

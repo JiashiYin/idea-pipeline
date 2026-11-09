@@ -1,6 +1,6 @@
 # On Terminal-Bench 3.0 to 4.0, with the model fixed and the harness pinned, the 19 repaired tasks carry more than half of the kept-task delta after the recalibration delta on the 47 untouched tasks is subtracted (DiD repair share > 0.5, task-cluster bootstrap), and the model ordering on the 19 repaired tasks departs from the ordering on the 47 untouched tasks beyond a difficulty-matched random-subset ceiling.
 
-`CL-W44-02` · lane **L1** · status **refuted** · rank None · position solo · refreshed 2026-11-03
+`CL-W44-02` · lane **L1** · status **refuted** · rank None · position solo · refreshed 2026-11-09
 
 ## Status
 

@@ -1,6 +1,6 @@
 # Reported scaffold gains on agent benchmarks are mostly reasoning-effort and restart effects, not scaffold design.
 
-`CL-W43-03` · lane **L1** · status **killed** · rank None · position both · refreshed 2026-11-03
+`CL-W43-03` · lane **L1** · status **killed** · rank None · position both · refreshed 2026-11-09
 
 ## Status
 

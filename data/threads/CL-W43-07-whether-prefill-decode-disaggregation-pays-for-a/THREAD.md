@@ -1,6 +1,6 @@
 # Whether prefill-decode disaggregation pays for an agent workload is set by the measured temporal overlap of prefill with decode, not by turn count.
 
-`CL-W43-07` · lane **L3** · status **open** · rank 5 · position both · refreshed 2026-11-03
+`CL-W43-07` · lane **L3** · status **open** · rank 12 · position both · refreshed 2026-11-09
 
 ## Status
 
@@ -75,8 +75,9 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - 2026-11-01 — claim open: ranked 5 after the W44 kill searches: unchanged; kill search owed (not reached in the W44 budget)
 - 2026-11-02 — claim open: pressure #9 (2026-11-02): Q05 'turn count explains 84% of the variance in log trajectory cost' and '98.6% of input tokens are served from a prefix cache' — the turn-count side of the headline's contrast is now measured on 600 trajectories; C-W44-08's prefill-share readout (under CL-W43-12) informs this claim and is not split; records Q05, Q07 routed here
 - 2026-11-02 — claim open: claims (W44 weekly run, 2026-11-02): no new probe; rank 10 -> 13 (four claims with new scorecarded probes enter above it)
+- 2026-11-08 — claim open: claims (W45, 2026-11-08): rank 5 -> 12; ranked 12 (was 5): unchanged record; 80 GPU-h probe; kill search owed since W43 and not reached in two budgets; the W45 card 2611.02543 supplies a second regime-sorting rule for PD topologies (its eq. 2) that the kill search must read
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-07`, version 5)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-07`, version 6)
 - probe `C-W43-05`: `data/candidates/2026-W43.jsonl`

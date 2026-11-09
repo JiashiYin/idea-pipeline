@@ -1,6 +1,6 @@
 # An agent served under KV-cache eviction is not the agent its transcript describes: it keeps using tool outputs it can no longer see, and a trainer recomputing log-probabilities from the text does not reproduce the policy it sampled from.
 
-`CL-W43-11` · lane **L3** · status **killed** · rank None · position both · refreshed 2026-11-03
+`CL-W43-11` · lane **L3** · status **killed** · rank None · position both · refreshed 2026-11-09
 
 ## Status
 

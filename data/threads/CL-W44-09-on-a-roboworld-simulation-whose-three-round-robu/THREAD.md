@@ -1,6 +1,6 @@
 # On a RoboWorld simulation whose three-round robustness audit recorded no remaining defect, a 600-episode CMA-ES over the released code policy's parameters against the state-based verifier reaches verified successes that violate a physical invariant the honest policy never violates at a share epsilon_opt - epsilon_honest >= 0.05, in a defect class the audit report does not name — and a model-written attacker with execution at the same budget reaches the same class or does not. (Exploitation defined per 2605.15960; quantity per SPOTA; invariant flag per SimuGuard; recall protocol per 2610.15924 transposed to physics; all cited, not claimed.)
 
-`CL-W44-09` · lane **L5** · status **open** · rank 4 · position both · refreshed 2026-11-03
+`CL-W44-09` · lane **L5** · status **open** · rank 11 · position both · refreshed 2026-11-09
 
 ## Status
 
@@ -71,8 +71,9 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 - 2026-11-01 — claim open: filed as the narrowest surviving headline of CL-W44-05 (killed at concept level the same day); its own concept-level kill search is owed next week (W44 budget of 12 spent) before any probe is designed (rule 17)
 - 2026-11-01 — claim open: ranked 4 after the W44 kill searches: 100 GPU-h at the budget edge; four-day-old corpus; null is the surprise
+- 2026-11-08 — claim open: claims (W45, 2026-11-08): rank 4 -> 11; ranked 11 (was 4): one agent-built simulator and one optimiser; narrower consumers than the eight claims placed above it; kill search still owed
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W44-09`, version 2)
+- claim record: `data/claims/claims.jsonl` (id `CL-W44-09`, version 3)
 - probe `C-W44-15`: `data/candidates/2026-W44.jsonl`

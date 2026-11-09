@@ -1,6 +1,6 @@
 # The run-to-run variance that agent benchmarks report at temperature 0 is the serving stack's batch-dependent arithmetic, not the agent, and over multi-turn trajectories it is large enough to reorder leaderboards.
 
-`CL-W43-J01` · lane **L1** · status **killed** · rank None · position solo · refreshed 2026-11-03
+`CL-W43-J01` · lane **L1** · status **killed** · rank None · position solo · refreshed 2026-11-09
 
 ## Status
 

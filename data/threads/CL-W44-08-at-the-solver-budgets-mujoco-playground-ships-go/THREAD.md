@@ -1,6 +1,6 @@
 # At the solver budgets MuJoCo Playground ships (Go1 iterations=1, Leap iterations=5), the cap-isolated share of return — the train-in / evaluate-in interaction at matched wall-clock — is inside the seed interval of zero for Go1 locomotion and is X percent of return for Leap cube manipulation, and that Leap share is attributable to the solver budget and not to the collision pipeline. (Exploit defined as 2605.15960's preference reversal; quantity is SPOTA's bias with the converged engine as the held-out domain.)
 
-`CL-W44-08` · lane **L5** · status **open** · rank 1 · position both · refreshed 2026-11-03
+`CL-W44-08` · lane **L5** · status **open** · rank 2 · position both · refreshed 2026-11-09
 
 ## Status
 
@@ -84,10 +84,11 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - 2026-11-01 — C-W44-DEF-L5 parked: stage 9 definitive-comparison prospecting (W44 monthly run); lab position
 - 2026-11-01 — C-W44-DEF-L5 parked: claim CL-W43-01 concept-level kill search (killed): probe effect 'unchanged' — parked, lab; must cite SPOTA (quantity), 2605.15960 (definition) and SimuGuard (rerun protocol, collision confound) before any report
 - 2026-11-01 — C-W44-DEF-L5 parked: claim_id CL-W43-01 -> CL-W44-08 (re-homed after the kill searches)
+- 2026-11-08 — claim open: claims (W45, 2026-11-08): rank 1 -> 2; ranked 2 (was 1): lane program narrowed to the measurable cell, 6-14 GPU-h, engine builders and every Playground user as consumers; below CL-W45-J01 only because its own kill search is still owed and its numbers expire with the next Playground release
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W44-08`, version 2)
+- claim record: `data/claims/claims.jsonl` (id `CL-W44-08`, version 3)
 - `P-W43-01-2x2`: seed or import record (no candidate yet)
 - probe `C-W43-16`: `data/candidates/2026-W43.jsonl`
 - probe `C-W43-27`: `data/candidates/2026-W43.jsonl`

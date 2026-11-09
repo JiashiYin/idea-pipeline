@@ -1,6 +1,6 @@
 # A per-cell confidence sequence on the pass^k difference, with replicates raced to the cells whose outcomes still disagree, certifies a harness-model ordering with fewer runs than BB-EDGE's complete-panel rounds on a bimodal agent suite.
 
-`CL-W44-10` · lane **L1** · status **thought** · rank None · position solo · refreshed 2026-11-03
+`CL-W44-10` · lane **L1** · status **thought** · rank None · position solo · refreshed 2026-11-09
 
 ## Status
 

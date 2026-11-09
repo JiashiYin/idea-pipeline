@@ -1,6 +1,6 @@
 # Most published real-to-sim validity claims rest on policy pairs their own real-world sample cannot resolve.
 
-`CL-W43-02` · lane **L1** · status **refuted** · rank 2 · position solo · refreshed 2026-11-03
+`CL-W43-02` · lane **L1** · status **refuted** · rank None · position solo · refreshed 2026-11-09
 
 ## Status
 
@@ -87,8 +87,9 @@ Closest neighbors (one-sentence trick; one-line difference):
 - 2026-10-20 — claim refuted: red team of C-W43-13 (2026-10-20): probe killed; claim refuted as worded — the probe's zero-cost step run on three 0/1 tables gives resolvable fractions 63% (SIMPLER), 71% (R2S-Eval), 68% (SimFoundry G.1), unresolvable-pair agreement 0.92 on both 2026 tables (the pre-registered kill line), and a perfect simulator produces those thresholds under the record's own model; kappa/Pbar unidentified, att…
 - 2026-10-20 — C-W43-13 survived-kill: kill search (stage 4, automatic, claim-ranked): survived-kill — no fetched paper grades published real-to-sim agreement against real-trial resolvability or chance; the closest, Kaedim 2610.00731 App. B, applies the check to its own five tasks to withhold MMRV, so the mechanism exists at single-study scale and the field-wide ruler with kappa, the attenuation ceiling and the sample-size table does…
 - 2026-10-20 — C-W43-13 killed: red team (stage 5, automatic, three personas, 18 objections: 16 conceded, 0 answered, 2 open after two rounds): killed — the red team ran the probe's zero-cost step on three published 0/1 tables (SIMPLER reproduced: 52/53 vs 24/31; R2S-Eval Table II n=20: 64/64 vs 24/26; SimFoundry G.1 n=25: 27/27 vs 12/13): the pre-registered kill fired (unresolvable-pair agreement 0.92 >= 0.9 on both 2026 table…
+- 2026-11-08 — claim refuted: claims (W45, 2026-11-08): rank 2 -> none; refuted claims are not ranked (the stale rank put it second in the threads index); record otherwise unchanged
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-02`, version 3)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-02`, version 4)
 - probe `C-W43-13`: `data/candidates/2026-W43.jsonl`; kill record `data/reports/2026-W43-kill-C-W43-13.md`

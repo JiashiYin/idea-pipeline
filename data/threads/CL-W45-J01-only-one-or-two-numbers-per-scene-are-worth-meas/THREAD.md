@@ -1,6 +1,6 @@
 # Only one or two numbers per scene are worth measuring, and which ones can be computed in simulation before any robot time: the value of calibrating each physical parameter under a material prior is concentrated in task-specific parameters, and for most tabletop tasks it is below the cost of measuring, so a material-prior database plus randomization is the right default and targeted calibration the exception.
 
-`CL-W45-J01` · lane **L5** · status **open** · rank — · position both · refreshed 2026-11-03
+`CL-W45-J01` · lane **L5** · status **open** · rank 1 · position both · refreshed 2026-11-09
 
 ## Status
 
@@ -82,9 +82,10 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 ## Log
 
 - 2026-11-03 — claim open: captured from Jacob's real-to-sim questions (2026-11-03) with a concept-level kill search run in the same session (first pass, abstract-level, 73 abstracts + 8 pages; report data/reports/2026-W45-kill-CL-W45-J01.md): survived - exact shape unoccupied, concept half occupied by RSS 2020 / AdaptSim with a stated difference; Gate 2B flagged; probe design owed after the full-text reads (rule 17); red…
+- 2026-11-08 — claim open: claims (W45, 2026-11-08): rank None -> 1; ranked 1: the only open claim that has survived its concept-level kill search (2026-11-03); consumers are every real-to-sim pipeline (75 papers in 13 weeks) and the asset vendors; durable across engines; cheapest probe 40-60 GPU-h with no robot; probe design still owed after the full-text reads (rule 17)
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W45-J01`, version 1)
+- claim record: `data/claims/claims.jsonl` (id `CL-W45-J01`, version 2)
 - `P-W45-J01-a`: seed or import record (no candidate yet)
 - `P-W45-J01-b`: seed or import record (no candidate yet)

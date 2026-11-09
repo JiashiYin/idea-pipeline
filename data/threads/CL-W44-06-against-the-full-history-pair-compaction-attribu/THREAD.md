@@ -1,6 +1,6 @@
 # Against the full-history pair, compaction-attributable failures are sourced values that lost their binding (stale or look-alike entries) and dropped constraints, not entries nothing supports (under one in ten), and the provenance judge's +8.9 Pass3 is matched by section drop or matched-count random deletion.
 
-`CL-W44-06` · lane **L4** · status **open** · rank 2 · position both · refreshed 2026-11-03
+`CL-W44-06` · lane **L4** · status **open** · rank 4 · position both · refreshed 2026-11-09
 
 ## Status
 
@@ -27,7 +27,7 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 
 
 | Gate | Test | Verdict |
 | --- | --- | --- |
-| G0 | premise hygiene (conditioning set, whose temperature, fetched numbers) | untested |
+| G0 | premise hygiene (conditioning set, whose temperature, fetched numbers) | added W45: two cards bear on the census — 2611.05650 states the field norm that a transcript label 'cannot distinguish a cause of failure from something that co-occurs with it' (so C-W44-11 is descriptive and the deletion and injection arms C-W44-12 / C-W44-18 carry the claim), and 2611.03289's Proposition 2 says one episode compacted once determines at most one item value (so per-entry attribution needs the paired replay's designed variation); 2611.06545's ledger-adjudicated counts fall on this claim's side for held-out restrictions (59 of 76 overgeneralized vs 17 invented), a census of sent… |
 | G1 | cheap to kill (cheapest probe under one GPU-week, kill result pre-registered) | pass: C-W44-11 step 0 is $0 on Compact-Bench's public full-history/summary pairs |
 | G2 | pressure (stated strain, or ruler with pre-registered surprise) | route A: SJC, Compact-Bench, transparent-compact and Governance Decay each state a different noun for the failure; the field disagrees in print |
 | G3 | consumers (three classes, the action each changes; community-wide for golden) | one community (compaction papers) must change the control they report — proper-shaped |
@@ -40,6 +40,7 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 
 | Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |
 | --- | --- | --- | --- | --- |
 | C-W44-11 | Where message-attributable handoff failures sit: dropped, in view and unused, or followed from an invented entry — the… | Step 0 email and step 1 labeler ($0, 5 days plus the wait); fallback step 2 at most $300, 0 GPU-hours, 7 days; dead if the family-clustered lower bound of $\pi_{\mathrm{inv}}$ is above 0.10 for three of six receivers. | proposed | — |
+| C-W45-05 | Whose words are the unsupported entries? Widening the provenance gate's source set to the agent's own earlier turns, an… | Steps 0 and 1 at $0 on the released handoff-audit records and Compact-Bench pairs, 6 days; step 2 at most $250 in the SJC harness, 4 days; 0 GPU-hours; dead if on two of three corpora the lower bound of $u_1$ is above 0.75 and $u_3$ above… | proposed | — |
 | C-W43-08 | Does Source-Judged Compaction win by what it deletes or how much? | Four arms x 168 tasks x 3 runs on GPT-5.6 Luna; ~$700 API, 0 GPU-hours; kills if SJC beats both controls by >= 5 Pass3 with std < 3; 10 days including a one-week harness build. | proposed | — |
 | C-W44-18 | One wrong bullet in the agent's own summary, the right value in a fresh tool output: which one does the agent act on? | 60 tasks x six cells x three runs in the public SJC harness on GPT, about $500 API, 0 GPU-hours, 12 days; dead if the fresh output displaces the planted value ($u_S, u_F < 0.25$) or if the fabricated value is taken up at under half the rat… | proposed | — |
 | C-W44-12 | The provenance gate, judge-free, on a one-shot handoff sheet: delete the unsourced entries at matched tokens | At most $300, 0 GPU-hours, 10 days after the census labeler; dead as a claim if $|\Delta_D| \geq 2$ with interval excluding zero for three of six receivers. | proposed | — |
@@ -82,11 +83,13 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - 2026-11-01 — C-W44-DEF-L4 parked: stage 9 definitive-comparison prospecting (W44 monthly run); lab position
 - 2026-11-01 — C-W44-DEF-L4 parked: claim CL-W43-05 concept-level kill search (killed): probe effect 'unchanged' — Lab, parked; random-deletion floor is the residue's length control at scale.
 - 2026-11-01 — C-W44-DEF-L4 parked: claim_id CL-W43-05 -> CL-W44-06 (re-homed after the kill searches)
+- 2026-11-08 — claim open: claims (W45, 2026-11-08): rank 2 -> 4; ranked 4 (was 2): $0 step on public pairs and a field that disagrees in print on the noun; a second probe (C-W45-05) attached this week; moved below CL-W45-05 (community-wide consumers, exact law) and kept above the new L4 claims because it is further along; race window about 1x (eight compaction papers in two weeks)
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W44-06`, version 2)
+- claim record: `data/claims/claims.jsonl` (id `CL-W44-06`, version 3)
 - probe `C-W44-11`: `data/candidates/2026-W44.jsonl`
+- probe `C-W45-05`: `data/candidates/2026-W45.jsonl`
 - probe `C-W43-08`: `data/candidates/2026-W43.jsonl`
 - probe `C-W44-18`: `data/candidates/2026-W44.jsonl`
 - probe `C-W44-12`: `data/candidates/2026-W44.jsonl`

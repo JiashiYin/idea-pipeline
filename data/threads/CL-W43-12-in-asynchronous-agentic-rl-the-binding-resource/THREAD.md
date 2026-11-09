@@ -1,6 +1,6 @@
 # In asynchronous agentic RL the binding resource of a training iteration is KV-cache residency, not decode compute, and the waste terms systems papers list do not add.
 
-`CL-W43-12` · lane **L3** · status **killed** · rank None · position both · refreshed 2026-11-03
+`CL-W43-12` · lane **L3** · status **killed** · rank None · position both · refreshed 2026-11-09
 
 ## Status
 

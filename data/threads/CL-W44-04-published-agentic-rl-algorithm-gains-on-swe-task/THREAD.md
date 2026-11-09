@@ -1,6 +1,6 @@
 # Published agentic-RL algorithm gains on SWE tasks do not survive a tuned asynchronous baseline with bitwise-consistent rollouts, and environment scale at matched compute moves the score more than any loss choice.
 
-`CL-W44-04` · lane **L2** · status **thought** · rank None · position lab · refreshed 2026-11-03
+`CL-W44-04` · lane **L2** · status **thought** · rank None · position lab · refreshed 2026-11-09
 
 ## Status
 

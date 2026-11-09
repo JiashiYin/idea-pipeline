@@ -1,6 +1,6 @@
 # Model-written adversarial audits do not bound what an optimiser extracts from a simulator: in agent-built simulators that passed three audit rounds, a 600-episode search against the verifier makes at least one in twenty verified successes physically invalid.
 
-`CL-W44-05` · lane **L5** · status **killed** · rank None · position solo · refreshed 2026-11-03
+`CL-W44-05` · lane **L5** · status **killed** · rank None · position solo · refreshed 2026-11-09
 
 ## Status
 
