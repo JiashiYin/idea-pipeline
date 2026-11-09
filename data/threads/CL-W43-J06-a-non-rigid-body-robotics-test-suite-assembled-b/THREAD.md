@@ -1,6 +1,6 @@
 # A non-rigid-body robotics test suite assembled by porting and collecting the incumbents' tasks, plus frontier-model-synthesised scenes, will become the suite people report when they train policies.
 
-`CL-W43-J06` · lane **L5** · status **open** · rank 17 · position solo · refreshed 2026-11-09
+`CL-W43-J06` · lane **L5** · status **open** · rank 6 · position solo · refreshed 2026-11-09
 
 ## Status
 
@@ -75,9 +75,10 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - 2026-11-02 — claim open: pressure #5 (2026-11-02): the LIBERO forks (B24: five forks in ten days, 17-42 point drops) are the field's answer to 'another suite' — perturbation axes on an existing suite, not a new one; records R24, R25 routed here
 - 2026-11-02 — claim open: claims (W44 weekly run, 2026-11-02): C-W44-16 (scout card 2610.40565 x GAUGE) attached — it tests the synthesised-scenes premise, not adoption; graded against gates 0-6; status thought -> open so the grading is on the record (fails Gate 2, 4, 5 as a product); rank 16 (last); not killed or parked here — the kill search decides
 - 2026-11-08 — claim open: claims (W45, 2026-11-08): rank 8 -> 17; ranked 17 (was 8): fails Gate 2 (no stated pressure, no ruler) and Gate 4; kept open at Jacob's capture
+- 2026-11-08 — claim open: re-ranked after the W45 kill searches: rank 6: kill search owed; fails Gate 2 as written
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-J06`, version 4)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-J06`, version 5)
 - `P-W43-J06-a`: seed or import record (no candidate yet)
 - probe `C-W44-16`: `data/candidates/2026-W44.jsonl`

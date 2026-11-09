@@ -1,6 +1,6 @@
 # On one 8-GPU node, self-GRPO on-policy distillation's reported $50\times$ FLOP saving over GRPO (on-policy distillation: training a student on its own rollouts under a frozen teacher's per-token supervision; FLOPs: floating-point operations) is less than half as large in node-hours (under $25\times$), because the $G = 1$ setting ($G$ rollouts per prompt) buys its FLOPs with eight times the optimizer steps on a decode-bound machine where a batch of 64 and a batch of 512 sequences take nearly the same time to generate.
 
-`CL-W45-06` · lane **L3** · status **open** · rank 15 · position both · refreshed 2026-11-09
+`CL-W45-06` · lane **L3** · status **open** · rank 4 · position both · refreshed 2026-11-09
 
 ## Status
 
@@ -70,8 +70,9 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 ## Log
 
 - 2026-11-08 — claim open: filed (claims, W45) by lifting C-W45-08 into L3 (the lane sentence names cost structure); headline quantifier ('less than half as large, under 25x') is the probe's kill; C-W45-09 (judge dollars, ORSD) left orphan at L2's cap; concept-level kill search owed (rule 17); ranked 15
+- 2026-11-08 — claim open: re-ranked after the W45 kill searches: rank 4: born this week; kill search owed; Gate 2B flagged at filing
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W45-06`, version 1)
+- claim record: `data/claims/claims.jsonl` (id `CL-W45-06`, version 2)
 - probe `C-W45-08`: `data/candidates/2026-W45.jsonl`

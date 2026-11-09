@@ -1,6 +1,6 @@
 # The reported collapse of multi-turn RL to or below its base model at a quarter of the turn cap is a budget-prompt effect, not a budget dependence of what RL learned: on FrozenLake with the prompt's budget line held at $T_{\max}$ (the full cap) and success read at one attempt, the RL model stays above the base model at 25% of the cap.
 
-`CL-W45-03` · lane **L2** · status **open** · rank 9 · position both · refreshed 2026-11-09
+`CL-W45-03` · lane **L2** · status **open** · rank 2 · position both · refreshed 2026-11-09
 
 ## Status
 
@@ -82,8 +82,9 @@ Closest neighbors (one-sentence trick; one-line difference):
 - 2026-11-08 — claim open: filed (claims, W45) by lifting C-W45-06 and import S8xF9 (cheapest); the shared three-clause headline_test of C-W45-06/07/08 split into three one-quantifier claims (checklist 2026-11-01); headline quantifier (RL above base at 25% under the held prompt at K = 1) is the probes' kill; import S8xF4 left orphan as the competing training-side mechanism; L2's first open claim since CL-W43-06 was parked;…
 - 2026-11-08 — claim open: concept-level kill search (/home/claude/idea-pipeline/data/reports/2026-W45-kill-CL-W45-03.md): survived (weak) — No occupant of the announced-vs-held control on a fixed-cap RL checkpoint and the paper never runs it (Gate 0/2B question answered no); survival is weak because the paper's own GiGPO/PPO cells show the announced prompt is not sufficient for collapse and AdaTurn Table 1 shows a silent-…
 - 2026-11-08 — claim open: design red team of C-W45-06 (data/reports/2026-W45-redteam-C-W45-06.md): red-teamed, no killing objection left open; claim narrowed to 4B (8B contradicted by Table 1 at K = 8), Gate 4 mechanism rewritten as the three-term decomposition, prompt term given its own kill (03c); graded proper (narrow, weak) — the first claim to clear kill search and red team since 2026-10-19; next gate: Jacob's promot…
+- 2026-11-08 — claim open: re-ranked after the W45 kill searches: rank 2: the only claim to clear kill search and design red team; proper (narrow, weak); race flag
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W45-03`, version 3)
+- claim record: `data/claims/claims.jsonl` (id `CL-W45-03`, version 4)
 - probe `C-W45-06`: `data/candidates/2026-W45.jsonl`

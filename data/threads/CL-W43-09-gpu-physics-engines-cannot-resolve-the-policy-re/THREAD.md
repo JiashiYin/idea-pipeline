@@ -1,6 +1,6 @@
 # GPU physics engines cannot resolve the policy-return differences that robot-RL papers report as improvements: engine-only repeatability and batch-position variance exceed 30% of the policy-to-policy spread on contact-rich tasks.
 
-`CL-W43-09` · lane **L5** · status **open** · rank 16 · position both · refreshed 2026-11-09
+`CL-W43-09` · lane **L5** · status **open** · rank 5 · position both · refreshed 2026-11-09
 
 ## Status
 
@@ -78,8 +78,9 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - 2026-11-02 — claim open: pressure #5 (2026-11-02): Q19 MJWarp docs on overflow as undefined behaviour and the all-worlds early exit; Q21 Newton '252x [...] 475x' with no accuracy number; records Q19-Q21 routed here as the premise in the builders' words
 - 2026-11-02 — claim open: claims (W44 weekly run, 2026-11-02): no new probe; P-W43-09-lit ($0, 2 d) still the first step and still unrun; rank 12 -> 15
 - 2026-11-08 — claim open: claims (W45, 2026-11-08): rank 7 -> 16; ranked 16 (was 7): Gate 1 still blocked on paperwork; no new probe
+- 2026-11-08 — claim open: re-ranked after the W45 kill searches: rank 5: kill search owed; Gate 1 blocked on paperwork
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-09`, version 6)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-09`, version 7)
 - `P-W43-09-lit`: seed or import record (no candidate yet)

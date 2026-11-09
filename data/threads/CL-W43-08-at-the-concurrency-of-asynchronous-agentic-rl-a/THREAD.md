@@ -1,6 +1,6 @@
 # At the concurrency of asynchronous agentic RL, a backlog-threshold rule captures as much of the hindsight-optimal prefill-decode role-switching headroom as a demand forecaster does.
 
-`CL-W43-08` · lane **L3** · status **open** · rank 14 · position both · refreshed 2026-11-09
+`CL-W43-08` · lane **L3** · status **open** · rank 3 · position both · refreshed 2026-11-09
 
 ## Status
 
@@ -75,8 +75,9 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - 2026-11-02 — claim open: pressure #10 (2026-11-02): L21 'discarding early-returned short samples', L24 'kept out of training batches [...] the orchestrator backfills samples that were filtered out', L23 '33 billion tokens per day [...] around 16 billion are trainable'; density P10a = 0, P10b = 1; the length-fate question is unposed and bears on this claim's demand model; records L21, L23, L24, Q09 routed here
 - 2026-11-02 — claim open: claims (W44 weekly run, 2026-11-02): no new probe; rank 11 -> 14
 - 2026-11-08 — claim open: claims (W45, 2026-11-08): rank 6 -> 14; ranked 14 (was 6): unchanged probe; a second control loop (C-W45-11) filed as an orphan beside it rather than widening the headline before its kill search; kill search owed since W43
+- 2026-11-08 — claim open: re-ranked after the W45 kill searches: rank 3: L3 open; kill search owed; orphan C-W45-11 attaches after it
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-08`, version 5)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-08`, version 6)
 - probe `C-W43-04`: `data/candidates/2026-W43.jsonl`
