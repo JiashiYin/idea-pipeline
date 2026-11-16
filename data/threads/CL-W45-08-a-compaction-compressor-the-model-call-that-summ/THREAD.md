@@ -1,6 +1,6 @@
 # A compaction compressor (the model call that summarises an agent's own history to fit its context) at its deployed sampling setting is a gauge, not a function of the history: re-compacting the same pre-compaction history accounts for at least one tenth of the variance of post-compaction harm (TRACE's burden: errored or repeated calls among the next actions), so the one-summary-per-boundary labels the lane builds on — TRACE's paired replay, SJC's 83% entry attribution, the corpus study's history-based triggers — are single readings of an instrument whose repeatability has never been measured.
 
-`CL-W45-08` · lane **L4** · status **killed** · rank None · position both · refreshed 2026-11-09
+`CL-W45-08` · lane **L4** · status **killed** · rank None · position both · refreshed 2026-11-16
 
 ## Status
 

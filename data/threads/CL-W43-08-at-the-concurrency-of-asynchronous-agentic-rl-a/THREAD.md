@@ -1,6 +1,6 @@
 # At the concurrency of asynchronous agentic RL, a backlog-threshold rule captures as much of the hindsight-optimal prefill-decode role-switching headroom as a demand forecaster does.
 
-`CL-W43-08` · lane **L3** · status **open** · rank 3 · position both · refreshed 2026-11-09
+`CL-W43-08` · lane **L3** · status **open** · rank 10 · position both · refreshed 2026-11-16
 
 ## Status
 
@@ -76,8 +76,9 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - 2026-11-02 — claim open: claims (W44 weekly run, 2026-11-02): no new probe; rank 11 -> 14
 - 2026-11-08 — claim open: claims (W45, 2026-11-08): rank 6 -> 14; ranked 14 (was 6): unchanged probe; a second control loop (C-W45-11) filed as an orphan beside it rather than widening the headline before its kill search; kill search owed since W43
 - 2026-11-08 — claim open: re-ranked after the W45 kill searches: rank 3: L3 open; kill search owed; orphan C-W45-11 attaches after it
+- 2026-11-15 — claim open: claims (W46, 2026-11-15): rank 3 -> 10; kill search owed since W43; unchanged probe
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-08`, version 6)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-08`, version 7)
 - probe `C-W43-04`: `data/candidates/2026-W43.jsonl`

@@ -1,6 +1,6 @@
 # On HAL's tau-bench airline cells under the Generalist scaffold, more than one in five of the task-level disagreements between two archived runs of the same model is a trigger flip (the grader ran in one run and not in the other), not the agent solving the task in one run and failing in the other, so the replicate disagreement and pass^k (the chance that all $k$ runs of a task pass) those cells report measure the instrument's trigger before they measure the agent.
 
-`CL-W45-01` · lane **L1** · status **killed** · rank None · position both · refreshed 2026-11-09
+`CL-W45-01` · lane **L1** · status **killed** · rank None · position both · refreshed 2026-11-16
 
 ## Status
 

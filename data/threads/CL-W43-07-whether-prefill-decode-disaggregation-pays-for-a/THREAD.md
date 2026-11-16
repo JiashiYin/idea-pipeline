@@ -1,6 +1,6 @@
 # Whether prefill-decode disaggregation pays for an agent workload is set by the measured temporal overlap of prefill with decode, not by turn count.
 
-`CL-W43-07` · lane **L3** · status **killed** · rank None · position both · refreshed 2026-11-09
+`CL-W43-07` · lane **L3** · status **killed** · rank None · position both · refreshed 2026-11-16
 
 ## Status
 

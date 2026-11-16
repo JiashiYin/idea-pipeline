@@ -1,6 +1,6 @@
 # Top-$k$ retrieval logs cannot price a memory but can rank one against another, and ranking is all a fixed-size memory store ever does with the price: the expected effect of every same-size swap (replacing one retrieved memory by another at the same $k$) is orthogonal to the kernel that fixed size creates (the directions in value space the log cannot see — a two-line identity), and on the card's own pooled HotpotQA log at least one pairwise contrast (a difference of two memory values) in five among memories retrieved five or more times is determined where one memory value in a thousand is.
 
-`CL-W45-07` · lane **L4** · status **killed** · rank None · position both · refreshed 2026-11-09
+`CL-W45-07` · lane **L4** · status **killed** · rank None · position both · refreshed 2026-11-16
 
 ## Status
 

@@ -1,6 +1,6 @@
 # GPU physics engines cannot resolve the policy-return differences that robot-RL papers report as improvements: engine-only repeatability and batch-position variance exceed 30% of the policy-to-policy spread on contact-rich tasks.
 
-`CL-W43-09` · lane **L5** · status **open** · rank 5 · position both · refreshed 2026-11-09
+`CL-W43-09` · lane **L5** · status **open** · rank 12 · position both · refreshed 2026-11-16
 
 ## Status
 
@@ -79,8 +79,9 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - 2026-11-02 — claim open: claims (W44 weekly run, 2026-11-02): no new probe; P-W43-09-lit ($0, 2 d) still the first step and still unrun; rank 12 -> 15
 - 2026-11-08 — claim open: claims (W45, 2026-11-08): rank 7 -> 16; ranked 16 (was 7): Gate 1 still blocked on paperwork; no new probe
 - 2026-11-08 — claim open: re-ranked after the W45 kill searches: rank 5: kill search owed; Gate 1 blocked on paperwork
+- 2026-11-15 — claim open: claims (W46, 2026-11-15): rank 5 -> 12; kill search owed; Gate 1 blocked on paperwork
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-09`, version 7)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-09`, version 8)
 - `P-W43-09-lit`: seed or import record (no candidate yet)

@@ -1,6 +1,6 @@
 # The verdict that multi-turn RL improves single-step decision quality on fewer than half of states is a ruler choice: on FrozenLake, judged by the base policy's own continuation on the ordinary states the RL policy actually visits, the RL action is the better one on more than half of them.
 
-`CL-W45-04` · lane **L2** · status **killed** · rank None · position both · refreshed 2026-11-09
+`CL-W45-04` · lane **L2** · status **killed** · rank None · position both · refreshed 2026-11-16
 
 ## Status
 

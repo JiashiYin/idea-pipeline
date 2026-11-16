@@ -1,6 +1,6 @@
 # Only one or two numbers per scene are worth measuring, and which ones can be computed in simulation before any robot time: the value of calibrating each physical parameter under a material prior is concentrated in task-specific parameters, and for most tabletop tasks it is below the cost of measuring, so a material-prior database plus randomization is the right default and targeted calibration the exception.
 
-`CL-W45-J01` · lane **L5** · status **open** · rank 1 · position both · refreshed 2026-11-09
+`CL-W45-J01` · lane **L5** · status **open** · rank 1 · position both · refreshed 2026-11-16
 
 ## Status
 
@@ -41,6 +41,7 @@ Open claim. The claim survived its concept-level kill search (2026-11-03); no pr
 | --- | --- | --- | --- | --- |
 | P-W45-J01-a | Tasks (MuJoCo Playground / ManiSkill / Genesis): CoM-offset T-block push (Phys2Real's class), box pick-and-place, sprin… | Pre-registered: dead if the top parameter carries under 35 percent of total value in most tasks (no concentration); dead if total value exceeds 5 success points on every task (prior + DR never suffices - the collaborators' half is false) A… | open - survived the concept-level kill search (first pass, 2026-11-03); design owed after the full texts of 2606.22062, 2006.01952 and 2302.04903 are read (rule 17) | not run (no candidate record yet) |
 | P-W45-J01-b | A hidden-parameter twin stands in for the robot (as in 2606.22062). At identification budgets B in {0, 2, 5, 10, 20} ro… | Pre-registered: dead if V beats neither A nor C at any budget on any task. Expected (judgment): on the CoM and drawer tasks V matches C at B = 2-5 where C needs 10-20; on pick-and-place all three arms tie within the seed interval. Cost 20-… | open - runs only if P-W45-J01-a finds concentration | not run (no candidate record yet) |
+| C-W46-19 | Ninety-eight numbers per arm, which ones moved the task? One-group-at-a-time revert of Genie Sim's robot identification… | Steps 0-2: about 100 GPU-h with the policy build (40 if shared with C-W46-18), about $300 or $0 on owned GPUs, 10 days; dead if no group moves any task above $\max(f_t, 1.96\,\mathrm{SE})$ or if the mechanical groups dominate the controlle… | proposed | — |
 
 ## Kill search
 
@@ -83,9 +84,11 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 - 2026-11-03 — claim open: captured from Jacob's real-to-sim questions (2026-11-03) with a concept-level kill search run in the same session (first pass, abstract-level, 73 abstracts + 8 pages; report data/reports/2026-W45-kill-CL-W45-J01.md): survived - exact shape unoccupied, concept half occupied by RSS 2020 / AdaptSim with a stated difference; Gate 2B flagged; probe design owed after the full-text reads (rule 17); red…
 - 2026-11-08 — claim open: claims (W45, 2026-11-08): rank None -> 1; ranked 1: the only open claim that has survived its concept-level kill search (2026-11-03); consumers are every real-to-sim pipeline (75 papers in 13 weeks) and the asset vendors; durable across engines; cheapest probe 40-60 GPU-h with no robot; probe design still owed after the full-text reads (rule 17)
+- 2026-11-15 — claim open: claims (W46, 2026-11-15): rank 1 -> 1; the only open claim that has survived its concept-level kill search (2026-11-03); Jacob's capture; probe design still owed (C-W46-19 attached this week as a robot-parameter probe, flagged as a class extension)
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W45-J01`, version 2)
+- claim record: `data/claims/claims.jsonl` (id `CL-W45-J01`, version 3)
 - `P-W45-J01-a`: seed or import record (no candidate yet)
 - `P-W45-J01-b`: seed or import record (no candidate yet)
+- probe `C-W46-19`: `data/candidates/2026-W46.jsonl`

@@ -1,6 +1,6 @@
 # 'Repaired' is a maintainer's convention, not a state of the task: on the Terminal-Bench 2.0 tasks whose instruction-test mismatch was fixed twice — Z.ai's Verified tightened the instruction, Terminal-Bench 2.1 loosened the test — the two repairs lift different agents, with the top-band minus mid-band gain (the two strongest probed models' gain minus the two middle ones') positive under the loosened test and negative under the tightened instruction, each outside the five-trial replicate interval.
 
-`CL-W45-02` · lane **L1** · status **killed** · rank None · position both · refreshed 2026-11-09
+`CL-W45-02` · lane **L1** · status **killed** · rank None · position both · refreshed 2026-11-16
 
 ## Status
 
