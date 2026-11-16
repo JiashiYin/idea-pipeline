@@ -4,7 +4,7 @@
 
 ## Status
 
-Killed — see the kill section. Failing gate: Gate 6 not yet established; Gate 1 blocked on paperwork (no scorecard). Grade on paper: open. Next action: see First steps.
+Killed — see the kill section. Failing gate: Gate 2B (GPUSimBench 2607.13059 owns the premise and magnitudes; MJX and Genesis 0.00 drift); Gate 0 (the per-episode noise is already inside the reported seed interval); Gate 4 (the consequence shipped: Warp/Newton/MuJoCo Warp deterministic modes, Isaac Lab --deterministic). Grade on paper: open. Next action: see First steps.
 
 ## The claim
 
@@ -90,8 +90,9 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - 2026-11-08 — claim open: re-ranked after the W45 kill searches: rank 5: kill search owed; Gate 1 blocked on paperwork
 - 2026-11-15 — claim open: claims (W46, 2026-11-15): rank 5 -> 12; kill search owed; Gate 1 blocked on paperwork
 - 2026-11-15 — claim killed: concept-level kill search (data/reports/2026-W46-kill-CL-W43-09.md): killed — gate G2B; Per-episode engine noise enters the reported mean over N resets as sigma_omega/sqrt(N) and is already inside the reported interval, so the headline's quantity is the probe protocol's, not the statistic papers report (G0); the premise and its per-engine magnitudes are GPUSimBench's and the owners' own text, wit…
+- 2026-11-15 — claim killed: failing gate recorded after the W46 kill search: Gate 2B (GPUSimBench 2607.13059 owns the premise and magnitudes; MJX and Genesis 0.00 drift); Gate 0 (the per-episode noise is already inside the reported seed interval); Gate 4 (the consequence shipp
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-09`, version 9)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-09`, version 10)
 - `P-W43-09-lit`: seed or import record (no candidate yet)

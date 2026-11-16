@@ -4,7 +4,7 @@
 
 ## Status
 
-Killed — see the kill section. Failing gate: Gate 6 not yet established; Gate 2B flagged (direction stated in print). Next action: see First steps.
+Killed — see the kill section. Failing gate: Gate 2B (2608.29296 owns the two-term cost model and the decision rule); Gate 6 (occupied 2026-08-29); Gate 0 (decode is not flat in batch past 1-2K tokens at 4B: the two-term Roofline gives a ratio of 15-25, on the claim's own kill line). Next action: see First steps.
 
 ## The claim
 
@@ -88,9 +88,10 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - 2026-11-08 — claim open: re-ranked after the W45 kill searches: rank 4: born this week; kill search owed; Gate 2B flagged at filing
 - 2026-11-15 — claim open: claims (W46, 2026-11-15): rank 4 -> 11; kill search owed; Gate 2B flagged at filing
 - 2026-11-15 — claim killed: concept-level kill search (data/reports/2026-W46-kill-CL-W45-06.md): killed — gate G2B; The surprise (a FLOP saving bought by a smaller per-step rollout batch does not appear on the clock because decode is memory-bound; a two-term decode-plus-FLOPs cost model predicts wall-clock) is the stated thesis, eq. 4, Roofline appendix and measured GRPO sweep of 2608.29296 (2026-08-29); the direction is co…
+- 2026-11-15 — claim killed: failing gate recorded after the W46 kill search: Gate 2B (2608.29296 owns the two-term cost model and the decision rule); Gate 6 (occupied 2026-08-29); Gate 0 (decode is not flat in batch past 1-2K tokens at 4B: the two-term Roofline gives a ratio o
 - 2026-11-15 — C-W45-08 killed: claim-level kill search of CL-W45-06 (data/reports/2026-W46-kill-CL-W45-06.md): killed — killed with the claim: step 0 is the occupant's profile, the kill line sits inside the occupant model's predicted band, and the pre-registered 'r flat' mechanism check fails by the KV-cache term; a 50 GPU-h timing row remains as a footnote/watch item, not a probe
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W45-06`, version 4)
+- claim record: `data/claims/claims.jsonl` (id `CL-W45-06`, version 5)
 - probe `C-W45-08`: `data/candidates/2026-W45.jsonl`; kill record `data/reports/2026-W46-kill-CL-W45-06.md`

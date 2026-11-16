@@ -4,7 +4,7 @@
 
 ## Status
 
-Killed — see the kill section. Failing gate: none hard yet; Gate 6 not established; Gate 2B risk flagged (the mechanism is in print on one corpus). Next action: see First steps.
+Killed — see the kill section. Failing gate: Gate 0 (premise: pooled harness-termination share 0.020 on 1,324 released runs, under the 0.05 kill line; MAST carries no responsible-agent label); Gate 2B, Gate 4, Gate 6 behind it. Next action: see First steps.
 
 ## The claim
 
@@ -94,11 +94,12 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - 2026-11-15 — claim open: born W46 claims stage, origin bottom-up (lifted from C-W46-01, C-W46-02 on card 2611.13254); first L1 claim since CL-W45-02; concept-level kill search owed before any probe is elaborated (rule 17)
 - 2026-11-15 — claim open: claims (W46, 2026-11-15): ranked 3: born W46: $0 probe in 5 days, community-wide consumer (every failure-attribution corpus and method), durable procedure; Gate 2B risk (2611.13254 has the mechanism on one corpus) goes to the kill search; concept-level kill search runs this week (rule 17)
 - 2026-11-15 — claim killed: concept-level kill search (data/reports/2026-W46-kill-CL-W46-01.md): killed — gate G0; The pre-registered kill fired on free data inside the kill search: LongRCA 0 of 1,140 provider-error terminations, Who&When 26 of 184 (the seed's number reproduced), MAST's human split carries no responsible-agent label; pooled h = 26/1,324 = 0.020, Wilson [0.013, 0.029], under the claim's own 0.05 line; the me…
+- 2026-11-15 — claim killed: failing gate recorded after the W46 kill search: Gate 0 (premise: pooled harness-termination share 0.020 on 1,324 released runs, under the 0.05 kill line; MAST carries no responsible-agent label); Gate 2B, Gate 4, Gate 6 behind it
 - 2026-11-15 — C-W46-01 killed: claim-level kill search of CL-W46-01 (data/reports/2026-W46-kill-CL-W46-01.md): killed — run inside the kill search on all 1,324 labelled runs; pooled h = 0.020, LongRCA 0/1,140; the pre-registered kill fired
 - 2026-11-15 — C-W46-02 killed: claim-level kill search of CL-W46-01 (data/reports/2026-W46-kill-CL-W46-01.md): killed — premise false at step level (label = crash step in 6 of 26); the remnant (clean-split agent accuracy on 32 runs) is a footnote to the Who&When maintainers, not a probe of a live claim
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W46-01`, version 2)
+- claim record: `data/claims/claims.jsonl` (id `CL-W46-01`, version 3)
 - probe `C-W46-01`: `data/candidates/2026-W46.jsonl`; kill record `data/reports/2026-W46-kill-CL-W46-01.md`
 - probe `C-W46-02`: `data/candidates/2026-W46.jsonl`; kill record `data/reports/2026-W46-kill-CL-W46-01.md`

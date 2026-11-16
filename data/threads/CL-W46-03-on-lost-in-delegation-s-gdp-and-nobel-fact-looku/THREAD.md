@@ -4,7 +4,7 @@
 
 ## Status
 
-Killed — see the kill section. Failing gate: Gate 6 unmeasured (kill search owed); Gate 2B flagged (expected result at judgment 0.35; the two imports disagree on the channel and the probes decide the fork). Next action: see First steps.
+Killed — see the kill section. Failing gate: Gate 2B (PACT 2606.05304 sweeps five return strategies; 2610.06069 measures the handoff loss at three note lengths against a matched single agent); Gate 4 (if_true equals the seed's recommended fix); Gate 6 weak. Next action: see First steps.
 
 ## The claim
 
@@ -101,12 +101,13 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - 2026-11-15 — claim open: born W46 claims stage, origin top-down from the L4 lane sentence and 2611.16526 sec. 7's asserted trade-off; the two S10 imports attached as probes C-W46-07 and C-W46-08 with their pre-registered disagreement recorded as the fork; C-W46-10 attached as the mechanism probe; headline quantifier (at least half of the matched loss recovered at 80 tokens) set at the C-W46-08 kill; models named gpt-oss-…
 - 2026-11-15 — claim open: claims (W46, 2026-11-15): ranked 4: born W46: lifts both S10 imports; proper-shaped, 12 GPU-h probe; two imports disagree on the channel so the probes decide a fork; concept-level kill search runs this week (rule 17)
 - 2026-11-15 — claim killed: concept-level kill search (data/reports/2026-W46-kill-CL-W46-03.md): killed — gate G2B; The pre-registered surprise (a compact evidence-bearing return recovers most of what the answer-only return loses; the full trace is not needed) is PACT 2606.05304's stated thesis and 2610.06069's measured note-length curve, and the card paper's own recommended fix; the mechanism, the sweep and the matched sin…
+- 2026-11-15 — claim killed: failing gate recorded after the W46 kill search: Gate 2B (PACT 2606.05304 sweeps five return strategies; 2610.06069 measures the handoff loss at three note lengths against a matched single agent); Gate 4 (if_true equals the seed's recommended fix);
 - 2026-11-15 — C-W46-07 killed: claim-level kill search of CL-W46-03 (data/reports/2026-W46-kill-CL-W46-03.md): killed — its five return arms are PACT 2606.05304's strategies and its knee readout is 2610.06069's note-length tax; an application of two published designs to one paper's data
 - 2026-11-15 — C-W46-10 parked: claim-level kill search of CL-W46-03 (data/reports/2026-W46-kill-CL-W46-03.md): parked — mechanism label for a footnote; 2609.05587 ('corrupted returns also frequently override correct answers that agents give without tools') is the opposite-sign datum it must pre-register
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W46-03`, version 2)
+- claim record: `data/claims/claims.jsonl` (id `CL-W46-03`, version 3)
 - probe `C-W46-07`: `data/candidates/2026-W46.jsonl`; kill record `data/reports/2026-W46-kill-CL-W46-03.md`
 - probe `C-W46-08`: `data/candidates/2026-W46.jsonl`; kill record `data/reports/2026-W46-kill-CL-W46-03.md`
 - probe `C-W46-10`: `data/candidates/2026-W46.jsonl`; kill record `data/reports/2026-W46-kill-CL-W46-03.md`

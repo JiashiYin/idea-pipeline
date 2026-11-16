@@ -1,10 +1,10 @@
 # On a Search-R1-recipe GRPO run (Qwen2.5-3B-Instruct, HotpotQA, four turns), at least half of the problems in the greedy union-versus-best gap (solved by some checkpoint's greedy decode and not by the best checkpoint's) are coin-flip cells, with success probability between 0.2 and 0.8 at the best checkpoint at the training temperature, the band estimated from at least 16 sampled decodes and the shares corrected for binomial misclassification, and at most a fifth are strict probability drops (at or above 0.8 at some earlier checkpoint, at or below 0.2 at the best).
 
-`CL-W46-05` · lane **L2** · status **open** · rank 5 · position both · refreshed 2026-11-16
+`CL-W46-05` · lane **L2** · status **open** · rank 4 · position both · refreshed 2026-11-16
 
 ## Status
 
-Open claim. The claim survived its concept-level kill search (2026-11-15); no probe has run its own kill search yet — probe design comes after the kill search (rule 17). Failing gate: Gate 6 not yet established (kill search owed); Gate 2B flagged (the direction is plausible from pass@k folklore; the magnitude and the three-way split are the content). Grade on paper: proper (narrow, weak). Next action: see First steps.
+Open claim. The claim survived its concept-level kill search (2026-11-15); no probe has run its own kill search yet — probe design comes after the kill search (rule 17). Failing gate: none hard after the design red team; graded proper (narrow, weak): Gate 2B weak (magnitude and the five-way partition only), Gate 3 one community, Gate 6 race flag (Temporal Sampling's authors hold the samples). Grade on paper: proper (narrow, weak). Next action: see First steps.
 
 ## The claim
 
@@ -1429,10 +1429,11 @@ Per position — **solo**: not yet kill-searched; **lab**: not yet kill-searched
 - 2026-11-15 — claim open: claims (W46, 2026-11-15): ranked 5: born W46: $20 step-0 probe on a public checkpoint kills before any training; reverses the two occupants' stated reading; direction is pass@k folklore (2B flag); concept-level kill search runs this week (rule 17)
 - 2026-11-15 — claim open: concept-level kill search (data/reports/2026-W46-kill-CL-W46-05.md): survived-kill — gate none; Weak survival: no fetched source splits a greedy checkpoint gap by a draw floor or states most of it is single-decode noise, but the direction (finite-sample solved status is stochastic; flips are partly sampling noise, partly drift) is written in the same search-agent GRPO setting by 2606.10709 and th…
 - 2026-11-15 — claim open: design red team of C-W46-14 v2 (data/reports/2026-W46-redteam-C-W46-14.md): red-teamed — Red-teamed, narrowed: 3 killing objections answered or conceded with the design rewritten (support reading withdrawn, rho* reported; kill made explicitly conditional on the released final-or-last-stable checkpoint; novelty answered by register); the probe is a one-sided conditional kill of the coin-flip claus…
+- 2026-11-15 — claim open: re-ranked after the W46 kill searches and red teams: rank 5 -> 4: proper (narrow, weak) after this week's kill search and design red team of C-W46-14 v2 (8 GPU-h, $35 conditional kill on a public checkpoint); the drop clause needs a second checkpoint
 - 2026-11-15 — C-W46-14 survived-kill: claim-level kill search of CL-W46-05 (data/reports/2026-W46-kill-CL-W46-05.md): survived-kill — Run as written plus a split-half placebo and an m=16 sensitivity row on the 0.2/0.8 band edges; state the transfer assumption from the public final checkpoint.
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W46-05`, version 3)
+- claim record: `data/claims/claims.jsonl` (id `CL-W46-05`, version 4)
 - probe `C-W46-14`: `data/candidates/2026-W46.jsonl`; kill record `data/reports/2026-W46-kill-CL-W46-05.md`
 - probe `C-W46-13`: `data/candidates/2026-W46.jsonl`; kill record `data/reports/2026-W46-kill-CL-W46-05.md`

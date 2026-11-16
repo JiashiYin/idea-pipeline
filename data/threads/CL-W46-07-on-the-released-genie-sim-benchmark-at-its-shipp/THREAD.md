@@ -1,10 +1,10 @@
 # On the released Genie Sim Benchmark at its shipped physics default (120 Hz CPU PhysX, schema-default solver iterations and contact offsets, named nowhere the validity claim is read), refining the physics step to 240 Hz or 960 Hz or doubling the contact offset moves the released pi0.5 baseline's Score on at least 3 of 8 contact-rich board tasks by more than the 10 points the README claims as its real-to-sim discrepancy, while raising the solver iterations to 64/16 moves fewer than two.
 
-`CL-W46-07` · lane **L5** · status **open** · rank 8 · position both · refreshed 2026-11-16
+`CL-W46-07` · lane **L5** · status **open** · rank 5 · position both · refreshed 2026-11-16
 
 ## Status
 
-Open claim. The claim survived its concept-level kill search (2026-11-15); no probe has run its own kill search yet — probe design comes after the kill search (rule 17). Failing gate: none at filing; Gate 6 not yet established (kill search owed); Gate 2B flagged. Grade on paper: proper (narrow, weak). Next action: see First steps.
+Open claim. The claim survived its concept-level kill search (2026-11-15); no probe has run its own kill search yet — probe design comes after the kill search (rule 17). Failing gate: none hard after the design red team; graded proper (narrow, weak): Gate 0 passed only after the rewrite (shipped 120 Hz CPU PhysX named), Gate 2B narrow, Gate 3 one community (a reporting rule), Gate 6 race window 4-8 weeks. Grade on paper: proper (narrow, weak). Next action: see First steps.
 
 ## The claim
 
@@ -1995,10 +1995,11 @@ Per position — **solo**: not yet kill-searched; **lab**: not yet kill-searched
 - 2026-11-15 — claim open: claims (W46, 2026-11-15): ranked 8: born W46: L5 numerics-vs-validity claim; probe 50-130 GPU-h with policies rebuilt (nothing released); Gate 2B flagged (magnitude against a shipped validity claim is the content); concept-level kill search runs this week (rule 17)
 - 2026-11-15 — claim open: concept-level kill search (data/reports/2026-W46-kill-CL-W46-07.md): survived-kill — gate G0; No occupant for the exact shape (real-validated benchmark re-scored under its own physics step / contact offset); Gate 0 fails as worded: the time step is a shipped default (params.py physics_step = 120, CPU PhysX) the paper and README do not name, and Kaedim 2610.00731 Table 2 already prints and gates t…
 - 2026-11-15 — claim open: design red team of C-W46-18 v2 (data/reports/2026-W46-redteam-C-W46-18.md): red-teamed — No killing objection unanswered; four concessions (power of the mover rule, the unestablishable 'flat' clause, the sim-trained baseline making the solo readout the exploit cell, no Table B1 overlap) narrow the probe and the claim to the board register; proper (narrow, weak). Claim graded proper (narrow, weak)…
+- 2026-11-15 — claim open: re-ranked after the W46 kill searches and red teams: rank 8 -> 5: proper (narrow, weak) after this week's kill search and design red team of C-W46-18 v2 (120-150 GPU-h, policies are the released sim-trained baselines, board register); race window 4-8 weeks
 - 2026-11-15 — C-W46-20 parked: claim-level kill search of CL-W46-07 (data/reports/2026-W46-kill-CL-W46-07.md): parked — step-0 trigger fires from the release docs: one runtime per task config, fewer than 3 released tasks on two runtimes without new assets; re-open on a release with a second runtime for 3+ rigid contact-rich tasks; Manda's announced policy-transfer post is the scoop watch
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W46-07`, version 3)
+- claim record: `data/claims/claims.jsonl` (id `CL-W46-07`, version 4)
 - probe `C-W46-18`: `data/candidates/2026-W46.jsonl`
 - probe `C-W46-20`: `data/candidates/2026-W46.jsonl`; kill record `data/reports/2026-W46-kill-CL-W46-07.md`

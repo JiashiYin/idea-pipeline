@@ -1,6 +1,6 @@
 # The reported collapse of multi-turn RL to or below its base model at a quarter of the turn cap is a budget-prompt effect, not a budget dependence of what RL learned: on FrozenLake with the prompt's budget line held at $T_{\max}$ (the full cap) and success read at one attempt, the RL model stays above the base model at 25% of the cap.
 
-`CL-W45-03` · lane **L2** · status **open** · rank 2 · position both · refreshed 2026-11-16
+`CL-W45-03` · lane **L2** · status **open** · rank 1 · position both · refreshed 2026-11-16
 
 ## Status
 
@@ -84,8 +84,9 @@ Closest neighbors (one-sentence trick; one-line difference):
 - 2026-11-08 — claim open: design red team of C-W45-06 (data/reports/2026-W45-redteam-C-W45-06.md): red-teamed, no killing objection left open; claim narrowed to 4B (8B contradicted by Table 1 at K = 8), Gate 4 mechanism rewritten as the three-term decomposition, prompt term given its own kill (03c); graded proper (narrow, weak) — the first claim to clear kill search and red team since 2026-10-19; next gate: Jacob's promot…
 - 2026-11-08 — claim open: re-ranked after the W45 kill searches: rank 2: the only claim to clear kill search and design red team; proper (narrow, weak); race flag
 - 2026-11-15 — claim open: claims (W46, 2026-11-15): rank 2 -> 2; cleared kill search and design red team; proper (narrow, weak); waits on Jacob's promote
+- 2026-11-15 — claim open: re-ranked after the W46 kill searches and red teams: rank 2 -> 1: proper (narrow): cleared concept kill search and design red team in W45; unchanged this week; waits on Jacob's promote
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W45-03`, version 5)
+- claim record: `data/claims/claims.jsonl` (id `CL-W45-03`, version 6)
 - probe `C-W45-06`: `data/candidates/2026-W45.jsonl`

@@ -4,7 +4,7 @@
 
 ## Status
 
-Killed — see the kill section. Failing gate: Gate 6 unmeasured (kill search owed); Gate 2B flagged (crowding stated at library level by 2605.19576; the per-lesson shape is the difference). Next action: see First steps.
+Killed — see the kill section. Failing gate: Gate 0 (WikiTrace's release is build-once, run-fixed, inject-all with an API actor at temperature 0: no use-age clock, no growing store); Gate 2B (Skill Shadowing 2605.24050 owns the quantity at library grain); Gate 4. Next action: see First steps.
 
 ## The claim
 
@@ -87,9 +87,10 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - 2026-11-15 — claim open: born W46 claims stage, origin bottom-up by lifting import:2026-W46-S12xF9 with the WikiTrace and FGSE seeds and the CoReMem estimator; headline quantifier (at least 0.05 rise against under 0.03 frozen) set at the import's P1; the attribution clause's own death condition written; the CoReMem valuation-noise alternative recorded as a thought (owners can print it; CL-W45-08's shape); concept-level k…
 - 2026-11-15 — claim open: claims (W46, 2026-11-15): ranked 7: born W46: 28 GPU-h probe on a released store; Library Drift states crowding at library level (2B flag); concept-level kill search runs this week (rule 17)
 - 2026-11-15 — claim killed: concept-level kill search (data/reports/2026-W46-kill-CL-W46-04.md): killed — gate G0; The named setup is not in WikiTrace's release (build-once on 50 training runs, run-fixed, every insight injected, deepseek-v4-flash via OpenRouter at temperature 0), so use-age is degenerate and the frozen store is the shipped protocol; Table 6 gives Insights Only regression 5.0 of 225 ALFWorld tasks per trial…
+- 2026-11-15 — claim killed: failing gate recorded after the W46 kill search: Gate 0 (WikiTrace's release is build-once, run-fixed, inject-all with an API actor at temperature 0: no use-age clock, no growing store); Gate 2B (Skill Shadowing 2605.24050 owns the quantity at libra
 - 2026-11-15 — C-W46-09 killed: claim-level kill search of CL-W46-04 (data/reports/2026-W46-kill-CL-W46-04.md): killed — setup absent from the release (build-once, inject-all, API actor); kill clause fires at step 0 from WikiTrace Table 6; episode arithmetic off by a factor of 30 in the released configuration
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W46-04`, version 2)
+- claim record: `data/claims/claims.jsonl` (id `CL-W46-04`, version 3)
 - probe `C-W46-09`: `data/candidates/2026-W46.jsonl`; kill record `data/reports/2026-W46-kill-CL-W46-04.md`

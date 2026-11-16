@@ -1,10 +1,10 @@
 # At the concurrency of asynchronous agentic RL, Prorsa's prefill-decode role-switching rule with its ten-second arrival forecast zeroed captures, at matched damping, within ten points of the oracle-normalised headroom that the same rule captures with the forecast.
 
-`CL-W43-08` · lane **L3** · status **open** · rank 10 · position both · refreshed 2026-11-16
+`CL-W43-08` · lane **L3** · status **open** · rank 3 · position both · refreshed 2026-11-16
 
 ## Status
 
-Open claim. The claim survived its concept-level kill search (2026-11-15); no probe has run its own kill search yet — probe design comes after the kill search (rule 17). Failing gate: Gate 6 not yet established. Grade on paper: proper (narrow). Next action: see First steps.
+Open claim. The claim survived its concept-level kill search (2026-11-15); no probe has run its own kill search yet — probe design comes after the kill search (rule 17). Failing gate: none hard after the design red team; graded proper (narrow): Gate 3 one community (engine/router maintainers, RL infra); Gate 2B against the occupant's stated belief (Prorsa); Gate 5 flag. Grade on paper: proper (narrow). Next action: see First steps.
 
 ## The claim
 
@@ -1497,8 +1497,9 @@ Closest neighbors (one-sentence trick; one-line difference):
 - 2026-11-15 — claim open: claims (W46, 2026-11-15): rank 3 -> 10; kill search owed since W43; unchanged probe
 - 2026-11-15 — claim open: concept-level kill search (data/reports/2026-W46-kill-CL-W43-08.md): survived-kill — gate none; No paper compares a threshold role-switching rule against a hindsight-optimal schedule or reports a capture ratio; Prorsa owns the forecaster (static-split baseline only, zero 'oracle'/'hindsight' occurrences), FluidPD the hysteresis rule in serving (its 'oracle' is a per-window static ratio), TokenSca…
 - 2026-11-15 — claim open: design red team of C-W43-04 v2 (data/reports/2026-W46-redteam-C-W43-04.md): red-teamed — No killing objection stands after two rounds; five killing objections (fit-to-target calibration, oracle definition, forecaster information set, known-theorem charge, stationary straw man) were answered or conceded with rewrites that narrow the probe to the forecast increment inside Prorsa's rule at matched d…
+- 2026-11-15 — claim open: re-ranked after the W46 kill searches and red teams: rank 10 -> 3: proper (narrow) after this week's kill search and design red team of C-W43-04 v2 ($0 replay, 7 CPU-days); headline narrowed to the forecast increment inside Prorsa's rule at matched damping
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-08`, version 9)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-08`, version 10)
 - probe `C-W43-04`: `data/candidates/2026-W43.jsonl`

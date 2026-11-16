@@ -4,7 +4,7 @@
 
 ## Status
 
-Killed — see the kill section. Failing gate: Gate 2 (no stated pressure, no ruler); Gate 4; Gate 5. Grade on paper: open as graded on 2026-11-02 so that the verdict is on the record: fails Gate 2, 4 and 5 as a product; alive only as the scene set for the ruler (J04) and the acceleration oracle (J05); the kill search, not this stage, parks or kills it. Next action: see First steps.
+Killed — see the kill section. Failing gate: Gate 6 (RoboVerse 2504.18904 ports incumbents plus AI task generation; ManiLadder 2611.16374 ships 40+ deformable tasks; Alloy 2611.16312 is the enabling piece); Gate 2B; Gate 4. Grade on paper: open as graded on 2026-11-02 so that the verdict is on the record: fails Gate 2, 4 and 5 as a product; alive only as the scene set for the ruler (J04) and the acceleration oracle (J05); the kill search, not this stage, parks or kills it. Next action: see First steps.
 
 ## The claim
 
@@ -93,9 +93,10 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - 2026-11-08 — claim open: re-ranked after the W45 kill searches: rank 6: kill search owed; fails Gate 2 as written
 - 2026-11-15 — claim open: claims (W46, 2026-11-15): rank 6 -> 13; kill search owed; fails Gate 2 as written; kept open at Jacob's capture
 - 2026-11-15 — claim killed: concept-level kill search (data/reports/2026-W46-kill-CL-W43-J06.md): killed — gate G6; Occupied in three pieces: RoboVerse 2504.18904 ports incumbents and synthesises tasks in one platform with non-rigid support as its stated future work; ManiLadder 2611.16374 (2026-11-12) ships 40+ organised deformable tasks scored on policies and coding agents; Alloy 2611.16312 (2026-11-12) is the multi-materi…
+- 2026-11-15 — claim killed: failing gate recorded after the W46 kill search: Gate 6 (RoboVerse 2504.18904 ports incumbents plus AI task generation; ManiLadder 2611.16374 ships 40+ deformable tasks; Alloy 2611.16312 is the enabling piece); Gate 2B; Gate 4
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-J06`, version 7)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-J06`, version 8)
 - `P-W43-J06-a`: seed or import record (no candidate yet)
 - probe `C-W44-16`: `data/candidates/2026-W44.jsonl`; kill record `data/reports/2026-W46-kill-CL-W43-J06.md`

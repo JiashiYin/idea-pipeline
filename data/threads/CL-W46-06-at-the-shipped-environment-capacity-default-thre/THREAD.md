@@ -4,7 +4,7 @@
 
 ## Status
 
-Killed — see the kill section. Failing gate: Gate 6 not yet established (kill search owed); Gate 2B flagged (the expected reading is plausible from the card paper's own small CAAS gain; the bound, the curve and the shed-versus-reorder price are the content). Next action: see First steps.
+Killed — see the kill section. Failing gate: Gate 2B (the card paper's own saturation sentence and 1.9-3.5% CAAS numbers are the pre-registered result); Gate 0 (Graham's bound decides the quantifier from two numbers before any replay). Next action: see First steps.
 
 ## The claim
 
@@ -85,9 +85,10 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - 2026-11-15 — claim open: born W46 claims stage, origin top-down (L3 lane sentence plus card 2611.16661's replay-harness sentence); probe C-W46-15 (cheapest, $0 for the curve, about 40 GPU-h for the shipped-default number); filed as a new claim beside CL-W43-08, not under it (different resource, decision and objective; C-W45-11 precedent); concept-level kill search owed (rule 17); Gate 2B flagged at filing
 - 2026-11-15 — claim open: claims (W46, 2026-11-15): ranked 6: born W46: $0 replay probe on public traces; consumers are every rollout-harness builder; headline hinges on a bound no scheduling paper reports; concept-level kill search runs this week (rule 17)
 - 2026-11-15 — claim killed: concept-level kill search (data/reports/2026-W46-kill-CL-W46-06.md): killed — gate G2B; The pre-registered result (H < 0.10 at three slots) is the card paper's own stated mechanism (2611.16661 sec. 5.3: environment capacity constrains, 'the makespan gains level off'), its measured lever (CAAS 1.9-3.5% vs FCFS) and its own reading of L_5 as a distribution statistic (sec. 5.4); no fetched source as…
+- 2026-11-15 — claim killed: failing gate recorded after the W46 kill search: Gate 2B (the card paper's own saturation sentence and 1.9-3.5% CAAS numbers are the pre-registered result); Gate 0 (Graham's bound decides the quantifier from two numbers before any replay)
 - 2026-11-15 — C-W46-15 killed: claim-level kill search of CL-W46-06 (data/reports/2026-W46-kill-CL-W46-06.md): killed — Steps 0-1 compute a number whose reading the card paper already states (sec. 5.3 plateau, CAAS 1.9-3.5%); the kill clause is theorem-capped; step 2 prices a service.
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W46-06`, version 2)
+- claim record: `data/claims/claims.jsonl` (id `CL-W46-06`, version 3)
 - probe `C-W46-15`: `data/candidates/2026-W46.jsonl`; kill record `data/reports/2026-W46-kill-CL-W46-06.md`

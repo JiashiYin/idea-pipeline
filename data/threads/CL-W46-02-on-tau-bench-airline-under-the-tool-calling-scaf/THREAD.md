@@ -4,7 +4,7 @@
 
 ## Status
 
-Killed — see the kill section. Failing gate: none hard yet; Gate 6 not established; flag: the score clause is a judgment-0.35 surprise and the claim as written stands or falls on it (the loss share alone is a footnote to isloss). Next action: see First steps.
+Killed — see the kill section. Failing gate: Gate 2B (isloss 2611.15543 sec. 7.1 states the thesis and announces the measurement); Gate 6 (race against the owners); Gate 0 defect (Gemini reaches Google through litellm's OpenAI path). Next action: see First steps.
 
 ## The claim
 
@@ -94,11 +94,12 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - 2026-11-15 — claim open: born W46 claims stage, origin top-down (lane sentence + HAL's single-scaffold assumption; probes from seed 2611.15543 and the tau-bench source fetched 2026-11-15); concept-level kill search owed before any probe is elaborated (rule 17); the score clause is the claim — if the kill search finds the request-path gap measured on any agent benchmark, kill
 - 2026-11-15 — claim open: claims (W46, 2026-11-15): ranked 9: born W46: judgment-0.35 surprise; the loss-share clause alone is a footnote to isloss; ranked last of the new claims; concept-level kill search runs this week (rule 17)
 - 2026-11-15 — claim killed: concept-level kill search (data/reports/2026-W46-kill-CL-W46-02.md): killed — gate G2B; The surprise (the request path moves a leaderboard score) is the seed paper's stated thesis and announced future work with tau-bench and LiteLLM named (isloss 2611.15543 sec. 7.1), the interface-moves-the-score result is in print (2609.03966, 2609.08861, 2605.27898, 2611.06116), the oracle's owners hold the me…
+- 2026-11-15 — claim killed: failing gate recorded after the W46 kill search: Gate 2B (isloss 2611.15543 sec. 7.1 states the thesis and announces the measurement); Gate 6 (race against the owners); Gate 0 defect (Gemini reaches Google through litellm's OpenAI path)
 - 2026-11-15 — C-W46-03 killed: claim-level kill search of CL-W46-02 (data/reports/2026-W46-kill-CL-W46-02.md): killed — The Google arm cannot be audited offline (server-side translation at Google's OpenAI-compatible endpoint); the Anthropic arm is a service to isloss and HAL (a loss table for one translator version), a footnote, not a probe of a live claim.
 - 2026-11-15 — C-W46-04 killed: claim-level kill search of CL-W46-02 (data/reports/2026-W46-kill-CL-W46-02.md): killed — Gated on C-W46-03; its shipped arm is not shipped once the user simulator is pinned and the litellm version chosen; the one hosted native-SDK vs third-party same-model contrast in print (HarnessTax, n=80) is null on average, so the pre-registered kill is the expected outcome.
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W46-02`, version 2)
+- claim record: `data/claims/claims.jsonl` (id `CL-W46-02`, version 3)
 - probe `C-W46-03`: `data/candidates/2026-W46.jsonl`; kill record `data/reports/2026-W46-kill-CL-W46-02.md`
 - probe `C-W46-04`: `data/candidates/2026-W46.jsonl`; kill record `data/reports/2026-W46-kill-CL-W46-02.md`
