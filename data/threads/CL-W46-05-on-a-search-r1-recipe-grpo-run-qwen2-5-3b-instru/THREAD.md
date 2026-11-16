@@ -4,7 +4,7 @@
 
 ## Status
 
-Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 6 not yet established (kill search owed); Gate 2B flagged (the direction is plausible from pass@k folklore; the magnitude and the three-way split are the content). Next action: see First steps.
+Open claim. Probe C-W46-14 survived the kill search; red team owed before anything is called proper. Failing gate: Gate 6 not yet established (kill search owed); Gate 2B flagged (the direction is plausible from pass@k folklore; the magnitude and the three-way split are the content). Next action: see First steps.
 
 ## The claim
 
@@ -33,18 +33,38 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 
 | G3 | consumers (three classes, the action each changes; community-wide for golden) | Pass at one community with a second adjacent: (1) checkpoint-consolidation and temporal-ensembling recipe authors — build the gain matrix from $\hat p$ differences with a replicate rule, report the strict-drop count; (2) L2 training-dynamics measurers (2509.12235, 2602.03073, Temporal Sampling) — report $\rho_1$ and $m$ beside a forgetting score; (3) RL-framework validation and checkpoint-selection tooling (L1) — two-stage draws, publish the probability table rather than the greedy set; (4) training teams deciding whether to buy a consolidation stage — price it against the strict-drop count.… |
 | G4 | mechanism and consequence | Mechanism written: GRPO at 3B over four-turn retrieval leaves a wide band of problems at intermediate success probability; a few RL steps move near-tied argmaxes without moving probabilities; the first greedy success puts such a problem into $U_{\geq 1}$ within a few checkpoints and the final greedy decode fails with probability about $1 - p$, so the union-versus-final gap is large with no probability change. Consequence per outcome: coin flips dominate — report the floor, select teachers on $\hat p$, target the strict drops; strict drops dominate — the greedy ruler stands within 2x and conso… |
 | G5 | durability; lab-adjacent | Pass with a flag: the ruler (a per-cell probability with a draw floor) applies to any run that saves checkpoints and survives the next model generation; the 3B HotpotQA numbers expire with the next recipe. Lab-adjacent: a measurement of a published ruler, not a recipe fight. Race flag: the Temporal Sampling authors hold the data to compute the split in a day. |
-| G6 | ownership, density, race window; position clause | Unmeasured: concept-level kill search owed (rule 17). Role words for the search, in the neighbours' vocabulary: temporal forgetting, forgetting score, forgotten problems, checkpoint ensemble, temporal sampling, historical checkpoints, best-validation checkpoint, greedy decoding, pass@k across checkpoints, sampling variance, test-retest, intraclass correlation, variance components, generalizability, noise floor, repeated sampling, success probability per problem, always/never solved, sharpening, oscillate, flicker, churn. W46 counts (2026-11-16): forgetting x checkpoints x RL x LLM 6 hits (on… |
+| G6 | ownership, density, race window; position clause | concept-level kill search 2026-11-15 (data/reports/2026-W46-kill-CL-W46-05.md): survived-kill; gate failed none; occupied_by none; why not done: Enabling pieces: Agentic-OPD (2026-11-09) made the greedy gap a training target; the split-generation placebo statistic (2609.22547, 2026-09-18) is a ready estimator; the public Search-R1 3B GRPO checkpoint (Hub listing fetched 2026-11-16) removes training from step 0; the data owners built methods on the gap and the replicate-aware papers asked other questions.. Previous: Unmeasured: concept-level kill search owed (rule 17). Role words for the searc… |
 
 ## Probes under this claim
 
 | Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |
 | --- | --- | --- | --- | --- |
-| C-W46-14 | One public checkpoint decoded twice: the noise floor under Agentic-OPD's recovery count and the coin-flip share a 3B se… | About 8 GPU-h, $20, 3 days; kills CL-W46-05 if $f < 0.12$ (upper bound below 0.17) with $\delta_0 < 1\%$. | proposed | — |
-| C-W46-13 | The checkpoint x problem x draw table of one GRPO run: what the greedy 'forgetting' gap is made of | C-W46-14 first (about 8 GPU-h, $20, 3 days), then steps 1-3 (about 150 GPU-h, $350, 12 days); dead if the strict-drop share of $G$ is at least 0.5 (lower bound above 0.35), or 90% of cells settled at $m = 8$, or temperature-0 disagreement… | proposed | — |
+| C-W46-14 | One public checkpoint decoded twice: the noise floor under Agentic-OPD's recovery count and the coin-flip share a 3B se… | About 8 GPU-h, $20, 3 days; kills CL-W46-05 if $f < 0.12$ (upper bound below 0.17) with $\delta_0 < 1\%$. | survived-kill | survived-kill ([record](../../../data/reports/2026-W46-kill-CL-W46-05.md)) |
+| C-W46-13 | The checkpoint x problem x draw table of one GRPO run: what the greedy 'forgetting' gap is made of | C-W46-14 first (about 8 GPU-h, $20, 3 days), then steps 1-3 (about 150 GPU-h, $350, 12 days); dead if the strict-drop share of $G$ is at least 0.5 (lower bound above 0.35), or 90% of cells settled at $m = 8$, or temperature-0 disagreement… | redesign-owed | redesign-owed ([record](../../../data/reports/2026-W46-kill-CL-W46-05.md)) |
 
 ## Kill search
 
-Not run yet. Kill searches run automatically on the top probes, claim by claim (config/generation.yaml); `/kill <probe>` runs one by hand.
+### Concept level (CL-W46-05) — survived-kill (2026-11-15)
+Weak survival: no fetched source splits a greedy checkpoint gap by a draw floor or states most of it is single-decode noise, but the direction (finite-sample solved status is stochastic; flips are partly sampling noise, partly drift) is written in the same search-agent GRPO setting by 2606.10709 and the same-checkpoint placebo statistic is published (2609.22547 sec. 4.3); what survives is the magnitude (half coin flips, a fifth strict drops) and the three-way split, with a race flag (Temporal Sampling authors hold the data).
+Full record: [`data/reports/2026-W46-kill-CL-W46-05.md`](../../../data/reports/2026-W46-kill-CL-W46-05.md).
+**Why not done before:** Enabling pieces: Agentic-OPD (2026-11-09) made the greedy gap a training target; the split-generation placebo statistic (2609.22547, 2026-09-18) is a ready estimator; the public Search-R1 3B GRPO checkpoint (Hub listing fetched 2026-11-16) removes training from step 0; the data owners built methods on the gap and the replicate-aware papers asked other questions.
+Closest neighbors (one-sentence trick; one-line difference):
+- `2606.10709` Effective Reinforcement Learning for Agentic Search by Recycling Zero-Variance Queries Du… — On GRPO for an LLM search agent, keep prompts whose rollout group was all-correct or all-wrong in a pool and resample them later, because their status flips as the policy moves. *Difference:* States the direction in the claim's own setting (finite-rollout status is 'a stochastic observation'; about 20% of queries flip; flips partly 'sampling noise', partly drift) on training queries with K=4/8 groups; no greedy table, no validation gap set, no spl…
+- `2609.22547` When Pass@k Crossovers Are Real - and Why: Paired Inference and the Markov Kernel of RLVR — Test RL-versus-base pass@k crossovers by a paired prompt-level bootstrap and show per-prompt success probabilities disperse after RL via a split-generation covariance test whose placebo is two halves of the same model. *Difference:* Owns the same-checkpoint placebo as noise floor and the replicated per-prompt dispersion finding, base-versus-RL on math and code; no intermediate checkpoints, no greedy table, no forgetting set; 'multi-turn agentic or tool-use settings remains open'.
+- `2505.20196` Temporal Sampling for Forgotten Reasoning in LLMs — Count final-checkpoint errors some earlier checkpoint got right (6.4-56.1%) and spread the k samples over several checkpoints to raise pass@k by 4-19 points. *Difference:* The occupant of the greedy forgetting score and the oscillation reading; chose greedy 'to minimize variability'; holds 64 samples on 8 checkpoints for its method and never applies them to the score; no draw floor, no split.
+- `2611.12799` Agentic-OPD: Recovering Forgotten Agent Capabilities via On-Policy Distillation for Agent… — Keep every GRPO checkpoint, mark greedy-solved validation problems, and distill the best checkpoint toward the earlier one covering most of its current failures. *Difference:* The seed; greedy gap as training target; 60 recovered / 45 lost of 2,000 read as consolidation; no repeated decode of any checkpoint.
+- `2610.01509` Sharpening Tax in Post-Training — Measure with 128 rollouts per task how post-training pushes per-task success probabilities to always or never solved, and tax the lost retry value. *Difference:* The competing reading (few coin-flip cells after RL), base-versus-post-trained on 14 pairs with a Lost/Gained/Both/Neither split at 128 rollouts; its own RL runs select the best-validation checkpoint without a checkpoint table; smaller backbones keep more int…
+*Search degraded:* ['s2', 'conference-exports-not-built', 'Q11 arXiv 503 twice', 'gh issue bodies 403 (titles only)']
+
+### C-W46-14 — survived-kill (2026-11-15)
+A claim, weak: the three-way split (strict drop / coin flip / argmax flip) of a greedy checkpoint gap with a same-checkpoint draw floor, pre-registered at half and a fifth; the direction alone is a footnote already written by 2606.10709 and 2609.22547.
+Full record: [`data/reports/2026-W46-kill-CL-W46-05.md`](../../../data/reports/2026-W46-kill-CL-W46-05.md).
+Per position — **solo**: not yet kill-searched; **lab**: not yet kill-searched
+
+### C-W46-13 — redesign-owed (2026-11-15)
+A claim, weak: the three-way split (strict drop / coin flip / argmax flip) of a greedy checkpoint gap with a same-checkpoint draw floor, pre-registered at half and a fifth; the direction alone is a footnote already written by 2606.10709 and 2609.22547.
+Full record: [`data/reports/2026-W46-kill-CL-W46-05.md`](../../../data/reports/2026-W46-kill-CL-W46-05.md).
+Per position — **solo**: not yet kill-searched; **lab**: not yet kill-searched
 
 ## Red team
 
@@ -52,13 +72,14 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 ## First steps if pursued
 
-1. Wait for the automatic kill search on **C-W46-14** (Sunday run), or run `/kill C-W46-14` in a session.
-2. If it survives: `/redteam C-W46-14`, then the probe as pre-registered — About 8 GPU-h, $20, 3 days; kills CL-W46-05 if $f < 0.12$ (upper bound below 0.17) with $\delta_0 < 1\%$.
-3. Write results into the records and this Log; status moves only on evidence.
+1. Red team **C-W46-14** (`/redteam C-W46-14`): three personas with fetched evidence; it survives only with no unanswered objection.
+2. If it survives: run the probe exactly as pre-registered — About 8 GPU-h, $20, 3 days; kills CL-W46-05 if $f < 0.12$ (upper bound below 0.17) with $\delta_0 < 1\%$.
+3. Write the result into the probe's record and this Log; the claim's status moves only on evidence.
+4. Then `/report C-W46-14` (eight sections, three decisions), and the next probe under this claim by cost.
 
 ## Decisions for Jacob
 
-- None pending; the machine runs the next kill search on its own. Mark `jacob-dropped` here if the headline is not worth a week of yours.
+- Spend a session on the red team of C-W46-14 now, or wait for the next automatic run? (write `promote` or leave it)
 
 ## Jacob
 
@@ -68,14 +89,15 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - status mark: (none)
 - notes:
 
-
 ## Log
 
 - 2026-11-15 — claim open: born W46 claims stage, origin top-down (L2 lane sentence plus the card's protocol quotes); probes C-W46-14 (cheapest, 8 GPU-h) and C-W46-13 (import S12xF1, 150 GPU-h); concept-level kill search owed (rule 17); Gate 2B flagged at filing
 - 2026-11-15 — claim open: claims (W46, 2026-11-15): ranked 5: born W46: $20 step-0 probe on a public checkpoint kills before any training; reverses the two occupants' stated reading; direction is pass@k folklore (2B flag); concept-level kill search runs this week (rule 17)
+- 2026-11-15 — claim open: concept-level kill search (data/reports/2026-W46-kill-CL-W46-05.md): survived-kill — gate none; Weak survival: no fetched source splits a greedy checkpoint gap by a draw floor or states most of it is single-decode noise, but the direction (finite-sample solved status is stochastic; flips are partly sampling noise, partly drift) is written in the same search-agent GRPO setting by 2606.10709 and th…
+- 2026-11-15 — C-W46-14 survived-kill: claim-level kill search of CL-W46-05 (data/reports/2026-W46-kill-CL-W46-05.md): survived-kill — Run as written plus a split-half placebo and an m=16 sensitivity row on the 0.2/0.8 band edges; state the transfer assumption from the public final checkpoint.
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W46-05`, version 1)
-- probe `C-W46-14`: `data/candidates/2026-W46.jsonl`
-- probe `C-W46-13`: `data/candidates/2026-W46.jsonl`
+- claim record: `data/claims/claims.jsonl` (id `CL-W46-05`, version 2)
+- probe `C-W46-14`: `data/candidates/2026-W46.jsonl`; kill record `data/reports/2026-W46-kill-CL-W46-05.md`
+- probe `C-W46-13`: `data/candidates/2026-W46.jsonl`; kill record `data/reports/2026-W46-kill-CL-W46-05.md`

@@ -1,10 +1,10 @@
 # In the human-labelled corpora of naturally failed multi-agent runs that failure-attribution methods are trained and scored on (Who&When, MAST's annotated traces, LongRCA Bench), at least one in ten runs carrying a responsible-agent label ended on a message written by the harness or the provider's error path, not by any agent.
 
-`CL-W46-01` · lane **L1** · status **open** · rank 3 · position solo · refreshed 2026-11-16
+`CL-W46-01` · lane **L1** · status **killed** · rank None · position solo · refreshed 2026-11-16
 
 ## Status
 
-Open claim. Nothing under it has survived a kill search yet. Failing gate: none hard yet; Gate 6 not established; Gate 2B risk flagged (the mechanism is in print on one corpus). Next action: see First steps.
+Killed — see the kill section. Failing gate: none hard yet; Gate 6 not established; Gate 2B risk flagged (the mechanism is in print on one corpus). Next action: see First steps.
 
 ## The claim
 
@@ -33,18 +33,41 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: none 
 | G3 | consumers (three classes, the action each changes; community-wide for golden) | Three consumer classes with actions: corpus owners (exclusion rule, provenance field, 'no agent acted' label), method authors (clean-split accuracy), verifier trainers (re-train on clean labels). Must-change population: the attribution community — one community, so proper, not golden, unless the single-agent extension (TRAVERSE) carries it to mistake-annotation corpora generally. |
 | G4 | mechanism and consequence | Mechanism written: orchestrator frameworks catch provider exceptions and emit a fallback final answer or stop; an annotator reading the transcript assigns the agent who spoke last before the termination (the card: 21 of 25 labels on the web surfer in runs the orchestrator's ledger call crashed). Consequence each way: $h \geq 0.10$ — exclusion rule and provenance field, re-scored tables; $h < 0.05$ — one-off, footnote. The two actions differ from each other and from the seed paper's recommendation (which asks for a human check of its annotations, not a corpus rule). |
 | G5 | durability; lab-adjacent | Partly. The per-corpus numbers are consumed as soon as the corpora are cleaned; the rule (authorship of the terminal message as a validity field) applies to any trajectory release and survives model generations. Lab-adjacent: nobody at a frontier lab owns these corpora. Not head-to-head. |
-| G6 | ownership, density, race window; position clause | Unmeasured: concept-level kill search owed (rule 17). Density on the day of writing: 11 total / 1 direct on the harness-fault conjunction; 54 on attribution methods (about one a week — the community is dense on methods, sparse on corpus validity). Occupants: 2611.13254 (the one-corpus scan; natural owners; race risk if they extend in v2), 2610.17747 (cue audits). Why now: the open list posted 2026-11-09. Role words for the kill search, in the neighbours' vocabulary: label noise, annotation noise, trace quality, spurious cue, surface cue, benchmark contamination, infrastructure error, fallback… |
+| G6 | ownership, density, race window; position clause | concept-level kill search 2026-11-15 (data/reports/2026-W46-kill-CL-W46-01.md): killed; gate failed G0; occupied_by 2611.13254; why not done: No reason found for the positive claim; the generalisation was not published because it is negative and empty — LongRCA's construction excludes infrastructure runs and records the harness as a named speaker with a termination reason, and MAST's human split has no agent labels to contaminate.. Previous: Unmeasured: concept-level kill search owed (rule 17). Density on the day of writing: 11 total / 1 direct on the harness-fault conjunction; 54 on attribut… |
 
 ## Probes under this claim
 
 | Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |
 | --- | --- | --- | --- | --- |
-| C-W46-01 | Who wrote the last message: a harness-termination census of the human-labelled failure-attribution corpora | Step 1: $0, 0 GPU-h, 5 days; dead if pooled $h < 0.05$ (Wilson upper bound under 0.08) and both LongRCA and MAST under 0.05. | proposed | — |
-| C-W46-02 | Re-scoring attribution on the runs an agent finished: Who&When accuracies with the 26 harness-terminated runs held out | Steps 0-1: $0, 3 days; dead if no released method moves by more than 2 points and the last-speaker baseline is flat across splits. | proposed | — |
+| C-W46-01 | Who wrote the last message: a harness-termination census of the human-labelled failure-attribution corpora | Step 1: $0, 0 GPU-h, 5 days; dead if pooled $h < 0.05$ (Wilson upper bound under 0.08) and both LongRCA and MAST under 0.05. | killed | killed ([record](../../../data/reports/2026-W46-kill-CL-W46-01.md)) |
+| C-W46-02 | Re-scoring attribution on the runs an agent finished: Who&When accuracies with the 26 harness-terminated runs held out | Steps 0-1: $0, 3 days; dead if no released method moves by more than 2 points and the last-speaker baseline is flat across splits. | killed | killed ([record](../../../data/reports/2026-W46-kill-CL-W46-01.md)) |
 
 ## Kill search
 
-Not run yet. Kill searches run automatically on the top probes, claim by claim (config/generation.yaml); `/kill <probe>` runs one by hand.
+### Concept level (CL-W46-01) — killed (2026-11-15)
+The pre-registered kill fired on free data inside the kill search: LongRCA 0 of 1,140 provider-error terminations, Who&When 26 of 184 (the seed's number reproduced), MAST's human split carries no responsible-agent label; pooled h = 26/1,324 = 0.020, Wilson [0.013, 0.029], under the claim's own 0.05 line; the mechanism ('label on whoever spoke last') is false at step level (6 of 26) and the if_true action is the seed paper's own sec. 5 recommendation.
+Full record: [`data/reports/2026-W46-kill-CL-W46-01.md`](../../../data/reports/2026-W46-kill-CL-W46-01.md).
+**Occupied by:** 2611.13254
+**Why not done before:** No reason found for the positive claim; the generalisation was not published because it is negative and empty — LongRCA's construction excludes infrastructure runs and records the harness as a named speaker with a termination reason, and MAST's human split has no agent labels to contaminate.
+Closest neighbors (one-sentence trick; one-line difference):
+- `2611.13254` Dependable Long-Horizon LLM Agents: A Trajectory-Centered Empirical Study of Where Errors… — Read each failed run end to end and record where the wrong state entered and which control would have reached it; a deterministic string scan finds the provider content-filter crash in 26 of 58 hand-crafted Who&When runs with a harness-printed final answer. *Difference:* none — occupied: the mechanism, the 26/58 and 0/126, the 4/21 label split, the reading and the fix ('Attribution benchmarks should mark such runs') are in sec. 4.6 and 5; the quoted 'open-items list' is not in the paper
+- `2608.15242` LongRCA Bench: Root-Cause Localization in Long-Horizon Agent Trajectories — Normalise 1,140 evaluator-confirmed failed runs from five sources into step-indexed records with recorded roles, have 22 annotators mark the responsible role and earliest decisive step, resolve disagreements by two experts. *Difference:* holds the corpus-side rule already: infrastructure runs excluded (sec. 3.2), harness a named speaker (Computer_terminal) with a termination reason in the last record; our scan: 0 of 1,140 provider-error terminations
+- `2610.17747` Auditing Failure Attribution: Label Predictability and Judge Behavior — Four tests (input restriction, cue following, residual accuracy, aggregation) that ask whether an attribution score reflects a cross-step check or a surface cue; simple predictors match GPT-4.1 on three benchmarks. *Difference:* owns the validity-audit frame; no non-agent-termination category; scores 'only against the released annotations' — a harness row would be one line in its framework
+- `2603.25001` Rethinking Failure Attribution in Multi-Agent Systems: A Multi-Perspective Benchmark and… — Three experts each mark every failure-inducing step on 289 runs; consensus rankings show prior 'LLMs struggle at attribution' conclusions are 'largely driven by limitations in existing benchmark designs'. *Difference:* owns 'Who&When's numbers are a benchmark-design artefact' with a different defect (deterministic single-step labels, 60% expert disagreement); no harness category
+- `2505.00212` Which Agent Causes Task Failures and When? On Automated Failure Attribution of LLM Multi-… — Collect 184 failed runs from 127 systems, have humans mark the responsible agent and decisive step, score three attribution methods (53.5% agent, 14.2% step). *Difference:* the corpus; its release already carries a harness speaker label on the hand-crafted split ('Orchestrator (termination condition)', last message in 31 of 58 runs)
+*Search degraded:* ['s2', 'exports', 'arxiv-api Q5 (HTTP 429 x3)', 'arxiv-api Q6 (HTTP 429 x3)', 'WebFetch longrca-bench.github.io (permission not answered; fetched with curl instead)']
+
+### C-W46-01 — killed (2026-11-15)
+A footnote, not a claim: the content-filter contamination is a Who&When hand-crafted artefact (one framework, one provider, 2025); LongRCA (0/1,140) and MAST's human split (no agent labels) are clean of it, and Who&When's own schema already names the harness speaker on 31 of 58 runs. Home: a comment to the authors of 2611.13254 and a note to the Who&When maintainers; the C-W46-02 remnant is agent-level accuracy on the 32 clean hand-crafted runs for any method with released predictions.
+Full record: [`data/reports/2026-W46-kill-CL-W46-01.md`](../../../data/reports/2026-W46-kill-CL-W46-01.md).
+Per position — **solo**: not yet kill-searched; **lab**: not yet kill-searched
+**Occupied by:** 2611.13254
+
+### C-W46-02 — killed (2026-11-15)
+A footnote, not a claim: the content-filter contamination is a Who&When hand-crafted artefact (one framework, one provider, 2025); LongRCA (0/1,140) and MAST's human split (no agent labels) are clean of it, and Who&When's own schema already names the harness speaker on 31 of 58 runs. Home: a comment to the authors of 2611.13254 and a note to the Who&When maintainers; the C-W46-02 remnant is agent-level accuracy on the 32 clean hand-crafted runs for any method with released predictions.
+Full record: [`data/reports/2026-W46-kill-CL-W46-01.md`](../../../data/reports/2026-W46-kill-CL-W46-01.md).
+Per position — **solo**: not yet kill-searched; **lab**: not yet kill-searched
+**Occupied by:** 2611.13254
 
 ## Red team
 
@@ -52,13 +75,11 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 ## First steps if pursued
 
-1. Wait for the automatic kill search on **C-W46-01** (Sunday run), or run `/kill C-W46-01` in a session.
-2. If it survives: `/redteam C-W46-01`, then the probe as pre-registered — Step 1: $0, 0 GPU-h, 5 days; dead if pooled $h < 0.05$ (Wilson upper bound under 0.08) and both LongRCA and MAST under 0.05.
-3. Write results into the records and this Log; status moves only on evidence.
+1. Read the kill section; the claim is closed unless a new probe or a new enabling piece re-opens it (write that in your section).
 
 ## Decisions for Jacob
 
-- None pending; the machine runs the next kill search on its own. Mark `jacob-dropped` here if the headline is not worth a week of yours.
+- (none pending)
 
 ## Jacob
 
@@ -68,14 +89,16 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - status mark: (none)
 - notes:
 
-
 ## Log
 
 - 2026-11-15 — claim open: born W46 claims stage, origin bottom-up (lifted from C-W46-01, C-W46-02 on card 2611.13254); first L1 claim since CL-W45-02; concept-level kill search owed before any probe is elaborated (rule 17)
 - 2026-11-15 — claim open: claims (W46, 2026-11-15): ranked 3: born W46: $0 probe in 5 days, community-wide consumer (every failure-attribution corpus and method), durable procedure; Gate 2B risk (2611.13254 has the mechanism on one corpus) goes to the kill search; concept-level kill search runs this week (rule 17)
+- 2026-11-15 — claim killed: concept-level kill search (data/reports/2026-W46-kill-CL-W46-01.md): killed — gate G0; The pre-registered kill fired on free data inside the kill search: LongRCA 0 of 1,140 provider-error terminations, Who&When 26 of 184 (the seed's number reproduced), MAST's human split carries no responsible-agent label; pooled h = 26/1,324 = 0.020, Wilson [0.013, 0.029], under the claim's own 0.05 line; the me…
+- 2026-11-15 — C-W46-01 killed: claim-level kill search of CL-W46-01 (data/reports/2026-W46-kill-CL-W46-01.md): killed — run inside the kill search on all 1,324 labelled runs; pooled h = 0.020, LongRCA 0/1,140; the pre-registered kill fired
+- 2026-11-15 — C-W46-02 killed: claim-level kill search of CL-W46-01 (data/reports/2026-W46-kill-CL-W46-01.md): killed — premise false at step level (label = crash step in 6 of 26); the remnant (clean-split agent accuracy on 32 runs) is a footnote to the Who&When maintainers, not a probe of a live claim
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W46-01`, version 1)
-- probe `C-W46-01`: `data/candidates/2026-W46.jsonl`
-- probe `C-W46-02`: `data/candidates/2026-W46.jsonl`
+- claim record: `data/claims/claims.jsonl` (id `CL-W46-01`, version 2)
+- probe `C-W46-01`: `data/candidates/2026-W46.jsonl`; kill record `data/reports/2026-W46-kill-CL-W46-01.md`
+- probe `C-W46-02`: `data/candidates/2026-W46.jsonl`; kill record `data/reports/2026-W46-kill-CL-W46-01.md`

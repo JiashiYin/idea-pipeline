@@ -4,7 +4,7 @@
 
 ## Status
 
-Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 6 not yet established. Grade on paper: open. Next action: see First steps.
+Open claim. The claim survived its concept-level kill search (2026-11-15); no probe has run its own kill search yet — probe design comes after the kill search (rule 17). Failing gate: Gate 6 not yet established. Grade on paper: open. Next action: see First steps.
 
 ## The claim
 
@@ -33,17 +33,32 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 
 | G3 | consumers (three classes, the action each changes; community-wide for golden) | pass at one community: RL-infra teams choosing topology, rollout-engine maintainers (default switching policy), serving teams |
 | G4 | mechanism and consequence | pass: mechanism — many independent trajectory renewal processes superpose into a smooth prefill-to-decode demand ratio, so headroom over a static split shrinks with concurrency and asynchrony; consequence — delete the forecaster, or report its oracle-normalized capture |
 | G5 | durability; lab-adjacent | pass with a flag: system constants enter through the switch cost and the prefill/decode speeds, which are reported as the two calibration numbers |
-| G6 | ownership, density, race window; position clause | open: kill search owed; 1 hit on prefill+decode+oracle/hindsight; pre-window precedents Hofri and Ross 1987 (two queues with setup times, threshold optimality), DistServe and Splitwise 2024; added W45: 2611.02543's Basin activates at B_0 and releases at alpha_R B_0 with a cool-down — the backlog-threshold rule with hysteresis, shipped; its forecaster is of per-session size, not of demand; FluidPD 2610.06917 and ConServe 2606.01839 argue observation for role switching (candidate C-W45-11's record) |
+| G6 | ownership, density, race window; position clause | concept-level kill search 2026-11-15 (data/reports/2026-W46-kill-CL-W43-08.md): survived-kill; gate failed none; occupied_by none; why not done: Enabling pieces landed: SGLang runtime P<->D role switching shipped (PR 28403, roadmap Q2/Q4 2026) with the load-driven policy still open; Prorsa (2026-10-12) put the forecaster and its WAPE in print without the cost of error; FluidPD (2026-10-02) put the observation rule in print without a forecaster arm; Frontier PDD support since 2026-08; the oracle belongs to none of the three groups.. Previous: open: kill search owed; 1 hit on prefill+decode+ora… |
 
 ## Probes under this claim
 
 | Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |
 | --- | --- | --- | --- | --- |
-| C-W43-04 | Hindsight-optimal switching bounds forecast-guided prefill-decode role switching | Replay four arms on three traces at three concurrencies, sync and async; 16 GPU-hours calibration (or 0 with Frontier), ~$60, 7 days; dead if H >= 15% and forecaster captures >= 0.8 H while hysteresis <= 0.5 H in two of three workloads at… | proposed | — |
+| C-W43-04 | Hindsight-optimal switching bounds forecast-guided prefill-decode role switching | Replay four arms on three traces at three concurrencies, sync and async; 16 GPU-hours calibration (or 0 with Frontier), ~$60, 7 days; dead if H >= 15% and forecaster captures >= 0.8 H while hysteresis <= 0.5 H in two of three workloads at… | redesign-owed | redesign-owed ([record](../../../data/reports/2026-W46-kill-CL-W43-08.md)) |
 
 ## Kill search
 
-Not run yet. Kill searches run automatically on the top probes, claim by claim (config/generation.yaml); `/kill <probe>` runs one by hand.
+### Concept level (CL-W43-08) — survived-kill (2026-11-15)
+No paper compares a threshold role-switching rule against a hindsight-optimal schedule or reports a capture ratio; Prorsa owns the forecaster (static-split baseline only, zero 'oracle'/'hindsight' occurrences), FluidPD the hysteresis rule in serving (its 'oracle' is a per-window static ratio), TokenScale a correlation-only hindsight check on single-turn serving; SGLang's Q4-2026 roadmap ships the switch mechanism (PR 28403) and lists the load-driven policy as open. Proper grade; two design flags (Prorsa's W_P already includes the backlog; Prorsa's stated lever is KV capacity that grows with concurrency).
+Full record: [`data/reports/2026-W46-kill-CL-W43-08.md`](../../../data/reports/2026-W46-kill-CL-W43-08.md).
+**Why not done before:** Enabling pieces landed: SGLang runtime P<->D role switching shipped (PR 28403, roadmap Q2/Q4 2026) with the load-driven policy still open; Prorsa (2026-10-12) put the forecaster and its WAPE in print without the cost of error; FluidPD (2026-10-02) put the observation rule in print without a forecaster arm; Frontier PDD support since 2026-08; the oracle belongs to none of the three groups.
+Closest neighbors (one-sentence trick; one-line difference):
+- `2610.16592` Prorsa: Unleashing the Potential of Prefill-Decode Disaggregation in Agentic Reinforcemen… — Watch every trajectory's lifecycle stage to forecast ten seconds of prefill tokens and decode KV admissions, then flip verl/SGLang rollout engines between prefill and decode roles by a sizing rule. *Difference:* Owns the forecaster and the RL-side role switch; compares only to a hindsight-chosen static split, no oracle, no observation-only arm, no throughput cost of forecast error; its W_P already counts the backlog; its stated lever (KV capacity) grows with concurre…
+- `2610.06917` FluidPD: In-Place Elasticity for SLO-Aware Prefill-Decode Disaggregated LLM Serving — Steal bounded prefill onto decode workers for bursts and reassign a running worker's role in place when two pressure indices stay past thresholds for K intervals, with a cool-down. *Difference:* The hysteresis arm shipped in serving; compared against static engines and Dynamo autoscaling, never against a forecaster or a switching oracle; its 'oracle' is a per-window static ratio; open arrivals, no RL.
+- `2512.03416` TokenScale: Timely and Accurate Autoscaling for Disaggregated LLM Serving with Token Velo… — Scale prefillers and decoders by the tokens per second each stage can absorb, and convert a profiled share of decoders into temporary prefillers during bursts. *Difference:* Observation-derived leading indicator for role conversion; hindsight check is provisioned-vs-required instance counts by correlation only, utilization-derived; single-turn serving by its own statement.
+- `2609.35158` PEARL: Adaptive Prefill-Decode Execution with Elasticity for Agentic Reinforcement Learni… — Refit a closed-form makespan model from telemetry each rollout step, enumerate P/D configurations under the GPU budget, and switch only when the predicted makespan improves by more than a mode-dependent threshold. *Difference:* Step-granularity model-predicted switching with hysteresis on a prediction, triggered by elastic GPU events; no oracle, no observation-only arm.
+- `2606.01839` Observation, Not Prediction: Conversation-Level Disaggregated Scheduling for Agentic Serv… — Make the conversation the scheduling unit so first-turn prefill goes to a prefiller and the memory-bound tail stays on one decoder. *Difference:* Removes prediction by changing the unit, not by a threshold rule; no role switching, no oracle.
+*Search degraded:* ['s2', 'arxiv-api: Q8 and second id_list (Rate exceeded x2)', 'conference exports not built', 'complaint stream: verl/AReaL 422 via search endpoint; issues endpoint 403']
+
+### C-W43-04 — redesign-owed (2026-11-15)
+The whole claim survives as a measurement claim: the first oracle-normalised capture ratio for prefill-decode role switching, with headroom reported against concurrency and staleness in two regimes; the forecaster-versus-threshold contrast is only a claim if the forecast increment is isolated inside Prorsa's own rule, otherwise it is a footnote true by construction.
+Full record: [`data/reports/2026-W46-kill-CL-W43-08.md`](../../../data/reports/2026-W46-kill-CL-W43-08.md).
+Per position — **solo**: not yet kill-searched; **lab**: not yet kill-searched
 
 ## Red team
 
@@ -77,8 +92,9 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - 2026-11-08 — claim open: claims (W45, 2026-11-08): rank 6 -> 14; ranked 14 (was 6): unchanged probe; a second control loop (C-W45-11) filed as an orphan beside it rather than widening the headline before its kill search; kill search owed since W43
 - 2026-11-08 — claim open: re-ranked after the W45 kill searches: rank 3: L3 open; kill search owed; orphan C-W45-11 attaches after it
 - 2026-11-15 — claim open: claims (W46, 2026-11-15): rank 3 -> 10; kill search owed since W43; unchanged probe
+- 2026-11-15 — claim open: concept-level kill search (data/reports/2026-W46-kill-CL-W43-08.md): survived-kill — gate none; No paper compares a threshold role-switching rule against a hindsight-optimal schedule or reports a capture ratio; Prorsa owns the forecaster (static-split baseline only, zero 'oracle'/'hindsight' occurrences), FluidPD the hysteresis rule in serving (its 'oracle' is a per-window static ratio), TokenSca…
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-08`, version 7)
-- probe `C-W43-04`: `data/candidates/2026-W43.jsonl`
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-08`, version 8)
+- probe `C-W43-04`: `data/candidates/2026-W43.jsonl`; kill record `data/reports/2026-W46-kill-CL-W43-08.md`

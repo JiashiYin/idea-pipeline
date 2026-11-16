@@ -1,10 +1,10 @@
 # In a growing self-evolving lesson store (WikiTrace's insights-only store on ALFWorld's 134 unseen tasks over three passes with a Qwen3-30B-A3B actor), a lesson's per-use harm — the paired drop in success with the lesson retrieved versus withheld — is set by the store it is retrieved with, not by its birth or its own age: mean harm rises by at least 0.05 from a lesson's first use to its eighth-or-later use in the growing store and by under 0.03 in the same store frozen after the first pass.
 
-`CL-W46-04` · lane **L4** · status **open** · rank 7 · position both · refreshed 2026-11-16
+`CL-W46-04` · lane **L4** · status **killed** · rank None · position both · refreshed 2026-11-16
 
 ## Status
 
-Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 6 unmeasured (kill search owed); Gate 2B flagged (crowding stated at library level by 2605.19576; the per-lesson shape is the difference). Next action: see First steps.
+Killed — see the kill section. Failing gate: Gate 6 unmeasured (kill search owed); Gate 2B flagged (crowding stated at library level by 2605.19576; the per-lesson shape is the difference). Next action: see First steps.
 
 ## The claim
 
@@ -33,17 +33,34 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 
 | G3 | consumers (three classes, the action each changes; community-wide for golden) | Consumers with actions: admission-gate builders (size $k$ from $p$; report predicted leakage), per-use inspection builders (restrict the descent by age or frailty), lifecycle and certificate designers (store-size term in the null; incubation sign from the early hazard), evaluators and rule-file operators (report degradation by use-age; schedule re-tests by shape). One community (self-evolving agent memory) must change what it reports — proper-shaped; community-wide only if the shape replicates across harnesses. |
 | G4 | mechanism and consequence | Mechanism: ALFWorld tasks are drawn from a fixed distribution with no fact edits, so between a lesson's first and tenth use only the store around it changes; more co-retrieved lessons mean more conflicts and misapplication (Library Drift's false-positive injections at lesson grain). Consequence per branch written in if_true and if_false: capacity or age bound; frailty screen with a probe count; early uses as the admission test; age-based re-validation; or no lifecycle lever at benchmark scale. |
 | G5 | durability; lab-adjacent | Durable as a ruler: the hazard-by-use-age design applies to any lesson store, actor and harness; the specific shape is measured on ALFWorld only until step 4 runs (flag: no fact edits there, so the rising-at-fixed-store branch has judgment probability under 0.1 on this benchmark and the AppWorld arm is where it would show). Lab-adjacent: measurement of shipped memory designs, no recipe. |
-| G6 | ownership, density, race window; position clause | Unmeasured: concept-level kill search owed (rule 17). Density: this run's lifecycle query 226 hits, none fitting the per-lesson hazard; the import's Q1 30 and Q2 181 (about 20 lifecycle papers); sub-lane rate about two a month. Nearest: TrackRL (per-skill contrasts; lifecycle states; no age), 2610.17544 (change-point; Kaplan-Meier of retirement delay, not time-to-first-harm), Library Drift (crowding at library level), FGSE (admission residual), WikiTrace (per-use inspection; harness), RBC 2610.18427 (randomised inclusion for curation), 2610.33029 (lessons carry chance), GRSE 2610.27227 (prese… |
+| G6 | ownership, density, race window; position clause | concept-level kill search 2026-11-15 (data/reports/2026-W46-kill-CL-W46-04.md): killed; gate failed G0; occupied_by 2605.24050 (mechanism and surprise at library grain); 2609.29144 (attribution clause at unit level); 2611.14320 (the harness is not what the claim names); why not done: Inject-all harnesses give every unit the same retrieval count and top-k harnesses study the set not the unit's age; the fixed-unit growing-store control (2605.24050, 2610.18522, 2609.29144) and the per-memory counterfactual on ALFWorld (2611.15600, 2026-11-11) are each in print; ALFWorld at 94% no-memory with 2%… |
 
 ## Probes under this claim
 
 | Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |
 | --- | --- | --- | --- | --- |
-| C-W46-09 | A lesson's hazard against its use-age: the paired per-use harm of a self-written lesson by use-age bin, with lesson fra… | Step 1 (about 18 GPU-hours, $60, 6 days) plus step 2 (10 GPU-hours, 2 days): dead if pooled harm is under 0.02 (upper end under 0.04); dead as a ruler if the frozen arm trends or the $(\beta, \gamma)$ fit cannot separate; dead as an import… | proposed | — |
+| C-W46-09 | A lesson's hazard against its use-age: the paired per-use harm of a self-written lesson by use-age bin, with lesson fra… | Step 1 (about 18 GPU-hours, $60, 6 days) plus step 2 (10 GPU-hours, 2 days): dead if pooled harm is under 0.02 (upper end under 0.04); dead as a ruler if the frozen arm trends or the $(\beta, \gamma)$ fit cannot separate; dead as an import… | killed | killed ([record](../../../data/reports/2026-W46-kill-CL-W46-04.md)) |
 
 ## Kill search
 
-Not run yet. Kill searches run automatically on the top probes, claim by claim (config/generation.yaml); `/kill <probe>` runs one by hand.
+### Concept level (CL-W46-04) — killed (2026-11-15)
+The named setup is not in WikiTrace's release (build-once on 50 training runs, run-fixed, every insight injected, deepseek-v4-flash via OpenRouter at temperature 0), so use-age is degenerate and the frozen store is the shipped protocol; Table 6 gives Insights Only regression 5.0 of 225 ALFWorld tasks per trial (2%) below the 9.7% no-memory rerun floor, firing the probe's own pooled-harm kill before any run; and the expected 'harm is the company a lesson keeps' is the stated thesis of 2605.24050, 2610.18522, 2609.29144 and 2604.27003 (Gate 2B), with the if_true action equal to Library Drift's recipe (Gate 4).
+Full record: [`data/reports/2026-W46-kill-CL-W46-04.md`](../../../data/reports/2026-W46-kill-CL-W46-04.md).
+**Occupied by:** 2605.24050 (mechanism and surprise at library grain); 2609.29144 (attribution clause at unit level); 2611.14320 (the harness is not what the claim names)
+**Why not done before:** Inject-all harnesses give every unit the same retrieval count and top-k harnesses study the set not the unit's age; the fixed-unit growing-store control (2605.24050, 2610.18522, 2609.29144) and the per-memory counterfactual on ALFWorld (2611.15600, 2026-11-11) are each in print; ALFWorld at 94% no-memory with 2% store-level regression has no headroom for a per-lesson curve.
+Closest neighbors (one-sentence trick; one-line difference):
+- `2611.14320` Don't Just Trust Your Memory: Evidence-Linked Memory Reduces Memory-Induced Degradation i… — Link each self-written insight to the run it came from and let the agent open that run with terminal tools when an insight lacks a detail, conflicts with another or came from a failure. *Difference:* none for the setup — the claim's harness does not exist in it: build-once, run-fixed, every insight injected, API actor at temperature 0; Table 6 bounds the magnitude; sec. 3.2 already splits causes into wrong item (A), out of scope (B), misused (C), better i…
+- `2605.24050` More Skills, Worse Agents? Skill Shadowing Degrades Performance When Expanding Skill Libr… — Hold the skills that help a task fixed, grow the library around them to 202, and decompose the pass-rate drop into wrong selection and context overhead with an exact identity and bootstrap bounds. *Difference:* none for the mechanism and surprise — Definition 9 is the claim's quantity at library grain and 'the skill shadowing effect grows with library size'; not per unit over use-age, no frailty, human-authored skills.
+- `2609.29144` Scope Before You Persist: Preventing Cross-Family Interference in Agent Memory — Certify a persistent skill edit by execution on its own task family, then retrieve it only for that family; compare the same accepted edits under global and scoped retrieval. *Difference:* none for the attribution clause — the same eight accepted updates are harmless scoped and six of eight harmful global; no use-age clock, nine code families, one frozen model.
+- `2604.27003` When Continual Learning Moves to Memory: A Study of Experience Reuse in LLM Agents — Run ALFWorld and BabyAI task pairs in sequence with raw versus insight memory and per-step versus per-task retrieval, measuring forward and backward transfer. *Difference:* occupies the mechanism on ALFWorld ('old and new memories compete for the same channel'; 'harder to access as the pool grows'); two runs per condition, no per-lesson contrast.
+- `2611.15600` MemCredit: From Relevance to Utility for Decision-Time Memory in Long-Horizon Web Agents — Estimate each memory's state-, context- and policy-conditional marginal contribution by controlled counterfactual interventions on ALFWorld and WebShop and distil the credits into a utility estimator. *Difference:* the claim's per-memory with/without estimator on the claim's benchmark, 2026-11-11; utility 'sparse, strongly state dependent'; no use-age clock or growing store.
+*Search degraded:* ['s2', 'arxiv-api-503 (Q6)', 'github-api-403 (repository tree and releases)', 'conference-exports-not-built', 'complaint-stream-skipped']
+
+### C-W46-09 — killed (2026-11-15)
+A per-lesson withhold-one harm table over use-age in a growing top-k store with headroom is an unmeasured curve, but its expected reading (shadowing grows with store size; the same unit flips harmful by its retrieval company; per-memory credits are sparse and state-dependent) is the field's stated knowledge — a paragraph in someone else's paper, filed as a watch item with an automatic kill on the first paper plotting per-memory harm against store size.
+Full record: [`data/reports/2026-W46-kill-CL-W46-04.md`](../../../data/reports/2026-W46-kill-CL-W46-04.md).
+Per position — **solo**: not yet kill-searched; **lab**: not yet kill-searched
+**Occupied by:** 2605.24050 (mechanism and surprise at library grain); 2609.29144 (attribution clause at unit level); 2611.14320 (the harness is not what the claim names)
 
 ## Red team
 
@@ -51,13 +68,11 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 ## First steps if pursued
 
-1. Wait for the automatic kill search on **C-W46-09** (Sunday run), or run `/kill C-W46-09` in a session.
-2. If it survives: `/redteam C-W46-09`, then the probe as pre-registered — Step 1 (about 18 GPU-hours, $60, 6 days) plus step 2 (10 GPU-hours, 2 days): dead if pooled harm is under 0.02 (upper end under 0.04); dead as a ruler if the frozen arm trends or the $(\beta, \gamma)$ fit cannot separate; dead as an import if bins agree within 0.03 and frailty variance includes 0.
-3. Write results into the records and this Log; status moves only on evidence.
+1. Read the kill section; the claim is closed unless a new probe or a new enabling piece re-opens it (write that in your section).
 
 ## Decisions for Jacob
 
-- None pending; the machine runs the next kill search on its own. Mark `jacob-dropped` here if the headline is not worth a week of yours.
+- (none pending)
 
 ## Jacob
 
@@ -67,13 +82,14 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - status mark: (none)
 - notes:
 
-
 ## Log
 
 - 2026-11-15 — claim open: born W46 claims stage, origin bottom-up by lifting import:2026-W46-S12xF9 with the WikiTrace and FGSE seeds and the CoReMem estimator; headline quantifier (at least 0.05 rise against under 0.03 frozen) set at the import's P1; the attribution clause's own death condition written; the CoReMem valuation-noise alternative recorded as a thought (owners can print it; CL-W45-08's shape); concept-level k…
 - 2026-11-15 — claim open: claims (W46, 2026-11-15): ranked 7: born W46: 28 GPU-h probe on a released store; Library Drift states crowding at library level (2B flag); concept-level kill search runs this week (rule 17)
+- 2026-11-15 — claim killed: concept-level kill search (data/reports/2026-W46-kill-CL-W46-04.md): killed — gate G0; The named setup is not in WikiTrace's release (build-once on 50 training runs, run-fixed, every insight injected, deepseek-v4-flash via OpenRouter at temperature 0), so use-age is degenerate and the frozen store is the shipped protocol; Table 6 gives Insights Only regression 5.0 of 225 ALFWorld tasks per trial…
+- 2026-11-15 — C-W46-09 killed: claim-level kill search of CL-W46-04 (data/reports/2026-W46-kill-CL-W46-04.md): killed — setup absent from the release (build-once, inject-all, API actor); kill clause fires at step 0 from WikiTrace Table 6; episode arithmetic off by a factor of 30 in the released configuration
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W46-04`, version 1)
-- probe `C-W46-09`: `data/candidates/2026-W46.jsonl`
+- claim record: `data/claims/claims.jsonl` (id `CL-W46-04`, version 2)
+- probe `C-W46-09`: `data/candidates/2026-W46.jsonl`; kill record `data/reports/2026-W46-kill-CL-W46-04.md`

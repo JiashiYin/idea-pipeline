@@ -4,7 +4,7 @@
 
 ## Status
 
-Open claim. Nothing under it has survived a kill search yet. Failing gate: none at filing; Gate 6 not yet established (kill search owed); Gate 2B flagged. Next action: see First steps.
+Open claim. The claim survived its concept-level kill search (2026-11-15); no probe has run its own kill search yet — probe design comes after the kill search (rule 17). Failing gate: none at filing; Gate 6 not yet established (kill search owed); Gate 2B flagged. Next action: see First steps.
 
 ## The claim
 
@@ -33,18 +33,38 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: none 
 | G3 | consumers (three classes, the action each changes; community-wide for golden) | Consumers with actions: benchmark operators (print the setting and a sensitivity row with each board — RoboColiseum, X2Real), evaluation-twin builders (add numerics to what they calibrate or cite the null), engine builders (defaults certified or not), reviewers (ask for the setting). Community-wide if true (every validity table changes a column); one community if false. Golden-shaped on breadth, proper on the null. |
 | G4 | mechanism and consequence | Mechanism: contact-rich stages (grasp, fold, stack, handover) resolve impulses over a few steps, so the step size and contact offset change which grasps hold and which stacks topple; the policy is real-trained and does not adapt, so the Score shift is the simulator's alone; solver iterations are expected flat because at these step sizes the constraint solve converges within the shipped count (2610.32277 Table 2, SimuGuard). Consequence written both ways: shift above the claimed discrepancy -> print the setting and the sensitivity row, treat validity as setting-conditional; shift inside the fl… |
 | G5 | durability; lab-adjacent | Durable: the sensitivity row applies to any engine, benchmark and policy generation; the specific numbers expire with Genie Sim's next release, the rule does not. Lab-adjacent: a measurement of shipped artifacts by engine builders and benchmark operators, not a frontier lab's core problem. |
-| G6 | ownership, density, race window; position clause | Unmeasured: kill search owed (rule 17). Density this run: real-to-sim x numerics conjunction 10 hits total, none on the shape by title (API, 2026-11-15); known coarser occupants fetched: 2610.32277 (one-at-a-time knobs, sim-trained RL, no real column), SimuGuard (one-parameter reruns, artefact share), 2609.37771 (checkers and masses reverse rankings), 2606.10366 (cross-platform VLA validity). Pre-window: Erez-Tassa-Todorov 2015, Kadian 2019. Race: Genie Sim / AgiBot own the policies and the real column; the 2610.32277 authors own the harness method; the Gym-Anything / SimuGuard groups own rer… |
+| G6 | ownership, density, race window; position clause | concept-level kill search 2026-11-15 (data/reports/2026-W46-kill-CL-W46-07.md): survived-kill; gate failed G0; occupied_by none; why not done: Enabling piece: Genie Sim v3.5.0 (2026-11-02) is the first real-validated benchmark with a CLI physics-step override and baseline weights, its validity number followed on 2026-11-11; the validity community freezes or defaults the numerics, the engine-comparison community measures them without policies, the sim-to-sim community measured them on sim-trained trackers; hard because the paper's 22 policies are unreleased.. Previous: Unmeasured: kill search… |
 
 ## Probes under this claim
 
 | Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |
 | --- | --- | --- | --- | --- |
-| C-W46-18 | The setting the validation never named: re-scoring Genie Sim Benchmark tasks under the physics time step, solver iterat… | Steps 0-3: about 130 GPU-h if the policies must be built (50-70 if baseline weights cover the tasks), about $400 on cloud GPUs or $0 on owned ones, 14 days; dead if fewer than 2 of 8 tasks move by more than $\max(f_t, 1.96\,\mathrm{SE}, 0.… | proposed | — |
-| C-W46-20 | The engine swing at the task layer: the same Genie Sim task and policy on the PhysX and Newton runtimes the platform sh… | Steps 0-2: about 90 GPU-h with the policy build (about 30 if shared with C-W46-18), about $270 or $0 on owned GPUs, 10 days; dead if every two-runtime task's swing is inside the floor or the real-sim gap; parked at step 0 if fewer than 3 t… | proposed | — |
+| C-W46-18 | The setting the validation never named: re-scoring Genie Sim Benchmark tasks under the physics time step, solver iterat… | Steps 0-3: about 130 GPU-h if the policies must be built (50-70 if baseline weights cover the tasks), about $400 on cloud GPUs or $0 on owned ones, 14 days; dead if fewer than 2 of 8 tasks move by more than $\max(f_t, 1.96\,\mathrm{SE}, 0.… | redesign-owed | redesign-owed ([record](../../../data/reports/2026-W46-kill-CL-W46-07.md)) |
+| C-W46-20 | The engine swing at the task layer: the same Genie Sim task and policy on the PhysX and Newton runtimes the platform sh… | Steps 0-2: about 90 GPU-h with the policy build (about 30 if shared with C-W46-18), about $270 or $0 on owned GPUs, 10 days; dead if every two-runtime task's swing is inside the floor or the real-sim gap; parked at step 0 if fewer than 3 t… | parked | parked ([record](../../../data/reports/2026-W46-kill-CL-W46-07.md)) |
 
 ## Kill search
 
-Not run yet. Kill searches run automatically on the top probes, claim by claim (config/generation.yaml); `/kill <probe>` runs one by hand.
+### Concept level (CL-W46-07) — survived-kill (2026-11-15)
+No occupant for the exact shape (real-validated benchmark re-scored under its own physics step / contact offset); Gate 0 fails as worded: the time step is a shipped default (params.py physics_step = 120, CPU PhysX) the paper and README do not name, and Kaedim 2610.00731 Table 2 already prints and gates the numerics in a validity table; survival is weak (register occupied three times with other knobs; outcome-level numerics data say coarse outcomes are step-robust); headline rewritten before probe design.
+Full record: [`data/reports/2026-W46-kill-CL-W46-07.md`](../../../data/reports/2026-W46-kill-CL-W46-07.md).
+**Why not done before:** Enabling piece: Genie Sim v3.5.0 (2026-11-02) is the first real-validated benchmark with a CLI physics-step override and baseline weights, its validity number followed on 2026-11-11; the validity community freezes or defaults the numerics, the engine-comparison community measures them without policies, the sim-to-sim community measured them on sim-trained trackers; hard because the paper's 22 policies are unreleased.
+Closest neighbors (one-sentence trick; one-line difference):
+- `2610.00731` Measuring Asset and Scene Reconstruction Effects in Real-to-Sim Robot Evaluation (Kaedim) — Build the same real robot cell twice in Isaac Sim (authored metric geometry and physics vs generative mesh and engine-default physics), run two policies on five tasks twenty times per build, and score both against the same 200 third-party-graded real trials. *Difference:* Varies assets and physical parameters on a real-validated cell and reads the shift against real (score error 17.54 to 6.97 points); the numerics are held fixed and printed (Table 2: PhysX 240 Hz, contact offset 6 mm, 64/16 iterations) and gated; its announced…
+- `2610.41857` When the Simulator Fails, Not the Policy: Auditing Contact Artifacts in Simulated Robot B… — Record every physics step of benchmark rollouts, flag objects accelerating faster than robot contact or gravity allow, replay bit for bit, rerun with one simulation parameter changed. *Difference:* One-parameter reruns of a shipped evaluation benchmark with frozen policies (collision constant: 89% to 98%); knobs are mass, solver iterations, depenetration velocity, contact time constant; no time step, no contact offset, no real column.
+- `2609.37771` Faster and Better? Benchmark Bugs and Design Limitations Distort the Evaluation of VLA Ac… — Audit seven VLA benchmarks for bugs and design limitations, localize them with object paths against checker regions, fix checkers and masses, show rankings reverse. *Difference:* Its 'simulation settings' are checkers and object masses (26-point swing); zero mentions of time step, solver or Hz; no real column.
+- `mandarobotics.com/blog/comparing-physics-engines (2026-10-05; seed paper's ref [5])` Comparing physics engines for robotics simulation — Match scenes, robot and one explicit torque controller across PhysX CPU, Newton/MuJoCo-Warp, MuJoCo CPU and Genesis, and measure outcomes, force histories, half-timestep sensitivity and repeats. *Difference:* Numerics sensitivity at the object layer with a scripted controller: 'engines agree on coarse outcomes', 'force peaks are not timestep-converged'; repeat table (PhysX CPU identical x3; Newton 11/8/7; Genesis 10/8/8 of 15); no policy, no success rate, no real;…
+- `2610.32277` Delay Randomization Widens the Delay Margin of Learned Humanoid Motion Trackers — Train humanoid trackers in mjlab, verify a CPU MuJoCo harness by restoring settings one at a time, then stress command delay. *Difference:* One-at-a-time numerics attribution for sim-trained RL trackers (time step decisive, solver flat); tracking error, no real column, no evaluation benchmark.
+*Search degraded:* ['s2', 'arxiv Q8 (503 x2)', 'arxiv Q9 (Rate exceeded, 503)', 'conference exports not built', 'GitHub repo tree (403; raw.githubusercontent.com and HF API used instead)']
+
+### C-W46-18 — redesign-owed (2026-11-15)
+A claim one level narrower than filed: on the released benchmark at its shipped 120 Hz CPU-PhysX default (named nowhere the validity claim is read), refining the step or doubling the contact offset moves at least 3 of 8 contact-rich Scores by more than the claimed 10 points, solver iterations flat; the reporting consequence is the sensitivity row (the setting line is already Kaedim's practice). It is a weak claim solo and the board-column version in the lab position.
+Full record: [`data/reports/2026-W46-kill-CL-W46-07.md`](../../../data/reports/2026-W46-kill-CL-W46-07.md).
+Per position — **solo**: not yet kill-searched; **lab**: not yet kill-searched
+
+### C-W46-20 — parked (2026-11-15)
+A claim one level narrower than filed: on the released benchmark at its shipped 120 Hz CPU-PhysX default (named nowhere the validity claim is read), refining the step or doubling the contact offset moves at least 3 of 8 contact-rich Scores by more than the claimed 10 points, solver iterations flat; the reporting consequence is the sensitivity row (the setting line is already Kaedim's practice). It is a weak claim solo and the board-column version in the lab position.
+Full record: [`data/reports/2026-W46-kill-CL-W46-07.md`](../../../data/reports/2026-W46-kill-CL-W46-07.md).
+Per position — **solo**: not yet kill-searched; **lab**: not yet kill-searched
 
 ## Red team
 
@@ -58,7 +78,7 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 ## Decisions for Jacob
 
-- None pending; the machine runs the next kill search on its own. Mark `jacob-dropped` here if the headline is not worth a week of yours.
+- C-W46-20 is parked — Steps 0-2: about 90 GPU-h with the policy build (about 30 if shared with C-W46-18), about $270 or $0 on owned GPUs, 10 days; dead if every two-runtime task's swing is inside the floor or the real-sim…: fund it, or leave it parked?
 
 ## Jacob
 
@@ -68,14 +88,15 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - status mark: (none)
 - notes:
 
-
 ## Log
 
 - 2026-11-15 — claim open: born W46 claims stage, origin top-down (L5 lane sentence read against card 2611.15020 and the Genie Sim README fetched 2026-11-15); probes C-W46-18 (cheapest) and C-W46-20 attached; concept-level kill search owed (rule 17); Gate 2B flagged; the per-pair interval column from the same card is CL-W43-02's refuted ruler and was not filed; the failure-stage disagreement column is a lab-only thought (r…
 - 2026-11-15 — claim open: claims (W46, 2026-11-15): ranked 8: born W46: L5 numerics-vs-validity claim; probe 50-130 GPU-h with policies rebuilt (nothing released); Gate 2B flagged (magnitude against a shipped validity claim is the content); concept-level kill search runs this week (rule 17)
+- 2026-11-15 — claim open: concept-level kill search (data/reports/2026-W46-kill-CL-W46-07.md): survived-kill — gate G0; No occupant for the exact shape (real-validated benchmark re-scored under its own physics step / contact offset); Gate 0 fails as worded: the time step is a shipped default (params.py physics_step = 120, CPU PhysX) the paper and README do not name, and Kaedim 2610.00731 Table 2 already prints and gates t…
+- 2026-11-15 — C-W46-20 parked: claim-level kill search of CL-W46-07 (data/reports/2026-W46-kill-CL-W46-07.md): parked — step-0 trigger fires from the release docs: one runtime per task config, fewer than 3 released tasks on two runtimes without new assets; re-open on a release with a second runtime for 3+ rigid contact-rich tasks; Manda's announced policy-transfer post is the scoop watch
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W46-07`, version 1)
-- probe `C-W46-18`: `data/candidates/2026-W46.jsonl`
-- probe `C-W46-20`: `data/candidates/2026-W46.jsonl`
+- claim record: `data/claims/claims.jsonl` (id `CL-W46-07`, version 2)
+- probe `C-W46-18`: `data/candidates/2026-W46.jsonl`; kill record `data/reports/2026-W46-kill-CL-W46-07.md`
+- probe `C-W46-20`: `data/candidates/2026-W46.jsonl`; kill record `data/reports/2026-W46-kill-CL-W46-07.md`

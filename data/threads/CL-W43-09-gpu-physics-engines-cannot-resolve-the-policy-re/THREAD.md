@@ -1,10 +1,10 @@
 # GPU physics engines cannot resolve the policy-return differences that robot-RL papers report as improvements: engine-only repeatability and batch-position variance exceed 30% of the policy-to-policy spread on contact-rich tasks.
 
-`CL-W43-09` · lane **L5** · status **open** · rank 12 · position both · refreshed 2026-11-16
+`CL-W43-09` · lane **L5** · status **killed** · rank None · position both · refreshed 2026-11-16
 
 ## Status
 
-Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 6 not yet established; Gate 1 blocked on paperwork (no scorecard). Grade on paper: open. Next action: see First steps.
+Killed — see the kill section. Failing gate: Gate 6 not yet established; Gate 1 blocked on paperwork (no scorecard). Grade on paper: open. Next action: see First steps.
 
 ## The claim
 
@@ -33,7 +33,7 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 
 | G3 | consumers (three classes, the action each changes; community-wide for golden) | pass, community-wide if true: robot-RL authors, engine builders, simulation leaderboard owners, reproducibility researchers |
 | G4 | mechanism and consequence | pass: mechanism — floating-point reduction order under GPU thread scheduling flips contact ordering and diverges on contact-rich states; consequence — a minimum reportable gap per task, or a certified deterministic mode |
 | G5 | durability; lab-adjacent | pass: a ruler on any engine; lab-adjacent to engine builders |
-| G6 | ownership, density, race window; position clause | open: kill search owed; the premise half (non-determinism exists, its magnitude per regime) is occupied by GPUSimBench; the acceptance criterion against the signal read off the engine is the import; shares its ruler shape with CL-W43-02 (can the instrument resolve what it ranks) |
+| G6 | ownership, density, race window; position clause | concept-level kill search 2026-11-15 (data/reports/2026-W46-kill-CL-W43-09.md): killed; gate failed G2B; occupied_by none (premise: 2607.13059; mechanism and consequence: Newton docs/concepts/determinism.rst 2026-11-03, mujoco_warp #1925 2026-11-08, IsaacLab #3824 2025-10-24; signal-vs-repeat ratio shape: 2609.34666); why not done: The owners chose removal over measurement: three engines shipped deterministic modes in Aug-Nov 2026 for regression tests and replay; the per-episode component is not a floor because the reported statistic averages it, and the configuration-level shift that could b… |
 
 ## Probes under this claim
 
@@ -45,7 +45,18 @@ Also under this claim (no scorecard yet): import:2026-W43-S4xF9 (gauge R&R on 10
 
 ## Kill search
 
-Not run yet. Kill searches run automatically on the top probes, claim by claim (config/generation.yaml); `/kill <probe>` runs one by hand.
+### Concept level (CL-W43-09) — killed (2026-11-15)
+Per-episode engine noise enters the reported mean over N resets as sigma_omega/sqrt(N) and is already inside the reported interval, so the headline's quantity is the probe protocol's, not the statistic papers report (G0); the premise and its per-engine magnitudes are GPUSimBench's and the owners' own text, with MJX and Genesis measured 0.00 on both metrics (G2B); the if_true consequence, a certified deterministic mode, shipped in Warp 1.19 / Newton 1.8 / MuJoCo Warp DeterminismType / Isaac Lab --deterministic between 2026-08 and 2026-11 without the measurement (G4); the $0 literature table's third column has no source in return units (G1).
+Full record: [`data/reports/2026-W46-kill-CL-W43-09.md`](../../../data/reports/2026-W46-kill-CL-W43-09.md).
+**Occupied by:** none (premise: 2607.13059; mechanism and consequence: Newton docs/concepts/determinism.rst 2026-11-03, mujoco_warp #1925 2026-11-08, IsaacLab #3824 2025-10-24; signal-vs-repeat ratio shape: 2609.34666)
+**Why not done before:** The owners chose removal over measurement: three engines shipped deterministic modes in Aug-Nov 2026 for regression tests and replay; the per-episode component is not a floor because the reported statistic averages it, and the configuration-level shift that could be a floor has no datum in return units for or against it.
+Closest neighbors (one-sentence trick; one-line difference):
+- `2607.13059` GPUSimBench: Towards Scalable and Reliable GPU-Accelerated Simulators in Embodied AI — Run seven GPU simulators on one real-matched incline scene with seeds fixed and randomisation off, and measure how far identical environments drift inside a batch and how far whole runs drift from each other, sorting engines into four regimes. *Difference:* Owns the premise and its per-engine magnitude at N_env=16 (Isaac Lab parallel 4.21 cm vs 5.40 cm to reality; MJX and Genesis 0.00 on both metrics); no policy, no return, no batch-size axis; the confound is a guideline sentence, not a measurement against an ef…
+- `2609.34666` On the Numerical Reliability of Differentiable Physics-Based Optimization for Robotic Mat… — Show that scheduling-dependent GPU sums flip the sign of long-horizon MPM gradients and that the perturbation-induced loss change falls from 93-806 times the repeated-run spread at two steps to 2-14 times at ten or more. *Difference:* The signal-to-repeat-spread ratio in print for soft-body gradients; not rigid-body return, no batch-size or slot axis; recommends deterministic accumulation, not an acceptance criterion.
+- `newton-physics/newton docs/concepts/determinism.rst (PR #5041, 2026-11-03; epic #5049)` Deterministic Simulation — Document per-solver RUN_TO_RUN determinism, its sources (atomics, slot allocation), its scope and its cost, checked by comparing two independent 100-step rollouts bitwise in fresh processes. *Difference:* The owners' statement of the mechanism and the shipped consequence; measures bitwise equality, never the drift's size in a task unit.
+- `google-deepmind/mujoco_warp #562 (2025-07-31), #1925 (2026-11-08)` Determinism; Complete contact and constraint ordering behind DeterminismType.ALL — A user request for a determinism option, then DeterminismType.ALL with canonical contact and constraint ordering: 0.000796 m maximum inter-run root difference on G1 over 100 control steps before, bitwise identical after. *Difference:* The one engine-only drift number in a robot-state unit; no return, no policy comparison.
+- `isaac-sim/IsaacLab #3824 (2025-10-24) and docs/source/how-to/reproducibility.rst` Reproducibility: Physics depend on environment index / permutation — Permute environment indices with seed and initial states fixed and get a 0.35 m maximum state error on a cone after 1000 steps; 'This breaks benchmarking: eval(poses) != eval(randperm(poses))'. *Difference:* The batch-position clause posed as a complaint in state units; the owners' page states run-to-run determinism for rigid bodies on fixed hardware and ships --deterministic.
+*Search degraded:* ['s2', 'conference-exports (not built)', 'Q7 (HTTP 503 x2)', 'Q8 (Rate exceeded x2)', 'Genesis tracker (not searchable from this session)', 'IsaacLab PR #940 (referenced by the docs, not retrievable)']
 
 ## Red team
 
@@ -53,13 +64,11 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 ## First steps if pursued
 
-1. Wait for the automatic kill search on **P-W43-09-lit** (Sunday run), or run `/kill P-W43-09-lit` in a session.
-2. If it survives: `/redteam P-W43-09-lit`, then the probe as pre-registered — Dead as a headline if fewer than 10% of reported improvements fall inside the engine divergence (then the floor is a footnote); pre-registered expectation (judgment): 20-40% on contact-rich tasks. Lesson from CL-W43-02: the quantifier is measured before it is written. $0, two days, no GPU.
-3. Write results into the records and this Log; status moves only on evidence.
+1. Read the kill section; the claim is closed unless a new probe or a new enabling piece re-opens it (write that in your section).
 
 ## Decisions for Jacob
 
-- None pending; the machine runs the next kill search on its own. Mark `jacob-dropped` here if the headline is not worth a week of yours.
+- (none pending)
 
 ## Jacob
 
@@ -80,8 +89,9 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - 2026-11-08 — claim open: claims (W45, 2026-11-08): rank 7 -> 16; ranked 16 (was 7): Gate 1 still blocked on paperwork; no new probe
 - 2026-11-08 — claim open: re-ranked after the W45 kill searches: rank 5: kill search owed; Gate 1 blocked on paperwork
 - 2026-11-15 — claim open: claims (W46, 2026-11-15): rank 5 -> 12; kill search owed; Gate 1 blocked on paperwork
+- 2026-11-15 — claim killed: concept-level kill search (data/reports/2026-W46-kill-CL-W43-09.md): killed — gate G2B; Per-episode engine noise enters the reported mean over N resets as sigma_omega/sqrt(N) and is already inside the reported interval, so the headline's quantity is the probe protocol's, not the statistic papers report (G0); the premise and its per-engine magnitudes are GPUSimBench's and the owners' own text, wit…
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-09`, version 8)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-09`, version 9)
 - `P-W43-09-lit`: seed or import record (no candidate yet)

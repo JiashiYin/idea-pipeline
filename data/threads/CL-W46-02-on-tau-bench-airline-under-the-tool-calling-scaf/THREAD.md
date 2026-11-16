@@ -1,10 +1,10 @@
 # On tau-bench airline under the Tool-Calling scaffold HAL ships, the same non-OpenAI model scores differently when its conversation reaches the provider through litellm's translation than through the provider's native SDK, by more than the five-run replicate interval, for at least one of Anthropic and Google.
 
-`CL-W46-02` · lane **L1** · status **open** · rank 9 · position both · refreshed 2026-11-16
+`CL-W46-02` · lane **L1** · status **killed** · rank None · position both · refreshed 2026-11-16
 
 ## Status
 
-Open claim. Nothing under it has survived a kill search yet. Failing gate: none hard yet; Gate 6 not established; flag: the score clause is a judgment-0.35 surprise and the claim as written stands or falls on it (the loss share alone is a footnote to isloss). Next action: see First steps.
+Killed — see the kill section. Failing gate: none hard yet; Gate 6 not established; flag: the score clause is a judgment-0.35 surprise and the claim as written stands or falls on it (the loss share alone is a footnote to isloss). Next action: see First steps.
 
 ## The claim
 
@@ -33,18 +33,41 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: none 
 | G3 | consumers (three classes, the action each changes; community-wide for golden) | Consumer classes with actions: leaderboard operators (native-SDK arms or a certified translator; translator version per row), benchmark owners (translation audit in the protocol), harness builders (the oracle as a CI check), labs quoting third-party rows (ask for the path). Community-wide reach if the gap is real, since every multi-provider leaderboard translates somewhere; proper if only the loss share survives. |
 | G4 | mechanism and consequence | Mechanism: OpenAI-dialect tool messages ('role: tool', tool_call_id, name, parallel tool_calls truncated by the harness) are rewritten into Anthropic tool_use/tool_result blocks and Gemini functionResponse parts; fields with no target slot are dropped or merged (the oracle's role, tool-interaction and error-state categories), so the provider's model reads a different conversation from the one the harness logged and the auditor re-grades. Consequence: gap beyond the floor — native-SDK arms and disclosure become the rule; gap inside the floor — certificate and a documentation note. The two acti… |
 | G5 | durability; lab-adjacent | Pass as a protocol check for any multi-provider harness; the specific loss shares expire with each litellm release (the number is consumed, the check is durable). Lab-adjacent: measurement of a shipped evaluation harness; not a frontier lab's core problem. |
-| G6 | ownership, density, race window; position clause | Unmeasured: concept-level kill search owed (rule 17). Density on the day of writing: 33 on the translation-layer conjunction, 0 on a shipped leaderboard harness. Occupants: 2611.15543 (oracle, synthetic suite, behaviour change on targeted tasks — the natural owners, who could run tau-bench in a week), LLM-Rosetta, FailureAtlas; the harness-as-design line (HarnessTax, 2609.11987, 2605.23950) and the serving-path line (2608.08239, 2607.09691) are adjacent, not occupying. Off-arXiv incumbents to check: litellm's issue tracker, provider OpenAI-compatibility test suites, HAL's protocol notes. Why… |
+| G6 | ownership, density, race window; position clause | concept-level kill search 2026-11-15 (data/reports/2026-W46-kill-CL-W46-02.md): killed; gate failed G2B; occupied_by 2611.15543; why not done: The owners said they are doing it: isloss (2026-11-11) names tau-bench, LiteLLM and 'changes in published benchmark scores or leaderboard rankings' as its future work; 2609.03966 already runs the interface-only contrast on tau-bench retail; the one hosted native-SDK vs third-party same-model contrast in print (HarnessTax 2609.11987, n=80) is null on average.. Previous: Unmeasured: concept-level kill search owed (rule 17). Density on the day of writing:… |
 
 ## Probes under this claim
 
 | Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |
 | --- | --- | --- | --- | --- |
-| C-W46-03 | The conversation the model saw: an offline isloss audit of tau-bench's litellm request stream per provider | Step 1: $0, 0 GPU-h, 4 days; dead if $L_p < 0.03$ on tool-bearing requests for every provider. | proposed | — |
-| C-W46-04 | Native SDK versus litellm: the same model, the same tasks, two request paths on tau-bench airline | Step 1: about $300, 0 GPU-h, 5 days; dead if $\Delta$ and the pass^5 difference sit inside the within-arm replicate floor with no excess on flagged tasks. | proposed | — |
+| C-W46-03 | The conversation the model saw: an offline isloss audit of tau-bench's litellm request stream per provider | Step 1: $0, 0 GPU-h, 4 days; dead if $L_p < 0.03$ on tool-bearing requests for every provider. | killed | killed ([record](../../../data/reports/2026-W46-kill-CL-W46-02.md)) |
+| C-W46-04 | Native SDK versus litellm: the same model, the same tasks, two request paths on tau-bench airline | Step 1: about $300, 0 GPU-h, 5 days; dead if $\Delta$ and the pass^5 difference sit inside the within-arm replicate floor with no excess on flagged tasks. | killed | killed ([record](../../../data/reports/2026-W46-kill-CL-W46-02.md)) |
 
 ## Kill search
 
-Not run yet. Kill searches run automatically on the top probes, claim by claim (config/generation.yaml); `/kill <probe>` runs one by hand.
+### Concept level (CL-W46-02) — killed (2026-11-15)
+The surprise (the request path moves a leaderboard score) is the seed paper's stated thesis and announced future work with tau-bench and LiteLLM named (isloss 2611.15543 sec. 7.1), the interface-moves-the-score result is in print (2609.03966, 2609.08861, 2605.27898, 2611.06116), the oracle's owners hold the measurement (Gate 6), and the Google clause names litellm as the translator when HAL's shipped path is Google's server-side OpenAI-compatible endpoint (Gate 0).
+Full record: [`data/reports/2026-W46-kill-CL-W46-02.md`](../../../data/reports/2026-W46-kill-CL-W46-02.md).
+**Occupied by:** 2611.15543
+**Why not done before:** The owners said they are doing it: isloss (2026-11-11) names tau-bench, LiteLLM and 'changes in published benchmark scores or leaderboard rankings' as its future work; 2609.03966 already runs the interface-only contrast on tau-bench retail; the one hosted native-SDK vs third-party same-model contrast in print (HarnessTax 2609.11987, n=80) is null on average.
+Closest neighbors (one-sentence trick; one-line difference):
+- `2611.15543` Testing Conversation Preservation Across LLM APIs: A Rule-Based Oracle for Detecting Sile… — Map a request and its translation to one shared representation and apply written rules to flag information the target format could have kept but the translation dropped, with no model calls and no reference translation. *Difference:* none — occupied: the thesis (translation confounds evaluation; tau-bench and LiteLLM named) and the mechanism are its own; the score measurement is its announced future work
+- `2609.03966` Interface-Induced Trajectory Censoring: When Tool-Call Interfaces Distort Evaluation and… — Hold the weights fixed and change only the serving stack's chat template and tool-call parser; count emitted, parsed and executed calls and the score at each layer. *Difference:* Same-model interface-only contrast on BFCL (0.00 to 0.96) with a 115-task tau-bench retail extension, on self-hosted vLLM and open-weight models; the claim's hosted-provider request translation is a different layer, and the remedy (versioned model–interface m…
+- `2609.08861` API Benchmark Scores Do Not Reliably Transfer to Chatbot Interfaces — Run nine benchmarks through the API and through the chat interface of the same deployed model and difference the two. *Difference:* Access surface (UI vs API) on hosted ChatGPT, Claude and Gemini: 3.4 points on average, rivalling a model generation; no translator arm and no tool-calling loop
+- `2609.11987` Harness or Model? Isolating the Harness Effect in Agentic Coding with a Contamination-Con… — Run the same model through the vendor's native agent SDK and through a neutral third-party harness, paired by task on a private suite. *Difference:* The only hosted native-SDK vs third-party same-model contrast in print (claude-agent-sdk vs deepagents on claude-opus-4-8: -1.25 pp, CI [-10.0, +7.5]); varies the whole harness, not the request path alone; null on average
+- `2604.21083` Behavioral Consistency and Transparency Analysis on Large Language Model API Gateways — Send fixed probes to a commercial gateway and to the vendor's official API and compare response signatures, multi-turn retention, billing and latency. *Difference:* Native-API vs intermediary two-arm audit on ten commercial gateways (model substitution, silent truncation); not translation of tool-bearing requests, no benchmark score
+*Search degraded:* ['s2', 'arxiv-api (2 queries answered, Q1 and Q2; about 15 further requests over 40 minutes returned 429/503 under ten parallel agents; HTML advanced search used for the rest)', 'conference exports not built', 'api.github.com and github.com tree page blocked (raw.githubusercontent.com and a blobles…
+
+### C-W46-03 — killed (2026-11-15)
+A footnote-sized service: an offline isloss run over HAL's Anthropic request stream at HAL's litellm version with drop_params=True, reported to litellm and HAL as a note (and, from the HAL position, a translator-version column in the run manifest). Not a claim; the end-to-end score measurement belongs to the isloss authors, who announced it.
+Full record: [`data/reports/2026-W46-kill-CL-W46-02.md`](../../../data/reports/2026-W46-kill-CL-W46-02.md).
+Per position — **solo**: not yet kill-searched; **lab**: not yet kill-searched
+**Occupied by:** 2611.15543
+
+### C-W46-04 — killed (2026-11-15)
+A footnote-sized service: an offline isloss run over HAL's Anthropic request stream at HAL's litellm version with drop_params=True, reported to litellm and HAL as a note (and, from the HAL position, a translator-version column in the run manifest). Not a claim; the end-to-end score measurement belongs to the isloss authors, who announced it.
+Full record: [`data/reports/2026-W46-kill-CL-W46-02.md`](../../../data/reports/2026-W46-kill-CL-W46-02.md).
+Per position — **solo**: not yet kill-searched; **lab**: not yet kill-searched
+**Occupied by:** 2611.15543
 
 ## Red team
 
@@ -52,13 +75,11 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 ## First steps if pursued
 
-1. Wait for the automatic kill search on **C-W46-03** (Sunday run), or run `/kill C-W46-03` in a session.
-2. If it survives: `/redteam C-W46-03`, then the probe as pre-registered — Step 1: $0, 0 GPU-h, 4 days; dead if $L_p < 0.03$ on tool-bearing requests for every provider.
-3. Write results into the records and this Log; status moves only on evidence.
+1. Read the kill section; the claim is closed unless a new probe or a new enabling piece re-opens it (write that in your section).
 
 ## Decisions for Jacob
 
-- None pending; the machine runs the next kill search on its own. Mark `jacob-dropped` here if the headline is not worth a week of yours.
+- (none pending)
 
 ## Jacob
 
@@ -68,14 +89,16 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - status mark: (none)
 - notes:
 
-
 ## Log
 
 - 2026-11-15 — claim open: born W46 claims stage, origin top-down (lane sentence + HAL's single-scaffold assumption; probes from seed 2611.15543 and the tau-bench source fetched 2026-11-15); concept-level kill search owed before any probe is elaborated (rule 17); the score clause is the claim — if the kill search finds the request-path gap measured on any agent benchmark, kill
 - 2026-11-15 — claim open: claims (W46, 2026-11-15): ranked 9: born W46: judgment-0.35 surprise; the loss-share clause alone is a footnote to isloss; ranked last of the new claims; concept-level kill search runs this week (rule 17)
+- 2026-11-15 — claim killed: concept-level kill search (data/reports/2026-W46-kill-CL-W46-02.md): killed — gate G2B; The surprise (the request path moves a leaderboard score) is the seed paper's stated thesis and announced future work with tau-bench and LiteLLM named (isloss 2611.15543 sec. 7.1), the interface-moves-the-score result is in print (2609.03966, 2609.08861, 2605.27898, 2611.06116), the oracle's owners hold the me…
+- 2026-11-15 — C-W46-03 killed: claim-level kill search of CL-W46-02 (data/reports/2026-W46-kill-CL-W46-02.md): killed — The Google arm cannot be audited offline (server-side translation at Google's OpenAI-compatible endpoint); the Anthropic arm is a service to isloss and HAL (a loss table for one translator version), a footnote, not a probe of a live claim.
+- 2026-11-15 — C-W46-04 killed: claim-level kill search of CL-W46-02 (data/reports/2026-W46-kill-CL-W46-02.md): killed — Gated on C-W46-03; its shipped arm is not shipped once the user simulator is pinned and the litellm version chosen; the one hosted native-SDK vs third-party same-model contrast in print (HarnessTax, n=80) is null on average, so the pre-registered kill is the expected outcome.
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W46-02`, version 1)
-- probe `C-W46-03`: `data/candidates/2026-W46.jsonl`
-- probe `C-W46-04`: `data/candidates/2026-W46.jsonl`
+- claim record: `data/claims/claims.jsonl` (id `CL-W46-02`, version 2)
+- probe `C-W46-03`: `data/candidates/2026-W46.jsonl`; kill record `data/reports/2026-W46-kill-CL-W46-02.md`
+- probe `C-W46-04`: `data/candidates/2026-W46.jsonl`; kill record `data/reports/2026-W46-kill-CL-W46-02.md`

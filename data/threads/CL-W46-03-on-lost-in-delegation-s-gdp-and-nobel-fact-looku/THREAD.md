@@ -1,10 +1,10 @@
 # On Lost in Delegation's GDP and Nobel fact lookups with gpt-oss-120b and GPT-5 as both orchestrator and executor, the post-cutoff delegation loss is a return-rate operating point, not a cost of separating contexts: at the single agent's tool budget and tool-use instruction, an at-most-80-token structured return (answer, source URL, quoted snippet, tool-failure list) appended to the executor's bare answer recovers at least half of the matched delegation loss.
 
-`CL-W46-03` · lane **L4** · status **open** · rank 4 · position both · refreshed 2026-11-16
+`CL-W46-03` · lane **L4** · status **killed** · rank None · position both · refreshed 2026-11-16
 
 ## Status
 
-Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 6 unmeasured (kill search owed); Gate 2B flagged (expected result at judgment 0.35; the two imports disagree on the channel and the probes decide the fork). Next action: see First steps.
+Killed — see the kill section. Failing gate: Gate 6 unmeasured (kill search owed); Gate 2B flagged (expected result at judgment 0.35; the two imports disagree on the channel and the probes decide the fork). Next action: see First steps.
 
 ## The claim
 
@@ -33,19 +33,48 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 
 | G3 | consumers (three classes, the action each changes; community-wide for golden) | Consumers with actions: orchestration harness builders (return schema default; report return tokens), MAS-versus-SAS evaluators and theorists (match budget and instruction; report the return rate; estimate relay complexity instead of assigning it), delegation-training teams (schema before rubric), failure-attribution benchmark owners (an intervention-identified label beside the human one), product teams. One community (orchestration harnesses) must change a default if true; community-wide only at the ceiling. Proper-shaped. |
 | G4 | mechanism and consequence | Mechanism: the orchestrator decides accept / re-delegate / override by weighing a bare answer against its own belief, which is wrong post-cutoff by construction; the trace content that would change that decision (did a page state the answer; did a tool fail) is a few bits, cheap to send and absent at the answer-only operating point; the same prior enters the brief as a folded-in guess (C-W46-10 measures both leaks). Consequence: at least half recovered at 80 tokens, ship the schema and report the rate; under 0.4 with the brief carrying the loss, pass items verbatim; neither, do not isolate co… |
 | G5 | durability; lab-adjacent | Durable as a ruler: the return-rate curve and the matched factorial apply to any orchestrator harness and model generation; the specific 80-token knee and the 9-11 point loss expire with the models. Lab-adjacent: a measurement of a shipped practice and of a published comparison, not a frontier lab's core recipe; the lane positioning (measurement register only) is met. |
-| G6 | ownership, density, race window; position clause | Unmeasured: concept-level kill search owed (rule 17) before any probe is elaborated beyond design level. Density on 2026-11-15: the imports' queries returned 13 (field words) and 82 (lane words) hits for the return channel and 22 / 54 / 15 for the attribution and swap words; this run's return-format query 15 hits all time, 3 since 2026-10-16 (about one on-point orchestration-communication paper a month); the lane as a whole runs about 3.4 compaction-agent papers a week (CL-W45-08 kill), but the orchestrator-subagent sub-lane is the less dense one by the imports' own counts. Nearest: 2607.1613… |
+| G6 | ownership, density, race window; position clause | concept-level kill search 2026-11-15 (data/reports/2026-W46-kill-CL-W46-03.md): killed; gate failed G2B; occupied_by 2606.05304 (mechanism and return-format sweep); 2610.06069 (handoff loss at three note lengths against a single-agent reference at matched budget); 2607.16133 (context-separation isolation via SAS-Plan; relay field-deletion ablation); why not done: The generic question was done (PACT 2026-06-03, IB 2026-07-17, Handoff Tax 2026-10-05); the specific cell on 2611.16526's sets is undone because the paper is three days old and its authors hold the harness and name the arm in their c… |
 
 ## Probes under this claim
 
 | Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |
 | --- | --- | --- | --- | --- |
-| C-W46-07 | The return is an operating point: the orchestrator's error against the return rate (final answer / 80-token evidence bl… | Steps 1-5: frozen traces on rebuilt GDP and Nobel sets, five return rates, gpt-oss-120b and GPT-5 (Qwen as sign check); about 12 GPU-hours and $415; 8 days; dead if $\phi(R_1) < 0.4$ on both headline models under both schemas (interval upp… | proposed | — |
-| C-W46-08 | Who lost the item: randomised replacement of the brief and the return at the single agent's tool budget and instruction… | Step 1: six arms x 80 prompts x 5 runs on gpt-oss-120b with a cached web, about 25 GPU-hours and $440, 7 days; dead for the headline if $\rho_{80} < 0.4$ on both models (upper end under 0.6); dead as an import if both swaps move accuracy u… | proposed | — |
-| C-W46-10 | The orchestrator's closed-book answer as the leak: a judge-free count of lost items whose brief or final answer carries… | Step 1 on the parents' logs, $0, 1 day; dead if $\pi < 0.2$ post-cutoff on both models or the leak rate does not separate lost from non-lost items by 5 points. | proposed | — |
+| C-W46-07 | The return is an operating point: the orchestrator's error against the return rate (final answer / 80-token evidence bl… | Steps 1-5: frozen traces on rebuilt GDP and Nobel sets, five return rates, gpt-oss-120b and GPT-5 (Qwen as sign check); about 12 GPU-hours and $415; 8 days; dead if $\phi(R_1) < 0.4$ on both headline models under both schemas (interval upp… | killed | killed ([record](../../../data/reports/2026-W46-kill-CL-W46-03.md)) |
+| C-W46-08 | Who lost the item: randomised replacement of the brief and the return at the single agent's tool budget and instruction… | Step 1: six arms x 80 prompts x 5 runs on gpt-oss-120b with a cached web, about 25 GPU-hours and $440, 7 days; dead for the headline if $\rho_{80} < 0.4$ on both models (upper end under 0.6); dead as an import if both swaps move accuracy u… | redesign-owed | redesign-owed ([record](../../../data/reports/2026-W46-kill-CL-W46-03.md)) |
+| C-W46-10 | The orchestrator's closed-book answer as the leak: a judge-free count of lost items whose brief or final answer carries… | Step 1 on the parents' logs, $0, 1 day; dead if $\pi < 0.2$ post-cutoff on both models or the leak rate does not separate lost from non-lost items by 5 points. | parked | parked ([record](../../../data/reports/2026-W46-kill-CL-W46-03.md)) |
 
 ## Kill search
 
-Not run yet. Kill searches run automatically on the top probes, claim by claim (config/generation.yaml); `/kill <probe>` runs one by hand.
+### Concept level (CL-W46-03) — killed (2026-11-15)
+The pre-registered surprise (a compact evidence-bearing return recovers most of what the answer-only return loses; the full trace is not needed) is PACT 2606.05304's stated thesis and 2610.06069's measured note-length curve, and the card paper's own recommended fix; the mechanism, the sweep and the matched single-agent reference are each in print, so the claim's novelty is a three-day-old testbed whose owners hold the harness (Gate 6 weak).
+Full record: [`data/reports/2026-W46-kill-CL-W46-03.md`](../../../data/reports/2026-W46-kill-CL-W46-03.md).
+**Occupied by:** 2606.05304 (mechanism and return-format sweep); 2610.06069 (handoff loss at three note lengths against a single-agent reference at matched budget); 2607.16133 (context-separation isolation via SAS-Plan; relay field-deletion ablation)
+**Why not done before:** The generic question was done (PACT 2026-06-03, IB 2026-07-17, Handoff Tax 2026-10-05); the specific cell on 2611.16526's sets is undone because the paper is three days old and its authors hold the harness and name the arm in their conclusion.
+Closest neighbors (one-sentence trick; one-line difference):
+- `2606.05304` What Should Agents Say? Action-state Communication for Efficient Multi-Agent Systems (PAC… — Sweep five ways of passing one agent's output to the next (full trace, concise, conclusion only, brief summary, artifact only) across two topologies and three Qwen3 scales, read accuracy against tokens, then ship a three-field record (Action, State = observed… *Difference:* none for the mechanism and the return-format sweep — occupied; open: single-agent arm at matched tool budget, orchestrator adjudication against its prior, post-cutoff facts, frozen traces, web tools
+- `2610.06069` Attention Tax, Handoff Tax: A Stylised Model of When Multi-Agent LLM Systems Help — Define the handoff loss as a per-boundary log-loss increment from paired runs (continue from history vs start from a note) with the context-load term removed, measure it at three note lengths (0.077, 0.036, 0.015 nats, nonincreasing), and predict the winning… *Difference:* none for 'the delegation loss is an operating point on a note-length curve against the single agent at matched budget' — occupied as a design; object differs: sequential chunk handoff, synthetic ledger, gpt-oss-20b, no orchestrator, tax interval covers zero
+- `2607.16133` When Do Multi-Agent Systems Help? An Information Bottleneck Perspective — Write worker-to-worker relays as an information bottleneck, prove unbounded relays reproduce the single agent, and test with a single-agent arm that receives the same sub-instructions in one context (SAS-Plan) and an arm that deletes downstream-needed fields… *Difference:* occupies the context-separation isolation and the inverse schema arm; relay complexity assigned by hand, no curve, aggregator input uncompressed, no tool budget matching
+- `2611.16526` Lost in Delegation: Studying the Effectiveness of Task Orchestration in Generative Search — Same-model orchestrator and executor on pre/post-cutoff fact sets lose about 10 points post-cutoff; one executor-written failure-report field recovers 0.17 of the GPT-5 GDP gap and loses points on GPT-OSS. *Difference:* the testbed; arms unmatched in budget and instruction, tokens uncounted; its conclusion names the claim's recipe ('mechanisms for selectively communicating evidence and failures')
+- `2608.25277` Routed Graph Handoff: Adaptive Format Selection for Multi-Agent LLM Delegation — Route each delegation message between a typed dependency graph and natural language with a 155-token router; +8.7 pp on BrowseComp at 2.2x compression. *Difference:* the brief's format swept with accuracy against compression on a deep-research benchmark; downward channel, not the return
+*Search degraded:* ['s2', 'arxiv Q10 (Rate exceeded twice)', 'conference exports not built', 'complaint stream skipped (no repository named)']
+
+### C-W46-07 — killed (2026-11-15)
+A protocol footnote on 2611.16526, not a claim: 'On the GDP set with gpt-oss-120b, matching pooled tool budget and executor instruction to the single agent's leaves a post-cutoff loss L of at least 5 of the reported 9-11 points'; killed by L < 2 (artifact) or L within 2 points of the unmatched loss (the paper's reading stands). Filed as a watch item with an automatic kill on the authors' first matched-budget follow-up.
+Full record: [`data/reports/2026-W46-kill-CL-W46-03.md`](../../../data/reports/2026-W46-kill-CL-W46-03.md).
+Per position — **solo**: not yet kill-searched; **lab**: not yet kill-searched
+**Occupied by:** 2606.05304 (mechanism and return-format sweep); 2610.06069 (handoff loss at three note lengths against a single-agent reference at matched budget); 2607.16133 (context-separation isolation via SAS-Plan; relay field-deletion ablation)
+
+### C-W46-08 — redesign-owed (2026-11-15)
+A protocol footnote on 2611.16526, not a claim: 'On the GDP set with gpt-oss-120b, matching pooled tool budget and executor instruction to the single agent's leaves a post-cutoff loss L of at least 5 of the reported 9-11 points'; killed by L < 2 (artifact) or L within 2 points of the unmatched loss (the paper's reading stands). Filed as a watch item with an automatic kill on the authors' first matched-budget follow-up.
+Full record: [`data/reports/2026-W46-kill-CL-W46-03.md`](../../../data/reports/2026-W46-kill-CL-W46-03.md).
+Per position — **solo**: not yet kill-searched; **lab**: not yet kill-searched
+**Occupied by:** 2606.05304 (mechanism and return-format sweep); 2610.06069 (handoff loss at three note lengths against a single-agent reference at matched budget); 2607.16133 (context-separation isolation via SAS-Plan; relay field-deletion ablation)
+
+### C-W46-10 — parked (2026-11-15)
+A protocol footnote on 2611.16526, not a claim: 'On the GDP set with gpt-oss-120b, matching pooled tool budget and executor instruction to the single agent's leaves a post-cutoff loss L of at least 5 of the reported 9-11 points'; killed by L < 2 (artifact) or L within 2 points of the unmatched loss (the paper's reading stands). Filed as a watch item with an automatic kill on the authors' first matched-budget follow-up.
+Full record: [`data/reports/2026-W46-kill-CL-W46-03.md`](../../../data/reports/2026-W46-kill-CL-W46-03.md).
+Per position — **solo**: not yet kill-searched; **lab**: not yet kill-searched
+**Occupied by:** 2606.05304 (mechanism and return-format sweep); 2610.06069 (handoff loss at three note lengths against a single-agent reference at matched budget); 2607.16133 (context-separation isolation via SAS-Plan; relay field-deletion ablation)
 
 ## Red team
 
@@ -53,13 +82,11 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 ## First steps if pursued
 
-1. Wait for the automatic kill search on **C-W46-07** (Sunday run), or run `/kill C-W46-07` in a session.
-2. If it survives: `/redteam C-W46-07`, then the probe as pre-registered — Steps 1-5: frozen traces on rebuilt GDP and Nobel sets, five return rates, gpt-oss-120b and GPT-5 (Qwen as sign check); about 12 GPU-hours and $415; 8 days; dead if $\phi(R_1) < 0.4$ on both headline models under both schemas (interval upper end under 0.6) or $G < 2$ pp on both.
-3. Write results into the records and this Log; status moves only on evidence.
+1. Read the kill section; the claim is closed unless a new probe or a new enabling piece re-opens it (write that in your section).
 
 ## Decisions for Jacob
 
-- None pending; the machine runs the next kill search on its own. Mark `jacob-dropped` here if the headline is not worth a week of yours.
+- C-W46-10 is parked — Step 1 on the parents' logs, $0, 1 day; dead if $\pi < 0.2$ post-cutoff on both models or the leak rate does not separate lost from non-lost items by 5 points.: fund it, or leave it parked?
 
 ## Jacob
 
@@ -69,15 +96,17 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - status mark: (none)
 - notes:
 
-
 ## Log
 
 - 2026-11-15 — claim open: born W46 claims stage, origin top-down from the L4 lane sentence and 2611.16526 sec. 7's asserted trade-off; the two S10 imports attached as probes C-W46-07 and C-W46-08 with their pre-registered disagreement recorded as the fork; C-W46-10 attached as the mechanism probe; headline quantifier (at least half of the matched loss recovered at 80 tokens) set at the C-W46-08 kill; models named gpt-oss-…
 - 2026-11-15 — claim open: claims (W46, 2026-11-15): ranked 4: born W46: lifts both S10 imports; proper-shaped, 12 GPU-h probe; two imports disagree on the channel so the probes decide a fork; concept-level kill search runs this week (rule 17)
+- 2026-11-15 — claim killed: concept-level kill search (data/reports/2026-W46-kill-CL-W46-03.md): killed — gate G2B; The pre-registered surprise (a compact evidence-bearing return recovers most of what the answer-only return loses; the full trace is not needed) is PACT 2606.05304's stated thesis and 2610.06069's measured note-length curve, and the card paper's own recommended fix; the mechanism, the sweep and the matched sin…
+- 2026-11-15 — C-W46-07 killed: claim-level kill search of CL-W46-03 (data/reports/2026-W46-kill-CL-W46-03.md): killed — its five return arms are PACT 2606.05304's strategies and its knee readout is 2610.06069's note-length tax; an application of two published designs to one paper's data
+- 2026-11-15 — C-W46-10 parked: claim-level kill search of CL-W46-03 (data/reports/2026-W46-kill-CL-W46-03.md): parked — mechanism label for a footnote; 2609.05587 ('corrupted returns also frequently override correct answers that agents give without tools') is the opposite-sign datum it must pre-register
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W46-03`, version 1)
-- probe `C-W46-07`: `data/candidates/2026-W46.jsonl`
-- probe `C-W46-08`: `data/candidates/2026-W46.jsonl`
-- probe `C-W46-10`: `data/candidates/2026-W46.jsonl`
+- claim record: `data/claims/claims.jsonl` (id `CL-W46-03`, version 2)
+- probe `C-W46-07`: `data/candidates/2026-W46.jsonl`; kill record `data/reports/2026-W46-kill-CL-W46-03.md`
+- probe `C-W46-08`: `data/candidates/2026-W46.jsonl`; kill record `data/reports/2026-W46-kill-CL-W46-03.md`
+- probe `C-W46-10`: `data/candidates/2026-W46.jsonl`; kill record `data/reports/2026-W46-kill-CL-W46-03.md`

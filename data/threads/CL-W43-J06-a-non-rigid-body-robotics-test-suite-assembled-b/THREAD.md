@@ -1,10 +1,10 @@
 # A non-rigid-body robotics test suite assembled by porting and collecting the incumbents' tasks, plus frontier-model-synthesised scenes, will become the suite people report when they train policies.
 
-`CL-W43-J06` · lane **L5** · status **open** · rank 13 · position solo · refreshed 2026-11-16
+`CL-W43-J06` · lane **L5** · status **killed** · rank None · position solo · refreshed 2026-11-16
 
 ## Status
 
-Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 2 (no stated pressure, no ruler); Gate 4; Gate 5. Grade on paper: open as graded on 2026-11-02 so that the verdict is on the record: fails Gate 2, 4 and 5 as a product; alive only as the scene set for the ruler (J04) and the acceleration oracle (J05); the kill search, not this stage, parks or kills it. Next action: see First steps.
+Killed — see the kill section. Failing gate: Gate 2 (no stated pressure, no ruler); Gate 4; Gate 5. Grade on paper: open as graded on 2026-11-02 so that the verdict is on the record: fails Gate 2, 4 and 5 as a product; alive only as the scene set for the ruler (J04) and the acceleration oracle (J05); the kill search, not this stage, parks or kills it. Next action: see First steps.
 
 ## The claim
 
@@ -33,18 +33,35 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 
 | G3 | consumers (three classes, the action each changes; community-wide for golden) | one community at best (soft-body robot-RL authors); the must-change action is 'report on this suite', which RoboVerse, GAUGE, DaXBench and GarmentLab already compete for |
 | G4 | mechanism and consequence | fails: the headline states an outcome (adoption) without a mechanism; the only mechanism offered is convenience |
 | G5 | durability; lab-adjacent | fails: a static suite is consumed in months (standards.md Gate 5); scene synthesis lowers the barrier for every competitor |
-| G6 | ownership, density, race window; position clause | dense (fourteen incumbents listed in current_belief); why now: none specific |
+| G6 | ownership, density, race window; position clause | concept-level kill search 2026-11-15 (data/reports/2026-W46-kill-CL-W43-J06.md): killed; gate failed G6; occupied_by 2504.18904 (mechanism); 2611.16374 (product); 2611.16312 (enabling piece); why not done: It was done: RoboVerse 2025-04-26 (port + synthesise, rigid; non-rigid format declared future work), ManiLadder 2026-11-12 (40+ deformable tasks on Genesis), Alloy 2026-11-12 (one scene for rigid, cloth, cables, liquids, granular, soft bodies; agent interface); fourteen non-rigid suites or data engines in the 12-month window.. Previous: dense (fourteen incumbents listed in current_belief);… |
 
 ## Probes under this claim
 
 | Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |
 | --- | --- | --- | --- | --- |
 | P-W43-J06-a | Overlap table: proposed suite tasks versus the incumbents' task lists; adoption evidence for existing aggregators (cita… | Dead as a contribution if over 70% of the proposed tasks exist in incumbents and no incumbent aggregator shows adoption growth; alive only as the scene set on which the ruler runs (ported by the agent transpiler, which is the systems contr… | thought | not run (no candidate record yet) |
-| C-W44-16 | Score the agent's cloth and tissue against measured reality: GAUGE's trajectory error on agent-written solvers | Three GAUGE families ported to the agent's cloth, tissue and rigid stacks after a 10% port validation on Newton; about 10 GPU-hours, about $50, 12 days of mostly porting; dead if the agent solver's error lies within the Isaac / Genesis / N… | proposed | — |
+| C-W44-16 | Score the agent's cloth and tissue against measured reality: GAUGE's trajectory error on agent-written solvers | Three GAUGE families ported to the agent's cloth, tissue and rigid stacks after a 10% port validation on Newton; about 10 GPU-hours, about $50, 12 days of mostly porting; dead if the agent solver's error lies within the Isaac / Genesis / N… | redesign-owed | redesign-owed ([record](../../../data/reports/2026-W46-kill-CL-W43-J06.md)) |
 
 ## Kill search
 
-Not run yet. Kill searches run automatically on the top probes, claim by claim (config/generation.yaml); `/kill <probe>` runs one by hand.
+### Concept level (CL-W43-J06) — killed (2026-11-15)
+Occupied in three pieces: RoboVerse 2504.18904 ports incumbents and synthesises tasks in one platform with non-rigid support as its stated future work; ManiLadder 2611.16374 (2026-11-12) ships 40+ organised deformable tasks scored on policies and coding agents; Alloy 2611.16312 (2026-11-12) is the multi-material agent-driven engine the claim would build on, with its own published list of where cloth, liquid and soft-solid behaviour departs from measurement; the adoption headline has no mechanism (Gate 4) and equals the occupants' stated programme (Gate 2B).
+Full record: [`data/reports/2026-W46-kill-CL-W43-J06.md`](../../../data/reports/2026-W46-kill-CL-W43-J06.md).
+**Occupied by:** 2504.18904 (mechanism); 2611.16374 (product); 2611.16312 (enabling piece)
+**Why not done before:** It was done: RoboVerse 2025-04-26 (port + synthesise, rigid; non-rigid format declared future work), ManiLadder 2026-11-12 (40+ deformable tasks on Genesis), Alloy 2026-11-12 (one scene for rigid, cloth, cables, liquids, granular, soft bodies; agent interface); fourteen non-rigid suites or data engines in the 12-month window.
+Closest neighbors (one-sentence trick; one-line difference):
+- `2504.18904` RoboVerse: Towards a Unified Platform, Dataset and Benchmark for Scalable and Generalizab… — Abstract every simulator behind one configuration format, migrate existing benchmarks' tasks, assets and trajectories into it, add LLM task generation and teleoperation, and ship unified imitation and RL benchmarks across simulators. *Difference:* none — occupied (mechanism: port incumbents plus synthesise tasks in one platform; non-rigid format is its stated future work, sec. VII)
+- `2611.16374` ManiLadder: Benchmarking Robot Manipulation Through a Categorized and Multi-Difficulty Le… — Build 112 Genesis tasks across rigid and 1D/2D/3D deformable objects and four embodiments, calibrate each task's difficulty by a fixed-data flow-matching policy's success rate, and score policies and coding agents by the highest level they reliably solve. *Difference:* none — occupied (product: 'the first simulation benchmark that contains more than 40 deformable object manipulation tasks within a well-organized structure', with protocols and agentic baselines; designs rather than ports; one engine)
+- `2611.16312` Alloy: A Multi-Material Physics Engine for Robot Learning — Route every object in one scene to the solver its material card names (MuJoCo Warp, Newton VBD, Newton MPM, own SPH), couple them inside each control step, grade every parallel world's health, and expose the engine to coding agents over MCP. *Difference:* none — occupied (enabling piece: one engine for rigid, cloth, cables, liquids, granular and soft bodies, agent-driven); ships nine environments and a card library, no ported incumbent task and no suite
+- `2610.40565` Gym-Anything for Robotics: Scaling physical simulations with digital agents — Have a coding agent write each simulation's physics, audit it with same-model agents for three rounds, and ship 25 non-rigid-heavy simulations as 200 RL environments with a blind table against the incumbents. *Difference:* took the synthesised half on 2026-11-01 (card occupies); ports no incumbent task; realism evidence is a same-model judgment
+- `2608.05948` GAUGE: A Measurement-Grounded Benchmark for Physical Fidelity in Simulation Engines and V… — Record real trajectories for 22 controlled task families across rigid, cable, textile and volumetric materials with calibrated metadata and score Isaac Sim, Genesis and Newton by generalised trajectory error. *Difference:* the validation layer for engines, done; not a policy suite; its 'no uniformly faithful physics engine' is the claim's own material-behaviour premise
+*Search degraded:* ['s2', 'conference exports not built', 'complaint stream skipped (no stack named)']
+
+### C-W44-16 — redesign-owed (2026-11-15)
+One probe for CL-W43-J03/J04: cross-engine ranking stability of a shipped non-rigid suite (ManiLadder on Genesis versus the same scenes in Alloy/Newton), unoccupied (Q8: 5 hits, none on target). It is a probe and a scene set, not a claim; file with an automatic kill on the first paper that runs a non-rigid suite across two engines.
+Full record: [`data/reports/2026-W46-kill-CL-W43-J06.md`](../../../data/reports/2026-W46-kill-CL-W43-J06.md).
+Per position — **solo**: not yet kill-searched; **lab**: not yet kill-searched
+**Occupied by:** 2504.18904 (mechanism); 2611.16374 (product); 2611.16312 (enabling piece)
 
 ## Red team
 
@@ -52,9 +69,7 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 ## First steps if pursued
 
-1. Wait for the automatic kill search on **P-W43-J06-a** (Sunday run), or run `/kill P-W43-J06-a` in a session.
-2. If it survives: `/redteam P-W43-J06-a`, then the probe as pre-registered — Dead as a contribution if over 70% of the proposed tasks exist in incumbents and no incumbent aggregator shows adoption growth; alive only as the scene set on which the ruler runs (ported by the agent transpiler, which is the systems contribution).
-3. Write results into the records and this Log; status moves only on evidence.
+1. Read the kill section; the claim is closed unless a new probe or a new enabling piece re-opens it (write that in your section).
 
 ## Decisions for Jacob
 
@@ -77,9 +92,10 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - 2026-11-08 — claim open: claims (W45, 2026-11-08): rank 8 -> 17; ranked 17 (was 8): fails Gate 2 (no stated pressure, no ruler) and Gate 4; kept open at Jacob's capture
 - 2026-11-08 — claim open: re-ranked after the W45 kill searches: rank 6: kill search owed; fails Gate 2 as written
 - 2026-11-15 — claim open: claims (W46, 2026-11-15): rank 6 -> 13; kill search owed; fails Gate 2 as written; kept open at Jacob's capture
+- 2026-11-15 — claim killed: concept-level kill search (data/reports/2026-W46-kill-CL-W43-J06.md): killed — gate G6; Occupied in three pieces: RoboVerse 2504.18904 ports incumbents and synthesises tasks in one platform with non-rigid support as its stated future work; ManiLadder 2611.16374 (2026-11-12) ships 40+ organised deformable tasks scored on policies and coding agents; Alloy 2611.16312 (2026-11-12) is the multi-materi…
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-J06`, version 6)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-J06`, version 7)
 - `P-W43-J06-a`: seed or import record (no candidate yet)
-- probe `C-W44-16`: `data/candidates/2026-W44.jsonl`
+- probe `C-W44-16`: `data/candidates/2026-W44.jsonl`; kill record `data/reports/2026-W46-kill-CL-W43-J06.md`

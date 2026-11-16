@@ -1,10 +1,10 @@
 # At the shipped environment-capacity default (three tool slots on MCP-Atlas), the batch-makespan tail of agent rollouts is work, not a scheduling loss: in trace replay the makespan bound no dispatch order can beat — total slot work over slots, or the longest chain — sits within 10% of first-come-first-served, so reordering tool jobs cannot remove more than a tenth of the makespan.
 
-`CL-W46-06` · lane **L3** · status **open** · rank 6 · position both · refreshed 2026-11-16
+`CL-W46-06` · lane **L3** · status **killed** · rank None · position both · refreshed 2026-11-16
 
 ## Status
 
-Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 6 not yet established (kill search owed); Gate 2B flagged (the expected reading is plausible from the card paper's own small CAAS gain; the bound, the curve and the shed-versus-reorder price are the content). Next action: see First steps.
+Killed — see the kill section. Failing gate: Gate 6 not yet established (kill search owed); Gate 2B flagged (the expected reading is plausible from the card paper's own small CAAS gain; the bound, the curve and the shed-versus-reorder price are the content). Next action: see First steps.
 
 ## The claim
 
@@ -33,17 +33,32 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: Gate 
 | G3 | consumers (three classes, the action each changes; community-wide for golden) | Pass at one community with adjacent consumers: harness owners choosing $C_E$ defaults (MCP-Atlas runner: five; tau-bench and MCP-Atlas: one gate — size the slots, do not add a rule); rollout-engine and RL-infra teams (shed or carry over long chains; report the bound); scheduling-paper authors (report $H$ beside gains); benchmark operators paying for batch runs (cost set by $W / C_E$ and $\max_k \mathrm{CP}_k$). Register test: a systems measurement that changes a reported quantity and a default. Proper-shaped. |
 | G4 | mechanism and consequence | Mechanism written: with $N \gg C_E$ chains admitted, the slots are busy whenever at least $C_E$ chains hold a ready tool job; idle slot-time appears only when fewer chains remain than about $C_E (1 + \bar\tau / \bar g)$, a few chains' alternation at the end, small against a 163-minute batch; the 27-40% tail is then the long chains' remaining tool jobs passing through three slots at full utilization. As $C_E$ grows toward $N$, $W / C_E$ falls below $\max_k \mathrm{CP}_k$ and the bound becomes the longest chain, which only an order that starts long chains early can approach — the regime where L… |
 | G5 | durability; lab-adjacent | Pass with a flag: the bound and the $H$-versus-$C_E / N$ curve apply to any batch of chains on any slot pool and survive model and benchmark refreshes; the MCP-Atlas number expires with the harness default. Lab-adjacent: systems labs publish measurements and designs of this kind; frontier infra teams do not publish the bound. Race flag: the card paper's authors can compute the bound on their replay traces in a day. |
-| G6 | ownership, density, race window; position clause | Unmeasured: concept-level kill search owed (rule 17). Role words in the neighbours' vocabulary: batch makespan, job completion time, flow time, tail latency, P95, long-tail rollout, straggler, environment capacity, tool concurrency, sandbox pool, slot, action completion time, critical path, list scheduling, LPT, HEFT, lower bound, hindsight optimal, oracle, capture ratio, release scheduling, eager release, committed work, length censoring, partial rollout, over-provisioning; queueing words from the CL-W45-05 lesson (busy period, renewal, FIFO orbit). W46 counts (2026-11-16, by date): environm… |
+| G6 | ownership, density, race window; position clause | concept-level kill search 2026-11-15 (data/reports/2026-W46-kill-CL-W46-06.md): killed; gate failed G2B; occupied_by none; why not done: No reason found at the concept level: the bound is a one-line computation on replay data two groups hold (2611.16661's 495 survivors-only MCP-Atlas records; Metal Sandbox 2611.17294's released sixteen-session artifact) and neither group's question (CAAS vs FCFS; migration vs static) needed it.. Previous: Unmeasured: concept-level kill search owed (rule 17). Role words in the neighbours' vocabulary: batch makespan, job completion time, flow time, tail latency… |
 
 ## Probes under this claim
 
 | Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |
 | --- | --- | --- | --- | --- |
-| C-W46-15 | The bound no dispatch order can beat: how much of the environment-capacity tail of an agent batch is work, at the shipp… | Steps 0-1: $0, 0 GPU-h, 5 days on public traces; step 2 about 30-50 GPU-h, 4 days; dead if $H \geq 0.25$ at $C_E = 3$ on MCP-Atlas-shaped traces (lower bound above 0.15), uninformative if the hindsight list schedule exceeds the bound by mo… | proposed | — |
+| C-W46-15 | The bound no dispatch order can beat: how much of the environment-capacity tail of an agent batch is work, at the shipp… | Steps 0-1: $0, 0 GPU-h, 5 days on public traces; step 2 about 30-50 GPU-h, 4 days; dead if $H \geq 0.25$ at $C_E = 3$ on MCP-Atlas-shaped traces (lower bound above 0.15), uninformative if the hindsight list schedule exceeds the bound by mo… | killed | killed ([record](../../../data/reports/2026-W46-kill-CL-W46-06.md)) |
 
 ## Kill search
 
-Not run yet. Kill searches run automatically on the top probes, claim by claim (config/generation.yaml); `/kill <probe>` runs one by hand.
+### Concept level (CL-W46-06) — killed (2026-11-15)
+The pre-registered result (H < 0.10 at three slots) is the card paper's own stated mechanism (2611.16661 sec. 5.3: environment capacity constrains, 'the makespan gains level off'), its measured lever (CAAS 1.9-3.5% vs FCFS) and its own reading of L_5 as a distribution statistic (sec. 5.4); no fetched source asserts the field belief the claim attributes; and the quantifier is capped by Graham's bound H <= max_k CP_k / T_LB, so the probe reduces to two numbers the authors hold. Gate 6 holds (no paper computes the environment-side bound), so the residue is a footnote.
+Full record: [`data/reports/2026-W46-kill-CL-W46-06.md`](../../../data/reports/2026-W46-kill-CL-W46-06.md).
+**Why not done before:** No reason found at the concept level: the bound is a one-line computation on replay data two groups hold (2611.16661's 495 survivors-only MCP-Atlas records; Metal Sandbox 2611.17294's released sixteen-session artifact) and neither group's question (CAAS vs FCFS; migration vs static) needed it.
+Closest neighbors (one-sentence trick; one-line difference):
+- `2611.16661` Reducing Batch Makespan for LLM Agent Workloads through Inference-Environment Coordination — Split one harness cap into an admission cap and a tool-execution cap, dispatch pending tool jobs deepest-chain-first within 30-second arrival bands, and replay recorded chains with real inference to ablate each piece. *Difference:* Occupies the mechanism (sec. 5.3: slots saturate at C_S >= 25, 'the makespan gains level off'), the lever's size (CAAS 1.9-3.5% replay, 3.1-8.5% live) and the 'L_5 is not an efficiency metric' reading (sec. 5.4); computes no T_LB, H or hindsight order. The cl…
+- `2611.17294` Metal Sandbox: Isolated Execution and Command Scheduling for GPU Coding Agents on Apple S… — Give each Mac one serial execution slot with a FIFO queue, let waiting GPU commands migrate to a node with a free slot, and replay sixteen recorded agent sessions with fixed phase durations to price the migration. *Difference:* Same replay object (recorded chains, fixed durations, slot occupancy, batch elapsed time) on a four-slot, sixteen-session batch; lever is balancing partitioned queues, not ordering within one pool; the bound is not computed (T_0 = 24.12 min is a throughput de…
+- `2606.03115` SPOQ: Specialist Orchestrated Queuing for Multi-Agent Software Engineering — Compute parallel execution waves from a task dependency graph and dispatch multi-agent coding tasks wave by wave against the critical-path bound. *Difference:* Reports 'wave dispatch approaches the critical-path lower bound (ratio 1.03-1.11)' on a '2-slot local backend' - the bound-beside-the-gain register, on one job's task graph rather than a batch of rollout chains.
+- `2611.17924` TIDE: Reclaiming Lost Performance In On-Policy Reinforcement Learning — Repurpose idle rollout GPUs for training while long-tail rollouts finish and migrate the remaining rollouts onto fewer engines, with a linear controller choosing the switch point. *Difference:* GPU-side twin of the ruler: 'We call this upper bound the overall utilization-optimal' (sec. 3.1), a loss decomposition whose shares 'sum to 100%', 77-97% of optimal recovered; the resource is the GPU, not the tool slot.
+- `2610.03286` VenusRL: A Fully Disaggregated Agentic RL System with Priority Scheduling and Scalable In… — Predict which sample groups will unblock the next training micro-batch and push them ahead across GPU-slot admission, KV residency and request orchestration, packing sandboxes by page sharing. *Difference:* Tail as scheduling target ('constrained by the slowest trajectories to complete'); proves 'Computing an optimal group-completion schedule is NP-hard under this model, even with two identical unit-capacity GPU slots'; no hindsight bound or capture ratio; GPU s…
+*Search degraded:* ['s2', 'conference exports not built', 'arXiv Q9 (online-scheduling theory x LLM) HTTP 503 twice']
+
+### C-W46-15 — killed (2026-11-15)
+Two footnotes, no claim: (i) a reporting request to the 2611.16661 authors to print W / C_E, max_k CP_k and the chain-length distribution beside Fig. 11 and Table 3 (one email; the re-open test); (ii) a one-afternoon appendix on Metal Sandbox's released replay artifact computing T_LB and the share of its 22.3% any schedule could reach, in the small-N/C_E regime where the loss is real. CL-W43-08 (same shape, GPU role switching) is untouched by this verdict.
+Full record: [`data/reports/2026-W46-kill-CL-W46-06.md`](../../../data/reports/2026-W46-kill-CL-W46-06.md).
+Per position — **solo**: not yet kill-searched; **lab**: not yet kill-searched
 
 ## Red team
 
@@ -51,13 +66,11 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 ## First steps if pursued
 
-1. Wait for the automatic kill search on **C-W46-15** (Sunday run), or run `/kill C-W46-15` in a session.
-2. If it survives: `/redteam C-W46-15`, then the probe as pre-registered — Steps 0-1: $0, 0 GPU-h, 5 days on public traces; step 2 about 30-50 GPU-h, 4 days; dead if $H \geq 0.25$ at $C_E = 3$ on MCP-Atlas-shaped traces (lower bound above 0.15), uninformative if the hindsight list schedule exceeds the bound by more than 15%.
-3. Write results into the records and this Log; status moves only on evidence.
+1. Read the kill section; the claim is closed unless a new probe or a new enabling piece re-opens it (write that in your section).
 
 ## Decisions for Jacob
 
-- None pending; the machine runs the next kill search on its own. Mark `jacob-dropped` here if the headline is not worth a week of yours.
+- (none pending)
 
 ## Jacob
 
@@ -67,13 +80,14 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - status mark: (none)
 - notes:
 
-
 ## Log
 
 - 2026-11-15 — claim open: born W46 claims stage, origin top-down (L3 lane sentence plus card 2611.16661's replay-harness sentence); probe C-W46-15 (cheapest, $0 for the curve, about 40 GPU-h for the shipped-default number); filed as a new claim beside CL-W43-08, not under it (different resource, decision and objective; C-W45-11 precedent); concept-level kill search owed (rule 17); Gate 2B flagged at filing
 - 2026-11-15 — claim open: claims (W46, 2026-11-15): ranked 6: born W46: $0 replay probe on public traces; consumers are every rollout-harness builder; headline hinges on a bound no scheduling paper reports; concept-level kill search runs this week (rule 17)
+- 2026-11-15 — claim killed: concept-level kill search (data/reports/2026-W46-kill-CL-W46-06.md): killed — gate G2B; The pre-registered result (H < 0.10 at three slots) is the card paper's own stated mechanism (2611.16661 sec. 5.3: environment capacity constrains, 'the makespan gains level off'), its measured lever (CAAS 1.9-3.5% vs FCFS) and its own reading of L_5 as a distribution statistic (sec. 5.4); no fetched source as…
+- 2026-11-15 — C-W46-15 killed: claim-level kill search of CL-W46-06 (data/reports/2026-W46-kill-CL-W46-06.md): killed — Steps 0-1 compute a number whose reading the card paper already states (sec. 5.3 plateau, CAAS 1.9-3.5%); the kill clause is theorem-capped; step 2 prices a service.
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W46-06`, version 1)
-- probe `C-W46-15`: `data/candidates/2026-W46.jsonl`
+- claim record: `data/claims/claims.jsonl` (id `CL-W46-06`, version 2)
+- probe `C-W46-15`: `data/candidates/2026-W46.jsonl`; kill record `data/reports/2026-W46-kill-CL-W46-06.md`
