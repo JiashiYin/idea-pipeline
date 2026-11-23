@@ -1,3 +1,4 @@
 # Processed inbox lines (date · line · verdict · record)
 
 - 2026-11-01 · (no inbox lines) · banter web sweep: 5 searches (AF/LW, HN, r/ML, Zhihu, arXiv-id sweep) returned one in-window paper argued about — 2607.17136 "Teach it to stop, not just to click" (variance components of a computer-use agent: eval ~0, seed <=10%, data draw 48%, bimodal runs) · kept as L1 neighbour for CL-W43-14 / CL-W43-J01 · seed in data/seeds/2026-W44.jsonl
+- 2026-11-22 · (no inbox lines) · banter web sweep: 5 searches (HN, AF/LW, r/ML, Zhihu, arXiv-id sweep); the only in-window paper under discussion outside our seeds was 2611.01927 "Is Your Long-Horizon Benchmark Really Deep?" (turn count reflects the model's habits; 94% of solved synthetic terminal tasks pass within three turns) · kept, L1 fit 3, source banter · seed in data/seeds/2026-W47.jsonl. The HN item on 2611.06483 is already carded (W45).
