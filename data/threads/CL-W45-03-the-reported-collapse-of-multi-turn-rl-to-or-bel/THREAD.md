@@ -1,6 +1,6 @@
 # The reported collapse of multi-turn RL to or below its base model at a quarter of the turn cap is a budget-prompt effect, not a budget dependence of what RL learned: on FrozenLake with the prompt's budget line held at $T_{\max}$ (the full cap) and success read at one attempt, the RL model stays above the base model at 25% of the cap.
 
-`CL-W45-03` · lane **L2** · status **open** · rank 1 · position both · refreshed 2026-11-16
+`CL-W45-03` · lane **L2** · status **open** · rank 1 · position both · refreshed 2026-11-22
 
 ## Status
 

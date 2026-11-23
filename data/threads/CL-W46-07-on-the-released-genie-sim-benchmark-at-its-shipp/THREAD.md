@@ -1,6 +1,6 @@
 # On the released Genie Sim Benchmark at its shipped physics default (120 Hz CPU PhysX, schema-default solver iterations and contact offsets, named nowhere the validity claim is read), refining the physics step to 240 Hz or 960 Hz or doubling the contact offset moves the released pi0.5 baseline's Score on at least 3 of 8 contact-rich board tasks by more than the 10 points the README claims as its real-to-sim discrepancy, while raising the solver iterations to 64/16 moves fewer than two.
 
-`CL-W46-07` · lane **L5** · status **open** · rank 5 · position both · refreshed 2026-11-16
+`CL-W46-07` · lane **L5** · status **open** · rank 5 · position both · refreshed 2026-11-22
 
 ## Status
 

@@ -1,6 +1,6 @@
 # On tau-bench airline under the Tool-Calling scaffold HAL ships, the same non-OpenAI model scores differently when its conversation reaches the provider through litellm's translation than through the provider's native SDK, by more than the five-run replicate interval, for at least one of Anthropic and Google.
 
-`CL-W46-02` · lane **L1** · status **killed** · rank None · position both · refreshed 2026-11-16
+`CL-W46-02` · lane **L1** · status **killed** · rank None · position both · refreshed 2026-11-22
 
 ## Status
 

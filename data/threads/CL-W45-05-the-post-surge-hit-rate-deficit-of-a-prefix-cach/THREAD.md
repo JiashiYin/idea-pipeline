@@ -1,6 +1,6 @@
 # The post-surge hit-rate deficit of a prefix cache (the reuse of a prompt's already-computed attention states) serving agent sessions at equal working set (the aggregate context of the active sessions) is a convoy, not a cache-contents effect: the prefill queue has locked the sessions' call phases together so every returning prefix finds the whole population ahead of it, and a dispatch-order change at unchanged arrivals (random order, or resident-first) lifts the hit rate back above 0.45 within ten minutes where the paper's only recovery lever was cutting arrivals.
 
-`CL-W45-05` · lane **L3** · status **killed** · rank None · position both · refreshed 2026-11-16
+`CL-W45-05` · lane **L3** · status **killed** · rank None · position both · refreshed 2026-11-22
 
 ## Status
 

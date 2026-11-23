@@ -1,6 +1,6 @@
 # At the shipped environment-capacity default (three tool slots on MCP-Atlas), the batch-makespan tail of agent rollouts is work, not a scheduling loss: in trace replay the makespan bound no dispatch order can beat — total slot work over slots, or the longest chain — sits within 10% of first-come-first-served, so reordering tool jobs cannot remove more than a tenth of the makespan.
 
-`CL-W46-06` · lane **L3** · status **killed** · rank None · position both · refreshed 2026-11-16
+`CL-W46-06` · lane **L3** · status **killed** · rank None · position both · refreshed 2026-11-22
 
 ## Status
 

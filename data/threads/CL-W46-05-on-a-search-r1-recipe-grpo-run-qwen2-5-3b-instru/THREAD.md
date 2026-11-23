@@ -1,6 +1,6 @@
 # On a Search-R1-recipe GRPO run (Qwen2.5-3B-Instruct, HotpotQA, four turns), at least half of the problems in the greedy union-versus-best gap (solved by some checkpoint's greedy decode and not by the best checkpoint's) are coin-flip cells, with success probability between 0.2 and 0.8 at the best checkpoint at the training temperature, the band estimated from at least 16 sampled decodes and the shares corrected for binomial misclassification, and at most a fifth are strict probability drops (at or above 0.8 at some earlier checkpoint, at or below 0.2 at the best).
 
-`CL-W46-05` · lane **L2** · status **open** · rank 4 · position both · refreshed 2026-11-16
+`CL-W46-05` · lane **L2** · status **open** · rank 4 · position both · refreshed 2026-11-22
 
 ## Status
 

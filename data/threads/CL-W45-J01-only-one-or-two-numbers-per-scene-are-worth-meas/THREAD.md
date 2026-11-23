@@ -1,6 +1,6 @@
 # Only one or two numbers per scene are worth measuring, and which ones can be computed in simulation before any robot time: the value of calibrating each physical parameter under a material prior is concentrated in task-specific parameters, and for most tabletop tasks it is below the cost of measuring, so a material-prior database plus randomization is the right default and targeted calibration the exception.
 
-`CL-W45-J01` · lane **L5** · status **open** · rank 2 · position both · refreshed 2026-11-16
+`CL-W45-J01` · lane **L5** · status **open** · rank 2 · position both · refreshed 2026-11-22
 
 ## Status
 

@@ -1,6 +1,6 @@
 # On Lost in Delegation's GDP and Nobel fact lookups with gpt-oss-120b and GPT-5 as both orchestrator and executor, the post-cutoff delegation loss is a return-rate operating point, not a cost of separating contexts: at the single agent's tool budget and tool-use instruction, an at-most-80-token structured return (answer, source URL, quoted snippet, tool-failure list) appended to the executor's bare answer recovers at least half of the matched delegation loss.
 
-`CL-W46-03` · lane **L4** · status **killed** · rank None · position both · refreshed 2026-11-16
+`CL-W46-03` · lane **L4** · status **killed** · rank None · position both · refreshed 2026-11-22
 
 ## Status
 

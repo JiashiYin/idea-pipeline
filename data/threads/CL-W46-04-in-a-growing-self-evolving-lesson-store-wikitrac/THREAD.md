@@ -1,6 +1,6 @@
 # In a growing self-evolving lesson store (WikiTrace's insights-only store on ALFWorld's 134 unseen tasks over three passes with a Qwen3-30B-A3B actor), a lesson's per-use harm — the paired drop in success with the lesson retrieved versus withheld — is set by the store it is retrieved with, not by its birth or its own age: mean harm rises by at least 0.05 from a lesson's first use to its eighth-or-later use in the growing store and by under 0.03 in the same store frozen after the first pass.
 
-`CL-W46-04` · lane **L4** · status **killed** · rank None · position both · refreshed 2026-11-16
+`CL-W46-04` · lane **L4** · status **killed** · rank None · position both · refreshed 2026-11-22
 
 ## Status
 

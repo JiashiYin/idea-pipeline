@@ -1,6 +1,6 @@
 # On one 8-GPU node, self-GRPO on-policy distillation's reported $50\times$ FLOP saving over GRPO (on-policy distillation: training a student on its own rollouts under a frozen teacher's per-token supervision; FLOPs: floating-point operations) is less than half as large in node-hours (under $25\times$), because the $G = 1$ setting ($G$ rollouts per prompt) buys its FLOPs with eight times the optimizer steps on a decode-bound machine where a batch of 64 and a batch of 512 sequences take nearly the same time to generate.
 
-`CL-W45-06` · lane **L3** · status **killed** · rank None · position both · refreshed 2026-11-16
+`CL-W45-06` · lane **L3** · status **killed** · rank None · position both · refreshed 2026-11-22
 
 ## Status
 

@@ -1,6 +1,6 @@
 # Most published real-to-sim validity claims rest on policy pairs their own real-world sample cannot resolve.
 
-`CL-W43-02` · lane **L1** · status **refuted** · rank None · position solo · refreshed 2026-11-16
+`CL-W43-02` · lane **L1** · status **refuted** · rank None · position solo · refreshed 2026-11-22
 
 ## Status
 

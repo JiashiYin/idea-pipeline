@@ -1,6 +1,6 @@
 # In the human-labelled corpora of naturally failed multi-agent runs that failure-attribution methods are trained and scored on (Who&When, MAST's annotated traces, LongRCA Bench), at least one in ten runs carrying a responsible-agent label ended on a message written by the harness or the provider's error path, not by any agent.
 
-`CL-W46-01` · lane **L1** · status **killed** · rank None · position solo · refreshed 2026-11-16
+`CL-W46-01` · lane **L1** · status **killed** · rank None · position solo · refreshed 2026-11-22
 
 ## Status
 

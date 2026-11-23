@@ -1,6 +1,6 @@
 # At the concurrency of asynchronous agentic RL, Prorsa's prefill-decode role-switching rule with its ten-second arrival forecast zeroed captures, at matched damping, within ten points of the oracle-normalised headroom that the same rule captures with the forecast.
 
-`CL-W43-08` · lane **L3** · status **open** · rank 3 · position both · refreshed 2026-11-16
+`CL-W43-08` · lane **L3** · status **open** · rank 3 · position both · refreshed 2026-11-22
 
 ## Status
 
