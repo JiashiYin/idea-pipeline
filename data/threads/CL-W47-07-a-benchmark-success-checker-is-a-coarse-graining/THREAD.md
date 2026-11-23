@@ -1,10 +1,10 @@
 # A benchmark success checker is a coarse-graining of the simulator state read at a persistence window of zero, and the physics settings that matter to the recorded success bit are the ones whose excess flip rate over the repeat floor does not decay as the window grows: on RoboTwin 2.0's flip-concentrated tasks the time-step and transient operators are irrelevant by a one-second window ($\psi_h(1\,\mathrm{s}) < 1$ pp on 7 of 10 tasks) while the contact-offset (air-gap) operator stays flat, and RoboDyna's 85 latency flips of 700 are mostly the episodes' sensitivity to any perturbation, with fewer than half surviving a same-arm repeat and a one-physics-step delay.
 
-`CL-W47-07` · lane **L5** · status **open** · rank — · position both · refreshed 2026-11-22
+`CL-W47-07` · lane **L5** · status **killed** · rank — · position both · refreshed 2026-11-22
 
 ## Status
 
-Open claim. Nothing under it has survived a kill search yet. Failing gate: none at concept level; Gate 6 open until the kill search. Next action: see First steps.
+Killed — see the kill section. Failing gate: G0 (both objects: the repeat floor is the policy's sampling flag on a deterministic simulator, 0 seeded / 26-40% unseeded, 2610.06921 Table 1 and sec. 3.2; openpi key(0) split per inference, no per-episode re-seed in RoboDyna's harness); G2B (transient half = SimAudit's own one-second repair, sec. 3.3; RoboDyna object = 2610.06921's placebo thesis, VLALagBench's fixed-dose protocol, LIBERO-CTRL's and RoboCasa-Shift's mean-flat-outcomes-flip register); G6 (RoboDyna object occupied: 2610.06921, 2611.02101, 2611.03103, 2605.08168, 2609.15940, 2610.27861; RoboDyna ships async_fixed_s). Grade on paper: killed at the concept-level kill search. Next action: see First steps.
 
 ## The claim
 
@@ -39,13 +39,24 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: none 
 
 | Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |
 | --- | --- | --- | --- | --- |
-| C-W47-14 | Two controls RoboDyna did not run: the same-arm repeat and the one-physics-step delay against its 85 latency flips | Steps 0-3: 40-65 GPU-h (up to 115 with a fine-tune), $100-350, 9 days; dead if both controls stay under 0.3 of the 27-step count and the dose curve rises. | proposed | — |
+| C-W47-14 | Two controls RoboDyna did not run: the same-arm repeat and the one-physics-step delay against its 85 latency flips | Steps 0-3: 40-65 GPU-h (up to 115 with a fine-tune), $100-350, 9 days; dead if both controls stay under 0.3 of the 27-step count and the dose curve rises. | killed | — |
 
 Also under this claim (no scorecard yet): import:2026-W47-S4xF11 (about 85 GPU-h, about $250, 10 d: RoboTwin 2.0, SimAudit's released checkers, two released policies, 10 tasks x 40 seeds x 5 arms = 4,0…
 
 ## Kill search
 
-Not run yet. Kill searches run automatically on the top probes, claim by claim (config/generation.yaml); `/kill <probe>` runs one by hand.
+### Concept level (CL-W47-07) — killed (2026-11-22)
+The joining mechanism 'excess over the repeat floor' fails Gate 0: on SAPIEN the floor is the sampling key's handling (0 or 26-40%), measured in print on RoboTwin with pi0.5 (2610.06921); the RoboDyna half is occupied six times and its fixed-delay control is a shipped flag; the checker-window half's transient clause is SimAudit's own repair and its release does not exist publicly.
+Full record: [`data/reports/2026-W47-kill-CL-W47-07.md`](../../../data/reports/2026-W47-kill-CL-W47-07.md).
+**Occupied by:** 2610.06921 (RoboDyna object: same-seed placebo on RoboTwin 2.0 with frozen pi0.5, Table 1 and sec. 3.2); 2611.02101 (CRN-paired fixed-delay design, pi0.5 on LIBERO); 2611.03103 VLALagBench (fixed-latency dose sweep 0-250 ms, 200 rollouts per cell); checker-window object: none on the exact conjunction, piecewise 2611.25179 sec. 3.3 (one-second window as repair), 2609.37771 Fig. 4b (checker toleran…
+**Why not done before:** Object B: it was done on the sibling benchmark with the same policy seven weeks earlier (2610.06921, 2026-10-02) and the fixed-delay knob shipped in RoboDyna's own release (configure_async_inference fixed_s, 2026-11-19). Object A: no reason found beyond the missing SimAudit release on the time-step half; the transient half is SimAudit's own repair; each neighbouring community stops one step short for a stated reason (checker auditors hold the simulator fixed; simulator auditors read the fixed readout; evaluation statisticians seed or replicate the policy).
+Closest neighbors (one-sentence trick; one-line difference):
+- `2610.06921` Does a Learned Corrector Beat a Simple Retreat? Evidence from a Frozen VLA — On four RoboTwin 2.0 tasks with frozen pi0.5, pair every seed with and without a runtime corrector and add a same-seed base-policy re-run as the placebo, so a rescue counts only above the rate at which the base policy flips its own outcome. *Difference:* The RoboDyna object's null measured on the sibling benchmark with the same policy family (same-seed disagreement 39-60% of seeds over three runs; 0 of 100 once noise is seeded; simulator deterministic); states the reporting rule the probe would propose; no la…
+- `2611.02101` When Delay Meets Drift: Physical Safety of Robot Foundation Models Is a Cross-Layer Probl… — Cross camera-viewpoint shift with emulated inference delay on LIBERO for pi0.5 in 4,000 CRN-paired episodes and measure the super-additive interaction on safety violations. *Difference:* The CRN-paired fixed-delay design (noise re-seeded per inference from a fixed seed and the step index; 400 ms fixed within a cell); outcome is safety not success flips; one delay level.
+- `2611.03103` VLALagBench: Understanding When and Why VLA Inference Latency Matters — Convert a chosen latency into control steps (sync: hold actions; async: continue the previous chunk), sweep 0-250 ms in 50 ms steps across target speeds, tasks and three VLAs at 200 rollouts per cell, and fit a model predicting success at unseen latencies. *Difference:* The hardware-independent dose curve with the wall-clock criticism in print ('latencies are tied to the policy and GPU used for evaluation, without a controlled sweep'); independent cells, Wilson intervals, no pairing, no replicate floor.
+- `2609.15940` Beyond Single-Axis Testing: Paired Evaluation of Compound Robustness in Vision-Language-A… — Pair each initial state across six single-axis perturbations and a simultaneous condition and count emergent failures and compensated successes that cancel in the aggregate. *Difference:* The 'aggregate stays, outcomes flip' register (29.0%, 34.5%) with a replication control for stochastic policies; scene axes, not a protocol or physics setting.
+- `2610.27861` RoboCasa-Shift: Stage-Aware Robustness Evaluation of Vision-Language-Action Policies in L… — Matched clean-perturbed rollouts on RoboCasa365 with simulator-grounded stage diagnostics. *Difference:* 'paired outcome sensitivity' named beside delta SR (8 of 80 flip at delta SR = 0); no replicate, no physics or latency arm.
+*Search degraded:* ['s2 (Semantic Scholar skipped)', 'conference exports not built', 'Q3 query defect (one unprefixed term; 466 total, first 50 read)', 'Q5 query defect (generic RL words; 0 on target in 50)', 'Q8 API phrase defect (14 total, 0 on target); pre-window grasp precedents abstract-only', 'GitHub trees/cont…
 
 ## Red team
 
@@ -53,13 +64,11 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 ## First steps if pursued
 
-1. Wait for the automatic kill search on **C-W47-14** (Sunday run), or run `/kill C-W47-14` in a session.
-2. If it survives: `/redteam C-W47-14`, then the probe as pre-registered — Steps 0-3: 40-65 GPU-h (up to 115 with a fine-tune), $100-350, 9 days; dead if both controls stay under 0.3 of the 27-step count and the dose curve rises.
-3. Write results into the records and this Log; status moves only on evidence.
+1. Read the kill section; the claim is closed unless a new probe or a new enabling piece re-opens it (write that in your section).
 
 ## Decisions for Jacob
 
-- None pending; the machine runs the next kill search on its own. Mark `jacob-dropped` here if the headline is not worth a week of yours.
+- (none pending)
 
 ## Jacob
 
@@ -69,12 +78,13 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - status mark: (none)
 - notes:
 
-
 ## Log
 
 - 2026-11-22 — claim open: born W47 claims stage (top-down from the L5 lane sentence applied to the scorer): import S4xF11 and the RoboDyna controls probe; concept-level kill search scheduled this run
+- 2026-11-22 — claim killed: concept-level kill search (data/reports/2026-W47-kill-CL-W47-07.md): killed — gate G0 (both objects: the repeat floor is the policy's sampling flag on a deterministic simulator, 0 seeded / 26-40% unseeded, 2610.06921 Table 1 and sec. 3.2; openpi key(0) split per inference, no per-episode re-seed in RoboDyna's harness); G2B (transient half = SimAudit's own one-second repair, sec. 3.3; RoboDyna obj…
+- 2026-11-22 — C-W47-14 killed: W47 concept-level kill search of CL-W47-07: probe verdict killed. Gate 0 (the same-arm repeat count is set by openpi's process-level key sequence, 0 or tens of percent by where the replicate runs) and Gate 6 (same-seed placebo 2610.06921 on RoboTwin pi0.5; CRN fixed delay 2611.02101; fixed-latency sweeps 2611.03103 and 2605.08168; async_fixed_s shipped in RoboDyna's harness); its if_true conseque…
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W47-07`, version 1)
+- claim record: `data/claims/claims.jsonl` (id `CL-W47-07`, version 2)
 - probe `C-W47-14`: `data/candidates/2026-W47.jsonl`

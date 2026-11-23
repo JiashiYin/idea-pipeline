@@ -1,10 +1,10 @@
 # Most of the environments used for agentic RL today are luck-dominated at the group sizes people train with: at G = 8, more than half of the within-group reward variance in user-simulator and flaky-tool environments is environment randomness, not the agent's choices.
 
-`CL-W44-J01` · lane **L2** · status **thought** · rank — · position solo · refreshed 2026-11-22
+`CL-W44-J01` · lane **L2** · status **killed** · rank — · position solo · refreshed 2026-11-22
 
 ## Status
 
-A thought from `/capture`: not yet graded against the gates; its kill search has not run. Failing gate: none recorded. Next action: see First steps.
+Killed — see the kill section. Failing gate: G0. Grade on paper: killed at the concept-level kill search. Next action: see First steps.
 
 ## The claim
 
@@ -43,7 +43,18 @@ A thought from `/capture`: not yet graded against the gates; its kill search has
 
 ## Kill search
 
-Not run yet. Kill searches run automatically on the top probes, claim by claim (config/generation.yaml); `/kill <probe>` runs one by hand.
+### Concept level (CL-W44-J01) — killed (2026-11-22)
+Gate 0: lambda (an ICC) has no G in it; in user-simulator environments it is the harness's unpinned simulator temperature (zero at T=0 by construction), in flaky-tool environments a fault-rate dial; the probe's fixed-action estimator is undefined past the first differing reply. 2B and 4 fail behind it; 2609.24144 occupies the instrument at G=8.
+Full record: [`data/reports/2026-W47-kill-CL-W44-J01.md`](../../../data/reports/2026-W47-kill-CL-W44-J01.md).
+**Occupied by:** 2609.24144 (the instrument: lambda = sigma_env^2/(sigma_env^2+sigma_pol^2) named 'the luck share, an intraclass correlation', estimated from 8x8 schedule-by-sample tables on a G=8 GRPO run; 0.33-0.38 at step 0, 0.44-0.53 at step 100 at p=0.25; 0.03 before calibration). The cross-environment table is the only difference and each of its cells is a protocol choice.
+**Why not done before:** it is hard because the quantity is not a property of the environment: zero by construction in the deterministic environments the field trains in most (search over a fixed corpus, ALFWorld, WebShop, sandboxes), a designer's fault rate where injected, and an unpinned second-party temperature in user-simulator environments; the group that built the instrument registered an external-benchmark tier and did not run it, and wrote that the number 'is not a validated predictor of learning gains'
+Closest neighbors (one-sentence trick; one-line difference):
+- `2609.24144` Luck Is Not Skill: When Do Paired Rollouts Help Group-Relative RL of LLM Agents? — Give every sibling of a GRPO group the same event-keyed environment draws so reward differences inside the group are the policy's, and measure what that does to the gradient. *Difference:* none — occupied for the instrument: defines lambda as 'the luck share, an intraclass correlation', estimates it from 8x8 schedule-by-sample tables on a G=8 run, reports 0.33-0.53 at p=0.25 and 0.03 before calibration; lacks only a second environment (its 'ext…
+- `2610.31544` Same Luck, Different Choice: Twin-World Credit Assignment for Agentic RL (TWICE) — Key every token's Gumbel noise by turn and line so a counterfactual decision can be rolled out in the same world and the paired difference becomes turn credit. *Difference:* Its environments are deterministic by its own observation ('the retriever, the corpus, and the grader are deterministic'); rho (0.57; 0.36 under injected retrieval noise) couples the policy's downstream noise, not environment luck — the record's 'rho estimate…
+- `2606.05885` When Denser Credit Is Not Enough: Evidence-Calibrated Policy Optimization (ECPO) — At each anchor state shrink low-count action estimates and weight step credit by the between-action share of return variance B_s/(B_s+W_s). *Difference:* The complement 1-lambda at the action level computed inside GRPO groups and used as a gate ('anchors dominated by within-action randomness'), on deterministic ALFWorld and WebShop where the within-action noise is the policy's own; no environment channel, no t…
+- `2609.33543` OSCC: Certified Observation-Safe Coupling Optimization — Certify a coupling of rollouts as safe and choose among independent, root-only, continuation-only and full coupling by a gradient-aware criterion. *Difference:* Tabular Leduc and Kuhn poker; the chance share is the game's, not an LLM environment's.
+- `2609.20004` EPIG-Tree: Compute-Optimal Branching for Gradient-Efficient RL — Split policy-gradient variance by the law of total variance into decision and continuation uncertainty and branch where a branch most reduces it. *Difference:* The decomposition used for allocation; continuation uncertainty mixes 'recovery attempts, and environment-randomness events' and is never split; control suites and Wordle.
+*Search degraded:* ['s2', 'exports', 'verl issue tracker (422, not searchable)', 'task id 2609.02547 defective (astronomy); corrected to 2509.02547']
 
 ## Red team
 
@@ -51,9 +62,7 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 ## First steps if pursued
 
-1. Wait for the automatic kill search on **P-W44-J01-a** (Sunday run), or run `/kill P-W44-J01-a` in a session.
-2. If it survives: `/redteam P-W44-J01-a`, then the probe as pre-registered — Pre-registered: dead if lambda < 0.25 in every stochastic environment at G = 8 (luck is a corner case and the headline is false); dead as a headline if a published table already exists (kill search). Expected (judgment): user-simulator environments 0.4-0.7, flaky-tool sandboxes 0.2-0.5, ALFWorld 0, MuJoCo with DR 0.1-0.3. Cost: 20-40 GPU-h, $60-120, two weeks.
-3. Write results into the records and this Log; status moves only on evidence.
+1. Read the kill section; the claim is closed unless a new probe or a new enabling piece re-opens it (write that in your section).
 
 ## Decisions for Jacob
 
@@ -71,8 +80,9 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 - 2026-10-29 — claim thought: captured from the 2026-10-29 dependence discussion; recipe half found occupied (2609.24144, 2609.33543, 2610.31544); the cross-environment measurement kept as the thought
 - 2026-11-02 — claim thought: pressure #8 (2026-11-02): B23 StressSim 'tau-bench pass^4 scores decreasing by up to 69% on gemini-3.8-flash and 62% on gpt-5.6-sol [...] using an optimisation budget of 20 rollouts per task' — the adversarial-cooperative spread is the part of within-group reward variance that is the simulator's plan; L22 DeepSeek trains against 'mocked tools that reproduce the interfaces and behaviors of real-wo…
+- 2026-11-22 — claim killed: concept-level kill search (data/reports/2026-W47-kill-CL-W44-J01.md): killed — gate G0; Gate 0: lambda (an ICC) has no G in it; in user-simulator environments it is the harness's unpinned simulator temperature (zero at T=0 by construction), in flaky-tool environments a fault-rate dial; the probe's fixed-action estimator is undefined past the first differing reply. 2B and 4 fail behind it; 2609.24…
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W44-J01`, version 2)
+- claim record: `data/claims/claims.jsonl` (id `CL-W44-J01`, version 3)
 - `P-W44-J01-a`: seed or import record (no candidate yet)

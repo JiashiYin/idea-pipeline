@@ -1,10 +1,10 @@
 # The turn-cap depth label of 2611.01927 ($D$, the smallest stated cap under which a task passes) is a property of the measuring panel above a cap of ten: its index of dependability $\Phi$ for the deep/shallow cut is under 0.5 above the three-turn floor, a four-model minimum lowers at least 30% of the released labels, and in passing runs on the median-depth-40 tasks fewer than one turn in three is newly informed by the previous output.
 
-`CL-W47-03` · lane **L1** · status **open** · rank — · position solo · refreshed 2026-11-22
+`CL-W47-03` · lane **L1** · status **killed** · rank — · position solo · refreshed 2026-11-22
 
 ## Status
 
-Open claim. Nothing under it has survived a kill search yet. Failing gate: none at concept level; Gate 6 open until the kill search. Next action: see First steps.
+Killed — see the kill section. Failing gate: G2B (surprise equals the field's stated knowledge); clause two also dies on the paper's own App. E.1 numbers; Gate 0 flagged (denominator unstated; 'released labels' not released: HF dataset 404). Grade on paper: killed at the concept-level kill search. Next action: see First steps.
 
 ## The claim
 
@@ -39,13 +39,24 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: none 
 
 | Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |
 | --- | --- | --- | --- | --- |
-| C-W47-06 | Where the forty turns go: a hindsight provenance count of forced rounds against the turn-cap depth of synthesized deep… | $0-100, 0 GPU-h, 6 days; dead if the newly-informed share is at least one half or $F \geq 2(2K + 1)$ on half the tasks with retry share under 0.2, or kappa under 0.6. | proposed | — |
+| C-W47-06 | Where the forty turns go: a hindsight provenance count of forced rounds against the turn-cap depth of synthesized deep… | $0-100, 0 GPU-h, 6 days; dead if the newly-informed share is at least one half or $F \geq 2(2K + 1)$ on half the tasks with retry share under 0.2, or kappa under 0.6. | parked | — |
 
 Also under this claim (no scorecard yet): import:2026-W47-S5xF1 (about $1,000 API, 0 GPU-h, 7 d: 60 tasks x 4 models x 8 caps x 4 runs = 7,680 capped runs in terminus-2, variance components, $\Phi$, Ne…
 
 ## Kill search
 
-Not run yet. Kill searches run automatically on the top probes, claim by claim (config/generation.yaml); `/kill <probe>` runs one by hand.
+### Concept level (CL-W47-03) — killed (2026-11-22)
+The direction of all three clauses is the seed paper's own text (abstract, sec. 2, 3.1, App. E.2, README); the informed-turn concept is TerminalHorizon's App. F rubric and 2606.22164's decision density; the 30%-of-released-labels clause reaches 17% under independence at App. E.1's observed rates; 2611.08285 reverses the import's expected component ordering (run 42%, model-by-issue 4.6%).
+Full record: [`/home/claude/idea-pipeline/data/reports/2026-W47-kill-CL-W47-03.md`](../../..//home/claude/idea-pipeline/data/reports/2026-W47-kill-CL-W47-03.md).
+**Occupied by:** 2611.01927 (direction, all clauses: 'the turn count largely reflects the habits of the model'; 'D depends on the models, the harness'; App. E.2 run-residual worry); 2610.13166 App. F and 2606.22164 (clause three's concept); 2611.08285 (task x model x run decomposition with repeated runs, ordering against the claim)
+**Why not done before:** The label is three weeks old and its tasks are not public (HF dataset 404, no runs in the release layout); its owners wrote the dependence into the definition as a caveat, so a reliability coefficient reads to them as a revision item; the informed-turn count exists as a judge rubric (TerminalHorizon) and a theory quantity whose owners doubt its observability (2606.22164) — each owner sees the piece as a service.
+Closest neighbors (one-sentence trick; one-line difference):
+- `2611.01927` Is Your Long-Horizon Benchmark Really Deep? Measuring and Synthesizing Depth in Terminal… — Tell the agent a turn cap, stop it there, and call a task's depth the smallest cap under which one of two runs of two cheap models passes. *Difference:* Owner of the label and of the claim's direction ('the turn count largely reflects the habits of the model'; 'D depends on the models, the harness'; App. E.2 run-residual worry); computes no component, no Phi, no informed-turn count — the three numbers are the…
+- `2611.08285` Hard Issue, Weak Model, or Bad Run? Rethinking Failure Prediction for Coding Agents — Decompose repeated-run SWE-bench outcomes into issue, model, specialization and run-to-run parts and show failure predictors read the issue and the model, not the run. *Difference:* Decomposes the pass bit, not a cap label: issue 53%, run 42%, specialization 4.6% — the reverse of the import's expected ordering; plans repeated runs across more benchmarks and scaffolds.
+- `2610.13166` Scaling Agentic Data for Long-Horizon Terminal Intelligence (TerminalHorizon) — Build long-horizon terminal tasks by independent execution that finds key work omitted during construction, and filter teacher trajectories with a gpt-5.6-luna reviewer that credits turns informed by the environment, not turn counts. *Difference:* Owns clause three's concept as a judge rubric ('how interactions inform subsequent decisions, not in trajectory length'; waiting and polling get 'no additional credit'); judged not scanned, a filter not a measurement, no share reported.
+- `2606.22164` Drowning in Routine: Signal Dilution in Multi-Turn Agent Training — Define decision density, the fraction of turns whose actions change the return distribution, and show trajectory-level gradient SNR scales as rho^(-1/2) in a tunable MDP. *Difference:* Owns the formal twin of the newly-informed share (rho = C/T); not measured on any real agent; its future work is the estimate on agentic benchmarks — the probe's scan is one estimator of rho.
+- `2604.02547` Beyond Resolution Rates: Behavioral Drivers of Coding Agent Success and Failure — On 9,374 SWE-bench Verified trajectories from 19 agents, control for task within task and show the length-failure correlation reverses while strategies are agent-determined. *Difference:* States the direction one step earlier ('for every agent, trajectory length increases with task difficulty'; behaviour 'agent-determined rather than task-specific'); uncapped length, no cap label, no components.
+*Search degraded:* ['s2', "Q7 defective (generic word 'dependability' in the OR list; 6,234 hits) and re-run as Q8", "huggingface.co/api/datasets/AlanRosston520/Depth returned 401 and the page 404: the release's task and run layout could not be read beyond the GitHub README", 'gh api repos/AlanRosston/Depth metadata…
 
 ## Red team
 
@@ -53,13 +64,11 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 ## First steps if pursued
 
-1. Wait for the automatic kill search on **C-W47-06** (Sunday run), or run `/kill C-W47-06` in a session.
-2. If it survives: `/redteam C-W47-06`, then the probe as pre-registered — $0-100, 0 GPU-h, 6 days; dead if the newly-informed share is at least one half or $F \geq 2(2K + 1)$ on half the tasks with retry share under 0.2, or kappa under 0.6.
-3. Write results into the records and this Log; status moves only on evidence.
+1. Read the kill section; the claim is closed unless a new probe or a new enabling piece re-opens it (write that in your section).
 
 ## Decisions for Jacob
 
-- None pending; the machine runs the next kill search on its own. Mark `jacob-dropped` here if the headline is not worth a week of yours.
+- C-W47-06 is parked — $0-100, 0 GPU-h, 6 days; dead if the newly-informed share is at least one half or $F \geq 2(2K + 1)$ on half the tasks with retry share under 0.2, or kappa under 0.6.: fund it, or leave it parked?
 
 ## Jacob
 
@@ -69,12 +78,13 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - status mark: (none)
 - notes:
 
-
 ## Log
 
 - 2026-11-22 — claim open: born W47 claims stage (bottom-up, third L1 claim under the three-probes rule): banter card 2611.01927 plus import S5xF1; concept-level kill search scheduled this run
+- 2026-11-22 — claim killed: concept-level kill search (/home/claude/idea-pipeline/data/reports/2026-W47-kill-CL-W47-03.md): killed — gate G2B (surprise equals the field's stated knowledge); clause two also dies on the paper's own App. E.1 numbers; Gate 0 flagged (denominator unstated; 'released labels' not released: HF dataset 404); The direction of all three clauses is the seed paper's own text (abstract, sec. 2, 3.1, App.…
+- 2026-11-22 — C-W47-06 parked: W47 concept-level kill search of CL-W47-03: probe verdict parked. Step-0 data gate failed (HF dataset 404; no runs or reference solutions in the release layout); the concept is occupied by TerminalHorizon's App. F rubric and 2606.22164's decision density, and the direction by the seed's abstract; if re-opened on a release, redesign owed: agreement with the shipped LLM reviewer, 2K+1 read from the…
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W47-03`, version 1)
+- claim record: `data/claims/claims.jsonl` (id `CL-W47-03`, version 2)
 - probe `C-W47-06`: `data/candidates/2026-W47.jsonl`

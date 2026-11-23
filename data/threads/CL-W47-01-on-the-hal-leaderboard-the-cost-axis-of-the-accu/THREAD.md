@@ -1,10 +1,10 @@
 # On the HAL leaderboard the cost axis of the accuracy-cost frontier is as unresolved as its accuracy axis: once a run's dollar cost carries its uncertainty budget (the agent's draw, the serving cache state, the accounting rule, the price sheet in force), at least 12 of the 35 frontier steps are compatible on cost at $k = 2$, and the cache-state row alone, not the replicate row, sets the floor.
 
-`CL-W47-01` · lane **L1** · status **open** · rank — · position both · refreshed 2026-11-22
+`CL-W47-01` · lane **L1** · status **killed** · rank — · position both · refreshed 2026-11-22
 
 ## Status
 
-Open claim. Nothing under it has survived a kill search yet. Failing gate: none at concept level; Gate 6 open until the kill search. Next action: see First steps.
+Killed — see the kill section. Failing gate: G0 (premise: the cache-state row is a scaffold constant on HAL, not a draw; the accounting row is a factor-2 blunder, not a bias) with the claim's own if_false branch (Gate 2B) realized at $0 on the archive it names. Grade on paper: killed at the concept-level kill search. Next action: see First steps.
 
 ## The claim
 
@@ -39,14 +39,25 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: none 
 
 | Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |
 | --- | --- | --- | --- | --- |
-| C-W47-01 | Whose cache paid: the realized-versus-ideal prefix-cache term in the cost axis of the HAL leaderboard | Steps 0-1: $0, 0 GPU-h, 5 days; dead if fewer than three of 35 steps flip and $g_i < 0.10$ for 90% of cache-capable runs; dead at step 0 without cache-read fields. | proposed | — |
-| C-W47-03 | Cheap because it gives up: the failure premium inside the cost axis of agent leaderboards | Steps 0-1: $0, 0 GPU-h, 2 days; dead if $\phi < 1.3$ on both benchmarks or the failure-share term dominates fewer than 5 of 35 steps. | proposed | — |
+| C-W47-01 | Whose cache paid: the realized-versus-ideal prefix-cache term in the cost axis of the HAL leaderboard | Steps 0-1: $0, 0 GPU-h, 5 days; dead if fewer than three of 35 steps flip and $g_i < 0.10$ for 90% of cache-capable runs; dead at step 0 without cache-read fields. | killed | — |
+| C-W47-03 | Cheap because it gives up: the failure premium inside the cost axis of agent leaderboards | Steps 0-1: $0, 0 GPU-h, 2 days; dead if $\phi < 1.3$ on both benchmarks or the failure-share term dominates fewer than 5 of 35 steps. | killed | — |
 
 Also under this claim (no scorecard yet): import:2026-W47-S6xF9 ($0 on the public HAL archive plus about $300-600 of API spend, 0 GPU-h, 9 d: the GUM budget per run, compatibility of the 35 steps on co…
 
 ## Kill search
 
-Not run yet. Kill searches run automatically on the top probes, claim by claim (config/generation.yaml); `/kill <probe>` runs one by hand.
+### Concept level (CL-W47-01) — killed (2026-11-22)
+On four decrypted HAL SWE-bench Mini archives the realized hit share is 0.00 (Anthropic, no cache_control), 0.41 and 0.60 (OpenAI automatic); OpenAI/Together-path published costs are exactly 2.00x the deduplicated bill (litellm parent and provider child spans both summed), Anthropic 1.00x. After correction the budget is the replicate row (u_c,r about 0.07-0.09 < 0.10; Type A share > 0.6; resolvable ratio 1.22x): CL-W43-14's service answer.
+Full record: [`/home/claude/idea-pipeline/data/reports/2026-W47-kill-CL-W47-01.md`](../../..//home/claude/idea-pipeline/data/reports/2026-W47-kill-CL-W47-01.md).
+**Occupied by:** none for the summed GUM budget; the survivor is stated knowledge: CL-W43-14 kill record (replicate row 4-9%, a service), 2609.28919 ('so it picks the rate on the price sheet'), 2611.21515 sec. VIII (cache accounting and standardized price sheets preserved for reproducibility); the audit residue belongs to HAL and 2611.21515's authors
+**Why not done before:** It has been done in rows (replicate: 2608.25399, 2609.33812, 2611.22238; cache state: 2601.06007, 2607.19214, 2608.00101; accounting defect: 2610.34817, 2611.21515; price sheet: 2611.21515, HAL PRs #105/#109/#113/#114). Nobody summed them because on HAL the Type B rows are blunders and declared constants, and metrology's instrument for that is a correction, not a budget. The factor-2 span duplication went unreported because any reader who re-prices from the spans inherits it and the host's own code sums every span with usage (weave_utils.get_total_cost, trace_roots_only=False).
+Closest neighbors (one-sentence trick; one-line difference):
+- `2611.21515` Beyond Leaderboard Ranks: Selecting Software Engineering Agents Under Budget Constraints — Re-price every HAL run from its token log at one price sheet, paired-test neighbours on shared tasks, replay purchasing policies on the fixed matrix. *Difference:* Owns the gross-error audit (11.7x, 5.0x), Eq. 1 and the frontier; statistics on accuracy only, point costs; its reconstruction 'a consistent comparison basis rather than exact historical invoices'; did not find the factor-2 span duplication, which a reconstru…
+- `2611.22238` Context Has a Price: Adding and Removing Context for LLM Coding Agents under Prefix Cachi… — Bill runs as U + cC + pO on 20,000 vLLM runs; deleting an old tool output re-bills the suffix once, so masking flips sign at a tenth-price cache. *Difference:* Measures the cache rows one at a time (sibling warming +8% to +36%, block granularity 9.8%, replicate SE 3-4%) and sums none; 'reference prices, not measurements of a provider's billing system'; the rows it models as intervals are scaffold constants on HAL.
+- `2609.11987` Harness or Model? Isolating the Harness Effect in Agentic Coding with a Contamination-Con… — Paired same-model harness contrasts on a private suite, re-priced from per-turn usage at frozen list prices. *Difference:* The one source calling a cost ordering 'unresolved', from one Type B row (58 runs without usage records); one run per cell; no budget, no leaderboard.
+- `2610.34817` Silent and Costly: Characterizing and Detecting Prompt-Caching Mis-Integration in LLM Age… — Mine 120 prompt-caching pull requests in 10 agent systems, classify mis-integrations as request-side misconfiguration or read-side usage miscount, lint invocation sites against a dated provider oracle. *Difference:* States that scaffolds mis-integrate caching silently and miscount reads (32 found in 571 projects); HAL's generalist scaffold (no cache_control on Anthropic; doubled spans) is two instances of its taxonomy.
+- `2607.19214` Keeping the Cache Warm Pays: Keepalive Economics for Agentic Workloads — Replay the prefix on a timer during tool waits so the provider's cache does not evict; locate each provider's eviction point. *Difference:* The cache-state row's magnitude on four providers ('cutting the post-pause request cost by up to 12.5x'; eviction at about 5/10/30 minutes for Anthropic/DeepSeek/OpenAI); a protocol variability source, not an uncertainty on a reported cost; CL-W47-06's territ…
+*Search degraded:* ['s2', 'Q4 (metrology broad) query defect: generic tokens, 10,376 hits', 'conference exports not built', '2607.19214 API abstract truncated; eviction values read from the HTML full text (LaTeX artefacts), quoted in own words']
 
 ## Red team
 
@@ -54,13 +65,11 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 ## First steps if pursued
 
-1. Wait for the automatic kill search on **C-W47-01** (Sunday run), or run `/kill C-W47-01` in a session.
-2. If it survives: `/redteam C-W47-01`, then the probe as pre-registered — Steps 0-1: $0, 0 GPU-h, 5 days; dead if fewer than three of 35 steps flip and $g_i < 0.10$ for 90% of cache-capable runs; dead at step 0 without cache-read fields.
-3. Write results into the records and this Log; status moves only on evidence.
+1. Read the kill section; the claim is closed unless a new probe or a new enabling piece re-opens it (write that in your section).
 
 ## Decisions for Jacob
 
-- None pending; the machine runs the next kill search on its own. Mark `jacob-dropped` here if the headline is not worth a week of yours.
+- (none pending)
 
 ## Jacob
 
@@ -70,13 +79,15 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - status mark: (none)
 - notes:
 
-
 ## Log
 
 - 2026-11-22 — claim open: born W47 claims stage (bottom-up): three probes on the cost axis lifted into a claim; concept-level kill search scheduled this run
+- 2026-11-22 — claim killed: concept-level kill search (/home/claude/idea-pipeline/data/reports/2026-W47-kill-CL-W47-01.md): killed — gate G0 (premise: the cache-state row is a scaffold constant on HAL, not a draw; the accounting row is a factor-2 blunder, not a bias) with the claim's own if_false branch (Gate 2B) realized at $0 on the archive it names; On four decrypted HAL SWE-bench Mini archives the realized hit share is…
+- 2026-11-22 — C-W47-01 killed: W47 concept-level kill search of CL-W47-01: probe verdict killed. Step 0 ran on four archives and confirmed its expected reading (Anthropic h = 0, h_bar = 0.86, rho = 2.55; OpenAI h = 0.41-0.60), but its headline is Harness Tokenomics' sentence (2609.28919) and CacheLint's taxonomy (2610.34817) with HAL's name attached (Gate 2B); the survivor is the audit (span duplication 2.00x; no breakpoints),…
+- 2026-11-22 — C-W47-03 killed: W47 concept-level kill search of CL-W47-01: probe verdict killed. Gate 2B: 'Failed runs tend to be longer' (2608.03222) is the field's motivating sentence, Cost-of-Pass (2504.13359) and Token Load including failed attempts (2610.32483) are the unit and the column; within the one Claude run the premium is 1.34-1.38, under its 'at least twice' and at its 1.3 kill line; the two-way fit on the releas…
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W47-01`, version 1)
+- claim record: `data/claims/claims.jsonl` (id `CL-W47-01`, version 2)
 - probe `C-W47-01`: `data/candidates/2026-W47.jsonl`
 - probe `C-W47-03`: `data/candidates/2026-W47.jsonl`

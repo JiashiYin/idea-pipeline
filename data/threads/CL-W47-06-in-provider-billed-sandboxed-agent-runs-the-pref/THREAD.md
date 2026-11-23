@@ -1,10 +1,10 @@
 # In provider-billed sandboxed agent runs the prefix cache expires while the tools run: the realized cache-miss rate from tool-wait expiry is at least 0.2, which puts the effective cache price $c_{\mathrm{eff}} = c + m(1 - c)$ above the warm-cache crossover for 2611.22238's models, so keep-ten observation masking saves money under real billing at the list price where the warm-cache replay says it costs 87-116% more.
 
-`CL-W47-06` · lane **L3** · status **open** · rank — · position solo · refreshed 2026-11-22
+`CL-W47-06` · lane **L3** · status **killed** · rank — · position solo · refreshed 2026-11-22
 
 ## Status
 
-Open claim. Nothing under it has survived a kill search yet. Failing gate: none at concept level; Gate 6 open until the kill search. Next action: see First steps.
+Killed — see the kill section. Failing gate: G0 (premise: tool-wait gaps are seconds, not minutes), G2B (expiry is the field's stated and measured knowledge; no paper asserts a warm cache), G6 (occupied by 2608.00101, 2026-07-30; 2610.34817; SWE-agent #1482); the probe's pre-registered kill fired at step 0 inside the search. Grade on paper: killed at the concept-level kill search. Next action: see First steps.
 
 ## The claim
 
@@ -39,11 +39,22 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: none 
 
 | Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |
 | --- | --- | --- | --- | --- |
-| C-W47-02 | The effective cache price: realized provider misses during tool waits and the sign of observation masking | Steps 0-1: $0, 0 GPU-h, 3 days; dead if $m < 0.10$ everywhere with no time-to-live step; step 2 about $300 and 3 days as the manipulation check. | proposed | — |
+| C-W47-02 | The effective cache price: realized provider misses during tool waits and the sign of observation masking | Steps 0-1: $0, 0 GPU-h, 3 days; dead if $m < 0.10$ everywhere with no time-to-live step; step 2 about $300 and 3 days as the manipulation check. | killed | — |
 
 ## Kill search
 
-Not run yet. Kill searches run automatically on the top probes, claim by claim (config/generation.yaml); `/kill <probe>` runs one by hand.
+### Concept level (CL-W47-06) — killed (2026-11-22)
+On HAL's cache-active archives the realized expiry miss rate is 0.000 (SWE-agent/Opus 4.1, 2,333 requests, gaps p99 6.8 s) and 0.0085 (Generalist/o3-mini, p99 69 s), the probe's own kill; 2608.00101 measured the miss curve by gap, the 5-minute step, the 0.1 bill and a keep-alive fix on 5.7 billion production calls in July 2026, with intra-turn KV idle at P95 38 s.
+Full record: [`/home/claude/idea-pipeline/data/reports/2026-W47-kill-CL-W47-06.md`](../../..//home/claude/idea-pipeline/data/reports/2026-W47-kill-CL-W47-06.md).
+**Occupied by:** 2608.00101 (the realized hit rate versus inter-request gap, the 5-minute step 'consistent with time-based KV-cache eviction', the cache-read bill at 0.1 and the harness keep-alive saving 14.9% at turn boundaries; intra-turn gaps P50 1.2 s / P95 38 s); 2610.34817 (the misconfiguration channel: 108 of 120 prompt-caching defects silent, extra spend the only trace); SWE-agent issue #1482 (2026-07-28:…
+**Why not done before:** It was done where it is non-trivial: at human turn boundaries by the group holding production traces (2608.00101). Inside autonomous tool loops the miss curve is a line at zero because sandbox tool calls return in seconds (SWE-bench Verified Mini p99 6.8 s; CORE-bench 1.5% of requests past 300 s). The one live channel (a harness that never requests caching: HAL Core Agent, 0 cached tokens on 1,553 calls) is a published bug class with a detector, not a cost law. The enabling pieces (HAL per-call timestamps and usage fields) have existed since April 2025.
+Closest neighbors (one-sentence trick; one-line difference):
+- `2608.00101` Agentic Coding in the Wild: Characterizing GitHub Copilot Traces at Production Scale (202… — Sample 5.7 billion production coding-agent calls, show the prefix-cache hit rate falls with the gap between calls at the provider's five-minute TTL, and send a dummy refresh when the predicted gap exceeds the TTL to cut token cost 14.9% at turn boundaries. *Difference:* none for the ruler and the consequence - occupied; it adds that the gaps crossing the TTL are the human's (cross-turn median 160 s) while intra-turn KV idle is P50 1.2 s / P95 38 s and within-turn hit rate is 90%
+- `2610.34817` Silent and Costly: Characterizing and Detecting Prompt-Caching Mis-Integration in LLM Age… — Mine 120 prompt-caching pull requests from 10 agent systems, classify request-side misconfiguration and read-side miscount, show 108 fail silently as extra spend, and ship a static checker with a dated provider-capability oracle. *Difference:* owns the channel by which a harness's realized cache differs from the price list (the HAL Core Agent archive with zero cache_control is its Table II in the wild); no TTL curve, no masking sign
+- `2611.22238` Context Has a Price (the seed, 2026-11-17) — Bill 20,000 vLLM runs as U + cC + pO with own-cache hits and show keep-ten masking flips from -19-25% at c = 1 to +87-116% at c = 0.1. *Difference:* names expiration as unmodelled in its own limitations; the claim's 'field assumes a warm cache' is the seed's stated limitation
+- `2610.15093` TurnCost (2026-10-10) — Re-score 600 released trajectories under an exact append-only cache: 98.6% of input tokens hit. *Difference:* states the TTL eviction as known and unmodelled ('evict them after a time-to-live ... none of which we model')
+- `2511.02230` Continuum (2025-11-04) — Pin a tool-calling request's KV for a time-to-live set from reload cost and queueing delay. *Difference:* the TTL as a serving lever with the premise that tool calls are short; no billing
+*Search degraded:* ['s2', "arXiv API Q6 (claim's own words): Rate exceeded x2", 'arXiv API Q7 (prompt caching x expiry, all time): Rate exceeded x4 over 25 min; arxiv.org HTML search also Rate exceeded', 'WebFetch of docs.anthropic.com and platform.openai.com blocked by fetch permission (platform.claude.com and devel…
 
 ## Red team
 
@@ -51,13 +62,11 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 ## First steps if pursued
 
-1. Wait for the automatic kill search on **C-W47-02** (Sunday run), or run `/kill C-W47-02` in a session.
-2. If it survives: `/redteam C-W47-02`, then the probe as pre-registered — Steps 0-1: $0, 0 GPU-h, 3 days; dead if $m < 0.10$ everywhere with no time-to-live step; step 2 about $300 and 3 days as the manipulation check.
-3. Write results into the records and this Log; status moves only on evidence.
+1. Read the kill section; the claim is closed unless a new probe or a new enabling piece re-opens it (write that in your section).
 
 ## Decisions for Jacob
 
-- None pending; the machine runs the next kill search on its own. Mark `jacob-dropped` here if the headline is not worth a week of yours.
+- (none pending)
 
 ## Jacob
 
@@ -67,12 +76,13 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - status mark: (none)
 - notes:
 
-
 ## Log
 
 - 2026-11-22 — claim open: born W47 claims stage (bottom-up): one probe from card 2611.22238; concept-level kill search scheduled this run
+- 2026-11-22 — claim killed: concept-level kill search (/home/claude/idea-pipeline/data/reports/2026-W47-kill-CL-W47-06.md): killed — gate G0 (premise: tool-wait gaps are seconds, not minutes), G2B (expiry is the field's stated and measured knowledge; no paper asserts a warm cache), G6 (occupied by 2608.00101, 2026-07-30; 2610.34817; SWE-agent #1482); the probe's pre-registered kill fired at step 0 inside the search; On HAL'…
+- 2026-11-22 — C-W47-02 killed: W47 concept-level kill search of CL-W47-06: probe verdict killed. Step 0 ran at $0: m = 0.000 and 0.0085 on the two cache-active HAL archives with no request near the TTL (pre-registered kill met); step 1 moot (c*_m = 0.546 vs 0.55); step 2 already run by SWE-agent #1482 for the mechanism. Do not run.
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W47-06`, version 1)
+- claim record: `data/claims/claims.jsonl` (id `CL-W47-06`, version 2)
 - probe `C-W47-02`: `data/candidates/2026-W47.jsonl`

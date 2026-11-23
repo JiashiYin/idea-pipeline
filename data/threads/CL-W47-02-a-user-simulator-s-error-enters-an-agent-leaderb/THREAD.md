@@ -1,10 +1,10 @@
 # A user simulator's error enters an agent leaderboard as two separable terms, an impact shift every agent receives and an agent-by-simulator interaction, and on the tau2-bench voice board the interaction alone moves the five agents run under both the gpt-4.1 and the gpt-5.5 user simulator by -10 to +16 points around a +7 mean and reorders them (Kendall $\tau$ 0.20-0.60) while the fidelity indices of 2611.24892 measure only the shift.
 
-`CL-W47-02` · lane **L1** · status **open** · rank — · position solo · refreshed 2026-11-22
+`CL-W47-02` · lane **L1** · status **killed** · rank — · position solo · refreshed 2026-11-22
 
 ## Status
 
-Open claim. Nothing under it has survived a kill search yet. Failing gate: none at concept level; Gate 6 open until the kill search. Next action: see First steps.
+Killed — see the kill section. Failing gate: G2B (surprise equals the stated knowledge of the two nearest communities); G4 and G6 fail behind it. Grade on paper: killed at the concept-level kill search. Next action: see First steps.
 
 ## The claim
 
@@ -39,14 +39,25 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: none 
 
 | Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |
 | --- | --- | --- | --- | --- |
-| C-W47-04 | Level or order: what each injected user-simulator fault does to the agent leaderboard the fidelity suites were built to… | Steps 0-1: $0, 0 GPU-h, 5 days on the paper's replays; dead if two of the three detected faults reorder ($\tau_p \leq 0.78$, upper bound under 0.89); parked if the replays cannot be had within 30 days. | proposed | — |
-| C-W47-05 | Nine agents cannot order six simulators: the resolution of the leaderboard-agreement score in user-simulator meta-evalu… | Steps 0-1: $0, 0 GPU-h, 3 days; dead if the top two simulators' intervals do not overlap with outranking probability above 0.95, or if Table 4 already carries separating intervals. | proposed | — |
+| C-W47-04 | Level or order: what each injected user-simulator fault does to the agent leaderboard the fidelity suites were built to… | Steps 0-1: $0, 0 GPU-h, 5 days on the paper's replays; dead if two of the three detected faults reorder ($\tau_p \leq 0.78$, upper bound under 0.89); parked if the replays cannot be had within 30 days. | killed | — |
+| C-W47-05 | Nine agents cannot order six simulators: the resolution of the leaderboard-agreement score in user-simulator meta-evalu… | Steps 0-1: $0, 0 GPU-h, 3 days; dead if the top two simulators' intervals do not overlap with outranking probability above 0.95, or if Table 4 already carries separating intervals. | parked | — |
 
 Also under this claim (no scorecard yet): import:2026-W47-S1xF2 (step 1 $0, 2 d on the five paired tau2 voice submissions and the gpt-5 4-trial text release; step 2 about 20 GPU-h, about $350, 9 d tota…
 
 ## Kill search
 
-Not run yet. Kill searches run automatically on the top probes, claim by claim (config/generation.yaml); `/kill <probe>` runs one by hand.
+### Concept level (CL-W47-02) — killed (2026-11-22)
+The two-term reading (order displacement vs scale shift of a simulator swap, each invisible to the other's check, against a seed-rerun floor) is 2609.00982's stated acceptance criteria and reporting rule; the identity is 2608.22432's double-centering; GAUGE ran 25 agents x 2 simulators on tau2 retail and read it as a shift; the seed's conclusion already reports per-agent effects beside fidelity.
+Full record: [`/home/claude/idea-pipeline/data/reports/2026-W47-kill-CL-W47-02.md`](../../..//home/claude/idea-pipeline/data/reports/2026-W47-kill-CL-W47-02.md).
+**Occupied by:** 2609.00982 (concept: two terms with a floor on a simulator swap); 2608.22432 (identity: evaluator-by-system interaction by double-centering, shift cancels); 2609.27787 (structure: system-by-instrument term sets the single-instrument ceiling); 2609.12191 GAUGE App. D (the tau2 25x2 grid, ordering preserved); 2611.24892 conclusion (if_true equals the seed's fix)
+**Why not done before:** It was done in the two adjacent facets (judge language; trained-vs-prompted companion simulator) and on tau2-bench with 25 agents by GAUGE, read as a shift; for the voice pairs specifically, no reason found: the vendors read the gpt-5.5 rows as capability statements and only #729's timing review has asked about comparability.
+Closest neighbors (one-sentence trick; one-line difference):
+- `2609.00982` Disclosure-Gated User Simulation for Companion-Agent Evaluation — Swap the user simulator under twelve fixed systems, re-run the reference under a new seed for a noise floor and band, and read each replacement as largest rank displacement plus per-system score change. *Difference:* none at the concept level: has the two terms, the floor, the blindness of each check to the other term, a pure-shift swap and a pure-reorder swap, and the reporting rule; lacks DIF vocabulary, a per-task odds ratio and a verifiable-reward benchmark (vocabular…
+- `2608.22432` Rank Reversal in Multilingual LLM Judges: A Label-Free Double-Centering Calibrator — Write an evaluator-by-system score matrix as task difficulty plus system skill plus an evaluator-by-system interaction and recover the interaction by double-centering the cell means. *Difference:* owns the identity (two-way ANOVA under sum-to-zero contrasts; the shared shift cancels; the three-way term is the named risk); the group is the judge's language, a post-hoc scorer, not an in-loop party
+- `2609.27787` Ask Which, Not How Good: Sizing Benchmarks Scored by an LLM — Decompose 373,019 judgments into system, item, judge and interaction components and show the system-by-judge term is the one more items cannot average away. *Difference:* the structural statement behind the claim's mechanism in G-theory form, with measured floors; judge facet, not simulator
+- `2609.12191` GAUGE: When Not to Trust LLM-as-a-Judge in User-Simulated Evaluation of Task-Oriented Age… — Run 25 agents on tau2-bench retail and airline under a persona-driven simulator and a judge, test whether the judged ranking tracks verifiable reward, and re-run the whole grid under a second-provider simulator. *Difference:* holds the claim's design on the claim's benchmark at 25 agents x 2 simulators x 114 tasks (App. D) and reads it as a shift ('the harsher simulator surfacing more task failures'; 'The ordering persists'); reports no between-agent spread of the displacement; ma…
+- `2611.24892` the seed: user-simulator meta-evaluation suite — Grade six simulators by ranking agreement, population fidelity and trace fidelity, inject ten faults, and show fidelity suites miss the agent-selective ones. *Difference:* already reads agent-selective faults as rank movers invisible to trace diagnostics and reports 'per-agent effects' beside fidelity (conclusion); the claim adds a natural swap and a floor to a paper that owns the frame
+*Search degraded:* ['s2 (skipped by rule)', '2609.38043 arxiv.org/html served a stub (3,574 words); abstract-only', 'conference exports not built']
 
 ## Red team
 
@@ -54,13 +65,11 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 ## First steps if pursued
 
-1. Wait for the automatic kill search on **import:2026-W47-S1xF2** (Sunday run), or run `/kill import:2026-W47-S1xF2` in a session.
-2. If it survives: `/redteam import:2026-W47-S1xF2`, then the probe as pre-registered — —
-3. Write results into the records and this Log; status moves only on evidence.
+1. Read the kill section; the claim is closed unless a new probe or a new enabling piece re-opens it (write that in your section).
 
 ## Decisions for Jacob
 
-- None pending; the machine runs the next kill search on its own. Mark `jacob-dropped` here if the headline is not worth a week of yours.
+- C-W47-05 is parked — Steps 0-1: $0, 0 GPU-h, 3 days; dead if the top two simulators' intervals do not overlap with outranking probability above 0.95, or if Table 4 already carries separating intervals.: fund it, or leave it parked?
 
 ## Jacob
 
@@ -70,13 +79,15 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - status mark: (none)
 - notes:
 
-
 ## Log
 
 - 2026-11-22 — claim open: born W47 claims stage (bottom-up): import S1xF2's $0 voice-board computation plus two card probes; concept-level kill search scheduled this run
+- 2026-11-22 — claim killed: concept-level kill search (/home/claude/idea-pipeline/data/reports/2026-W47-kill-CL-W47-02.md): killed — gate G2B (surprise equals the stated knowledge of the two nearest communities); G4 and G6 fail behind it; The two-term reading (order displacement vs scale shift of a simulator swap, each invisible to the other's check, against a seed-rerun floor) is 2609.00982's stated acceptance criteria and…
+- 2026-11-22 — C-W47-04 killed: W47 concept-level kill search of CL-W47-02: probe verdict killed. its claim is the seed's conclusion sentence ('substantial changes in selected agents' scores and ranks can coexist with weak responses from the available trace diagnostics'; 'We therefore report fidelity, per-agent effects and agreement ... together'), and the 351 sessions and paired replays have no release location in the paper
+- 2026-11-22 — C-W47-05 parked: W47 concept-level kill search of CL-W47-02: probe verdict parked. footnote, not a probe: at n = 9 one swapped pair moves tau by 0.056 and the null SD is 0.266, so Table 4's 0.44-0.67 spread is under one null SD; Table 4 carries no intervals (HTML checked); the sizing question for instrument-scored comparisons is owned by 2609.27787; re-open trigger the sessions' release, cost one day, outcome a f…
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W47-02`, version 1)
+- claim record: `data/claims/claims.jsonl` (id `CL-W47-02`, version 2)
 - probe `C-W47-04`: `data/candidates/2026-W47.jsonl`
 - probe `C-W47-05`: `data/candidates/2026-W47.jsonl`

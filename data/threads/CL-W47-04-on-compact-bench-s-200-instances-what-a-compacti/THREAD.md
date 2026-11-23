@@ -1,10 +1,10 @@
 # On CompAct-Bench's 200 instances, what a compaction must keep for the same executor to finish is under a fifth of what a forward reader of the history says it must keep: the literals the reference remainder actually consumes sit in under 20% of the forward inventory's 'required' units, their coverage by the compacted context predicts continuation success better than the inventory's omission count, and frontier compactors drop them regardless of whether the environment can give them back (kept-rate gap under 10 points).
 
-`CL-W47-04` · lane **L4** · status **open** · rank — · position solo · refreshed 2026-11-22
+`CL-W47-04` · lane **L4** · status **killed** · rank — · position solo · refreshed 2026-11-22
 
 ## Status
 
-Open claim. Nothing under it has survived a kill search yet. Failing gate: none at concept level; Gate 6 open until the kill search (dense lane). Next action: see First steps.
+Killed — see the kill section. Failing gate: G1 (no public traces: project site carries no data or code, 'No reference summaries'); G6 (ruler occupied by Compact-Bench 2610.31710 Recurring-Detail Retention with released data and scorer; recoverability axis and offline hindsight oracle occupied by 2608.16370; dead-store rule by Contexture 2611.26980); G2B on clauses 2 and 3; G4 on clause 3; G0 on the 'no re-derivability axis' sentence. Grade on paper: killed at the concept-level kill search. Next action: see First steps.
 
 ## The claim
 
@@ -39,12 +39,23 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: none 
 
 | Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |
 | --- | --- | --- | --- | --- |
-| C-W47-08 | Live at the boundary: a hindsight liveness ruler for compaction, read off CompAct-Bench's own remainders against its fo… | Steps 0-2: $0, 0 GPU-hours, 4 days; dead if the dead-unit share is under 0.30 on both domains or the AUROC gain is under 0.03 on both; dead at step 0 without remainders and $M_b$ texts. | proposed | — |
-| C-W47-09 | Dropped but re-fetchable: splitting compaction loss by whether the environment can give the literal back, with the pape… | Steps 0-2: $0, 0 GPU-hours, 4 days on the release; dead if $\Delta_\phi \geq 0.15$ for four of the top six compactors on Search or context-only literals are under 30% of Search's live literals; above $0 (about $400) if the environment-only… | proposed | — |
+| C-W47-08 | Live at the boundary: a hindsight liveness ruler for compaction, read off CompAct-Bench's own remainders against its fo… | Steps 0-2: $0, 0 GPU-hours, 4 days; dead if the dead-unit share is under 0.30 on both domains or the AUROC gain is under 0.03 on both; dead at step 0 without remainders and $M_b$ texts. | killed | — |
+| C-W47-09 | Dropped but re-fetchable: splitting compaction loss by whether the environment can give the literal back, with the pape… | Steps 0-2: $0, 0 GPU-hours, 4 days on the release; dead if $\Delta_\phi \geq 0.15$ for four of the top six compactors on Search or context-only literals are under 30% of Search's live literals; above $0 (about $400) if the environment-only… | killed | — |
 
 ## Kill search
 
-Not run yet. Kill searches run automatically on the top probes, claim by claim (config/generation.yaml); `/kill <probe>` runs one by hand.
+### Concept level (CL-W47-04) — killed (2026-11-22)
+The object is unreleased, so both $0 probes die at step 0; the live-literal ruler is Compact-Bench's released Recurring-Detail Retention (9,330 atoms, substring membership, LLM summaries keep at most 16%); the recoverability axis and hindsight oracle are 2608.16370's pre-registered arms (random matches hindsight); the seed's own protocol already discounts environment-recoverable information.
+Full record: [`data/reports/2026-W47-kill-CL-W47-04.md`](../../../data/reports/2026-W47-kill-CL-W47-04.md).
+**Occupied by:** 2610.31710 (ruler of clauses 1-2); 2608.16370 (recoverability axis and offline hindsight oracle of clause 3); 2611.26980 (dead-store import); 2611.25673 sec. 3.3 / App. G.1 / Table 15 (clause 3's premise and if_true recipe)
+**Why not done before:** The ruler, the recoverability axis and the dead-store rule are done; the one undone comparison (hindsight literal set versus a forward 'required' inventory on one corpus) needs CompAct-Bench's traces, which are three days old and unreleased, so the owners hold the enabling piece. Not 'no reason'.
+Closest neighbors (one-sentence trick; one-line difference):
+- `2610.31710` Compact-Bench: Measuring What Context Compaction Costs Long-Horizon Coding Agents — Pair full-history and summary-only continuations from one repository snapshot, and on 146 real coding sessions extract the paths, SHAs, PR ids, error types, URLs, key-value pairs and IPs that occur both before an artificial boundary and in the next 3-8 reques… *Difference:* none for the live-literal ruler - occupied with released data (e2/sessions.jsonl, 9,330 atoms) and scorer; lacks a forward inventory, a per-cell outcome beside retention, a use-before-re-supply condition and a recoverability split; its finding runs against cl…
+- `2608.16370` What Does Context Compression Cost an Agent? Interaction Costs Unrevealed by Task-Complet… — In a deterministic planning environment, drop or preserve state under compression, restore it by oracle interventions, and count retrieval tool calls as the reacquisition cost completion metrics miss. *Difference:* none for the recoverability axis (externally queryable D vs history-dependent R) and the offline hindsight oracle by future re-access counts - occupied as designs; recoverability-prioritized retention does not beat random, random matches the hindsight oracle;…
+- `2611.26980` Contexture: Runtime Context Eviction for High-Throughput Agent Serving — Trace each history token to the tool operation that produced it and mark an earlier observation as a removal candidate when a later operation on the same target supersedes it, then commit removals under KV pressure. *Difference:* none for the dead-store import - occupied as a rule and a census (64% of final-history tokens superseded); forward-computable, serving register, no comparison with an LLM compactor's choices, no literal granularity
+- `2611.25673` CompAct-Bench: A Benchmark for Working-Context Compaction in Long-Horizon Agent Tasks — Cut a solved run at 25/50/75%, compact the history to 10% of its characters with twelve models, let the same executor finish under the reference remainder budget. *Difference:* the seed; its App. G.1 excludes environment-recoverable information from 'preserved', Table 15 discounts omitted code that persists in the environment, sec. 3.3 states the recoverability recipe; no release (project site: paper, leaderboard, demo; 'No referenc…
+- `2610.31778` Benchmarks Are Surprisingly Compaction-Friendly — Fix one scaffold, run five compaction strategies and three frontier models on three long-horizon benchmarks, count dropped task constraints. *Difference:* states clause 3's premise as the field's position ('most of what compaction discards can be recovered, except constraints that don't exist anywhere else'); constraints not literals, no per-literal kept rate
+*Search degraded:* ['s2 (skipped)', 'WebFetch of compaction-eval.github.io (permission request timed out; site fetched by curl instead)', 'conference exports not built', "Q5 defective breadth (1,690 total; 'summary' AND 'next action' match everything; 9 on target by hand)"]
 
 ## Red team
 
@@ -52,13 +63,11 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 ## First steps if pursued
 
-1. Wait for the automatic kill search on **C-W47-08** (Sunday run), or run `/kill C-W47-08` in a session.
-2. If it survives: `/redteam C-W47-08`, then the probe as pre-registered — Steps 0-2: $0, 0 GPU-hours, 4 days; dead if the dead-unit share is under 0.30 on both domains or the AUROC gain is under 0.03 on both; dead at step 0 without remainders and $M_b$ texts.
-3. Write results into the records and this Log; status moves only on evidence.
+1. Read the kill section; the claim is closed unless a new probe or a new enabling piece re-opens it (write that in your section).
 
 ## Decisions for Jacob
 
-- None pending; the machine runs the next kill search on its own. Mark `jacob-dropped` here if the headline is not worth a week of yours.
+- (none pending)
 
 ## Jacob
 
@@ -68,13 +77,15 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - status mark: (none)
 - notes:
 
-
 ## Log
 
 - 2026-11-22 — claim open: born W47 claims stage (bottom-up): two $0 probes on CompAct-Bench's released traces; concept-level kill search scheduled this run
+- 2026-11-22 — claim killed: concept-level kill search (data/reports/2026-W47-kill-CL-W47-04.md): killed — gate G1 (no public traces: project site carries no data or code, 'No reference summaries'); G6 (ruler occupied by Compact-Bench 2610.31710 Recurring-Detail Retention with released data and scorer; recoverability axis and offline hindsight oracle occupied by 2608.16370; dead-store rule by Contexture 2611.26980); G2B on c…
+- 2026-11-22 — C-W47-08 killed: W47 concept-level kill search of CL-W47-04: probe verdict killed. dead at step 0 (no released remainders or M_b texts); its ruler is Compact-Bench's released Recurring-Detail Retention (substring membership of future-recurring literals, LLM summaries keep at most 16%); its AUROC clause contradicts Compact-Bench's retention-vs-preservation divergence and 2608.16370's hindsight-equals-random withou…
+- 2026-11-22 — C-W47-09 killed: W47 concept-level kill search of CL-W47-04: probe verdict killed. dead at step 0 (no released environment-only traces or M_b texts); its recoverability axis is 2608.16370's pre-registered D/R split with a null on recoverability-prioritized retention; its if_true recipe is the seed's sec. 3.3 sentence and CWL/Contexture/Self-GC's shipped policies; its premise 'no re-derivability axis in the labels…
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W47-04`, version 1)
+- claim record: `data/claims/claims.jsonl` (id `CL-W47-04`, version 2)
 - probe `C-W47-08`: `data/candidates/2026-W47.jsonl`
 - probe `C-W47-09`: `data/candidates/2026-W47.jsonl`

@@ -1,10 +1,10 @@
 # Frontier coding agents can speed up shipped physics engines 10-100x at fixed accuracy by generic optimisation (kernel fusion and the like), because the engines predate agents and are poorly optimised.
 
-`CL-W43-J05` · lane **L5** · status **thought** · rank — · position solo · refreshed 2026-11-22
+`CL-W43-J05` · lane **L5** · status **killed** · rank — · position solo · refreshed 2026-11-22
 
 ## Status
 
-A thought from `/capture`: not yet graded against the gates; its kill search has not run. Failing gate: none recorded. Next action: see First steps.
+Killed — see the kill section. Failing gate: G2B (surprise equals the field's stated knowledge, both halves); G0 premise also fails; G6 occupied for the mechanism. Grade on paper: killed at the concept-level kill search. Next action: see First steps.
 
 ## The claim
 
@@ -43,7 +43,18 @@ A thought from `/capture`: not yet graded against the gates; its kill search has
 
 ## Kill search
 
-Not run yet. Kill searches run automatically on the top probes, claim by claim (config/generation.yaml); `/kill <probe>` runs one by hand.
+### Concept level (CL-W43-J05) — killed (2026-11-22)
+Both halves are in print: AIOA 2611.13143 made six ASE kernels 22-24x faster at a 1e-10 match under unalterable gates and calls the gain 'the room left in ASE's Python code'; FermiLink 2611.10378 gives 19-22% on LAMMPS and 1-2 orders on a serial code; GPUPhysBench caps GPU-native at 1.13x; Newton's own agent-generated PRs land 1.04-1.14x per step. The premise 'engines predate agents' is false (134 Newton PRs name Claude Code).
+Full record: [`data/reports/2026-W47-kill-CL-W43-J05.md`](../../../data/reports/2026-W47-kill-CL-W43-J05.md).
+**Occupied by:** 2611.13143 (mechanism, oracle and headline for CPU-era scientific code) with 2611.10378 (concurrent twin, the claim's own gradient in one paper); GPU-native clause by 2609.35639 and Newton PRs #5516, #4957 (bitwise-matched agent-generated candidates, 1.04-1.14x per step); port clause by 2609.34069, 2610.12662, 2608.13122, 2610.41313
+**Why not done before:** It has been done on the codes where the premise holds (AIOA, FermiLink, Geant4, Kessler, CReSS, NICAM — six papers since 2026-09-23) and is done weekly as pull requests by the engine owners where the premise fails (Newton #4957 2026-10-28, #5516 2026-11-21; mujoco_warp CLAUDE.md 2026-06-29). Enabling pieces: Karpathy's autoresearch loop (March 2026), agents passing all 50 GPUPhysBench tasks (2026-09-28), FermiLink's worker-controller split (2026-11-07), AIOA's unalterable gates with an executing reviewer (2026-11-09). No arXiv paper runs the loop on a robotics engine because the owners publish it as PRs and the hot paths are GPU-native, so the paper would report 1.1x.
+Closest neighbors (one-sentence trick; one-line difference):
+- `2611.13143` Autonomous Optimization of Numerical Algorithms by an AI Agent: Application to Atomistic… — Run a coding agent in a keep-or-discard loop over ASE's kernels with a 1e-10 absolute / 1e-9 relative match to stock output, the module's unit tests and an executing adversarial reviewer as gates; six kernels 22-24x in Python, 62x with C. *Difference:* none — occupied for the generic clause: generic optimisation at fixed accuracy under verifiers the agent cannot alter, on shipped CPU-era scientific code, with the claim's own caveat stated ('the room left in ASE's Python code'). Not a robotics engine; one co…
+- `2611.10378` Can AI Agents Reliably Optimize Computational Chemistry Codes? (FermiLink) — A worker agent proposes changes on training cases and a separate controller agent accepts on held-out cases by speed and accuracy; applied to LAMMPS, PySCF and a serial MD code. *Difference:* Concurrent twin two days before AIOA; carries the claim's gradient in one paper: 19-22% on LAMMPS with identical trajectories, 1-2 orders on a serial code. Chemistry; controller is a model, not a physics oracle.
+- `2609.35639` GPUPhysBench — 50 GPU physics tasks graded against expert CUDA references by relative l2 error or solver residual, timed on hidden inputs under a 30-60 min budget. *Difference:* The GPU-native half measured: no submission more than 5% faster at default budget, 1.07-1.13x at 1.5x budget, 'the reference already runs close to peak memory bandwidth'. From a specification, not a shipped engine; FP32; mixed reference-match and residual ora…
+- `github:newton-physics/newton#5516,#4957,#5532` Newton engine PRs: agent-generated candidates on VBD cloth, XPBD tetrahedra, ADMM setup — The engine team lands agent-generated kernel candidates with a bitwise match to stock and ABBA step timings. *Difference:* The shipped artifact: 1.058-1.137x and 1.04-1.09x per step at exact match; 100x on a Python-loop setup path, not the step. Occupies the GPU-native clause with the if_false number and shows the owners run the stack.
+- `2609.34069` Towards Certificate-Driven Software Porting (CDES, Geant4) — Evolutionary LLM search for CPU-to-GPU translation of two Geant4 functions with certificates of failed candidates and a harness of formal, numerical, physics and GPU-safety checks. *Difference:* The port clause under a physics oracle: 13.78x and 23.54x function-level, one function 14.9% above an expert GPU implementation. Particle transport, function level.
+*Search degraded:* ['s2', 'Q10 defective (generic migration phrases: 233 hits, 5 on target in 100)', 'GitHub repository endpoints 403 (PR bodies read through search/issues); Genesis-Embodied-AI/Genesis not searchable (422)', 'conference exports not built']
 
 ## Red team
 
@@ -51,9 +62,7 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 ## First steps if pursued
 
-1. Wait for the automatic kill search on **P-W43-J05-a** (Sunday run), or run `/kill P-W43-J05-a` in a session.
-2. If it survives: `/redteam P-W43-J05-a`, then the probe as pre-registered — Pre-registered: the '10-100x on modern engines' clause is dead if the GPU-native target gains under 2x at matched accuracy; the port clause is dead as a contribution if the ported CPU code, however much faster than itself, is slower than Genesis/Newton on the same scene. Expected (judgment): GPU-native 1.0-1.5x (p = 0.7); CPU-to-GPU port 10-50x over itself but below Genesis/Newton (p = 0.6). Cost…
-3. Write results into the records and this Log; status moves only on evidence.
+1. Read the kill section; the claim is closed unless a new probe or a new enabling piece re-opens it (write that in your section).
 
 ## Decisions for Jacob
 
@@ -70,8 +79,9 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 ## Log
 
 - 2026-10-25 — claim thought: captured from the collaborators' proposal; current belief assembled from GPUPhysBench, KernelBench-Verified, Sakana and WorldSolver fetched 2026-10-25
+- 2026-11-22 — claim killed: concept-level kill search (data/reports/2026-W47-kill-CL-W43-J05.md): killed — gate G2B (surprise equals the field's stated knowledge, both halves); G0 premise also fails; G6 occupied for the mechanism; Both halves are in print: AIOA 2611.13143 made six ASE kernels 22-24x faster at a 1e-10 match under unalterable gates and calls the gain 'the room left in ASE's Python code'; FermiLink 2611.10378…
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W43-J05`, version 1)
+- claim record: `data/claims/claims.jsonl` (id `CL-W43-J05`, version 2)
 - `P-W43-J05-a`: seed or import record (no candidate yet)

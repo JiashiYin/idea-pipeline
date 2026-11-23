@@ -1,10 +1,10 @@
 # In orchestrator-worker document review, planted conflicts vanish at the lead's partition, not in the workers' return summaries: a random split of the same documents among the same workers co-locates a planted conflict within 10 points of the observed rate, and on contexts that hold both numbers a report written through a return-style summary flags the conflict at least 15 points more often per surviving pair than one written from the raw context.
 
-`CL-W47-05` · lane **L4** · status **open** · rank — · position solo · refreshed 2026-11-22
+`CL-W47-05` · lane **L4** · status **killed** · rank — · position solo · refreshed 2026-11-22
 
 ## Status
 
-Open claim. Nothing under it has survived a kill search yet. Failing gate: none at concept level; Gate 6 open until the kill search (dense lane). Next action: see First steps.
+Killed — see the kill section. Failing gate: G2B (first clause's surprise is 2605.26174's pre-registered thesis and the seed's own sec. 5 reading); G4 (if_true equals the seed's recommended fix: overlapping assignment); G1 for the $0 arms (seed released no traces, profiler or planted edits). Grade on paper: killed at the concept-level kill search. Next action: see First steps.
 
 ## The claim
 
@@ -39,12 +39,23 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: none 
 
 | Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |
 | --- | --- | --- | --- | --- |
-| C-W47-10 | Split by lot: whether a lead's document partition co-locates a planted conflict any better than a random split of the s… | Steps 0-2: $0, 0 GPU-hours, 4 days on the traces; 40 GPU-hours and 5 days on the fallback; dead if $|PC_{\mathrm{obs}} - \mathbb{E}_{\pi'}[PC]| > 0.10$ with the interval excluding zero for two of three models. | proposed | — |
-| C-W47-11 | Louder after the summary: whether routing an agent's own reads through a return-style summary raises the conflict flag… | Steps 0-2: at most $150 or 50 GPU-hours, 5 days; dead if $s_S - s_R < 0.05$ with the interval covering zero; uninformative if $\kappa_S < 0.3$. | proposed | — |
+| C-W47-10 | Split by lot: whether a lead's document partition co-locates a planted conflict any better than a random split of the s… | Steps 0-2: $0, 0 GPU-hours, 4 days on the traces; 40 GPU-hours and 5 days on the fallback; dead if $|PC_{\mathrm{obs}} - \mathbb{E}_{\pi'}[PC]| > 0.10$ with the interval excluding zero for two of three models. | killed | — |
+| C-W47-11 | Louder after the summary: whether routing an agent's own reads through a return-style summary raises the conflict flag… | Steps 0-2: at most $150 or 50 GPU-hours, 5 days; dead if $s_S - s_R < 0.05$ with the interval covering zero; uninformative if $\kappa_S < 0.3$. | parked | — |
 
 ## Kill search
 
-Not run yet. Kill searches run automatically on the top probes, claim by claim (config/generation.yaml); `/kill <probe>` runs one by hand.
+### Concept level (CL-W47-05) — killed (2026-11-22)
+The partition-not-summary clause is 2605.26174's mechanism ('the cliff is a property of partitioning structure'), confirmed by a pre-registered re-run and released; the seed itself blames 'isolated partitions' and recommends overlapping assignment. The null needs a worker count the paper omits (implied 2.4-3.8 vs 'up to ten'). Residue: a probe on summary salience, redesign-owed.
+Full record: [`/home/claude/idea-pipeline/data/reports/2026-W47-kill-CL-W47-05.md`](../../..//home/claude/idea-pipeline/data/reports/2026-W47-kill-CL-W47-05.md).
+**Occupied by:** 2605.26174 (first clause: mechanism, consequence, trace-does-not-repair; fixed partition, no lead choice, no null); 2611.22245 sec. 5 (Gate 2B and Gate 4 occupant for the first clause); second clause unoccupied as a measurement, with 2610.37624 (B3 summary at or below all-facts) and 2505.11556 (passive summarisation 0.241/0.713) as data against it
+**Why not done before:** The partition mechanism was done, pre-registered and released (2605.26174, 2026-05-25); distribution-vs-content separation exists as a benchmark (CrossProfile 2610.37624, 2026-10-27) and a paradigm (HiddenBench 2505.11556). A permutation null on a lead's realised assignment is uncomputed because the only paper with a lead that chooses the assignment (2611.22245) printed neither worker counts nor assignments and released no traces, and the only released assignment schemes (2605.26174) fix the partition by hand so the null is degenerate. Enabling piece for the residue: Harvey LAB public (MIT, 2026-05-06).
+Closest neighbors (one-sentence trick; one-line difference):
+- `2605.26174` A Universal Cliff and a Design Fingerprint: Cross-Section Defect Detection Under LLM Orch… — Plant four contradictions between distant sections in each of four long documents, review under one agent and under five workers with fixed non-overlapping slices across ten models, and show every model that finds the defects alone loses two-thirds or more un… *Difference:* none for the first clause's mechanism and consequence ('the cliff is a property of partitioning structure'; the full trace 'does not repair this'); object differs: partition fixed by the harness, no lead choice, PC = 0 by design, no return-summary stage; ever…
+- `2611.22245` Multi-Agent Memory Inconsistency: Where Factual Conflicts Disappear in LLM Agents — Plant 73 numerical conflicts in 11 Harvey LAB tasks and trace both values through source reads, worker reports, lead evidence and the report under None, Optional and Required. *Difference:* the seed: splits the loss by Same/Split itself, blames 'isolated partitions', recommends overlapping assignment (Gate 2B and Gate 4 occupant); releases no traces, profiler or edits
+- `2610.37624` Rare, Relevant, and Still Wrong: How Memory Fails LLM Group Decisions (CrossProfile) — Cross who holds supporting, decoy and irrelevant facts while holding their text fixed, compress the discussion into a budgeted memory by five policies, and read a separate decision from the memory alone. *Difference:* owns the 'vary who holds which evidence' design the seed's Limitations ask for; written evidence summary B3 at or below all-facts (72.0 vs 73.1; 58.7 vs 72.6) is a datum against the second clause; short contexts, decisions not flags, no lead partition
+- `2505.11556` Systematic Failures in Collective Reasoning under Distributed Information in Multi-Agent… — 65 hidden-profile tasks; groups reach 30.1% under distributed facts against 80.7% for one agent with everything; forced disclosure lifts to 92.6-98.2%. *Difference:* facts distributed by design, no lead and no null; 'the failure lies in surfacing information, not reasoning over it'; 'Passive summarization yields more limited and model-dependent gains' (0.241/0.713) is a second datum against the second clause
+- `2609.33485` DISCO: Distributed Long Context Scaling with Grounding-Reasoning Disaggregation — Partition a long context across worker LLMs that ground locally while an RL-trained driver reasons over their returns. *Difference:* a method built on the partition as the lever; no null, no conflict cargo
+*Search degraded:* ['s2', 'Q8 own-words query returned 1 (API phrase handling; no budget to re-run loose)', 'Q9 summarise-then-answer query returned 2 (too tight; community unsearched at density level)', 'arXiv HTML search has no phrase matching (two own-words searches defective)', 'complaint stream not searched (no…
 
 ## Red team
 
@@ -52,13 +63,11 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 ## First steps if pursued
 
-1. Wait for the automatic kill search on **C-W47-10** (Sunday run), or run `/kill C-W47-10` in a session.
-2. If it survives: `/redteam C-W47-10`, then the probe as pre-registered — Steps 0-2: $0, 0 GPU-hours, 4 days on the traces; 40 GPU-hours and 5 days on the fallback; dead if $|PC_{\mathrm{obs}} - \mathbb{E}_{\pi'}[PC]| > 0.10$ with the interval excluding zero for two of three models.
-3. Write results into the records and this Log; status moves only on evidence.
+1. Read the kill section; the claim is closed unless a new probe or a new enabling piece re-opens it (write that in your section).
 
 ## Decisions for Jacob
 
-- None pending; the machine runs the next kill search on its own. Mark `jacob-dropped` here if the headline is not worth a week of yours.
+- C-W47-11 is parked — Steps 0-2: at most $150 or 50 GPU-hours, 5 days; dead if $s_S - s_R < 0.05$ with the interval covering zero; uninformative if $\kappa_S < 0.3$.: fund it, or leave it parked?
 
 ## Jacob
 
@@ -68,13 +77,15 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - status mark: (none)
 - notes:
 
-
 ## Log
 
 - 2026-11-22 — claim open: born W47 claims stage (bottom-up): two probes on the lead's partition and the summary's salience; concept-level kill search scheduled this run
+- 2026-11-22 — claim killed: concept-level kill search (/home/claude/idea-pipeline/data/reports/2026-W47-kill-CL-W47-05.md): killed — gate G2B (first clause's surprise is 2605.26174's pre-registered thesis and the seed's own sec. 5 reading); G4 (if_true equals the seed's recommended fix: overlapping assignment); G1 for the $0 arms (seed released no traces, profiler or planted edits); The partition-not-summary clause is 2605.…
+- 2026-11-22 — C-W47-10 killed: W47 concept-level kill search of CL-W47-05: probe verdict killed. step 0 dead (no traces); the null's value needs the realised worker count, absent from the paper; its headline is 2605.26174's pre-registered conclusion and the seed's own sec. 5 reading; the $0 arithmetic (w_eff 2.4-3.8) is the one-sentence footnote
+- 2026-11-22 — C-W47-11 parked: W47 concept-level kill search of CL-W47-05: probe verdict redesign-owed. step 0 dead (None captures unreleased); survives as a probe-sized residue on public Harvey LAB tasks (~$150, 5 days) with five design requirements: distance-band pre-registration against CrossProfile B3 and HiddenBench, net rate kappa_S s_S beside the conditional, salience separated from provenance, compaction state named, w…
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W47-05`, version 1)
+- claim record: `data/claims/claims.jsonl` (id `CL-W47-05`, version 2)
 - probe `C-W47-10`: `data/candidates/2026-W47.jsonl`
 - probe `C-W47-11`: `data/candidates/2026-W47.jsonl`

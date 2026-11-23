@@ -1,10 +1,10 @@
 # At a matched sample count and the same teachers, SFT on 2611.01927's depth-synthesized terminal tasks ($D \geq 10$) gives Qwen3-8B no more than SFT on the shallow tasks it audited ($D \leq 3$) on Terminal-Bench 2.1 and TBLite — within two points of pass@1, inside the five-run spread — so the reported training gain is a sample-count effect and depth is not a training-data property at this scale.
 
-`CL-W47-09` · lane **L2** · status **open** · rank — · position both · refreshed 2026-11-22
+`CL-W47-09` · lane **L2** · status **killed** · rank — · position both · refreshed 2026-11-22
 
 ## Status
 
-Open claim. Nothing under it has survived a kill search yet. Failing gate: none at concept level; Gate 5 flagged (one scale); Gate 6 open until the kill search. Next action: see First steps.
+Killed — see the kill section. Failing gate: G6 (occupant within the window with the result on the other side of the expected cell); G2 fails as a consequence (the 'control nobody ran' pressure point is false); G0 and G1 defects (unreleased data, count is not supervision, 8B noise floor). Grade on paper: killed at the concept-level kill search. Next action: see First steps.
 
 ## The claim
 
@@ -39,11 +39,22 @@ Open claim. Nothing under it has survived a kill search yet. Failing gate: none 
 
 | Probe | What | Kill probe (cost, criterion) | Status | Kill-search verdict |
 | --- | --- | --- | --- | --- |
-| C-W47-07 | Depth or count: SFT on synthesized deep terminal tasks against the same number of samples from the shallow sets it audi… | About 60 GPU-h, $300-600, 10 days; dead if the deep arm wins by three or more on TBLite outside the five-run spread and two or more on Terminal-Bench 2.1. | proposed | — |
+| C-W47-07 | Depth or count: SFT on synthesized deep terminal tasks against the same number of samples from the shallow sets it audi… | About 60 GPU-h, $300-600, 10 days; dead if the deep arm wins by three or more on TBLite outside the five-run spread and two or more on Terminal-Bench 2.1. | killed | — |
 
 ## Kill search
 
-Not run yet. Kill searches run automatically on the top probes, claim by claim (config/generation.yaml); `/kill <probe>` runs one by hand.
+### Concept level (CL-W47-09) — killed (2026-11-22)
+The matched-budget deep/long-vs-shallow/short SFT control is in print four times in the window: RES 2610.16397 (equal count, 4B-35B Base, TB2.1 +10.86, deep wins all nine cells), OT-Agent 2606.24855 (token-matched, Qwen3-8B, TB2 +3.8, TBLite within noise), WorkBorne 2610.14915 (+3.4 TB2.1), RST 2608.05466 Table 5; only Terminal-Lego 2606.03461 (within-task length, 8B, -0.8) sits on the claim's side. Deep arm unreleased (HF 401); two-point line inside TMax's measured 8B per-run SD (1.6-5.7).
+Full record: [`/home/claude/idea-pipeline/data/reports/2026-W47-kill-CL-W47-09.md`](../../..//home/claude/idea-pipeline/data/reports/2026-W47-kill-CL-W47-09.md).
+**Occupied by:** 2610.16397 (closest: equal-count deep-vs-original SFT across three bases incl. Terminal-Bench 2.1); 2606.24855 (token-matched long-vs-random on Qwen3-8B, TB2 and TBLite); 2610.14915; 2608.05466 Table 5
+**Why not done before:** It has been done four times under four definitions of depth or length (composed dependencies, >=5-turn filter, execution turns, solution lines) because the synthesis community's standard ablation since RST (2026-08) is 'our pool against the public pools at matched supervision'. Nobody has split arms by the D label because it is three weeks old and its deep tasks are private (HF dataset 401; README defers fine-tuning to the paper). Enabling pieces: 2608.05466 (2026-08-05) and 2610.02710 (2026-10-02) matched-token controls; 2606.24855 (2026-06-23) compute-controlled long-episode ablation on Qwen3-8B; 2610.16397 (2026-10-12) equal-count deep-vs-original SFT; 2611.01927 (2026-11-01) the D label.
+Closest neighbors (one-sentence trick; one-line difference):
+- `2610.16397` Recursive Environment Scaling for General Long-Horizon Agents — Rewrite a benchmark's environments so later steps depend on earlier ones, inherit the changes over rounds, then fine-tune on the same number of trajectories from the scaled and the original environments. *Difference:* The claim's design at equal count (8,428), same teacher, Qwen3.5-4B/9B/35B-A3B Base, Terminal-Bench 2.1 among three benchmarks; deep arm wins all nine cells, +10.86 on TB2.1 averaged. Depth is composed dependencies, not the D label; Base not Instruct; scaled…
+- `2606.24855` OpenThoughts-Agent: Data Recipes for Agentic Models — Run over a hundred controlled SFT-pipeline ablations on Qwen3-8B and check the keep->=5-turn filter at the same 145M tokens against a random subsample. *Difference:* Token-matched on Qwen3-8B, the claim's benchmarks: '+3.8 pp on Terminal-Bench 2.0 while OT-TBLite moves within the per-benchmark noise' — the kill line met on TB2, the expected cell met on TBLite, in one experiment; also a difficulty filter worth ~3 pp. Lengt…
+- `2610.14915` WorkBorne: Discovering Agentic Tasks from Real-World Artifact Transitions — Compare three terminal-task construction pipelines at 1,000 trajectories each on Qwen3.5-27B. *Difference:* Matched count; deeper execution (44.5 mean turns vs 26-28) gives +3.4 TB2.1 and +2.1 TB Lite, three runs. Depth is uncapped turn count; 27B.
+- `2608.05466` Recursive Synthesis for Long-Horizon Terminal Tasks — Grow verified terminal tasks over fifteen rounds and compare six public SFT pools at the same 36.4M assistant-loss tokens on Qwen3.5-27B Base. *Difference:* States why count-matching is the wrong control and runs the matched-token comparison against TMax-SFT and SETA-SFT (the seed's shallow sets): RST +5.62 TB2, shallow pools at most +1.5. By the seed's audit RST is work (79% D<=3), so this is work-at-matched-tok…
+- `2606.03461` What Makes Interaction Trajectories Effective for Training Terminal Agents? — Hold the task set fixed and vary teacher, trajectory length and observation share; Qwen3-8B and 32B students. *Difference:* The one published point on the claim's side: longest vs shortest successful trajectories on the same 1.1k hard tasks, Qwen3-8B 5.2% vs 6.0%, 32B 12.7% vs 13.9% (Table 2). Within-task length, not between-task depth.
+*Search degraded:* ['s2', 'conference exports not built', "arXiv HTML search returned 0 on target for three word sets (recorded as the degraded path's datum, not a defect)"]
 
 ## Red team
 
@@ -51,13 +62,11 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 
 ## First steps if pursued
 
-1. Wait for the automatic kill search on **C-W47-07** (Sunday run), or run `/kill C-W47-07` in a session.
-2. If it survives: `/redteam C-W47-07`, then the probe as pre-registered — About 60 GPU-h, $300-600, 10 days; dead if the deep arm wins by three or more on TBLite outside the five-run spread and two or more on Terminal-Bench 2.1.
-3. Write results into the records and this Log; status moves only on evidence.
+1. Read the kill section; the claim is closed unless a new probe or a new enabling piece re-opens it (write that in your section).
 
 ## Decisions for Jacob
 
-- None pending; the machine runs the next kill search on its own. Mark `jacob-dropped` here if the headline is not worth a week of yours.
+- (none pending)
 
 ## Jacob
 
@@ -67,12 +76,13 @@ Not run. A red team (three personas, fetched evidence; `/redteam <probe>`) runs 
 - status mark: (none)
 - notes:
 
-
 ## Log
 
 - 2026-11-22 — claim open: born W47 claims stage (bottom-up): the matched-count control the card paper did not run; concept-level kill search scheduled this run
+- 2026-11-22 — claim killed: concept-level kill search (/home/claude/idea-pipeline/data/reports/2026-W47-kill-CL-W47-09.md): killed — gate G6 (occupant within the window with the result on the other side of the expected cell); G2 fails as a consequence (the 'control nobody ran' pressure point is false); G0 and G1 defects (unreleased data, count is not supervision, 8B noise floor); The matched-budget deep/long-vs-shallow/shor…
+- 2026-11-22 — C-W47-07 killed: W47 concept-level kill search of CL-W47-09: probe verdict killed. Design occupied at equal count by RES (deep wins +10.86 TB2.1 across three bases) and at matched tokens on Qwen3-8B by OT-Agent (TB2 +3.8, TBLite within noise); step 0 fails (dataset 401, no samples/hyperparameters released); two-point kill line sits inside the 8B per-run SD TMax measured (1.6-5.7); count is not supervision (RST's…
 
 ## Records
 
-- claim record: `data/claims/claims.jsonl` (id `CL-W47-09`, version 1)
+- claim record: `data/claims/claims.jsonl` (id `CL-W47-09`, version 2)
 - probe `C-W47-07`: `data/candidates/2026-W47.jsonl`
