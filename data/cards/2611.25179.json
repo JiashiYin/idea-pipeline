@@ -62,12 +62,17 @@
   "The audit tells me the 61 defects it found are real, but not how many it missed: four hypotheses per task, two thirds of confirmed candidates thrown out by a VLM reviewer, and the recall check is a sample of fifty, with a human reading of the instruction as the only ground truth: 'Of the 183 candidates for which the checker returned the predicted verdict, approximately two-thirds were rejected during visual review.' and 'The annotators then examined a random sample of 50 rejected candidates and found no valid defects among them.' (sec. 4.3); 'A person who reads the instruction and looks at the scene decides whether it is fulfilled.' (sec. 3.1)."
  ],
  "evidence_level": "full-text",
- "status": "carded",
+ "status": "mutated",
  "history": [
   {
    "date": "2026-11-22",
    "status": "carded",
    "note": "W47 weekly run; evidence_level full-text (arxiv.org/html/2611.25179v1, LaTeXML, sections 1-5 with Tables 1-2 and Figures 1-5 captions, appendices A-E with Tables 3-4; no Limitations section in the text, complaints drawn from sec. 3.1, 4.3, 4.4 and App. C, E); two neighbour abstracts via one export.arxiv.org API id_list call (2609.37771, 2610.41857), the other three neighbours described from this paper's text only; lane context L5 (checkers, like solver settings, as what a policy is rewarded for; per-step audit of visited states) and L1 (benchmark validity); seed triage had L1 2, L5 1"
+  },
+  {
+   "date": "2026-11-22",
+   "status": "mutated",
+   "note": "W47 mutate: candidates in data/candidates/2026-W47.jsonl"
   }
  ]
 }

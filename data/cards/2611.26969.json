@@ -67,12 +67,17 @@
   "My world-model fidelity ruler is a whole-frame PSNR / SSIM that stays high when the one moving object is wrong, so it cannot tell me whether the model predicted the thing the task depends on, which is why fidelity and success disagree across my categories: 'Because these metrics are computed over the full frame, they are dominated by static background pixels, hence can remain high even when a small moving object is mispredicted' (sec. V, R2)."
  ],
  "evidence_level": "full-text",
- "status": "carded",
+ "status": "mutated",
  "history": [
   {
    "date": "2026-11-22",
    "status": "carded",
    "note": "W47 weekly run; evidence_level full-text (arxiv.org/html/2611.26969v1, LaTeXML, sections I-VII with Table I (benchmark comparison), Table II (SR/PS by category x difficulty x protocol with mean inference times), captions of Figs. 1-9, references; no Limitations section or appendix in the text, complaints drawn from scope statements in secs. IV-B, IV-C and V); two neighbour abstracts via one export.arxiv.org API id_list call (2601.22153 DynamicVLA, 2608.14379 Reflex), the other three neighbours have no arXiv id in the text and were not fetched; lane context L0 scout (scout_theme 'eval latency validity'), also scored L5 (simulator validity: the simulator advances while the policy thinks) and L1 (outcome-level flips hidden by averages), L3 at 1; arithmetic marked 'my arithmetic' or 'inference' is the operator's, not the paper's"
+  },
+  {
+   "date": "2026-11-22",
+   "status": "mutated",
+   "note": "W47 mutate: candidates in data/candidates/2026-W47.jsonl"
   }
  ]
 }

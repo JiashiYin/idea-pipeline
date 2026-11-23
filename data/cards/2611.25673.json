@@ -62,12 +62,17 @@
   "I compare compactors at a matched character count but never count what the compaction itself cost: my calibration makes up to thirty model calls per instance with the whole history in each, I charge none of it to the budget, and my ratio is characters of body text, not the executor's tokens or its assembled context, so I cannot state the price of the summary in the currency anyone pays: 'Compaction itself is not subtracted from this executor-action budget' (App. A.4); '$r$ is therefore a text-length constraint, not an exact fraction of an executor’s token window or of the full assembled context' (App. B.1); 'whose retained system prompt is roughly 30k characters: at a $10\\%$ body-retention target, the executor’s assembled context is therefore considerably longer than $M_{b}$ alone' (App. A.2)."
  ],
  "evidence_level": "full-text",
- "status": "carded",
+ "status": "mutated",
  "history": [
   {
    "date": "2026-11-22",
    "status": "carded",
    "note": "W47 weekly run; evidence_level full-text (arxiv.org/html/2611.25673v1, LaTeXML, 5 sections plus appendices A-H with Tables 1-25 and the seven case studies; no Limitations section exists, so the complaints draw on scope statements in sec. 2.2, App. A.2, A.4, B.1, B.6, C.2, C.3); two neighbour abstracts via one export.arxiv.org API id_list call: 2605.08580 (Slipstream), 2608.01326 (Context Compaction Theory); CompactionRL, ACON and the Wang 2026a survey described from this paper's citing text only, abstracts not fetched; lane context L4 (zero open claims this week; positioning 'measurement register only'; CL-W43-05, CL-W44-06, CL-W45-08 killed because the surprise equalled the field's stated knowledge, so information_asymmetry separates what this paper measures at a boundary from what it leaves out, and the one open quantity named is the hindsight sufficiency ruler), secondary L1; the earlier 'Compact-Bench' in the pipeline's kill records is a different artefact from this 'CompAct-Bench'"
+  },
+  {
+   "date": "2026-11-22",
+   "status": "mutated",
+   "note": "W47 mutate: candidates in data/candidates/2026-W47.jsonl"
   }
  ]
 }

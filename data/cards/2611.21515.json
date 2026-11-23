@@ -72,12 +72,17 @@
   "The dollar figures I use to call leaderboard costs wrong by 11.7x are themselves rebuilt from token logs under assumptions I cannot check against an invoice: 'Reconstructed costs rely on standardized pricing, cache-allocation assumptions, and occasional imputation. Incomplete traces and multi-model scaffolds further limit exact attribution.' (sec. VII, Cost validity); 'Our reconstructed costs represent API token spend only; they exclude hosting, external tools, and human-review costs.' (sec. III-B), 'Forty-two extracted runs lack recoverable token records' (sec. V-A), and 'Consequently, reconstructed dollar amounts support comparative analysis rather than exact historical invoices or future deployment quotes.' (sec. VII)."
  ],
  "evidence_level": "full-text",
- "status": "carded",
+ "status": "mutated",
  "history": [
   {
    "date": "2026-11-22",
    "status": "carded",
    "note": "W47 weekly run; evidence_level full-text (arxiv.org/html/2611.21515v1, LaTeXML, sections I-VIII with Tables I-V, Figures 1-2 captions, Data Availability and references; no appendix in the text); two neighbour abstracts via one export.arxiv.org API id_list call (2407.01502, 2510.11977), the other three neighbours (refs [5], [27], [28]) described from this paper's text only, arXiv ids not in text; lane context L1 (zero open claims this week; cost accounting and leaderboard validity, HAL as route), secondary L3; every quotation grep-verified against the text file; limitations drawn from sec. VII (Threats to Validity) and sec. V-A, VIII-C"
+  },
+  {
+   "date": "2026-11-22",
+   "status": "mutated",
+   "note": "W47 mutate: candidates in data/candidates/2026-W47.jsonl"
   }
  ]
 }

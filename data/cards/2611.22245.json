@@ -62,12 +62,17 @@
   "My headline is about 71 versus 58 detections out of 438 observations (16.2% vs 13.2%, Table 1) drawn from 73 conflicts in 11 tasks run twice, with no interval, my judge is checked by hand only far enough to find three false passes, and one cell's budget and checkpoints were set after the fact: 'Our evidence comes from 11 Harvey LAB tasks with planted numerical conflicts and two runs per model. Broader document domains, non-numerical conflicts, and more repetitions would test how widely the observed patterns hold, with uncertainty estimates accounting for shared tasks' (Limitations); 'Manual inspection identified three saved Judge Pass labels that credited neighboring comparisons rather than the planted conflict; broader human review could refine endpoint matching and semantic grading' (Limitations); 'Budgets were calibrated from observed spending, and GPT-5.6 Required checkpoints were selected retrospectively; future evaluations should fix budgets and checkpoint rules in advance' (Limitations)."
  ],
  "evidence_level": "full-text",
- "status": "carded",
+ "status": "mutated",
  "history": [
   {
    "date": "2026-11-22",
    "status": "carded",
    "note": "W47 weekly run; evidence_level full-text (arxiv.org/html/2611.22245v2, LaTeXML, sections 1-5 plus Limitations, Table 1 and the captions of Figures 1-4; the text has no appendix); two neighbour abstracts via one export.arxiv.org API id_list call: 2607.05844 (StateFuse) and 2610.31778 (compaction); He et al. 2026, Li et al. 2026 (HiddenBench), Wang et al. 2026 (Facts Without Rules) and Yan 2025 carry no arXiv id in the text and were not fetched; lane context L4 (zero open claims this week; measurement register) and L1 (attribution of an outcome to worker vs lead vs summary); sibling card 2611.16526 (W46) measures the downward brief where this one measures the upward return; counts derived from Table 1 percentages are labelled inference in the card"
+  },
+  {
+   "date": "2026-11-22",
+   "status": "mutated",
+   "note": "W47 mutate: candidates in data/candidates/2026-W47.jsonl"
   }
  ]
 }

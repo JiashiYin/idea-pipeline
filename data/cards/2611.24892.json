@@ -62,12 +62,17 @@
   "My unperturbed simulator already talks longer than real users, so cutting it off early makes it look more faithful and the fidelity score is a distance from my own control, not a probability that the replay is right: 'Premature stop can improve L2 scores because control replays are longer than real-user sessions: truncation brings their lengths closer to the real-user reference' (App. D.1.2); 'A level score is an evaluation index, not a calibrated probability of fidelity' (sec. 5.4)."
  ],
  "evidence_level": "full-text",
- "status": "carded",
+ "status": "mutated",
  "history": [
   {
    "date": "2026-11-22",
    "status": "carded",
    "note": "W47 weekly run; evidence_level full-text (arxiv.org/html/2611.24892v1, LaTeXML, sections 1-7 with equations 1-14, appendices A-D with Tables 1-16 and the human-study Table 13; no Limitations section exists, complaints drawn from sec. 5.1, 5.4, 6.1.2 and App. D.1.2); two neighbour abstracts via one export.arxiv.org API id_list call (2603.11245, 2606.29957; VISTA, SimulatorArena and Lost in Simulation described from this paper's text only); lane context L1 (zero open claims this week; user-simulator fidelity and attribution of outcome variance to the simulated user; tau-bench family as route), secondary L4 and L5 at 1; the paper's own level labels L1/L2/L3 are written as level 1/2/3 in this card to avoid collision with the repository's lane ids"
+  },
+  {
+   "date": "2026-11-22",
+   "status": "mutated",
+   "note": "W47 mutate: candidates in data/candidates/2026-W47.jsonl"
   }
  ]
 }

@@ -67,12 +67,17 @@
   "My headline that depth predicts difficulty is measured with two runs per cap by a model that fails more on hard tasks, so part of the correlation can be my own estimator's failures, and I chose not to control for it: 'both runs at a sufficient cap can fail and raise $D$ by a cap; such tasks may also be harder for other models, so this error could produce a correlation between $D$ and difficulty that does not come from depth' (App. E.2); 'We do not control for $R$ instead: a deep task has many steps that can each go wrong, so part of the variation in $R$ may come from depth itself' (App. E.2)."
  ],
  "evidence_level": "full-text",
- "status": "carded",
+ "status": "mutated",
  "history": [
   {
    "date": "2026-11-22",
    "status": "carded",
    "note": "W47 weekly run; evidence_level full-text (arxiv.org/html/2611.01927v1, LaTeXML, sections 1-5 plus appendices A-J with Tables 1-10 and Figures 1-14 captions; no Limitations section, complaints drawn from stated caveats in sec. 2, 3.1, 4.1 and App. B, C, E); two neighbour abstracts via one export.arxiv.org API id_list call (2606.23321 TMax, 2608.05466 RST), the other three neighbours described from this paper's text only; lane context L1 (benchmark validity; what 'long-horizon' measures), secondary L2 (training on synthesized long-horizon tasks); source banter (HN / aiweekly sweep)"
+  },
+  {
+   "date": "2026-11-22",
+   "status": "mutated",
+   "note": "W47 mutate: candidates in data/candidates/2026-W47.jsonl"
   }
  ]
 }

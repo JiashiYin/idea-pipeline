@@ -67,12 +67,17 @@
   "My break-even rule decides with the remaining requests guessed from a pilot and the agent's reaction assumed away, so it masks observations the agent then re-fetches and runs grow from 92 to 116 steps, 'a cost that the rule, which counts only the tokens it removes, does not see' (sec. 5); 'Break-even masking estimates remaining requests and holds behavior fixed in its calculation; it missed its cost non-inferiority margin for the Qwen models, although it passed for GLM' (Limitations)."
  ],
  "evidence_level": "full-text",
- "status": "carded",
+ "status": "mutated",
  "history": [
   {
    "date": "2026-11-22",
    "status": "carded",
    "note": "W47 weekly run; evidence_level full-text (arxiv.org/html/2611.22238v1, LaTeXML, sections 1-8 with Limitations, Tables 1-7 and Appendices A-R including the preregistration table, cost accounting K, decomposition J, price maps P and the coverage appendix R; abstract and metadata from the seed record); two neighbour abstracts via one export.arxiv.org API id_list call (2508.21433, 2607.12161; HTTP 200), TokenPilot, TraceLab and AgentDiet described from this paper's text only; lane context L3 (compaction as a serving and cost lever, prefix caching, true cost structure) and L4 (context management measured for cost); checklist lesson 2026-10-25 applied: Equation 2 prices the recomputed suffix S, not the removed tokens or the whole prompt, and the paper's own first analysis made that error (App. A, 18.6K vs 4.5K); every quotation grep-verified against the text file"
+  },
+  {
+   "date": "2026-11-22",
+   "status": "mutated",
+   "note": "W47 mutate: candidates in data/candidates/2026-W47.jsonl"
   }
  ]
 }
